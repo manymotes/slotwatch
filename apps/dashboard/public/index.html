@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SlotWatch</title>
+<style>
+/* ── Reset & base ──────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:        #080808;
+  --surface:   #0e0e0e;
+  --elevated:  #161616;
+  --border:    #1f1f1f;
+  --border-hi: #2c2c2c;
+  --red:       #e31937;
+  --red-dark:  #c41530;
+  --green:     #3a8c5c;
+  --green-bg:  rgba(58, 140, 92, 0.08);
+  --green-border: rgba(58, 140, 92, 0.25);
+  --green-text: #4ade80;
+  --text:      #f0f0f0;
+  --text-2:    #888;
+  --text-3:    #444;
+  --text-4:    #2a2a2a;
+  --red-bg:    rgba(227, 25, 55, 0.06);
+  --red-border: rgba(227, 25, 55, 0.2);
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  min-height: 100dvh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Layout ────────────────────────────────────────────────────────────── */
+#app {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 0 20px 80px;
+}
+
+/* ── Animation ─────────────────────────────────────────────────────────── */
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: none; }
+}
+.fade-in {
+  animation: fadeSlide 0.2s ease forwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .fade-in { animation: none; }
+}
+
+/* ── Spinner ───────────────────────────────────────────────────────────── */
+@keyframes spin { to { transform: rotate(360deg); } }
+.spinner {
+  display: inline-block;
+  width: 16px; height: 16px;
+  border: 2px solid var(--border-hi);
+  border-top-color: var(--red);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+.spinner-sm {
+  width: 13px; height: 13px;
+  border-width: 1.5px;
+}
+
+/* ── Step bar ──────────────────────────────────────────────────────────── */
+.step-bar {
+  display: flex;
+  align-items: center;
+  padding: 28px 0 4px;
+  gap: 0;
+}
+.step-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+}
+.step-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  transition: background 0.25s, transform 0.25s;
+}
+.step-dot.active  { background: var(--red); transform: scale(1.2); }
+.step-dot.done    { background: var(--border-hi); }
+.step-dot.pending { background: var(--border); }
+.step-label {
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.step-label.active  { color: var(--text); }
+.step-label.done    { color: var(--text-3); }
+.step-label.pending { color: var(--text-4); }
+.step-connector {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  margin-bottom: 15px;
+  min-width: 8px;
+}
+
+/* ── Wordmark ──────────────────────────────────────────────────────────── */
+.wordmark {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 2px;
+}
+.wordmark-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--red);
+}
+.wordmark-text {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+/* ── Typography ────────────────────────────────────────────────────────── */
+.screen-title {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  margin-bottom: 4px;
+  text-wrap: balance;
+}
+.screen-subtitle {
+  font-size: 13px;
+  color: var(--text-2);
+  margin-bottom: 28px;
+  line-height: 1.55;
+}
+.label-caps {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+/* ── Cards ─────────────────────────────────────────────────────────────── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px 20px;
+}
+.card + .card { margin-top: 8px; }
+.card-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 14px 0;
+}
+
+/* ── Inputs ─────────────────────────────────────────────────────────────── */
+input[type="text"],
+input[type="date"],
+input[type="url"],
+textarea {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  outline: none;
+  padding: 10px 13px;
+  border-radius: 9px;
+  font-size: 14px;
+  font-family: inherit;
+  width: 100%;
+  transition: border-color 0.15s;
+  -webkit-appearance: none;
+}
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="url"]:focus,
+textarea:focus { border-color: var(--red); }
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1) opacity(0.35);
+  cursor: pointer;
+}
+textarea { resize: vertical; min-height: 80px; line-height: 1.5; }
+
+/* ── Buttons ────────────────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  border-radius: 9px;
+  padding: 10px 22px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, opacity 0.15s;
+  white-space: nowrap;
+}
+.btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.btn-primary {
+  background: var(--red);
+  color: #fff;
+}
+.btn-primary:not(:disabled):hover { background: var(--red-dark); }
+.btn-ghost {
+  background: transparent;
+  color: var(--text-3);
+  padding-left: 0;
+  padding-right: 0;
+}
+.btn-ghost:hover { color: var(--text-2); }
+.btn-outline {
+  background: transparent;
+  color: var(--text-2);
+  border: 1px solid var(--border-hi);
+}
+.btn-outline:hover { border-color: var(--border-hi); color: var(--text); }
+
+/* ── Location cards ─────────────────────────────────────────────────────── */
+.loc-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+.loc-card:hover { border-color: var(--border-hi); }
+.loc-card.selected { border-color: var(--red) !important; }
+.loc-cards { display: flex; flex-direction: column; gap: 7px; margin-bottom: 28px; }
+
+.checkbox {
+  width: 18px; height: 18px;
+  border: 1.5px solid var(--border-hi);
+  border-radius: 5px;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.12s, border-color 0.12s;
+  margin-top: 1px;
+}
+.checkbox.checked {
+  background: var(--red);
+  border-color: var(--red);
+}
+
+/* ── Status pill ────────────────────────────────────────────────────────── */
+.status-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 16px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  font-size: 13px;
+  color: var(--text-2);
+}
+.status-pill.active {
+  border-color: var(--green-border);
+  background: var(--green-bg);
+  color: var(--text);
+}
+.pulse-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--text-3);
+  flex-shrink: 0;
+}
+.pulse-dot.active {
+  background: var(--green-text);
+  box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.4);
+  animation: pulse 2.4s infinite;
+}
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.4); }
+  60%  { box-shadow: 0 0 0 5px rgba(74, 222, 128, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pulse-dot.active { animation: none; }
+}
+
+/* ── Tag chips ──────────────────────────────────────────────────────────── */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  font-size: 11px;
+  padding: 2px 9px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  color: var(--text-3);
+  background: var(--elevated);
+  white-space: nowrap;
+}
+.chip.early {
+  background: rgba(58,140,92,0.1);
+  border-color: rgba(58,140,92,0.3);
+  color: var(--green-text);
+}
+
+/* ── Date preset buttons ────────────────────────────────────────────────── */
+.preset-btn {
+  font-size: 12px;
+  padding: 5px 13px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-3);
+  cursor: pointer;
+  font-family: inherit;
+  transition: border-color 0.15s, color 0.15s;
+}
+.preset-btn:hover { border-color: var(--border-hi); color: var(--text-2); }
+
+/* ── Action row ─────────────────────────────────────────────────────────── */
+.action-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+/* ── Error / notice boxes ───────────────────────────────────────────────── */
+.notice {
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.55;
+}
+.notice.error {
+  background: rgba(227,25,55,0.07);
+  border: 1px solid rgba(227,25,55,0.2);
+  color: #f87171;
+}
+.notice.info {
+  background: var(--elevated);
+  border: 1px solid var(--border);
+  color: var(--text-2);
+}
+
+/* ── Code block ─────────────────────────────────────────────────────────── */
+.code-block {
+  background: var(--elevated);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
+  font-size: 12px;
+  color: #4ade80;
+  overflow-x: auto;
+}
+
+/* ── Scrollbar ──────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border-hi); border-radius: 3px; }
+
+/* ── Focus visible ──────────────────────────────────────────────────────── */
+:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+
+/* ── Auth connect screen ────────────────────────────────────────────────── */
+.auth-step {
+  display: flex;
+  gap: 14px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+.auth-step:last-child { border-bottom: none; }
+.auth-num {
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: var(--elevated);
+  border: 1px solid var(--border);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-3);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ── Appointment badge ──────────────────────────────────────────────────── */
+.visit-badge {
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  color: var(--text-3);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Numeric tabular ────────────────────────────────────────────────────── */
+.tabnum { font-variant-numeric: tabular-nums; }
+</style>
+</head>
+<body>
+
+<div id="app"></div>
+
+<script>
+// ── State ──────────────────────────────────────────────────────────────────────
+const S = {
+  screen: 'loading',   // loading | appointment | search | dates | watch | connect
+  appointment: null,   // first upcoming appointment object
+  config: null,        // { watch, tesla, connected }
+  status: null,        // watcher status
+  emailTo: '',
+  locations: [],
+  selectedTrtIds: new Set(),
+  dateFrom: '',
+  dateTo: '',
+  searchAddress: '',
+  isSearching: false,
+  searchError: null,
+  isSaving: false,
+  saveError: null,
+  connectError: null,
+  isConnecting: false,
+};
+
+// ── Utils ──────────────────────────────────────────────────────────────────────
+function today() { return new Date().toISOString().slice(0, 10); }
+function daysFromToday(n) {
+  const d = new Date(); d.setDate(d.getDate() + n);
+  return d.toISOString().slice(0, 10);
+}
+function fmtDate(iso) {
+  if (!iso) return '—';
+  const s = iso.includes('T') ? iso.replace('Z', '').slice(0, 10) : iso;
+  return new Date(s + 'T12:00:00').toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+}
+function fmtDateLong(iso) {
+  if (!iso) return '—';
+  const s = iso.includes('T') ? iso.replace('Z', '') : iso;
+  const d = new Date(s);
+  return d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' }) +
+    ' at ' + d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+}
+function fmtRelative(isoStr) {
+  if (!isoStr) return null;
+  const ms = Date.now() - new Date(isoStr).getTime();
+  const m = Math.round(Math.abs(ms) / 60000);
+  if (m < 1) return 'just now';
+  if (m === 1) return '1m ago';
+  return `${m}m ago`;
+}
+function fmtUntil(isoStr) {
+  if (!isoStr) return null;
+  const m = Math.max(0, Math.round((new Date(isoStr).getTime() - Date.now()) / 60000));
+  return m === 0 ? 'now' : `${m}m`;
+}
+function daySpan(from, to) {
+  if (!from || !to) return 0;
+  return Math.round((new Date(to) - new Date(from)) / 86400000) + 1;
+}
+function countSlots(loc) {
+  return Object.values(loc.slots).reduce((n, a) => n + a.length, 0);
+}
+function earliestSlot(loc) {
+  const dates = Object.keys(loc.slots).sort();
+  return dates.length ? fmtDate(dates[0]) : null;
+}
+function hasEarlySlot(loc) {
+  // slots earlier than current appointment
+  if (!S.appointment?.startDateTime) return false;
+  const booking = new Date(S.appointment.startDateTime.replace('Z',''));
+  return Object.values(loc.slots).some(arr =>
+    arr.some(s => s.appointmentDateTime && new Date(s.appointmentDateTime) < booking)
+  );
+}
+function esc(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+// ── API ────────────────────────────────────────────────────────────────────────
+async function api(path, opts = {}) {
+  const res = await fetch(path, {
+    headers: { 'Content-Type': 'application/json' },
+    ...opts,
+  });
+  const data = await res.json();
+  if (!res.ok || data.ok === false) throw new Error(data.error || `HTTP ${res.status}`);
+  return data;
+}
+
+// ── Render engine ──────────────────────────────────────────────────────────────
+const root = document.getElementById('app');
+function render(html) { root.innerHTML = html; }
+
+// ── Step bar ───────────────────────────────────────────────────────────────────
+const STEPS = ['Appointment', 'Locations', 'Dates', 'Watch'];
+const SCREEN_STEP = { appointment: 0, search: 1, dates: 2, watch: 3, connect: 3 };
+
+function stepBar() {
+  const active = SCREEN_STEP[S.screen] ?? 0;
+  const items = STEPS.map((label, i) => {
+    const cls = i < active ? 'done' : i === active ? 'active' : 'pending';
+    return `<div class="step-item">
+      <div class="step-dot ${cls}"></div>
+      <span class="step-label ${cls}">${label}</span>
+    </div>`;
+  });
+  let out = '<div class="step-bar">';
+  items.forEach((item, i) => {
+    out += item;
+    if (i < items.length - 1) out += '<div class="step-connector"></div>';
+  });
+  return out + '</div>';
+}
+
+function wordmark() {
+  return `<div class="wordmark">
+    <div class="wordmark-dot"></div>
+    <span class="wordmark-text">SlotWatch</span>
+  </div>`;
+}
+
+// ── Loading ────────────────────────────────────────────────────────────────────
+function renderLoading() {
+  render(`${stepBar()}${wordmark()}
+  <div style="display:flex;align-items:center;gap:10px;color:var(--text-3);margin-top:40px;">
+    <div class="spinner"></div>
+    <span>Loading…</span>
+  </div>`);
+}
+
+// ── Auth error ─────────────────────────────────────────────────────────────────
+function renderError(msg) {
+  render(`${stepBar()}${wordmark()}
+  <div class="notice error fade-in" style="margin-top:32px;">
+    <strong style="display:block;margin-bottom:4px;">Something went wrong</strong>
+    ${esc(msg)}
+  </div>`);
+}
+
+// ── Screen 1: Appointment ──────────────────────────────────────────────────────
+function renderAppointment() {
+  const a = S.appointment;
+  const issues = a ? (a.activities || [])
+    .filter(x => x.symptomLabel && x.activityType !== 'SERVICE_ACTIVITY')
+    .slice(0, 4) : [];
+
+  render(`${stepBar()}${wordmark()}
+  <div class="fade-in" style="margin-top:20px;">
+    <h1 class="screen-title">Your Appointment</h1>
+    <p class="screen-subtitle">We'll search for earlier service slots and watch for openings.</p>
+
+    <div class="card" style="margin-bottom:8px;">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;">
+        <div style="flex:1;min-width:0;">
+          <div style="font-weight:600;font-size:15px;margin-bottom:3px;">${esc(a?.locationName || '—')}</div>
+          <div style="color:var(--text-2);font-size:13px;">${fmtDateLong(a?.startDateTime)}</div>
+        </div>
+        ${a?.serviceVisitID ? `<span class="visit-badge">Visit #${a.serviceVisitID}</span>` : ''}
+      </div>
+      ${issues.length ? `
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;">
+        ${issues.map(i => `<span class="chip">${esc(i.symptomLabel)}</span>`).join('')}
+      </div>` : ''}
+    </div>
+
+    ${a?.startDateTime ? `
+    <div class="card" style="margin-bottom:28px;">
+      <div class="label-caps" style="margin-bottom:5px;">Searching for slots earlier than</div>
+      <div style="font-size:14px;">${fmtDateLong(a.startDateTime)}</div>
+    </div>` : ''}
+
+    <button class="btn btn-primary" onclick="goToSearch()">
+      Search Service Centers <span aria-hidden="true" style="opacity:.7">→</span>
+    </button>
+  </div>`);
+}
+
+// ── Screen 2: Location Search ──────────────────────────────────────────────────
+function renderSearch() {
+  const canNext = S.selectedTrtIds.size > 0;
+  const locCards = S.locations.map(loc => {
+    const sel = S.selectedTrtIds.has(loc.trtId);
+    const early = hasEarlySlot(loc);
+    const slotCount = countSlots(loc);
+    const earliest = earliestSlot(loc);
+    return `<div class="loc-card ${sel ? 'selected' : ''}" onclick="toggleLoc(${loc.trtId})" role="checkbox" aria-checked="${sel}" tabindex="0"
+      onkeydown="if(event.key===' '||event.key==='Enter'){event.preventDefault();toggleLoc(${loc.trtId})}">
+      <div style="display:flex;align-items:flex-start;gap:12px;">
+        <div class="checkbox ${sel ? 'checked' : ''}">
+          ${sel ? `<svg width="9" height="7" viewBox="0 0 9 7" fill="none" aria-hidden="true">
+            <path d="M1 3.5L3.2 5.5L8 1" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>` : ''}
+        </div>
+        <div style="flex:1;min-width:0;">
+          <div style="display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:3px;">
+            <span style="font-weight:500;font-size:14px;">${esc(loc.name)}</span>
+            ${early ? `<span class="chip early">Earlier slot</span>` : ''}
+          </div>
+          <div style="color:var(--text-2);font-size:13px;">
+            ${esc(loc.city)}${loc.distance != null ? ` · ${loc.distance} mi` : ''}
+          </div>
+          ${slotCount > 0 ? `<div style="color:var(--text-3);font-size:12px;margin-top:5px;">${slotCount} slot${slotCount !== 1 ? 's' : ''}${earliest ? ` · earliest ${earliest}` : ''}</div>` : ''}
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+
+  render(`${stepBar()}${wordmark()}
+  <div class="fade-in" style="margin-top:20px;">
+    <h1 class="screen-title">Find Service Centers</h1>
+    <p class="screen-subtitle">Search near any city or address to find Tesla service centers.</p>
+
+    <div style="display:flex;gap:8px;margin-bottom:16px;">
+      <input id="addr" type="text" placeholder="City, address, or zip…"
+        value="${esc(S.searchAddress)}"
+        onkeydown="if(event.key==='Enter')doSearch()"
+        aria-label="Search address" />
+      <button class="btn btn-primary" onclick="doSearch()" style="flex-shrink:0;min-width:80px;"
+        ${S.isSearching ? 'disabled' : ''}>
+        ${S.isSearching
+          ? `<div class="spinner spinner-sm" style="border-top-color:#fff;border-color:rgba(255,255,255,.25)"></div>`
+          : 'Search'}
+      </button>
+    </div>
+
+    ${S.searchError ? `<div class="notice error" style="margin-bottom:14px;">${esc(S.searchError)}</div>` : ''}
+
+    ${S.locations.length > 0 ? `
+      <div class="loc-cards">${locCards}</div>
+      <div class="action-row">
+        <button class="btn btn-ghost" onclick="goTo('appointment')">← Back</button>
+        <button class="btn btn-primary" onclick="goToDates()" ${!canNext ? 'disabled' : ''}>
+          ${canNext ? `Next: Pick Dates <span aria-hidden="true" style="opacity:.7">→</span>` : 'Select a location'}
+        </button>
+      </div>
+    ` : (S.isSearching ? '' : `
+      <p style="color:var(--text-3);font-size:13px;margin-top:4px;">
+        Enter a city or zip code above to find nearby Tesla service centers.
+      </p>
+    `)}
+  </div>`);
+
+  // Auto-focus the input
+  const inp = document.getElementById('addr');
+  if (inp && !S.locations.length) inp.focus();
+}
+
+// ── Screen 3: Date Range ───────────────────────────────────────────────────────
+function renderDates() {
+  const selNames = S.locations
+    .filter(l => S.selectedTrtIds.has(l.trtId))
+    .map(l => l.name.replace(/^Tesla Service /i, ''))
+    .join(', ');
+  const from = S.dateFrom || today();
+  const to   = S.dateTo   || daysFromToday(30);
+  const days = daySpan(from, to);
+  const fromFmt = new Date(from + 'T12:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  const toFmt   = new Date(to   + 'T12:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+
+  render(`${stepBar()}${wordmark()}
+  <div class="fade-in" style="margin-top:20px;">
+    <h1 class="screen-title">Select Date Window</h1>
+    <p class="screen-subtitle">Choose the range of dates you want to monitor for openings.</p>
+
+    ${selNames ? `<p style="font-size:12px;color:var(--text-3);margin-top:-18px;margin-bottom:24px;">
+      Watching: ${esc(selNames)}
+    </p>` : ''}
+
+    <div class="card" style="margin-bottom:16px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px;">
+        <div>
+          <label class="label-caps" for="date-from" style="display:block;margin-bottom:7px;">From</label>
+          <input type="date" id="date-from" value="${from}" min="${today()}"
+            onchange="S.dateFrom=this.value;updateDateInfo()" />
+        </div>
+        <div>
+          <label class="label-caps" for="date-to" style="display:block;margin-bottom:7px;">To</label>
+          <input type="date" id="date-to" value="${to}" min="${today()}"
+            onchange="S.dateTo=this.value;updateDateInfo()" />
+        </div>
+      </div>
+
+      <div id="date-info" style="font-size:13px;color:var(--text-2);min-height:18px;">
+        ${days > 0 ? `Checking ${days} day${days !== 1 ? 's' : ''}: ${fromFmt} – ${toFmt}` : ''}
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:14px;">
+        <button class="preset-btn" onclick="setRange(7)">Next 7 days</button>
+        <button class="preset-btn" onclick="setRange(14)">Next 14 days</button>
+        <button class="preset-btn" onclick="setRange(30)">Next 30 days</button>
+      </div>
+    </div>
+
+    <div class="action-row">
+      <button class="btn btn-ghost" onclick="goTo('search')">← Back</button>
+      <button class="btn btn-primary" onclick="goToWatch()">
+        Confirm Watch <span aria-hidden="true" style="opacity:.7">→</span>
+      </button>
+    </div>
+  </div>`);
+}
+
+function updateDateInfo() {
+  const f = document.getElementById('date-from')?.value;
+  const t = document.getElementById('date-to')?.value;
+  const el = document.getElementById('date-info');
+  if (!el) return;
+  S.dateFrom = f; S.dateTo = t;
+  if (!f || !t) { el.textContent = ''; return; }
+  const days = daySpan(f, t);
+  if (days <= 0) {
+    el.style.color = '#f87171'; el.textContent = 'End date must be after start date.'; return;
+  }
+  el.style.color = 'var(--text-2)';
+  const ff = new Date(f + 'T12:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  const tf = new Date(t + 'T12:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  el.textContent = `Checking ${days} day${days !== 1 ? 's' : ''}: ${ff} – ${tf}`;
+}
+
+function setRange(n) {
+  S.dateFrom = today();
+  S.dateTo = daysFromToday(n);
+  const f = document.getElementById('date-from');
+  const t = document.getElementById('date-to');
+  if (f) f.value = S.dateFrom;
+  if (t) t.value = S.dateTo;
+  updateDateInfo();
+}
+
+// ── Screen 4: Active Watch ─────────────────────────────────────────────────────
+async function renderWatch() {
+  // Pull fresh status
+  try {
+    const r = await api('/api/status');
+    S.status = r.status;
+  } catch {}
+
+  const cfg = S.config?.watch;
+  const selLocs = S.locations.filter(l => S.selectedTrtIds.has(l.trtId));
+
+  // Derive display values — prefer in-memory selection, fall back to saved config
+  const locEntries = selLocs.length > 0
+    ? selLocs.map(l => ({ name: l.name, city: l.city, distance: l.distance }))
+    : cfg
+      ? Object.entries(cfg.locationNames || {}).map(([id, name]) => ({ name, city: '', distance: null }))
+      : [];
+
+  const fromIso = S.dateFrom || cfg?.dateFrom || '';
+  const toIso   = S.dateTo   || cfg?.dateTo   || '';
+  const fromFmt = fromIso ? new Date(fromIso + 'T12:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '—';
+  const toFmt   = toIso   ? new Date(toIso   + 'T12:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '—';
+  const days = daySpan(fromIso, toIso);
+
+  const st = S.status;
+  const isActive = st && st.configured && !st.error;
+  const lastAgo = st?.lastCheck ? fmtRelative(st.lastCheck) : null;
+  const nextIn  = st?.nextCheck ? fmtUntil(st.nextCheck) : null;
+
+  const statusHtml = `<div class="status-pill ${isActive ? 'active' : ''}" style="margin-bottom:20px;">
+    <div class="pulse-dot ${isActive ? 'active' : ''}"></div>
+    <span style="font-size:13px;">
+      ${isActive
+        ? `Watching · checked ${lastAgo || '—'} · next in ${nextIn || '—'}`
+        : st?.error
+          ? `Error: ${esc(st.error)}`
+          : 'Not yet configured'}
+    </span>
+  </div>`;
+
+  const locRows = locEntries.map(l => `
+    <div style="display:flex;align-items:center;gap:8px;font-size:13px;">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="var(--red)" aria-hidden="true">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+      </svg>
+      <span>${esc(l.name)}</span>
+      ${l.city || l.distance != null ? `<span style="color:var(--text-3);font-size:12px;">${esc(l.city)}${l.distance != null ? ` · ${l.distance} mi` : ''}</span>` : ''}
+    </div>`).join('');
+
+  render(`${stepBar()}${wordmark()}
+  <div class="fade-in" style="margin-top:20px;">
+    <h1 class="screen-title">Active Watch</h1>
+    <p class="screen-subtitle">The watcher polls every 30 minutes and emails you the moment a slot opens.</p>
+
+    ${statusHtml}
+
+    <div class="card" style="margin-bottom:8px;">
+      <div class="label-caps" style="margin-bottom:10px;">Locations</div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        ${locRows || '<span style="color:var(--text-3);font-size:13px;">None selected</span>'}
+      </div>
+      <hr class="card-divider" />
+      <div class="label-caps" style="margin-bottom:5px;">Date window</div>
+      <div style="font-size:13px;">
+        ${fromFmt} → ${toFmt}
+        ${days > 0 ? `<span style="color:var(--text-3);"> (${days} days)</span>` : ''}
+      </div>
+      <hr class="card-divider" />
+      <div class="label-caps" style="margin-bottom:5px;">Alert destination</div>
+      <div style="font-size:13px;">${esc(S.emailTo || 'configured in environment')}</div>
+    </div>
+
+    ${S.saveError ? `<div class="notice error" style="margin-top:8px;">${esc(S.saveError)}</div>` : ''}
+
+    <div style="display:flex;align-items:center;gap:10px;margin-top:20px;flex-wrap:wrap;">
+      <button class="btn btn-primary" id="save-btn" onclick="saveConfig()">
+        ${S.isSaving
+          ? `<div class="spinner spinner-sm" style="border-top-color:#fff;border-color:rgba(255,255,255,.25)"></div> Saving…`
+          : (cfg ? 'Update Config' : 'Start Watching →')}
+      </button>
+      <button class="btn btn-outline" onclick="goTo('search')">Change Locations</button>
+    </div>
+  </div>`);
+}
+
+async function saveConfig() {
+  if (S.isSaving) return;
+  S.isSaving = true;
+  S.saveError = null;
+  await renderWatch();
+
+  const selLocs = S.locations.filter(l => S.selectedTrtIds.has(l.trtId));
+  const locationNames = {};
+  selLocs.forEach(l => { locationNames[l.trtId] = l.name; });
+
+  try {
+    await api('/api/config/watch', {
+      method: 'POST',
+      body: JSON.stringify({
+        trtIds: selLocs.map(l => l.trtId),
+        dateFrom: S.dateFrom,
+        dateTo: S.dateTo,
+        locationNames,
+      }),
+    });
+    // Reload config
+    const cfg = await api('/api/config');
+    S.config = cfg;
+  } catch (e) {
+    S.saveError = e.message;
+  }
+  S.isSaving = false;
+  await renderWatch();
+}
+
+// ── Screen: Tesla Connect flow ─────────────────────────────────────────────────
+function renderConnect() {
+  render(`${stepBar()}${wordmark()}
+  <div class="fade-in" style="margin-top:20px;">
+    <h1 class="screen-title">Connect Tesla Account</h1>
+    <p class="screen-subtitle">Link your Tesla account so SlotWatch can check service availability on your behalf.</p>
+
+    <div class="card" style="margin-bottom:24px;">
+      <div class="auth-step">
+        <div class="auth-num">1</div>
+        <div>
+          <div style="font-size:14px;font-weight:500;margin-bottom:5px;">Open Tesla login</div>
+          <div style="font-size:13px;color:var(--text-2);margin-bottom:10px;">
+            Opens in a new tab. Sign in with your Tesla account credentials.
+          </div>
+          <button class="btn btn-primary" onclick="openOAuth()">Open Tesla Login ↗</button>
+        </div>
+      </div>
+
+      <div class="auth-step">
+        <div class="auth-num">2</div>
+        <div style="flex:1;">
+          <div style="font-size:14px;font-weight:500;margin-bottom:5px;">Copy the redirect URL</div>
+          <div style="font-size:13px;color:var(--text-2);margin-bottom:8px;">
+            After logging in, your browser will show an error page or blank page. Copy the full URL
+            from the address bar — it starts with <code style="font-size:11px;color:var(--green-text);background:var(--elevated);padding:1px 5px;border-radius:4px;">tesla://</code>
+          </div>
+        </div>
+      </div>
+
+      <div class="auth-step">
+        <div class="auth-num">3</div>
+        <div style="flex:1;">
+          <div style="font-size:14px;font-weight:500;margin-bottom:8px;">Paste it here</div>
+          <textarea id="callback-url" placeholder="tesla://auth/callback?code=…"
+            rows="3" style="font-family:'SF Mono','Menlo',monospace;font-size:12px;"></textarea>
+          ${S.connectError ? `<div class="notice error" style="margin-top:8px;">${esc(S.connectError)}</div>` : ''}
+          <button class="btn btn-primary" style="margin-top:10px;width:100%;"
+            onclick="submitCallback()" ${S.isConnecting ? 'disabled' : ''}>
+            ${S.isConnecting
+              ? `<div class="spinner spinner-sm" style="border-top-color:#fff;border-color:rgba(255,255,255,.25)"></div> Connecting…`
+              : 'Connect Account →'}
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn btn-ghost" onclick="goTo('watch')">← Back to Watch</button>
+  </div>`);
+}
+
+async function openOAuth() {
+  try {
+    const data = await api('/api/oauth/start');
+    window.open(data.url, '_blank', 'noopener');
+  } catch (e) {
+    alert('Could not start OAuth: ' + e.message);
+  }
+}
+
+async function submitCallback() {
+  const url = document.getElementById('callback-url')?.value?.trim();
+  if (!url || !url.startsWith('tesla://')) {
+    S.connectError = 'Paste the full tesla:// URL from your browser address bar.';
+    renderConnect();
+    return;
+  }
+  S.isConnecting = true;
+  S.connectError = null;
+  renderConnect();
+
+  try {
+    await api('/api/oauth/complete', {
+      method: 'POST',
+      body: JSON.stringify({ url }),
+    });
+    // Reload and go back to watch
+    const [cfg, statusData] = await Promise.all([
+      api('/api/config'),
+      api('/api/status').catch(() => ({ status: null })),
+    ]);
+    S.config = cfg;
+    S.status = statusData.status;
+    S.screen = 'watch';
+    await renderWatch();
+  } catch (e) {
+    S.connectError = e.message;
+    S.isConnecting = false;
+    renderConnect();
+  }
+}
+
+// ── Navigation ─────────────────────────────────────────────────────────────────
+function goTo(screen) {
+  S.screen = screen;
+  renderCurrent();
+}
+
+async function goToSearch() {
+  S.screen = 'search';
+  renderCurrent();
+  if (S.locations.length === 0) await doSearch(true);
+}
+
+async function doSearch(useDefault = false) {
+  const input = document.getElementById('addr');
+  const address = useDefault ? '' : (input?.value?.trim() || '');
+  S.searchAddress = address;
+  S.isSearching = true;
+  S.searchError = null;
+  renderCurrent();
+  try {
+    const data = await api('/api/locations/search', {
+      method: 'POST',
+      body: JSON.stringify(address ? { address } : {}),
+    });
+    S.locations = data.locations || [];
+    if (S.locations.length > 0 && S.selectedTrtIds.size === 0) {
+      S.selectedTrtIds.add(S.locations[0].trtId);
+    }
+  } catch (e) {
+    S.searchError = e.message;
+  }
+  S.isSearching = false;
+  renderCurrent();
+}
+
+function toggleLoc(trtId) {
+  S.selectedTrtIds.has(trtId) ? S.selectedTrtIds.delete(trtId) : S.selectedTrtIds.add(trtId);
+  renderCurrent();
+}
+
+function goToDates() {
+  if (S.selectedTrtIds.size === 0) return;
+  if (!S.dateFrom) S.dateFrom = today();
+  if (!S.dateTo)   S.dateTo   = daysFromToday(30);
+  S.screen = 'dates';
+  renderCurrent();
+}
+
+function goToWatch() {
+  const f = document.getElementById('date-from')?.value || S.dateFrom || today();
+  const t = document.getElementById('date-to')?.value   || S.dateTo   || daysFromToday(30);
+  S.dateFrom = f; S.dateTo = t;
+  S.screen = 'watch';
+  renderWatch();
+}
+
+function renderCurrent() {
+  const map = {
+    loading: renderLoading,
+    appointment: renderAppointment,
+    search: renderSearch,
+    dates: renderDates,
+    watch: renderWatch,
+    connect: renderConnect,
+  };
+  (map[S.screen] || renderLoading)();
+}
+
+// ── Initialise ─────────────────────────────────────────────────────────────────
+(async () => {
+  renderLoading();
+  try {
+    const [metaData, statusData, configData] = await Promise.all([
+      api('/api/meta').catch(() => ({})),
+      api('/api/status').catch(() => ({ status: null })),
+      api('/api/config').catch(() => ({ ok: true, watch: null, tesla: null, connected: false })),
+    ]);
+
+    S.emailTo = metaData.emailTo || '';
+    S.status  = statusData.status;
+    S.config  = configData;
+
+    // If not connected, go straight to connect flow
+    if (!configData.connected) {
+      S.screen = 'connect';
+      renderConnect();
+      return;
+    }
+
+    // Load appointments
+    try {
+      const apptData = await api('/api/appointments');
+      S.appointment = (apptData.appointments || [])[0] || null;
+    } catch {
+      // Appointments failing is non-fatal — might have expired token
+    }
+
+    // If config already exists, skip to watch screen
+    if (configData.watch) {
+      // Pre-populate date range from saved config
+      S.dateFrom = configData.watch.dateFrom || '';
+      S.dateTo   = configData.watch.dateTo   || '';
+      S.screen = 'watch';
+      await renderWatch();
+    } else {
+      S.screen = 'appointment';
+      renderAppointment();
+    }
+
+  } catch (e) {
+    renderError(e.message);
+  }
+})();
+</script>
+</body>
+</html>

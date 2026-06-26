@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+  slotwatch:
+    build: .
+    container_name: slotwatch
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./data:/data
+    env_file:
+      - .env
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3001/api/status"]
+      interval: 60s
+      timeout: 10s
+      retries: 3
