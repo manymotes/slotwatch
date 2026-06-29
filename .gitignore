@@ -6,3 +6,5 @@ state/
 *.mitm
 .DS_Store
 .turbo/
+.next/
+next-env.d.ts

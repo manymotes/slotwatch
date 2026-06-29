@@ -262,7 +262,7 @@ export default function HomePage() {
             textWrap: 'balance' as never,
             marginBottom: '24px',
           }}>
-            Get the Tesla service appointment you{' '}
+            Get the service appointment you{' '}
             <em style={{ color: '#e31937', fontStyle: 'normal' }}>actually</em>{' '}
             want.
           </h1>
