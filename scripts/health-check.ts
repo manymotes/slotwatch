@@ -28,7 +28,7 @@ const SMTP_CONFIG = {
   secure: false,
   auth: {
     user: "golf@theopencourse.app",
-    pass: "${SMTP_PASS}",
+    pass: process.env.SMTP_PASS || "",
   },
 };
 
