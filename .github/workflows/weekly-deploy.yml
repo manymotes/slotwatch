@@ -1,0 +1,32 @@
+name: Weekly pSEO Deploy
+
+on:
+  schedule:
+    - cron: '0 9 * * 1'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: 2bb2365f7f5bbaa5919310174792aef9
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install deps
+        run: npm ci --workspace=apps/web --workspace=packages/shared
+
+      - name: Build
+        run: cd apps/web && npm run build
+
+      - name: Deploy
+        run: cd apps/web && npx wrangler pages deploy ./out --project-name=slotwatch-web --branch=main

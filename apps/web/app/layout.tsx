@@ -4,8 +4,8 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'SlotWatch — Tesla Service Appointment Alerts',
   description:
-    'SlotWatch monitors Tesla service centers for cancellations and available slots, then alerts you instantly by SMS and email. Skip the wait.',
-  metadataBase: new URL('https://slotwatch.app'),
+    'slotwatcher.app monitors Tesla service centers for cancellations and available slots, then alerts you instantly by SMS and email. Skip the wait.',
+  metadataBase: new URL('https://slotwatcher.app'),
   openGraph: {
     title: 'SlotWatch — Tesla Service Appointment Alerts',
     description:

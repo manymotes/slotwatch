@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useRef, FormEvent } from 'react'
 
 // ── Icons (inline SVG, no external deps) ──────────────────────────────────────
 
@@ -130,6 +130,112 @@ function Accordion({ items }: { items: FAQItem[] }) {
   )
 }
 
+// ── Email Capture ─────────────────────────────────────────────────────────────
+
+function EmailCapture() {
+  const [email, setEmail] = useState('')
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const inputRef = useRef<HTMLInputElement>(null)
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    if (!email.trim()) return
+    setStatus('loading')
+    try {
+      const res = await fetch('/api/notify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email.trim(), source: 'landing' }),
+      })
+      if (!res.ok) throw new Error('bad response')
+      setStatus('success')
+    } catch {
+      setStatus('error')
+    }
+  }
+
+  if (status === 'success') {
+    return (
+      <p style={{
+        color: '#22c55e',
+        fontWeight: 600,
+        fontSize: '1rem',
+        padding: '14px 0',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '8px',
+      }}>
+        <span aria-hidden="true">✓</span> We&apos;ll be in touch at {email}
+      </p>
+    )
+  }
+
+  return (
+    <form onSubmit={handleSubmit} style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', alignItems: 'flex-start' }}>
+      <div style={{ position: 'relative', flex: '1 1 260px' }}>
+        <input
+          ref={inputRef}
+          type="email"
+          required
+          value={email}
+          onChange={(e) => { setEmail(e.target.value); if (status === 'error') setStatus('idle') }}
+          placeholder="Your email address"
+          style={{
+            width: '100%',
+            boxSizing: 'border-box',
+            background: '#111',
+            border: '1px solid #2a2a2a',
+            borderRadius: '8px',
+            color: '#f0f0f0',
+            fontSize: '1rem',
+            padding: '14px 18px',
+            outline: 'none',
+            transition: 'border-color 0.15s, box-shadow 0.15s',
+          }}
+          onFocus={(e) => {
+            e.currentTarget.style.borderColor = '#e31937'
+            e.currentTarget.style.boxShadow = '0 0 0 3px rgba(227,25,55,0.18)'
+          }}
+          onBlur={(e) => {
+            e.currentTarget.style.borderColor = '#2a2a2a'
+            e.currentTarget.style.boxShadow = 'none'
+          }}
+        />
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+        <button
+          type="submit"
+          disabled={status === 'loading'}
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            background: status === 'loading' ? '#b5142c' : '#e31937',
+            color: '#fff',
+            border: 'none',
+            cursor: status === 'loading' ? 'wait' : 'pointer',
+            fontWeight: 700,
+            fontSize: '1rem',
+            padding: '14px 24px',
+            borderRadius: '8px',
+            letterSpacing: '-0.01em',
+            transition: 'background 0.15s',
+            whiteSpace: 'nowrap',
+          }}
+          onMouseEnter={(e) => { if (status !== 'loading') e.currentTarget.style.background = '#c4152f' }}
+          onMouseLeave={(e) => { if (status !== 'loading') e.currentTarget.style.background = '#e31937' }}
+        >
+          {status === 'loading' ? 'Sending…' : 'Get early access →'}
+        </button>
+        {status === 'error' && (
+          <p style={{ color: '#ef4444', fontSize: '0.8125rem', margin: 0 }}>
+            Something went wrong — try again
+          </p>
+        )}
+      </div>
+    </form>
+  )
+}
+
 // ── Page ──────────────────────────────────────────────────────────────────────
 
 const faqs: FAQItem[] = [
@@ -219,11 +325,11 @@ export default function HomePage() {
             <Link href="/#pricing" style={{ color: '#8a8a8a', textDecoration: 'none', fontSize: '0.875rem', transition: 'color 0.15s' }}>
               Pricing
             </Link>
-            <a href="https://github.com/slotwatch/slotwatch" style={{ color: '#8a8a8a', textDecoration: 'none', fontSize: '0.875rem', display: 'flex', alignItems: 'center', gap: '6px', transition: 'color 0.15s' }}>
+            <a href="https://github.com/manymotes/slotwatch" style={{ color: '#8a8a8a', textDecoration: 'none', fontSize: '0.875rem', display: 'flex', alignItems: 'center', gap: '6px', transition: 'color 0.15s' }}>
               <IconGithub />
               <span style={{ display: 'none' }}>GitHub</span>
             </a>
-            <Link href="/checkout" style={{
+            <a href="#hero-form" style={{
               background: '#e31937',
               color: '#fff',
               textDecoration: 'none',
@@ -234,8 +340,8 @@ export default function HomePage() {
               letterSpacing: '0.01em',
               transition: 'opacity 0.15s',
             }}>
-              Start watching
-            </Link>
+              Get early access
+            </a>
           </div>
         </div>
       </nav>
@@ -275,23 +381,11 @@ export default function HomePage() {
           }}>
             SlotWatch watches for cancellations at your chosen service centers and texts you the moment an earlier slot opens. Stop refreshing — start getting alerts.
           </p>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', alignItems: 'center' }}>
-            <Link href="/checkout" style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              background: '#e31937',
-              color: '#fff',
-              textDecoration: 'none',
-              fontWeight: 700,
-              fontSize: '1rem',
-              padding: '14px 28px',
-              borderRadius: '8px',
-              letterSpacing: '-0.01em',
-              transition: 'opacity 0.15s',
-            }}>
-              Start watching — $9.99/mo
-            </Link>
-            <a href="https://github.com/slotwatch/slotwatch" style={{
+          <div id="hero-form">
+            <EmailCapture />
+          </div>
+          <div style={{ marginTop: '16px' }}>
+            <a href="https://github.com/manymotes/slotwatch" style={{
               display: 'inline-flex',
               alignItems: 'center',
               gap: '8px',
@@ -299,7 +393,7 @@ export default function HomePage() {
               textDecoration: 'none',
               fontWeight: 500,
               fontSize: '0.9375rem',
-              padding: '14px 4px',
+              padding: '4px 0',
               transition: 'color 0.15s',
             }}>
               <IconGithub />
@@ -423,7 +517,7 @@ export default function HomePage() {
                 </li>
               ))}
             </ul>
-            <a href="https://github.com/slotwatch/slotwatch" style={{
+            <a href="https://github.com/manymotes/slotwatch" style={{
               display: 'block',
               textAlign: 'center',
               border: '1px solid #2a2a2a',
@@ -481,7 +575,7 @@ export default function HomePage() {
                 </li>
               ))}
             </ul>
-            <Link href="/checkout" style={{
+            <a href="#hero-form" style={{
               display: 'block',
               textAlign: 'center',
               background: '#e31937',
@@ -493,8 +587,8 @@ export default function HomePage() {
               borderRadius: '7px',
               transition: 'opacity 0.15s',
             }}>
-              Start watching
-            </Link>
+              Get early access
+            </a>
           </div>
         </div>
       </section>
@@ -544,7 +638,7 @@ export default function HomePage() {
           <span style={{ color: '#3a3a3a', fontSize: '0.8125rem' }}>SlotWatch</span>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '24px', flexWrap: 'wrap' }}>
-          <a href="https://github.com/slotwatch/slotwatch" style={{
+          <a href="https://github.com/manymotes/slotwatch" style={{
             color: '#3a3a3a',
             textDecoration: 'none',
             fontSize: '0.8125rem',

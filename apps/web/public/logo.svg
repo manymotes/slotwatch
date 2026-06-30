@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none">
+  <!-- Outer ring -->
+  <circle cx="32" cy="32" r="28" stroke="#e8e8e8" stroke-width="2.5"/>
+
+  <!-- Subtle inner ring / bezel -->
+  <circle cx="32" cy="32" r="24" stroke="#4a4a4a" stroke-width="0.75" opacity="0.5"/>
+
+  <!-- Tick marks at 12, 3, 6, 9 -->
+  <line x1="32" y1="7" x2="32" y2="11" stroke="#e8e8e8" stroke-width="2" stroke-linecap="round"/>
+  <line x1="57" y1="32" x2="53" y2="32" stroke="#e8e8e8" stroke-width="2" stroke-linecap="round"/>
+  <line x1="32" y1="57" x2="32" y2="53" stroke="#e8e8e8" stroke-width="2" stroke-linecap="round"/>
+  <line x1="7" y1="32" x2="11" y2="32" stroke="#e8e8e8" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Hour hand at ~10 o'clock (pointing upper-left, 300° from 12 = -60°) -->
+  <!-- 10 o'clock: angle = (10/12)*360 - 90 = 210deg, but clock convention: -->
+  <!-- 10:10 -> hour hand at 10h + 10min offset = ~301 degrees from top -->
+  <!-- Hour hand: 10:10 = 10*30 + 10*0.5 = 305 degrees from 12 = 305-90=215deg in math -->
+  <!-- x = 32 + 14*cos(215deg) = 32 + 14*(-0.819) = 32 - 11.47 = 20.53 -->
+  <!-- y = 32 + 14*sin(215deg) = 32 + 14*(-0.574) = 32 - 8.03 = 23.97 -->
+  <line x1="32" y1="32" x2="20.5" y2="24" stroke="#e8e8e8" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Minute hand at 10 minutes = 60 degrees from 12 = 60-90 = -30deg in math -->
+  <!-- x = 32 + 20*cos(-30deg) = 32 + 20*0.866 = 32 + 17.32 = 49.32 -->
+  <!-- y = 32 + 20*sin(-30deg) = 32 + 20*(-0.5) = 32 - 10 = 22 -->
+  <line x1="32" y1="32" x2="49" y2="22" stroke="#e8e8e8" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Center dot -->
+  <circle cx="32" cy="32" r="2" fill="#e8e8e8"/>
+
+  <!-- Alert dot — notification badge, top-right, partially outside the ring -->
+  <circle cx="52" cy="13" r="7" fill="#080808"/>
+  <circle cx="52" cy="13" r="5.5" fill="#e31937"/>
+</svg>

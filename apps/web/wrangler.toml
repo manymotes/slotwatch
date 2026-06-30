@@ -1,0 +1,9 @@
+name = "slotwatch-web"
+compatibility_date = "2024-01-01"
+
+[vars]
+MAILGUN_DOMAIN = "theopencourse.app"
+FROM_EMAIL = "golf@theopencourse.app"
+ADMIN_EMAIL = "motesmass@gmail.com"
+
+# MAILGUN_API_KEY set as secret via: wrangler secret put MAILGUN_API_KEY
