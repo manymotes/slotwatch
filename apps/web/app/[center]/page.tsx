@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { SERVICE_CENTERS, centerBySlug } from '@/lib/service-centers'
+import { Logo, LogoMark } from '@/components/Logo'
 
 // re-export for consumers that import from this page
 export type { CenterMeta } from '@/lib/service-centers'
@@ -84,11 +85,11 @@ export default function CenterPage({ params }: { params: { center: string } }) {
     },
     {
       q: 'How quickly will I get the alert?',
-      a: 'SlotWatch checks availability every 30 minutes. The moment a slot matching your date range and service type appears, you receive both an SMS and an email — typically within seconds of the slot going live.',
+      a: 'SlotWatch checks availability every 30 minutes. When an earlier opening appears in your date range, we email you right away so you can reschedule in the Tesla app before it fills.',
     },
     {
-      q: 'What types of appointments does SlotWatch track?',
-      a: `SlotWatch watches for annual service, tire rotations, software-related visits, body work, and any other appointment type visible in the Tesla app scheduler for ${data.city}. You can filter by appointment type in your alert settings.`,
+      q: 'Do I need to connect my Tesla account?',
+      a: `No — you never connect your Tesla account and we never see your login. Just tell us your ${data.city} service center and where to email you. When an earlier slot opens, you reschedule it yourself in the Tesla app.`,
     },
     {
       q: 'Is there a free option?',
@@ -103,15 +104,15 @@ export default function CenterPage({ params }: { params: { center: string } }) {
     },
     {
       label: 'Newly released dates',
-      detail: `Tesla periodically releases new appointment windows. SlotWatch detects these the moment the scheduler updates, often before the dates appear in the app.`,
+      detail: `Tesla periodically releases new appointment windows and cancellations open earlier slots. SlotWatch re-checks every 30 minutes and emails you when a sooner opening shows up.`,
     },
     {
       label: 'Earlier-than-booked openings',
       detail: `Already have an appointment? SlotWatch can alert you if a slot earlier than your current booking opens up, so you can reschedule to something sooner.`,
     },
     {
-      label: 'Specific appointment types',
-      detail: `Need an annual service, not just a tire rotation? Filter your alerts so you only hear about the appointment categories that matter for your vehicle.`,
+      label: 'Watch multiple centers',
+      detail: `Cover every center within driving distance on one subscription, so you catch the first earlier opening across any of them.`,
     },
   ]
 
@@ -146,22 +147,8 @@ export default function CenterPage({ params }: { params: { center: string } }) {
           justifyContent: 'space-between',
           height: '56px',
         }}>
-          <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <span style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              width: '28px',
-              height: '28px',
-              background: '#e31937',
-              borderRadius: '6px',
-              fontSize: '14px',
-              fontWeight: 800,
-              color: '#fff',
-            }}>S</span>
-            <span style={{ color: '#f0f0f0', fontWeight: 600, fontSize: '0.9375rem' }}>SlotWatch</span>
-          </Link>
-          <Link href="/checkout" style={{
+          <Logo size={28} />
+          <Link href={`/start?city=${encodeURIComponent(`${data.city}, ${data.stateAbbr}`)}`} style={{
             background: '#e31937',
             color: '#fff',
             textDecoration: 'none',
@@ -206,7 +193,7 @@ export default function CenterPage({ params }: { params: { center: string } }) {
             marginBottom: '12px',
             maxWidth: '520px',
           }}>
-            Tesla owners in {data.city} report waiting {data.waitWeeks} weeks for service appointments. Cancellations open shorter waits every day — SlotWatch catches them and texts you before anyone else sees them.
+            Tesla owners in {data.city} report waiting {data.waitWeeks} weeks for service appointments. Earlier openings appear every day — SlotWatch catches them and emails you so you can grab one before it fills.
           </p>
           <p style={{
             fontSize: '0.9375rem',
@@ -237,11 +224,11 @@ export default function CenterPage({ params }: { params: { center: string } }) {
               Get alerted when a {data.city} slot opens
             </p>
             <form
-              action="/api/waitlist"
-              method="POST"
+              action="/start"
+              method="GET"
               style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}
             >
-              <input type="hidden" name="city" value={data.slug} />
+              <input type="hidden" name="city" value={`${data.city}, ${data.stateAbbr}`} />
               <input
                 type="email"
                 name="email"
@@ -411,16 +398,16 @@ export default function CenterPage({ params }: { params: { center: string } }) {
         }}>
           {[
             {
-              label: 'Connect once',
-              body: `Authorize SlotWatch via OAuth in under 60 seconds. No password stored.`,
+              label: 'Sign up in 30 seconds',
+              body: `Just your email — no Tesla login, no password, nothing to connect.`,
             },
             {
               label: `Pick your ${data.city} centers`,
               body: `Select any or all ${data.centers} ${data.landmark} service ${data.centers === 1 ? 'location' : 'locations'} and set your earliest acceptable date.`,
             },
             {
-              label: 'Receive the alert',
-              body: `A slot opens. You get an SMS and email within minutes — before it fills.`,
+              label: 'Get an email, then book',
+              body: `An earlier slot opens. We email you within minutes — you reschedule in the Tesla app before it fills.`,
             },
           ].map((step) => (
             <div key={step.label} style={{ background: '#0d0d0d', padding: '32px 28px' }}>
@@ -501,7 +488,7 @@ export default function CenterPage({ params }: { params: { center: string } }) {
               $9.99/mo. No contracts. Cancel anytime.
             </p>
           </div>
-          <Link href="/checkout" style={{
+          <Link href={`/start?city=${encodeURIComponent(`${data.city}, ${data.stateAbbr}`)}`} style={{
             display: 'inline-flex',
             alignItems: 'center',
             background: '#e31937',
@@ -564,18 +551,7 @@ export default function CenterPage({ params }: { params: { center: string } }) {
         gap: '16px',
       }}>
         <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <span style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            width: '22px',
-            height: '22px',
-            background: '#e31937',
-            borderRadius: '5px',
-            fontSize: '11px',
-            fontWeight: 800,
-            color: '#fff',
-          }}>S</span>
+          <LogoMark size={22} />
           <span style={{ color: '#3a3a3a', fontSize: '0.8125rem' }}>SlotWatch</span>
         </Link>
         <span style={{ color: '#2a2a2a', fontSize: '0.8125rem' }}>

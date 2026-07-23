@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useState, useRef, FormEvent } from 'react'
+import { Logo, LogoMark } from '../components/Logo'
 
 // ── Icons (inline SVG, no external deps) ──────────────────────────────────────
 
@@ -140,18 +141,8 @@ function EmailCapture() {
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     if (!email.trim()) return
-    setStatus('loading')
-    try {
-      const res = await fetch('/api/notify', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email.trim(), source: 'landing' }),
-      })
-      if (!res.ok) throw new Error('bad response')
-      setStatus('success')
-    } catch {
-      setStatus('error')
-    }
+    // Carry the email into the real signup + checkout flow
+    window.location.href = '/start?email=' + encodeURIComponent(email.trim())
   }
 
   if (status === 'success') {
@@ -224,7 +215,7 @@ function EmailCapture() {
           onMouseEnter={(e) => { if (status !== 'loading') e.currentTarget.style.background = '#c4152f' }}
           onMouseLeave={(e) => { if (status !== 'loading') e.currentTarget.style.background = '#e31937' }}
         >
-          {status === 'loading' ? 'Sending…' : 'Get early access →'}
+          {status === 'loading' ? 'Sending…' : 'Get started →'}
         </button>
         {status === 'error' && (
           <p style={{ color: '#ef4444', fontSize: '0.8125rem', margin: 0 }}>
@@ -240,38 +231,38 @@ function EmailCapture() {
 
 const faqs: FAQItem[] = [
   {
-    q: 'Do you store my Tesla login credentials?',
-    a: 'No. SlotWatch uses OAuth — you authorize directly with Tesla through their official login page. We never see your password. Your access tokens are encrypted at rest and isolated per account in a dedicated container.',
+    q: 'Do I need to connect my Tesla account?',
+    a: 'No. You never connect your Tesla account, and we never ask for your login or password. You just tell us which service center to watch and where to email you. When an earlier opening appears, you reschedule it yourself in the Tesla app.',
   },
   {
     q: 'What happens if I want to cancel?',
-    a: 'Cancel anytime from your dashboard. No annual contracts, no cancellation fees. Your subscription ends at the close of the current billing period.',
+    a: 'Cancel anytime. No annual contracts, no cancellation fees. Your subscription ends at the close of the current billing period.',
   },
   {
     q: 'Which service centers does SlotWatch watch?',
-    a: 'Any Tesla Service Center. You choose your locations during setup — search by city or zip code. Watch multiple centers simultaneously on one subscription.',
+    a: 'Any Tesla Service Center in the US. You pick your location by city or ZIP code when you sign up, and you can watch more than one.',
   },
   {
     q: 'How quickly will I be alerted?',
-    a: 'SlotWatch checks for new slots every 30 minutes. When a slot matching your criteria appears, an alert goes out within seconds via SMS and email.',
+    a: 'SlotWatch checks your service center every 30 minutes. When an earlier opening appears, we email you right away so you can jump into the Tesla app and grab it.',
   },
 ]
 
 const steps = [
   {
-    icon: <IconKey />,
-    label: 'Connect your account',
-    body: 'One-time OAuth authorization — takes under 60 seconds. No password ever touches our servers.',
+    icon: <IconTarget />,
+    label: 'Pick your service center',
+    body: 'Enter your email and choose your Tesla service center by city or ZIP. No Tesla login required.',
   },
   {
-    icon: <IconTarget />,
-    label: 'Set your criteria',
-    body: 'Choose your service centers, your earliest acceptable date, and the appointment type.',
+    icon: <IconKey />,
+    label: 'Set your window',
+    body: 'Tell us the date range you\'d take an earlier appointment in — we\'ll only email you about openings that fit.',
   },
   {
     icon: <IconBell />,
-    label: 'Get alerted instantly',
-    body: 'The moment a qualifying slot opens, SlotWatch sends SMS and email. Tap to book before anyone else.',
+    label: 'Get an email, then book',
+    body: 'The moment an earlier opening appears at your center, we email you. Open the Tesla app to reschedule before it\'s gone.',
   },
 ]
 
@@ -283,10 +274,10 @@ const freeFeatures = [
 ]
 
 const proFeatures = [
-  'No server needed',
-  'Instant SMS + email alerts',
-  '30-minute check interval',
-  'Encrypted token storage',
+  'No Tesla login required',
+  'Instant email alerts',
+  'Checks every 30 minutes',
+  'Watch multiple centers',
   'Cancel anytime',
 ]
 
@@ -305,22 +296,7 @@ export default function HomePage() {
         borderBottom: '1px solid #1a1a1a',
       }}>
         <div style={{ maxWidth: '1120px', margin: '0 auto', padding: '0 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '56px' }}>
-          <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <span style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              width: '28px',
-              height: '28px',
-              background: '#e31937',
-              borderRadius: '6px',
-              fontSize: '14px',
-              fontWeight: 800,
-              color: '#fff',
-              letterSpacing: '-0.02em',
-            }}>S</span>
-            <span style={{ color: '#f0f0f0', fontWeight: 600, fontSize: '0.9375rem', letterSpacing: '-0.01em' }}>SlotWatch</span>
-          </Link>
+          <Logo size={28} />
           <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
             <Link href="/#pricing" style={{ color: '#8a8a8a', textDecoration: 'none', fontSize: '0.875rem', transition: 'color 0.15s' }}>
               Pricing
@@ -329,7 +305,7 @@ export default function HomePage() {
               <IconGithub />
               <span style={{ display: 'none' }}>GitHub</span>
             </a>
-            <a href="#hero-form" style={{
+            <a href="/start" style={{
               background: '#e31937',
               color: '#fff',
               textDecoration: 'none',
@@ -340,7 +316,7 @@ export default function HomePage() {
               letterSpacing: '0.01em',
               transition: 'opacity 0.15s',
             }}>
-              Get early access
+              Get started
             </a>
           </div>
         </div>
@@ -379,7 +355,7 @@ export default function HomePage() {
             maxWidth: '560px',
             marginBottom: '40px',
           }}>
-            SlotWatch watches for cancellations at your chosen service centers and texts you the moment an earlier slot opens. Stop refreshing — start getting alerts.
+            SlotWatch watches your Tesla service center and emails you the moment an earlier appointment opens up — so you can jump into the Tesla app and grab it. No Tesla login required.
           </p>
           <div id="hero-form">
             <EmailCapture />
@@ -575,7 +551,7 @@ export default function HomePage() {
                 </li>
               ))}
             </ul>
-            <a href="#hero-form" style={{
+            <a href="/start" style={{
               display: 'block',
               textAlign: 'center',
               background: '#e31937',
@@ -587,7 +563,7 @@ export default function HomePage() {
               borderRadius: '7px',
               transition: 'opacity 0.15s',
             }}>
-              Get early access
+              Get started
             </a>
           </div>
         </div>
@@ -623,18 +599,7 @@ export default function HomePage() {
         gap: '16px',
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <span style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            width: '22px',
-            height: '22px',
-            background: '#e31937',
-            borderRadius: '5px',
-            fontSize: '11px',
-            fontWeight: 800,
-            color: '#fff',
-          }}>S</span>
+          <LogoMark size={22} />
           <span style={{ color: '#3a3a3a', fontSize: '0.8125rem' }}>SlotWatch</span>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '24px', flexWrap: 'wrap' }}>

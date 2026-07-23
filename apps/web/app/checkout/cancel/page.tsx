@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
+import { LogoMark } from '../../../components/Logo'
 
 export const metadata: Metadata = {
   title: 'Payment cancelled — SlotWatch',
@@ -18,18 +19,7 @@ export default function CheckoutCancelPage() {
       padding: '40px 24px',
     }}>
       <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '64px' }}>
-        <span style={{
-          display: 'inline-flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          width: '28px',
-          height: '28px',
-          background: '#e31937',
-          borderRadius: '6px',
-          fontSize: '14px',
-          fontWeight: 800,
-          color: '#fff',
-        }}>S</span>
+        <LogoMark size={28} />
         <span style={{ color: '#f0f0f0', fontWeight: 600, fontSize: '0.9375rem' }}>SlotWatch</span>
       </Link>
 

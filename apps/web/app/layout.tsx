@@ -4,13 +4,13 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'SlotWatch — Tesla Service Appointment Alerts',
   description:
-    'slotwatcher.app monitors Tesla service centers for cancellations and available slots, then alerts you instantly by SMS and email. Skip the wait.',
+    'SlotWatch monitors Tesla service centers for earlier appointment openings and emails you the moment one appears. No Tesla login required.',
   metadataBase: new URL('https://slotwatcher.app'),
   openGraph: {
     title: 'SlotWatch — Tesla Service Appointment Alerts',
     description:
-      'Stop refreshing the scheduling page. SlotWatch watches for open slots at your service center and texts you the moment one appears.',
-    url: 'https://slotwatch.app',
+      'Stop refreshing the scheduling page. SlotWatch watches your service center and emails you the moment an earlier slot opens.',
+    url: 'https://slotwatcher.app',
     siteName: 'SlotWatch',
     locale: 'en_US',
     type: 'website',
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'SlotWatch — Tesla Service Appointment Alerts',
     description:
-      'Stop refreshing the scheduling page. SlotWatch watches for open slots and texts you instantly.',
+      'Stop refreshing the scheduling page. SlotWatch watches your service center and emails you the moment an earlier slot opens.',
   },
   robots: {
     index: true,
@@ -38,7 +38,8 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#080808" />
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23e31937'/><text y='.9em' x='50%' text-anchor='middle' font-size='60' font-family='system-ui' fill='white'>S</text></svg>" />
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='9' fill='%23e31937'/><circle cx='15' cy='17' r='7.5' fill='none' stroke='white' stroke-width='2'/><path d='M15 17 L15 12.2' stroke='white' stroke-width='2' stroke-linecap='round'/><path d='M15 17 L18.6 18.9' stroke='white' stroke-width='2' stroke-linecap='round'/><circle cx='15' cy='17' r='1.4' fill='white'/><circle cx='24.5' cy='8.5' r='4' fill='%23e31937'/><circle cx='24.5' cy='8.5' r='2.6' fill='white'/></svg>" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       </head>
       <body>{children}</body>
     </html>

@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
+import { LogoMark } from '../../../components/Logo'
 
 export const metadata: Metadata = {
   title: 'Payment successful — SlotWatch',
@@ -18,18 +19,7 @@ export default function CheckoutSuccessPage() {
       padding: '40px 24px',
     }}>
       <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '64px' }}>
-        <span style={{
-          display: 'inline-flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          width: '28px',
-          height: '28px',
-          background: '#e31937',
-          borderRadius: '6px',
-          fontSize: '14px',
-          fontWeight: 800,
-          color: '#fff',
-        }}>S</span>
+        <LogoMark size={28} />
         <span style={{ color: '#f0f0f0', fontWeight: 600, fontSize: '0.9375rem' }}>SlotWatch</span>
       </Link>
 
@@ -61,9 +51,9 @@ export default function CheckoutSuccessPage() {
           You're all set
         </h1>
         <p style={{ color: '#6b6b6b', fontSize: '0.9375rem', lineHeight: 1.65, marginBottom: '36px' }}>
-          Payment confirmed. Connect your account to start watching for open slots.
+          Payment confirmed — we're now watching your service center. The moment an earlier appointment opens, we'll email you so you can grab it in the Tesla app.
         </p>
-        <Link href="/oauth" style={{
+        <Link href="/" style={{
           display: 'block',
           background: '#e31937',
           color: '#fff',
@@ -75,7 +65,7 @@ export default function CheckoutSuccessPage() {
           transition: 'opacity 0.15s',
           marginBottom: '12px',
         }}>
-          Connect your account
+          Done
         </Link>
         <Link href="/" style={{
           display: 'block',

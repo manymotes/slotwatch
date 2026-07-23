@@ -54,7 +54,7 @@
   <text x="299" y="476" font-family="system-ui,-apple-system,sans-serif" font-size="13" font-weight="500" fill="#aaaaaa" text-anchor="middle" letter-spacing="0.04em">All Locations</text>
 
   <rect x="378" y="456" width="150" height="32" rx="16" fill="#1a1a1a" stroke="#2e2e2e" stroke-width="1"/>
-  <text x="453" y="476" font-family="system-ui,-apple-system,sans-serif" font-size="13" font-weight="500" fill="#aaaaaa" text-anchor="middle" letter-spacing="0.04em">Free to Use</text>
+  <text x="453" y="476" font-family="system-ui,-apple-system,sans-serif" font-size="13" font-weight="500" fill="#aaaaaa" text-anchor="middle" letter-spacing="0.04em">$9.99 / month</text>
 
   <!-- Right side: large clock mark -->
   <!-- Clock outer ring - large, centered on right half -->
@@ -128,5 +128,5 @@
     font-size="15"
     fill="#3d3d3d"
     letter-spacing="0.06em"
-  >slotwatch.app</text>
+  >slotwatcher.app</text>
 </svg>
