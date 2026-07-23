@@ -35,10 +35,10 @@ export async function generateMetadata({
     openGraph: {
       title,
       description,
-      url: `https://slotwatch.app/${data.slug}`,
+      url: `https://slotwatcher.app/${data.slug}`,
     },
     alternates: {
-      canonical: `https://slotwatch.app/${data.slug}`,
+      canonical: `https://slotwatcher.app/${data.slug}`,
     },
   }
 }
@@ -63,7 +63,7 @@ export default function CenterPage({ params }: { params: { center: string } }) {
       priceCurrency: 'USD',
     },
     description: `SlotWatch monitors Tesla Service Center appointment availability in ${data.city}, ${data.stateAbbr} and sends instant alerts when a cancellation slot opens.`,
-    url: `https://slotwatch.app/${data.slug}`,
+    url: `https://slotwatcher.app/${data.slug}`,
     areaServed: {
       '@type': 'City',
       name: data.city,
