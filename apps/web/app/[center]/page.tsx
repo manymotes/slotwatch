@@ -105,6 +105,19 @@ export default function CenterPage({ params }: { params: { center: string } }) {
     },
   ]
 
+  const faqSchemaJson = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: localFaqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a,
+      },
+    })),
+  })
+
   const alertTypes = [
     {
       label: 'Cancellation slots',
@@ -134,6 +147,10 @@ export default function CenterPage({ params }: { params: { center: string } }) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: schemaJson }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: faqSchemaJson }}
       />
 
       {/* Nav */}
