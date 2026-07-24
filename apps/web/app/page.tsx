@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useState, useRef, FormEvent } from 'react'
 import { Logo, LogoMark } from '../components/Logo'
+import CheckEarliest from '../components/CheckEarliest'
 
 // ── Icons (inline SVG, no external deps) ──────────────────────────────────────
 
@@ -298,6 +299,9 @@ export default function HomePage() {
         <div style={{ maxWidth: '1120px', margin: '0 auto', padding: '0 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '56px' }}>
           <Logo size={28} />
           <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+            <Link href="/how-it-works" style={{ color: '#8a8a8a', textDecoration: 'none', fontSize: '0.875rem', transition: 'color 0.15s' }}>
+              How it works
+            </Link>
             <Link href="/#pricing" style={{ color: '#8a8a8a', textDecoration: 'none', fontSize: '0.875rem', transition: 'color 0.15s' }}>
               Pricing
             </Link>
@@ -382,8 +386,13 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── Free check tool (lead magnet) ── */}
+      <section style={{ maxWidth: '1120px', margin: '0 auto', padding: '8px 24px 8px' }}>
+        <CheckEarliest />
+      </section>
+
       {/* ── Divider ── */}
-      <div style={{ maxWidth: '1120px', margin: '0 auto', padding: '0 24px' }}>
+      <div style={{ maxWidth: '1120px', margin: '0 auto', padding: '48px 24px 0' }}>
         <div style={{ height: '1px', background: '#1a1a1a' }} />
       </div>
 
@@ -606,8 +615,11 @@ export default function HomePage() {
           <span style={{ color: '#3a3a3a', fontSize: '0.8125rem' }}>SlotWatch</span>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '24px', flexWrap: 'wrap' }}>
+          <Link href="/how-it-works" style={{ color: '#3a3a3a', textDecoration: 'none', fontSize: '0.8125rem' }}>How it works</Link>
           <Link href="/login" style={{ color: '#3a3a3a', textDecoration: 'none', fontSize: '0.8125rem' }}>Log in</Link>
           <Link href="/contact" style={{ color: '#3a3a3a', textDecoration: 'none', fontSize: '0.8125rem' }}>Contact</Link>
+          <Link href="/terms" style={{ color: '#3a3a3a', textDecoration: 'none', fontSize: '0.8125rem' }}>Terms</Link>
+          <Link href="/privacy" style={{ color: '#3a3a3a', textDecoration: 'none', fontSize: '0.8125rem' }}>Privacy</Link>
           <a href="https://github.com/manymotes/slotwatch" style={{
             color: '#3a3a3a',
             textDecoration: 'none',

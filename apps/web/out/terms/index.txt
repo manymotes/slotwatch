@@ -1,0 +1,71 @@
+2:I[6340,["340","static/chunks/340-4f382c82366a5b7b.js","571","static/chunks/app/terms/page-e9de997009107714.js"],""]
+4:I[5092,[],""]
+5:I[2023,[],""]
+3:T1c51,<h1>SlotWatch Terms of Service</h1>
+<p><em>This is a starting template only. Please have it reviewed by qualified legal counsel before you rely on it.</em></p>
+<p><strong>Last updated: 2026-07-24</strong></p>
+<p>Welcome to SlotWatch. These Terms of Service (&quot;Terms&quot;) are an agreement between you and SlotWatch (&quot;SlotWatch,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) covering your use of the SlotWatch website and service at slotwatcher.app (the &quot;Service&quot;). By creating an account or using the Service, you agree to these Terms. If you don&#39;t agree, please don&#39;t use the Service.</p>
+<h2>1. What SlotWatch does</h2>
+<p>SlotWatch monitors publicly available appointment availability at U.S. Tesla service centers you select and sends you an email when an earlier appointment slot appears. When you get an alert, you reschedule the appointment yourself in the Tesla app. Key points about how the Service works:</p>
+<ul>
+<li>We send <strong>email alerts only</strong>. We do not send text messages (SMS).</li>
+<li>We check for openings <strong>roughly every 15 minutes</strong>. This is approximate and may vary.</li>
+<li>You can watch <strong>up to 3 U.S. Tesla service centers</strong> on a standard subscription.</li>
+<li>We monitor real U.S. Tesla service centers based on the information available to us.</li>
+</ul>
+<h2>2. We are independent and do not touch your Tesla account</h2>
+<p>SlotWatch is an independent service. We are <strong>not affiliated with, endorsed by, sponsored by, or connected to Tesla, Inc.</strong> &quot;Tesla&quot; is a trademark of Tesla, Inc., and we use it only to describe what the Service does.</p>
+<p>We <strong>do not require, ask for, or store your Tesla login credentials</strong>, and we do not access, log into, or make changes to your Tesla account. All rescheduling happens directly between you and Tesla in the Tesla app.</p>
+<h2>3. Your account and email accuracy</h2>
+<p>To use the Service, you create an account with a valid email address. Because our alerts are delivered by email, it&#39;s your responsibility to:</p>
+<ul>
+<li>Provide an accurate, working email address.</li>
+<li>Keep your account and email information up to date.</li>
+<li>Make sure our emails aren&#39;t blocked or filtered out (for example, check spam settings).</li>
+</ul>
+<p>You&#39;re responsible for activity that happens under your account. Please keep your login secure and let us know if you think someone else is using it.</p>
+<h2>4. Subscription and billing</h2>
+<p>The Service costs <strong>$9.99 per month</strong>, billed through our payment processor, <strong>Stripe</strong>. By subscribing, you agree that:</p>
+<ul>
+<li>Your subscription <strong>auto-renews each month</strong> and your card is charged $9.99 until you cancel.</li>
+<li>You can <strong>cancel anytime</strong> from your account dashboard. Cancellation stops future renewals; it takes effect at the end of your current billing period, and you keep access until then.</li>
+<li>We generally <strong>don&#39;t provide prorated refunds</strong> for the current billing period, though we&#39;re happy to hear you out if something went wrong — just email us.</li>
+<li>Payment details are handled by Stripe under Stripe&#39;s own terms and privacy policy. We don&#39;t store your full card number.</li>
+</ul>
+<p>If we change the price, we&#39;ll give you advance notice before the new price applies, and you can cancel if you don&#39;t want to continue.</p>
+<h2>5. Service provided &quot;as is&quot; — no guarantee of a slot</h2>
+<p>We built SlotWatch to help, but we can&#39;t promise results. <strong>The Service is provided &quot;as is&quot; and &quot;as available,&quot; without warranties of any kind, whether express or implied.</strong></p>
+<p>In particular, we <strong>do not warrant or guarantee</strong> that:</p>
+<ul>
+<li>An earlier appointment slot will ever appear at the service centers you&#39;re watching.</li>
+<li>If a slot appears, you&#39;ll be able to book it before someone else does.</li>
+<li>Every opening will be detected, or that alerts will always be sent, accurate, complete, or on time.</li>
+<li>The Service will be uninterrupted, error-free, or always available.</li>
+</ul>
+<p>Earlier slots typically open up only when other customers cancel, which is outside our control. Tesla can also change its systems or availability at any time, which may affect or interrupt the Service.</p>
+<h2>6. Acceptable use</h2>
+<p>Please use the Service fairly and lawfully. You agree not to:</p>
+<ul>
+<li>Break any law or infringe anyone&#39;s rights while using the Service.</li>
+<li>Resell, redistribute, or share access to the Service without our permission.</li>
+<li>Attempt to disrupt, overload, hack, or reverse-engineer the Service (this doesn&#39;t limit your rights under the open-source self-host option described below).</li>
+<li>Use the Service to send spam or harass anyone.</li>
+<li>Misrepresent your identity or use someone else&#39;s account without permission.</li>
+</ul>
+<p>We may suspend or limit accounts that we reasonably believe are misusing the Service.</p>
+<h2>7. Self-hosting (open source)</h2>
+<p>We offer an open-source, self-host version of SlotWatch on GitHub. That code is provided under its own open-source license, and these Terms govern the hosted subscription service at slotwatcher.app — not your own self-hosted copy.</p>
+<h2>8. Limitation of liability</h2>
+<p>To the fullest extent allowed by law, SlotWatch and its owners will not be liable for any indirect, incidental, special, or consequential damages, or for any lost appointments, missed slots, lost time, or lost savings, arising out of or related to your use of (or inability to use) the Service.</p>
+<p>If we&#39;re found liable for anything despite the above, our <strong>total liability to you is limited to the amount you paid us in the 12 months before the claim</strong> (or $9.99 if you hadn&#39;t paid anything). Some jurisdictions don&#39;t allow certain limitations, so parts of this section may not apply to you.</p>
+<h2>9. Termination</h2>
+<p>You can stop using the Service and cancel your subscription anytime from your account dashboard. We may suspend or end your access if you violate these Terms or if we stop offering the Service. If we discontinue the Service, we&#39;ll try to give reasonable notice. On termination, your right to use the Service ends, and any subscription will not renew.</p>
+<h2>10. Changes to these Terms</h2>
+<p>We may update these Terms from time to time. If we make a meaningful change, we&#39;ll update the &quot;Last updated&quot; date above and, where appropriate, let you know by email or a notice on the site. Continuing to use the Service after a change means you accept the updated Terms.</p>
+<h2>11. Governing law</h2>
+<p>These Terms are governed by the laws of the State of <strong>[State]</strong>, without regard to its conflict-of-laws rules. Any disputes will be handled in the courts located in <strong>[State]</strong>, unless the law requires otherwise.</p>
+<h2>12. Contact</h2>
+<p>Questions about these Terms? Email us at <strong><a href="mailto:hello@slotwatcher.app">hello@slotwatcher.app</a></strong> and we&#39;ll be glad to help.</p>
+0:["_pjBx5e8DjjV2YDx0dQGr",[[["",{"children":["terms",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",true],["",{"children":["terms",{"children":["__PAGE__",{},[["$L1",["$","div",null,{"style":{"minHeight":"100vh","background":"#080808"},"children":[["$","nav",null,{"style":{"borderBottom":"1px solid #1a1a1a"},"children":["$","div",null,{"style":{"maxWidth":"1120px","margin":"0 auto","padding":"0 24px","display":"flex","alignItems":"center","height":"56px"},"children":["$","$L2",null,{"href":"/","style":{"textDecoration":"none","display":"flex","alignItems":"center","gap":"8px"},"children":[["$","svg",null,{"width":28,"height":28,"viewBox":"0 0 32 32","fill":"none","xmlns":"http://www.w3.org/2000/svg","style":{"display":"block","borderRadius":7.840000000000001,"flexShrink":0},"aria-hidden":"true","children":[["$","rect",null,{"width":"32","height":"32","rx":"9","fill":"#e31937"}],["$","circle",null,{"cx":"15","cy":"17","r":"7.5","stroke":"#ffffff","strokeWidth":"2"}],["$","path",null,{"d":"M15 17 L15 12.2","stroke":"#ffffff","strokeWidth":"2","strokeLinecap":"round"}],["$","path",null,{"d":"M15 17 L18.6 18.9","stroke":"#ffffff","strokeWidth":"2","strokeLinecap":"round"}],["$","circle",null,{"cx":"15","cy":"17","r":"1.4","fill":"#ffffff"}],["$","circle",null,{"cx":"24.5","cy":"8.5","r":"4","fill":"#e31937"}],["$","circle",null,{"cx":"24.5","cy":"8.5","r":"2.6","fill":"#ffffff"}]]}],["$","span",null,{"style":{"color":"#f0f0f0","fontWeight":600,"fontSize":"0.9375rem","letterSpacing":"-0.01em"},"children":"SlotWatch"}]]}]}]}],["$","section",null,{"style":{"maxWidth":"760px","margin":"0 auto","padding":"56px 24px 96px"},"children":["$","div",null,{"className":"prose","dangerouslySetInnerHTML":{"__html":"$3"}}]}]]}],null],null],null]},[null,["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children","terms","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined"}]],null]},[[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/3533575bd92c57de.css","precedence":"next","crossOrigin":"$undefined"}]],["$","html",null,{"lang":"en","children":[["$","head",null,{"children":[["$","meta",null,{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta",null,{"name":"theme-color","content":"#080808"}],["$","link",null,{"rel":"icon","href":"data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='9' fill='%23e31937'/><circle cx='15' cy='17' r='7.5' fill='none' stroke='white' stroke-width='2'/><path d='M15 17 L15 12.2' stroke='white' stroke-width='2' stroke-linecap='round'/><path d='M15 17 L18.6 18.9' stroke='white' stroke-width='2' stroke-linecap='round'/><circle cx='15' cy='17' r='1.4' fill='white'/><circle cx='24.5' cy='8.5' r='4' fill='%23e31937'/><circle cx='24.5' cy='8.5' r='2.6' fill='white'/></svg>"}],["$","link",null,{"rel":"icon","type":"image/svg+xml","href":"/favicon.svg"}]]}],["$","body",null,{"children":["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":["$","div",null,{"style":{"minHeight":"100vh","background":"#080808","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center","padding":"40px 24px","textAlign":"center"},"children":[["$","p",null,{"style":{"fontSize":"0.75rem","fontWeight":700,"letterSpacing":"0.14em","textTransform":"uppercase","color":"#3a3a3a","marginBottom":"20px"},"children":"404"}],["$","h1",null,{"style":{"fontSize":"2rem","fontWeight":800,"color":"#f0f0f0","letterSpacing":"-0.03em","marginBottom":"12px"},"children":"Page not found"}],["$","p",null,{"style":{"color":"#6b6b6b","fontSize":"0.9375rem","marginBottom":"36px"},"children":"That page doesn't exist."}],["$","$L2",null,{"href":"/","style":{"background":"#e31937","color":"#fff","textDecoration":"none","fontWeight":700,"fontSize":"0.9375rem","padding":"12px 24px","borderRadius":"7px"},"children":"Back to home"}]]}],"notFoundStyles":[]}]}]]}]],null],null],["$L6",null]]]]
+6:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"Terms of Service — SlotWatch"}],["$","meta","3",{"name":"description","content":"SlotWatch Terms of Service."}],["$","meta","4",{"name":"robots","content":"index, follow"}],["$","meta","5",{"name":"googlebot","content":"index, follow"}],["$","link","6",{"rel":"canonical","href":"https://slotwatcher.app/terms/"}],["$","meta","7",{"property":"og:title","content":"SlotWatch — Tesla Service Appointment Alerts"}],["$","meta","8",{"property":"og:description","content":"Stop refreshing the scheduling page. SlotWatch watches your service center and emails you the moment an earlier slot opens."}],["$","meta","9",{"property":"og:url","content":"https://slotwatcher.app/"}],["$","meta","10",{"property":"og:site_name","content":"SlotWatch"}],["$","meta","11",{"property":"og:locale","content":"en_US"}],["$","meta","12",{"property":"og:image","content":"https://slotwatcher.app/og-image.png"}],["$","meta","13",{"property":"og:image:width","content":"1200"}],["$","meta","14",{"property":"og:image:height","content":"630"}],["$","meta","15",{"property":"og:image:alt","content":"SlotWatch — Tesla Service Appointment Alerts"}],["$","meta","16",{"property":"og:type","content":"website"}],["$","meta","17",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","18",{"name":"twitter:title","content":"SlotWatch — Tesla Service Appointment Alerts"}],["$","meta","19",{"name":"twitter:description","content":"Stop refreshing the scheduling page. SlotWatch watches your service center and emails you the moment an earlier slot opens."}],["$","meta","20",{"name":"twitter:image","content":"https://slotwatcher.app/og-image.png"}]]
+1:null

@@ -76,3 +76,18 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Prose styling for legal/guide pages (rendered from markdown) */
+.prose { color: #c8c8c8; font-size: 1rem; line-height: 1.7; max-width: 720px; }
+.prose h1 { color: #f0f0f0; font-size: 2rem; font-weight: 800; letter-spacing: -0.03em; margin: 0 0 20px; }
+.prose h2 { color: #f0f0f0; font-size: 1.35rem; font-weight: 700; letter-spacing: -0.02em; margin: 36px 0 12px; }
+.prose h3 { color: #f0f0f0; font-size: 1.1rem; font-weight: 600; margin: 24px 0 8px; }
+.prose p { margin: 0 0 16px; }
+.prose ul, .prose ol { margin: 0 0 16px; padding-left: 22px; }
+.prose li { margin: 6px 0; }
+.prose a { color: #e5556f; text-decoration: none; }
+.prose a:hover { text-decoration: underline; }
+.prose strong { color: #f0f0f0; font-weight: 600; }
+.prose em { color: #9a9a9a; }
+.prose hr { border: none; border-top: 1px solid #1f1f1f; margin: 28px 0; }
+.prose code { background: #1a1a1a; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }

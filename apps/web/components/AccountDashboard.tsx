@@ -22,6 +22,16 @@ function tokenHeader(): Record<string, string> {
   return t ? { Authorization: `Bearer ${t}` } : {}
 }
 
+function relTime(iso: string): string {
+  const secs = Math.max(0, Math.floor((Date.now() - new Date(iso).getTime()) / 1000))
+  if (secs < 90) return 'just now'
+  const mins = Math.floor(secs / 60)
+  if (mins < 60) return `${mins} min ago`
+  const hrs = Math.floor(mins / 60)
+  if (hrs < 24) return `${hrs} hr${hrs > 1 ? 's' : ''} ago`
+  return `${Math.floor(hrs / 24)} day(s) ago`
+}
+
 export default function AccountDashboard() {
   const [loading, setLoading] = useState(true)
   const [email, setEmail] = useState('')
@@ -35,6 +45,7 @@ export default function AccountDashboard() {
   const [busy, setBusy] = useState<string | null>(null)
   const [msg, setMsg] = useState('')
   const [err, setErr] = useState('')
+  const [lastChecked, setLastChecked] = useState('')
 
   useEffect(() => {
     if (typeof window !== 'undefined' && !localStorage.getItem('sw_token')) { window.location.href = '/login/'; return }
@@ -50,7 +61,7 @@ export default function AccountDashboard() {
       if (!d.ok) throw new Error(d.error || 'Could not load account')
       setEmail(d.email || ''); setStatus(d.status || '')
       setPicked((d.centers || []).map((c: Center) => ({ trtId: c.trtId, name: c.name })))
-      setFrom(d.dateFrom || ''); setTo(d.dateTo || '')
+      setFrom(d.dateFrom || ''); setTo(d.dateTo || ''); setLastChecked(d.lastChecked || '')
     } catch (e: unknown) { setErr(e instanceof Error ? e.message : 'Could not load account') }
     finally { setLoading(false) }
   }
@@ -146,7 +157,13 @@ export default function AccountDashboard() {
         </div>
       )}
 
-      <h2 style={{ fontSize: '1.0625rem', color: '#f0f0f0', marginTop: '28px', marginBottom: 0 }}>Centers you&rsquo;re watching <span style={{ color: '#5a5a5a', fontWeight: 400 }}>({picked.length}/{MAX})</span></h2>
+      {active && lastChecked && (
+        <p style={{ color: '#4ade80', fontSize: '0.8125rem', marginTop: '18px', marginBottom: 0 }}>
+          ● Watching now — last checked {relTime(lastChecked)}. We email you the moment an earlier slot opens.
+        </p>
+      )}
+
+      <h2 style={{ fontSize: '1.0625rem', color: '#f0f0f0', marginTop: '20px', marginBottom: 0 }}>Centers you&rsquo;re watching <span style={{ color: '#5a5a5a', fontWeight: 400 }}>({picked.length}/{MAX})</span></h2>
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '12px' }}>
         {picked.length === 0 && <p style={{ color: '#5a5a5a', fontSize: '0.875rem' }}>No centers yet — add one below.</p>}
         {picked.map((c) => (
