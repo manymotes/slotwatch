@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   description:
     'SlotWatch monitors Tesla service centers for earlier appointment openings and emails you the moment one appears. No Tesla login required.',
   metadataBase: new URL('https://slotwatcher.app'),
+  alternates: {
+    canonical: 'https://slotwatcher.app',
+  },
   openGraph: {
     title: 'SlotWatch — Tesla Service Appointment Alerts',
     description:

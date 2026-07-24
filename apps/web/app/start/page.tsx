@@ -6,6 +6,9 @@ import { Logo } from '../../components/Logo'
 export const metadata: Metadata = {
   title: 'Start watching — SlotWatch',
   description: 'Pick your Tesla service center and get emailed when an earlier appointment opens. No Tesla login required.',
+  alternates: {
+    canonical: 'https://slotwatcher.app/start',
+  },
 }
 
 export default function StartPage() {

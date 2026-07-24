@@ -5,6 +5,9 @@ import { LogoMark } from '../../../components/Logo'
 export const metadata: Metadata = {
   title: 'Payment successful — SlotWatch',
   robots: { index: false },
+  alternates: {
+    canonical: 'https://slotwatcher.app/checkout/success',
+  },
 }
 
 export default function CheckoutSuccessPage() {
