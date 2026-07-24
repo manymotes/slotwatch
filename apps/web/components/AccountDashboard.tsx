@@ -91,6 +91,19 @@ export default function AccountDashboard() {
     finally { setBusy(null) }
   }
 
+  async function reactivate() {
+    if (!confirm('Reactivate SlotWatch? $9.99/mo will be charged to the card on file.')) return
+    setBusy('reactivate'); setErr(''); setMsg('')
+    try {
+      const r = await fetch(`${API}/api/reactivate`, { method: 'POST', headers: tokenHeader() })
+      const d = await r.json()
+      if (!d.ok) throw new Error(d.error || 'Could not reactivate')
+      if (d.checkoutUrl) { window.location.href = d.checkoutUrl; return } // no saved card → hosted checkout
+      setStatus('active'); setMsg('Reactivated — your watches are running again.')
+    } catch (e: unknown) { setErr(e instanceof Error ? e.message : 'Could not reactivate') }
+    finally { setBusy(null) }
+  }
+
   async function cancelSub() {
     if (!confirm('Cancel your SlotWatch subscription? Your watches will stop.')) return
     setBusy('cancel'); setErr(''); setMsg('')
@@ -121,9 +134,16 @@ export default function AccountDashboard() {
       </div>
 
       {!active && (
-        <p style={{ background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)', color: '#f87171', borderRadius: '8px', padding: '12px 14px', fontSize: '0.875rem', marginTop: '18px' }}>
-          Your subscription isn&rsquo;t active, so watches are paused. <a href="/start/" style={{ color: '#f87171', fontWeight: 700 }}>Reactivate →</a>
-        </p>
+        <div style={{ background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)', borderRadius: '10px', padding: '16px 18px', marginTop: '18px' }}>
+          <p style={{ color: '#f87171', fontSize: '0.9375rem', fontWeight: 600, margin: '0 0 4px' }}>Your watches are paused</p>
+          <p style={{ color: '#c58a8a', fontSize: '0.8125rem', margin: '0 0 14px', lineHeight: 1.5 }}>
+            Your subscription isn&rsquo;t active. Reactivate to resume alerts — $9.99/mo, billed to your card on file.
+          </p>
+          <button onClick={() => void reactivate()} disabled={busy === 'reactivate'}
+            style={{ ...btn('#e31937'), width: '100%' }}>
+            {busy === 'reactivate' ? 'Reactivating…' : 'Reactivate SlotWatch — $9.99/mo'}
+          </button>
+        </div>
       )}
 
       <h2 style={{ fontSize: '1.0625rem', color: '#f0f0f0', marginTop: '28px', marginBottom: 0 }}>Centers you&rsquo;re watching <span style={{ color: '#5a5a5a', fontWeight: 400 }}>({picked.length}/{MAX})</span></h2>
