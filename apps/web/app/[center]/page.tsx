@@ -36,6 +36,14 @@ export async function generateMetadata({
       title,
       description,
       url: `https://slotwatcher.app/${data.slug}`,
+      images: [
+        {
+          url: 'https://slotwatcher.app/og-image.png',
+          width: 1200,
+          height: 630,
+          alt: 'SlotWatch — Tesla Service Appointment Alerts',
+        },
+      ],
     },
     alternates: {
       canonical: `https://slotwatcher.app/${data.slug}`,

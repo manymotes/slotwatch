@@ -17,12 +17,21 @@ export const metadata: Metadata = {
     siteName: 'SlotWatch',
     locale: 'en_US',
     type: 'website',
+    images: [
+      {
+        url: 'https://slotwatcher.app/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'SlotWatch — Tesla Service Appointment Alerts',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'SlotWatch — Tesla Service Appointment Alerts',
     description:
       'Stop refreshing the scheduling page. SlotWatch watches your service center and emails you the moment an earlier slot opens.',
+    images: ['https://slotwatcher.app/og-image.png'],
   },
   robots: {
     index: true,
