@@ -301,6 +301,9 @@ export default function HomePage() {
             <Link href="/#pricing" style={{ color: '#8a8a8a', textDecoration: 'none', fontSize: '0.875rem', transition: 'color 0.15s' }}>
               Pricing
             </Link>
+            <Link href="/login" style={{ color: '#8a8a8a', textDecoration: 'none', fontSize: '0.875rem', transition: 'color 0.15s' }}>
+              Log in
+            </Link>
             <a href="https://github.com/manymotes/slotwatch" style={{ color: '#8a8a8a', textDecoration: 'none', fontSize: '0.875rem', display: 'flex', alignItems: 'center', gap: '6px', transition: 'color 0.15s' }}>
               <IconGithub />
               <span style={{ display: 'none' }}>GitHub</span>
@@ -603,6 +606,8 @@ export default function HomePage() {
           <span style={{ color: '#3a3a3a', fontSize: '0.8125rem' }}>SlotWatch</span>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '24px', flexWrap: 'wrap' }}>
+          <Link href="/login" style={{ color: '#3a3a3a', textDecoration: 'none', fontSize: '0.8125rem' }}>Log in</Link>
+          <Link href="/contact" style={{ color: '#3a3a3a', textDecoration: 'none', fontSize: '0.8125rem' }}>Contact</Link>
           <a href="https://github.com/manymotes/slotwatch" style={{
             color: '#3a3a3a',
             textDecoration: 'none',
