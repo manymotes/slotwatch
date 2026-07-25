@@ -67,7 +67,7 @@ export default function CenterPage({ params }: { params: { center: string } }) {
     operatingSystem: 'Web',
     offers: {
       '@type': 'Offer',
-      price: '9.99',
+      price: '24.00',
       priceCurrency: 'USD',
     },
     description: `SlotWatch monitors Tesla Service Center appointment availability in ${data.city}, ${data.stateAbbr} and sends instant alerts when a cancellation slot opens.`,
@@ -101,7 +101,7 @@ export default function CenterPage({ params }: { params: { center: string } }) {
     },
     {
       q: 'Is there a free option?',
-      a: 'The self-hosted version on GitHub is completely free and open source. The managed Pro plan is $9.99/mo — no annual contract, cancel any time from your account dashboard.',
+      a: 'The self-hosted version on GitHub is completely free and open source. The managed plan is a one-time $24 for a 60-day watch of up to 3 centers, with a money-back guarantee if no earlier slot opens — no subscription. If you need longer, you can keep watching for $6.99/mo.',
     },
   ]
 
@@ -290,7 +290,7 @@ export default function CenterPage({ params }: { params: { center: string } }) {
               </button>
             </form>
             <p style={{ fontSize: '0.75rem', color: '#3a3a3a', marginTop: '10px' }}>
-              $9.99/mo after free trial — cancel anytime.
+              $24 one-time · 60-day watch · money-back guarantee
             </p>
           </div>
 
@@ -510,7 +510,7 @@ export default function CenterPage({ params }: { params: { center: string } }) {
               Stop waiting for a {data.city} Tesla appointment.
             </h2>
             <p style={{ color: '#6b6b6b', fontSize: '0.9375rem' }}>
-              $9.99/mo. No contracts. Cancel anytime.
+              $24 one-time · money-back guarantee · no subscription
             </p>
           </div>
           <Link href={`/start?city=${encodeURIComponent(`${data.city}, ${data.stateAbbr}`)}`} style={{

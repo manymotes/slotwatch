@@ -46,6 +46,8 @@ export default function AccountDashboard() {
   const [msg, setMsg] = useState('')
   const [err, setErr] = useState('')
   const [lastChecked, setLastChecked] = useState('')
+  const [daysLeft, setDaysLeft] = useState<number | null>(null)
+  const [plan, setPlan] = useState('')
 
   useEffect(() => {
     if (typeof window !== 'undefined' && !localStorage.getItem('sw_token')) { window.location.href = '/login/'; return }
@@ -62,6 +64,7 @@ export default function AccountDashboard() {
       setEmail(d.email || ''); setStatus(d.status || '')
       setPicked((d.centers || []).map((c: Center) => ({ trtId: c.trtId, name: c.name })))
       setFrom(d.dateFrom || ''); setTo(d.dateTo || ''); setLastChecked(d.lastChecked || '')
+      setDaysLeft(d.daysLeft ?? null); setPlan(d.plan || '')
     } catch (e: unknown) { setErr(e instanceof Error ? e.message : 'Could not load account') }
     finally { setLoading(false) }
   }
@@ -103,7 +106,7 @@ export default function AccountDashboard() {
   }
 
   async function reactivate() {
-    if (!confirm('Reactivate SlotWatch? $9.99/mo will be charged to the card on file.')) return
+    if (!confirm('Keep watching for $6.99/mo? Your card on file will be charged. Cancel anytime.')) return
     setBusy('reactivate'); setErr(''); setMsg('')
     try {
       const r = await fetch(`${API}/api/reactivate`, { method: 'POST', headers: tokenHeader() })
@@ -146,21 +149,33 @@ export default function AccountDashboard() {
 
       {!active && (
         <div style={{ background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)', borderRadius: '10px', padding: '16px 18px', marginTop: '18px' }}>
-          <p style={{ color: '#f87171', fontSize: '0.9375rem', fontWeight: 600, margin: '0 0 4px' }}>Your watches are paused</p>
+          <p style={{ color: '#f87171', fontSize: '0.9375rem', fontWeight: 600, margin: '0 0 4px' }}>Your watch has ended</p>
           <p style={{ color: '#c58a8a', fontSize: '0.8125rem', margin: '0 0 14px', lineHeight: 1.5 }}>
-            Your subscription isn&rsquo;t active. Reactivate to resume alerts — $9.99/mo, billed to your card on file.
+            Your 60-day watch is over. Keep watching for $6.99/mo — billed to your card on file, cancel anytime.
           </p>
           <button onClick={() => void reactivate()} disabled={busy === 'reactivate'}
             style={{ ...btn('#e31937'), width: '100%' }}>
-            {busy === 'reactivate' ? 'Reactivating…' : 'Reactivate SlotWatch — $9.99/mo'}
+            {busy === 'reactivate' ? 'Starting…' : 'Keep watching — $6.99/mo'}
           </button>
         </div>
       )}
 
-      {active && lastChecked && (
-        <p style={{ color: '#4ade80', fontSize: '0.8125rem', marginTop: '18px', marginBottom: 0 }}>
-          ● Watching now — last checked {relTime(lastChecked)}. We email you the moment an earlier slot opens.
-        </p>
+      {active && (
+        <>
+          {lastChecked && (
+            <p style={{ color: '#4ade80', fontSize: '0.8125rem', marginTop: '18px', marginBottom: 0 }}>
+              ● Watching now — last checked {relTime(lastChecked)}. We email you the moment an earlier slot opens.
+            </p>
+          )}
+          {daysLeft != null && (
+            <p style={{ color: '#8a8a8a', fontSize: '0.8125rem', marginTop: '6px', marginBottom: 0 }}>
+              One-time watch · <strong style={{ color: '#c8c8c8' }}>{daysLeft} day{daysLeft === 1 ? '' : 's'} left</strong>. No earlier slot in your window? Email hello@slotwatcher.app for a full refund.
+            </p>
+          )}
+          {plan === 'subscription' && (
+            <p style={{ color: '#8a8a8a', fontSize: '0.8125rem', marginTop: '6px', marginBottom: 0 }}>Continuation plan · $6.99/mo · cancel anytime below.</p>
+          )}
+        </>
       )}
 
       <h2 style={{ fontSize: '1.0625rem', color: '#f0f0f0', marginTop: '20px', marginBottom: 0 }}>Centers you&rsquo;re watching <span style={{ color: '#5a5a5a', fontWeight: 400 }}>({picked.length}/{MAX})</span></h2>
@@ -205,7 +220,7 @@ export default function AccountDashboard() {
       {msg && <p style={{ color: '#4ade80', fontSize: '0.875rem', marginTop: '12px' }}>{msg}</p>}
       {err && <p style={{ color: '#ef4444', fontSize: '0.875rem', marginTop: '12px' }}>{err}</p>}
 
-      {active && (
+      {active && plan === 'subscription' && (
         <div style={{ marginTop: '40px', paddingTop: '24px', borderTop: '1px solid #1a1a1a' }}>
           <button onClick={() => void cancelSub()} disabled={busy === 'cancel'}
             style={{ background: 'none', border: '1px solid #3a2222', color: '#f87171', borderRadius: '8px', padding: '10px 16px', cursor: 'pointer', fontSize: '0.875rem' }}>

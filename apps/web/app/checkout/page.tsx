@@ -133,11 +133,11 @@ export default function CheckoutPage() {
               gap: '4px',
               marginBottom: '8px',
             }}>
-              <span style={{ fontSize: '2.5rem', fontWeight: 800, color: '#f0f0f0', letterSpacing: '-0.03em' }}>$9.99</span>
-              <span style={{ color: '#6b6b6b', fontSize: '0.875rem' }}>/month</span>
+              <span style={{ fontSize: '2.5rem', fontWeight: 800, color: '#f0f0f0', letterSpacing: '-0.03em' }}>$24</span>
+              <span style={{ color: '#6b6b6b', fontSize: '0.875rem' }}>one-time</span>
             </div>
             <p style={{ color: '#6b6b6b', fontSize: '0.875rem', marginBottom: '32px' }}>
-              Cancel anytime. No annual contracts.
+              60-day watch · up to 3 centers · money-back guarantee if no earlier slot opens.
             </p>
             <button
               onClick={startCheckout}

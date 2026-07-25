@@ -47,7 +47,7 @@ export default function HowItWorksPage() {
         </div>
 
         <Link href="/start" style={{ display: 'inline-block', background: '#e31937', color: '#fff', textDecoration: 'none', fontWeight: 700, fontSize: '0.9375rem', padding: '13px 26px', borderRadius: '8px' }}>
-          Start watching — $9.99/mo →
+          Start watching — $24 →
         </Link>
       </section>
 

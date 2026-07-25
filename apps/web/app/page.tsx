@@ -236,8 +236,8 @@ const faqs: FAQItem[] = [
     a: 'No. You never connect your Tesla account, and we never ask for your login or password. You just tell us which service center to watch and where to email you. When an earlier opening appears, you reschedule it yourself in the Tesla app.',
   },
   {
-    q: 'What happens if I want to cancel?',
-    a: 'Cancel anytime. No annual contracts, no cancellation fees. Your subscription ends at the close of the current billing period.',
+    q: 'How does pricing work — is it a subscription?',
+    a: 'No subscription. It’s a one-time $24 for a 60-day watch of up to 3 service centers. If no earlier slot opens during those 60 days, email us for a full refund. If you want to keep watching after 60 days, you can optionally continue for $6.99/mo, cancel anytime.',
   },
   {
     q: 'Which service centers does SlotWatch watch?',
@@ -277,9 +277,9 @@ const freeFeatures = [
 const proFeatures = [
   'No Tesla login required',
   'Instant email alerts',
-  'Checks every 30 minutes',
-  'Watch multiple centers',
-  'Cancel anytime',
+  'Checks every 15 minutes',
+  'Watch up to 3 centers',
+  'Money-back guarantee',
 ]
 
 const organizationSchemaJson = JSON.stringify({
@@ -574,14 +574,14 @@ export default function HomePage() {
               color: '#e31937',
               marginBottom: '16px',
             }}>
-              Pro
+              Managed
             </p>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px', marginBottom: '8px' }}>
-              <span style={{ fontSize: '2.25rem', fontWeight: 800, color: '#f0f0f0', letterSpacing: '-0.03em' }}>$9.99</span>
-              <span style={{ fontSize: '0.875rem', color: '#6b6b6b' }}>/month</span>
+              <span style={{ fontSize: '2.25rem', fontWeight: 800, color: '#f0f0f0', letterSpacing: '-0.03em' }}>$24</span>
+              <span style={{ fontSize: '0.875rem', color: '#6b6b6b' }}>one-time</span>
             </div>
             <p style={{ fontSize: '0.875rem', color: '#6b6b6b', marginBottom: '32px' }}>
-              We run it for you
+              60-day watch · money-back guarantee · optional $6.99/mo to keep watching after
             </p>
             <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 32px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
               {proFeatures.map((f) => (
@@ -644,6 +644,7 @@ export default function HomePage() {
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '24px', flexWrap: 'wrap' }}>
           <Link href="/how-it-works" style={{ color: '#3a3a3a', textDecoration: 'none', fontSize: '0.8125rem' }}>How it works</Link>
+          <Link href="/guides/how-to-get-earlier-tesla-service-appointment" style={{ color: '#3a3a3a', textDecoration: 'none', fontSize: '0.8125rem' }}>Guide</Link>
           <Link href="/login" style={{ color: '#3a3a3a', textDecoration: 'none', fontSize: '0.8125rem' }}>Log in</Link>
           <Link href="/contact" style={{ color: '#3a3a3a', textDecoration: 'none', fontSize: '0.8125rem' }}>Contact</Link>
           <Link href="/terms" style={{ color: '#3a3a3a', textDecoration: 'none', fontSize: '0.8125rem' }}>Terms</Link>

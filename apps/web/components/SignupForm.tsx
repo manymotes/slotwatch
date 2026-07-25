@@ -128,10 +128,10 @@ export default function SignupForm() {
       )}
 
       <button style={{ ...btn('#e31937'), width: '100%', marginTop: '22px' }} disabled={!!busy} onClick={() => void submit()}>
-        {busy === 'go' ? 'Starting…' : 'Start watching — $9.99/mo →'}
+        {busy === 'go' ? 'Starting…' : 'Start watching — $24 →'}
       </button>
       <p style={{ color: '#5a5a5a', fontSize: '0.8125rem', marginTop: '10px', textAlign: 'center' }}>
-        Watch up to 3 centers · No Tesla login required · Cancel anytime.
+        One-time $24 · 60-day watch · up to 3 centers · money-back guarantee · no Tesla login
       </p>
       {err && <p style={{ color: '#ef4444', fontSize: '0.875rem', marginTop: '12px' }}>{err}</p>}
     </div>
