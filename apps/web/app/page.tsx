@@ -648,7 +648,7 @@ export default function HomePage() {
         <div style={{ display: 'flex', alignItems: 'center', gap: '24px', flexWrap: 'wrap' }}>
           <Link href="/how-it-works" style={{ color: '#3a3a3a', textDecoration: 'none', fontSize: '0.8125rem' }}>How it works</Link>
           <Link href="/guides" style={{ color: '#3a3a3a', textDecoration: 'none', fontSize: '0.8125rem' }}>Guides</Link>
-          <Link href="/guides/how-to-get-earlier-tesla-service-appointment" style={{ color: '#3a3a3a', textDecoration: 'none', fontSize: '0.8125rem' }}>Guide</Link>
+          <Link href="/guides/how-to-get-an-earlier-tesla-service-appointment" style={{ color: '#3a3a3a', textDecoration: 'none', fontSize: '0.8125rem' }}>Guide</Link>
           <Link href="/login" style={{ color: '#3a3a3a', textDecoration: 'none', fontSize: '0.8125rem' }}>Log in</Link>
           <Link href="/contact" style={{ color: '#3a3a3a', textDecoration: 'none', fontSize: '0.8125rem' }}>Contact</Link>
           <Link href="/terms" style={{ color: '#3a3a3a', textDecoration: 'none', fontSize: '0.8125rem' }}>Terms</Link>
