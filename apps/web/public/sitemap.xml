@@ -2,7 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://slotwatcher.app/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://slotwatcher.app/pricing/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://slotwatcher.app/guides/how-to-get-earlier-tesla-service-appointment/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://slotwatcher.app/akron-oh-tesla-service/</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
   <url><loc>https://slotwatcher.app/albany-ny-tesla-service/</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
   <url><loc>https://slotwatcher.app/albuquerque-tesla-service/</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
@@ -173,4 +172,11 @@
   <url><loc>https://slotwatcher.app/wichita-ks-tesla-service/</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
   <url><loc>https://slotwatcher.app/wilmington-de-tesla-service/</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
   <url><loc>https://slotwatcher.app/winston-salem-nc-tesla-service/</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+  <url><loc>https://slotwatcher.app/how-it-works/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://slotwatcher.app/guides/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://slotwatcher.app/guides/how-to-get-an-earlier-tesla-service-appointment/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://slotwatcher.app/guides/tesla-service-wait-times/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://slotwatcher.app/guides/tesla-service-cancellation-slots/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://slotwatcher.app/guides/how-to-reschedule-a-tesla-service-appointment/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://slotwatcher.app/contact/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
 </urlset>
