@@ -282,9 +282,37 @@ const proFeatures = [
   'Cancel anytime',
 ]
 
+const organizationSchemaJson = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'SlotWatch',
+  url: 'https://slotwatcher.app',
+  logo: 'https://slotwatcher.app/og-image.png',
+  description:
+    'SlotWatch monitors Tesla service centers for earlier appointment openings and emails you the moment one appears.',
+  sameAs: ['https://github.com/manymotes/slotwatch'],
+})
+
+const websiteSchemaJson = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'SlotWatch',
+  url: 'https://slotwatcher.app',
+})
+
 export default function HomePage() {
   return (
     <div style={{ minHeight: '100vh', background: '#080808' }}>
+
+      {/* Schema markup */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: organizationSchemaJson }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: websiteSchemaJson }}
+      />
 
       {/* ── Nav ── */}
       <nav style={{
