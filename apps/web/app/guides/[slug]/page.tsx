@@ -20,6 +20,23 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   }
 }
 
+function extractFaqs(md: string): { q: string; a: string }[] {
+  const lines = md.split('\n')
+  const start = lines.findIndex((l) => /^## (FAQ|Frequently asked questions)\s*$/i.test(l.trim()))
+  if (start === -1) return []
+  const faqs: { q: string; a: string }[] = []
+  for (let i = start + 1; i < lines.length; i++) {
+    const line = lines[i].trim()
+    if (line.startsWith('## ')) break
+    const q = line.match(/^\*\*(.+)\*\*$/)
+    if (q) {
+      const a = (lines[i + 1] || '').trim()
+      if (a && !a.startsWith('**')) faqs.push({ q: q[1], a })
+    }
+  }
+  return faqs
+}
+
 export default function GuidePage({ params }: { params: { slug: string } }) {
   const g = guideBySlug.get(params.slug)
   if (!g) notFound()
@@ -33,9 +50,23 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
     publisher: { '@type': 'Organization', name: 'SlotWatch', url: 'https://slotwatcher.app' },
   })
 
+  const faqs = extractFaqs(g.md)
+  const faqSchema = faqs.length
+    ? JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((faq) => ({
+          '@type': 'Question',
+          name: faq.q,
+          acceptedAnswer: { '@type': 'Answer', text: faq.a },
+        })),
+      })
+    : null
+
   return (
     <div style={{ minHeight: '100vh', background: '#080808' }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schema }} />
+      {faqSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: faqSchema }} />}
       <nav style={{ borderBottom: '1px solid #1a1a1a' }}>
         <div style={{ maxWidth: '1120px', margin: '0 auto', padding: '0 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '56px' }}>
           <Logo size={28} />
