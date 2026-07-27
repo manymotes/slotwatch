@@ -118,6 +118,25 @@ export default function CenterPage({ params }: { params: { center: string } }) {
     })),
   })
 
+  const breadcrumbSchemaJson = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://slotwatcher.app/',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: `${data.city}, ${data.stateAbbr}`,
+        item: `https://slotwatcher.app/${data.slug}`,
+      },
+    ],
+  })
+
   const alertTypes = [
     {
       label: 'Cancellation slots',
@@ -155,6 +174,10 @@ export default function CenterPage({ params }: { params: { center: string } }) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: faqSchemaJson }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: breadcrumbSchemaJson }}
       />
 
       {/* Nav */}
