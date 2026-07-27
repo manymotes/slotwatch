@@ -93,7 +93,7 @@ export default function CenterPage({ params }: { params: { center: string } }) {
     },
     {
       q: 'How quickly will I get the alert?',
-      a: 'SlotWatch checks availability every 30 minutes. When an earlier opening appears in your date range, we email you right away so you can reschedule in the Tesla app before it fills.',
+      a: 'SlotWatch checks availability roughly every 15 minutes. When an earlier opening appears in your date range, we email you right away so you can reschedule in the Tesla app before it fills.',
     },
     {
       q: 'Do I need to connect my Tesla account?',
@@ -125,7 +125,7 @@ export default function CenterPage({ params }: { params: { center: string } }) {
     },
     {
       label: 'Newly released dates',
-      detail: `Tesla periodically releases new appointment windows and cancellations open earlier slots. SlotWatch re-checks every 30 minutes and emails you when a sooner opening shows up.`,
+      detail: `Tesla periodically releases new appointment windows and cancellations open earlier slots. SlotWatch re-checks roughly every 15 minutes and emails you when a sooner opening shows up.`,
     },
     {
       label: 'Earlier-than-booked openings',

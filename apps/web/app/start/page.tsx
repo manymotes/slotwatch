@@ -25,7 +25,7 @@ export default function StartPage() {
           Start watching for an earlier slot
         </h1>
         <p style={{ color: '#8a8a8a', fontSize: '1rem', lineHeight: 1.6, marginBottom: '8px' }}>
-          Tell us your service center and email. We check every 30 minutes and email you the moment an earlier appointment opens — then you reschedule in the Tesla app.
+          Tell us your service center and email. We check roughly every 15 minutes and email you the moment an earlier appointment opens — then you reschedule in the Tesla app.
         </p>
         <SignupForm />
       </section>

@@ -245,7 +245,7 @@ const faqs: FAQItem[] = [
   },
   {
     q: 'How quickly will I be alerted?',
-    a: 'SlotWatch checks your service center every 30 minutes. When an earlier opening appears, we email you right away so you can jump into the Tesla app and grab it.',
+    a: 'SlotWatch checks your service center roughly every 15 minutes. When an earlier opening appears, we email you right away so you can jump into the Tesla app and grab it.',
   },
 ]
 
