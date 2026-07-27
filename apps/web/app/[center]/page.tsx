@@ -227,7 +227,7 @@ export default function CenterPage({ params }: { params: { center: string } }) {
             marginBottom: '36px',
             maxWidth: '520px',
           }}>
-            No refreshing the Tesla app. No checking at odd hours. Just a text when a real slot opens at a {data.landmark} service center.
+            No refreshing the Tesla app. No checking at odd hours. Just an email when a real slot opens at a {data.landmark} service center.
           </p>
 
           {/* Email CTA */}
