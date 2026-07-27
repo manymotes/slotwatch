@@ -120,7 +120,7 @@ Wait times are local, so start with your metro area. Each page below covers what
 - [Boston](/boston-tesla-service)
 - [Atlanta](/atlanta-tesla-service)
 
-Don't see your city yet? The strategies below work anywhere in the US.
+Don't see your city yet? Browse the [full list of Tesla service wait times by city](/cities) — we cover 170+ US metros, organized by state. The strategies below also work anywhere in the US.
 
 ## How to get seen sooner
 
