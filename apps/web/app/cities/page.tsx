@@ -43,7 +43,11 @@ export default function CitiesIndex() {
         </h1>
         <p style={{ color: '#8a8a8a', fontSize: '1.0625rem', lineHeight: 1.6, marginBottom: '48px', maxWidth: '640px' }}>
           SlotWatch tracks typical wait times and cancellation slots at {live.length} US Tesla service centers.
-          Find your city below, or read{' '}
+          Find your city below, see our{' '}
+          <Link href="/guides/tesla-service-wait-times" style={{ color: '#e31937', textDecoration: 'none' }}>
+            national wait-time breakdown
+          </Link>{' '}
+          for what drives the delays, or read{' '}
           <Link href="/guides/how-to-get-an-earlier-tesla-service-appointment" style={{ color: '#e31937', textDecoration: 'none' }}>
             how to get an earlier Tesla service appointment
           </Link>{' '}
