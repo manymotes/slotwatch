@@ -272,6 +272,70 @@ Rescheduling is easy. The hard part is catching an earlier slot before it's gone
 
 *SlotWatch is an independent service and is not affiliated with Tesla, Inc.*`,
   },
+  {
+    slug: "tesla-mobile-service-vs-service-center",
+    title: "Tesla Mobile Service vs. Service Center: Which Is Faster?",
+    description: "Tesla Mobile Service or an in-center appointment — which gets your car seen sooner? How Tesla decides, what each covers, and how to catch an earlier slot either way.",
+    md: `# Tesla Mobile Service vs. Service Center: Which Is Faster?
+
+When you book Tesla service in the app, you sometimes get a choice: a technician comes to you (Mobile Service), or you drive in to a service center. Other times the app only offers one option and doesn't explain why. If you're trying to get seen as soon as possible, it's worth understanding how the two differ and which one is likely to get you an earlier appointment.
+
+## What Tesla Mobile Service actually covers
+
+Mobile Service is a technician who comes to your home, office, or another location in a service van and works on your car where it's parked. It's built for jobs that don't need a lift, specialized equipment, or a multi-day bay. Common mobile-eligible work includes:
+
+- Tire rotations, tire replacements, and wiper blade or cabin air filter swaps
+- 12V battery replacement
+- Many software-related diagnostics and some recall or service campaign items
+- Minor trim, sensor, and small parts fixes that don't require disassembly
+
+## What still requires an in-center visit
+
+Anything that needs a lift, alignment rack, paint booth, or specialized diagnostic bay has to happen at a service center. That includes:
+
+- Collision and body repair, paint work, and glass replacement
+- Alignments and suspension work
+- Drivetrain, battery pack, or major powertrain repairs
+- Multi-day diagnostics or repairs that need the car on-site
+
+## So which one is faster?
+
+It depends on your issue, but two patterns hold up in practice:
+
+1. **If your issue qualifies for Mobile Service, it's often the quicker path.** Mobile technicians aren't competing for the same limited bays as in-center appointments, so their calendars can have earlier openings, especially for small, well-defined jobs like a 12V battery or a filter swap.
+2. **The Tesla app decides eligibility automatically based on what you describe.** You don't get to pick mobile vs. in-center as a preference; the app routes you based on your vehicle's symptoms and location. If mobile isn't offered, it's usually because the issue needs center equipment or the diagnosis isn't confirmed yet.
+
+Either way, the same underlying problem applies: whichever queue you land in, the first date the app shows is a snapshot. Both mobile and in-center calendars fill up, and both open earlier slots when other customers cancel or reschedule.
+
+## Getting seen sooner, whichever path you're on
+
+A few things help regardless of which service type you're booked into:
+
+- **Describe the issue precisely when you book**, so the app can correctly route you to mobile service if it qualifies, rather than defaulting you to a center visit that might be slower.
+- **Check back for earlier openings.** Cancellations happen on both mobile and in-center schedules. Reopen the reschedule screen periodically to see if something sooner has appeared.
+- **Watch nearby service centers too**, if your job isn't mobile-eligible. Availability varies by location, and a center a bit farther away may have an earlier bay open. See how this plays out in a specific metro on our [Los Angeles](/los-angeles-tesla-service) or [Seattle](/seattle-tesla-service) service pages.
+- **Let a watcher catch the opening for you.** [SlotWatch](/start) monitors your chosen service centers roughly every 15 minutes and **emails you** the instant an earlier appointment opens, so you're not the one refreshing the app all day. No Tesla login required, we never touch your account, and you still book the new slot yourself in the Tesla app.
+
+For the fuller strategy on getting an earlier date once you know which queue you're in, see our guide: [how to get an earlier Tesla service appointment](/guides/how-to-get-an-earlier-tesla-service-appointment).
+
+## FAQ
+
+**Can I request Mobile Service instead of a center visit?**
+Not directly. The Tesla app determines eligibility based on the issue you describe and your vehicle's diagnostics. If your job qualifies, mobile is usually offered as an option when you book.
+
+**Is Mobile Service always faster than an in-center appointment?**
+Not always, but it's frequently sooner for small, well-defined jobs since mobile technicians run on a separate schedule from center bays. Availability still depends on your area and current mobile technician capacity.
+
+**Does SlotWatch monitor Mobile Service availability too?**
+SlotWatch watches in-center service appointment availability at the Tesla service centers you choose. If your job is mobile-eligible, check the Tesla app directly for mobile openings; if it needs a center visit, SlotWatch can catch an earlier center slot for you.
+
+**Do I need my Tesla login to use SlotWatch?**
+No. SlotWatch never asks for your Tesla credentials. It watches public service center availability and emails you when an earlier slot opens; you do the actual rescheduling yourself in the Tesla app.
+
+---
+
+Whichever queue you're waiting on, don't rely on catching the opening by luck. [Start a SlotWatch watch](/start) and get an email the moment an earlier Tesla service slot appears.`,
+  },
 ]
 
 export const guideBySlug = new Map(GUIDES.map((g) => [g.slug, g]))
