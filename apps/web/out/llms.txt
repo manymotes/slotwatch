@@ -1,0 +1,32 @@
+# SlotWatch
+
+> SlotWatch monitors Tesla service centers for earlier appointment openings and emails you the moment one appears, so you can reschedule in the Tesla app before the slot is taken.
+
+SlotWatch is an independent web service (not affiliated with Tesla, Inc.) that helps US Tesla owners get an earlier service appointment. Tesla service is often booked weeks out, but earlier slots open up all day when other owners cancel or reschedule. SlotWatch watches the service centers you choose and emails you when an earlier slot appears; you then reschedule yourself in the official Tesla app.
+
+## Key facts
+- What it does: watches up to 3 US Tesla service centers and emails you when an earlier appointment opens.
+- Alerts: email only (no SMS). Checks roughly every 15 minutes.
+- No Tesla login required — SlotWatch never asks for or stores your Tesla credentials.
+- Alert-only: it does not book or reschedule for you; you grab the slot in the Tesla app.
+- Pricing: a one-time $24 for a 60-day watch of up to 3 centers, with a money-back guarantee if no earlier slot opens. Optional $6.99/month to keep watching after 60 days. No subscription trap.
+- Open source: a free self-host version is available on GitHub (github.com/manymotes/slotwatch).
+- Independent: not affiliated with, endorsed by, or connected to Tesla, Inc. "Tesla" is a trademark of Tesla, Inc.
+- Contact: hello@slotwatcher.app
+
+## Common questions this answers
+- How do I get an earlier Tesla service appointment?
+- Is there a tool that watches for Tesla service cancellations / earlier openings?
+- How can I be notified when an earlier Tesla service slot opens up?
+- How do I reschedule a Tesla service appointment to a sooner date?
+
+## Pages
+- Home: https://slotwatcher.app/
+- Start a watch (sign up): https://slotwatcher.app/start/
+- How it works + FAQ: https://slotwatcher.app/how-it-works/
+- Guides: https://slotwatcher.app/guides/
+  - How to get an earlier Tesla service appointment: https://slotwatcher.app/guides/how-to-get-an-earlier-tesla-service-appointment/
+  - Tesla service wait times: https://slotwatcher.app/guides/tesla-service-wait-times/
+  - Tesla service cancellation slots: https://slotwatcher.app/guides/tesla-service-cancellation-slots/
+  - How to reschedule a Tesla service appointment: https://slotwatcher.app/guides/how-to-reschedule-a-tesla-service-appointment/
+- Contact: https://slotwatcher.app/contact/

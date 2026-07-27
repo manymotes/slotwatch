@@ -1,10 +1,26 @@
-# SlotWatch
+# SlotWatch — Get an earlier Tesla service appointment
 
-> Get alerted the moment an earlier Tesla service appointment opens up.
+> SlotWatch watches Tesla service centers for **earlier appointment openings** and **emails you the moment one appears**, so you can reschedule in the Tesla app before it's gone.
 
-SlotWatch watches for cancellations at Tesla service centers and sends you an instant SMS or email when a slot opens in your target date window.
+Tesla service is often booked weeks out, but earlier slots open up all day as other owners cancel and reschedule — you just have to catch them. SlotWatch does the watching for you.
 
-**No booking, no rescheduling — alert only.** You open the Tesla app and grab the slot yourself.
+**Live app:** [slotwatcher.app](https://slotwatcher.app)
+
+## What it does
+
+- **Monitors Tesla service centers** (up to 3) for earlier appointment availability.
+- **Emails you** the instant an earlier slot opens in your chosen date range. Email alerts only — no SMS on the hosted app.
+- **Alert only.** SlotWatch never books or reschedules for you; you grab the slot yourself in the official Tesla app.
+- **No Tesla login required** on the hosted app — we never ask for or store your Tesla credentials.
+
+## Hosted vs. self-host
+
+| | Hosted ([slotwatcher.app](https://slotwatcher.app)) | Self-host (this repo) |
+|---|---|---|
+| Price | **$24 one-time** for a 60-day watch (up to 3 centers), money-back guarantee; optional $6.99/mo to continue | Free, open source |
+| Tesla login | Not required | You run it against your own Tesla account token |
+| Alerts | Email | Email (SMS optional via Twilio) |
+| Setup | None — sign up on the site | Docker, ~5 min |
 
 ## Self-hosting (free)
 
@@ -14,61 +30,47 @@ cd slotwatch
 cp .env.example .env
 # Edit .env with your details (see Configuration)
 docker compose up -d
-open http://localhost:3001
 ```
 
-## Managed hosting ($9.99/mo)
-
-Don't want to run your own server? [slotwatcher.app](https://slotwatcher.app) runs it for you.
-
-## Configuration
+### Configuration
 
 | Variable | Description |
 |---|---|
-| TESLA_VIN | Your Tesla VIN |
-| EMAIL_TO | Where to send alerts |
-| EMAIL_SMTP_USER / EMAIL_SMTP_PASS | Gmail app password |
-| TWILIO_SID / TWILIO_TOKEN / TWILIO_FROM / SMS_TO | For SMS alerts |
-| POLL_MIN | Poll interval in minutes (default: 30) |
+| `TESLA_VIN` | Your Tesla VIN |
+| `EMAIL_TO` | Where to send alerts |
+| `EMAIL_SMTP_USER` / `EMAIL_SMTP_PASS` | SMTP (e.g. a Gmail app password) |
+| `TWILIO_SID` / `TWILIO_TOKEN` / `TWILIO_FROM` / `SMS_TO` | Optional — for SMS alerts |
+| `POLL_MIN` | Poll interval in minutes (default: 15) |
 
 ## How it works
 
-1. Connects to Tesla's service scheduling API using your account's OAuth token
-2. Polls for available slots at your chosen service centers every 30 minutes
-3. Compares against previously seen slots — only alerts on genuinely new availability
-4. Sends email and/or SMS when new slots appear in your configured date window
+1. Polls Tesla's service scheduling availability for your chosen service centers every ~15 minutes.
+2. Compares against previously seen slots — only alerts on genuinely **new** earlier availability (no spam on the slots that already existed when you started).
+3. Emails you when a sooner slot appears in your configured date window.
+4. You open the Tesla app → Service → your appointment → Reschedule, and grab it.
+
+## FAQ
+
+**Does SlotWatch book the appointment for me?** No. It only alerts you to earlier openings; you reschedule yourself in the Tesla app.
+
+**Do I need to give it my Tesla login?** Not on the hosted app — it never asks for your Tesla credentials. The self-host version runs against your own account token, on your own machine.
+
+**How fast are alerts?** It checks roughly every 15 minutes and emails you when a new earlier slot appears.
+
+**Is it affiliated with Tesla?** No. SlotWatch is an independent project and is not affiliated with, endorsed by, or connected to Tesla, Inc. "Tesla" is a trademark of Tesla, Inc.
+
+## Keywords
+
+Tesla service appointment, earlier Tesla service appointment, Tesla service cancellation alert, Tesla appointment watcher, Tesla service wait time, reschedule Tesla service, monitor Tesla service availability.
 
 ## Legal
 
-This project uses Tesla's unofficial Owner Experience API. It is not affiliated with, endorsed by, or supported by Tesla, Inc. Use is subject to Tesla's Terms of Service.
-
-This software is for personal use. The developer makes no warranty of availability or fitness for any purpose.
+This project uses Tesla's unofficial Owner Experience API. It is not affiliated with, endorsed by, or supported by Tesla, Inc. Use is subject to Tesla's Terms of Service. This software is for personal use and comes with no warranty of availability or fitness for any purpose.
 
 ## License
 
-AGPL-3.0 — See LICENSE
+AGPL-3.0 — see LICENSE.
 
-## Operations
+---
 
-### Health monitoring
-The health monitor runs every 4 hours on the Mac Mini and emails motesmass@gmail.com if anything is broken.
-
-```bash
-# Run manually
-npx ts-node scripts/health-check.ts
-
-# Force a status report email even if everything is OK
-FORCE_REPORT=true npx ts-node scripts/health-check.ts
-
-# Validate after deploy
-./scripts/validate-deploy.sh https://slotwatcher.app
-```
-
-### pSEO publishing schedule
-New service center pages are published every Monday via GitHub Actions.
-Pages are prioritized by Tesla ownership density and search demand.
-
-```bash
-# Check how many pages are live today
-node -e "const {SERVICE_CENTERS} = require('./apps/web/lib/service-centers'); const t = new Date().toISOString().split('T')[0]; console.log('Live:', SERVICE_CENTERS.filter(c=>c.releaseDate<=t).length, '/', SERVICE_CENTERS.length)"
-```
+Questions: hello@slotwatcher.app

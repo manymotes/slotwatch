@@ -181,4 +181,5 @@
   <url><loc>https://slotwatcher.app/guides/how-to-reschedule-a-tesla-service-appointment/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://slotwatcher.app/guides/tesla-mobile-service-vs-service-center/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://slotwatcher.app/contact/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://slotwatcher.app/about/</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
 </urlset>
