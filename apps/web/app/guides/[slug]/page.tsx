@@ -46,6 +46,10 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
     '@type': 'Article',
     headline: g.title,
     description: g.description,
+    image: 'https://slotwatcher.app/og-image.png',
+    datePublished: g.datePublished,
+    dateModified: g.datePublished,
+    author: { '@type': 'Organization', name: 'SlotWatch', url: 'https://slotwatcher.app' },
     url: `https://slotwatcher.app/guides/${g.slug}`,
     publisher: { '@type': 'Organization', name: 'SlotWatch', url: 'https://slotwatcher.app' },
   })

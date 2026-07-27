@@ -1,12 +1,13 @@
 // SEO guide hub. Content written by the growth agents + hourly SEO loop.
 // To add a guide: append an entry (slug, title, description, md).
-export type Guide = { slug: string; title: string; description: string; md: string }
+export type Guide = { slug: string; title: string; description: string; md: string; datePublished: string }
 
 export const GUIDES: Guide[] = [
   {
     slug: "how-to-get-an-earlier-tesla-service-appointment",
     title: "How to Get an Earlier Tesla Service Appointment",
     description: "Stuck with a Tesla service appointment weeks away? Here's how to get an earlier slot when cancellations open up, plus a way to automate the hunt.",
+    datePublished: "2026-07-25",
     md: `# How to Get an Earlier Tesla Service Appointment
 
 You booked a Tesla service appointment and the first available date is three weeks out. Maybe your car needs a repair now, or you just don't want to wait a month with a warning light on the dash. The good news: earlier slots do open up regularly. The catch is that they open only when someone else cancels or reschedules, and they can get grabbed within minutes.
@@ -81,6 +82,7 @@ Ready to stop refreshing the app and let the watching run in the background? [St
     slug: "tesla-service-wait-times",
     title: "Tesla Service Wait Times in 2026",
     description: "How long are Tesla service wait times in 2026? Waits vary by city and season. Check wait times by city and learn how to get an earlier appointment.",
+    datePublished: "2026-07-25",
     md: `# Tesla Service Wait Times in 2026
 
 If you've tried to book a Tesla service appointment lately, you already know the feeling: you open the app, tap through to schedule, and the earliest slot is weeks away. Sometimes it's a few days. Sometimes it's the better part of two months. So how long is the wait, really? The honest answer is that it depends heavily on where you live and when you're asking.
@@ -152,6 +154,7 @@ Tired of refreshing the app? Let SlotWatch keep an eye on your service centers a
     slug: "tesla-service-cancellation-slots",
     title: "Tesla Service Cancellation Slots: How Earlier Openings Appear",
     description: "How and why earlier Tesla service slots open up (cancellations, reschedules, released capacity), how fast they go, and how to catch them.",
+    datePublished: "2026-07-25",
     md: `# Tesla Service Cancellation Slots: How Earlier Openings Appear and How to Catch Them
 
 You booked your Tesla service appointment and the first available date was weeks out. So you keep opening the Tesla app, tapping into the reschedule screen, hoping something sooner shows up. Sometimes it does. Sometimes you check five minutes too late and it's gone. If you've wondered whether earlier slots actually open up, and how, this guide explains the real mechanism.
@@ -206,6 +209,7 @@ Earlier slots really do open up, but they don't wait around and Tesla won't tell
     slug: "how-to-reschedule-a-tesla-service-appointment",
     title: "How to Reschedule a Tesla Service Appointment",
     description: "How to reschedule a Tesla service appointment in the Tesla app, move it to an earlier date, and find open slots faster when cancellations free up.",
+    datePublished: "2026-07-25",
     md: `# How to Reschedule a Tesla Service Appointment
 
 Need to move your Tesla service appointment? Whether your plans changed or you're hoping to get seen sooner, rescheduling is quick and happens entirely in the Tesla app. This guide walks through the exact steps, explains the timing rules, and shows you how to actually land an *earlier* slot when the calendar looks full.
@@ -276,6 +280,7 @@ Rescheduling is easy. The hard part is catching an earlier slot before it's gone
     slug: "tesla-mobile-service-vs-service-center",
     title: "Tesla Mobile Service vs. Service Center: Which Is Faster?",
     description: "Tesla Mobile Service or an in-center appointment — which gets your car seen sooner? How Tesla decides, what each covers, and how to catch an earlier slot either way.",
+    datePublished: "2026-07-26",
     md: `# Tesla Mobile Service vs. Service Center: Which Is Faster?
 
 When you book Tesla service in the app, you sometimes get a choice: a technician comes to you (Mobile Service), or you drive in to a service center. Other times the app only offers one option and doesn't explain why. If you're trying to get seen as soon as possible, it's worth understanding how the two differ and which one is likely to get you an earlier appointment.
