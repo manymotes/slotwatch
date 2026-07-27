@@ -322,7 +322,7 @@ export default function CenterPage({ params }: { params: { center: string } }) {
           {[
             { label: 'Service centers watched', value: data.centers.toString() },
             { label: 'Typical wait time', value: `${data.waitWeeks} wks` },
-            { label: 'Check interval', value: '30 min' },
+            { label: 'Check interval', value: '15 min' },
             { label: 'Metro population', value: data.population },
           ].map((stat, i, arr) => (
             <div key={stat.label} style={{
