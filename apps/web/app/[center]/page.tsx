@@ -137,8 +137,12 @@ export default function CenterPage({ params }: { params: { center: string } }) {
     },
   ]
 
-  // Show a capped list of "other cities" (nearby + random) for internal linking
-  const otherCenters = SERVICE_CENTERS.filter((c) => c.slug !== data.slug)
+  // Capped list of "other cities" for internal linking — same-state cities first
+  // (genuinely related/nearby), padded up to 12 total so every page doesn't dump
+  // links to all ~170 other city pages at once.
+  const sameStateCenters = SERVICE_CENTERS.filter((c) => c.slug !== data.slug && c.stateAbbr === data.stateAbbr)
+  const otherStateCenters = SERVICE_CENTERS.filter((c) => c.slug !== data.slug && c.stateAbbr !== data.stateAbbr)
+  const otherCenters = [...sameStateCenters, ...otherStateCenters].slice(0, 12)
 
   return (
     <div style={{ minHeight: '100vh', background: '#080808' }}>
