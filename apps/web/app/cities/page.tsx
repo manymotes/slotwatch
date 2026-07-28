@@ -31,8 +31,25 @@ export default function CitiesIndex() {
   const states = [...byState.keys()].sort((a, b) => a.localeCompare(b))
   for (const list of byState.values()) list.sort((a, b) => a.city.localeCompare(b.city))
 
+  const schema = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Tesla Service Wait Times by City — SlotWatch',
+    url: 'https://slotwatcher.app/cities',
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: live.map((c, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        url: `https://slotwatcher.app/${c.slug}`,
+        name: `${c.city}, ${c.stateAbbr}`,
+      })),
+    },
+  })
+
   return (
     <div style={{ minHeight: '100vh', background: '#080808' }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schema }} />
       <nav style={{ borderBottom: '1px solid #1a1a1a' }}>
         <div style={{ maxWidth: '1120px', margin: '0 auto', padding: '0 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '56px' }}>
           <Logo size={28} />

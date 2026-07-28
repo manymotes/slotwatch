@@ -19,8 +19,25 @@ export const metadata: Metadata = {
 }
 
 export default function GuidesIndex() {
+  const schema = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Tesla Service Guides — SlotWatch',
+    url: 'https://slotwatcher.app/guides',
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: GUIDES.map((g, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        url: `https://slotwatcher.app/guides/${g.slug}`,
+        name: g.title,
+      })),
+    },
+  })
+
   return (
     <div style={{ minHeight: '100vh', background: '#080808' }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schema }} />
       <nav style={{ borderBottom: '1px solid #1a1a1a' }}>
         <div style={{ maxWidth: '1120px', margin: '0 auto', padding: '0 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '56px' }}>
           <Logo size={28} />
