@@ -41,20 +41,20 @@
     font-weight="400"
     fill="#8a8a8a"
     letter-spacing="0.01em"
-  >Skip the Tesla service wait.</text>
+  >Get emailed the moment an earlier slot opens.</text>
 
   <!-- Subtle divider below tagline -->
   <line x1="80" y1="430" x2="300" y2="430" stroke="#e31937" stroke-width="1.5" opacity="0.6"/>
 
   <!-- Feature chips row -->
-  <rect x="80" y="456" width="140" height="32" rx="16" fill="#1a1a1a" stroke="#2e2e2e" stroke-width="1"/>
-  <text x="150" y="476" font-family="system-ui,-apple-system,sans-serif" font-size="13" font-weight="500" fill="#aaaaaa" text-anchor="middle" letter-spacing="0.04em">Instant Alerts</text>
+  <rect x="80" y="456" width="130" height="32" rx="16" fill="#1a1a1a" stroke="#2e2e2e" stroke-width="1"/>
+  <text x="145" y="476" font-family="system-ui,-apple-system,sans-serif" font-size="13" font-weight="500" fill="#aaaaaa" text-anchor="middle" letter-spacing="0.04em">Email Alerts</text>
 
-  <rect x="234" y="456" width="130" height="32" rx="16" fill="#1a1a1a" stroke="#2e2e2e" stroke-width="1"/>
-  <text x="299" y="476" font-family="system-ui,-apple-system,sans-serif" font-size="13" font-weight="500" fill="#aaaaaa" text-anchor="middle" letter-spacing="0.04em">All Locations</text>
+  <rect x="224" y="456" width="150" height="32" rx="16" fill="#1a1a1a" stroke="#2e2e2e" stroke-width="1"/>
+  <text x="299" y="476" font-family="system-ui,-apple-system,sans-serif" font-size="13" font-weight="500" fill="#aaaaaa" text-anchor="middle" letter-spacing="0.04em">Up to 3 centers</text>
 
-  <rect x="378" y="456" width="150" height="32" rx="16" fill="#1a1a1a" stroke="#2e2e2e" stroke-width="1"/>
-  <text x="453" y="476" font-family="system-ui,-apple-system,sans-serif" font-size="13" font-weight="500" fill="#aaaaaa" text-anchor="middle" letter-spacing="0.04em">$9.99 / month</text>
+  <rect x="388" y="456" width="140" height="32" rx="16" fill="#1a1a1a" stroke="#2e2e2e" stroke-width="1"/>
+  <text x="458" y="476" font-family="system-ui,-apple-system,sans-serif" font-size="13" font-weight="500" fill="#aaaaaa" text-anchor="middle" letter-spacing="0.04em">$24 one-time</text>
 
   <!-- Right side: large clock mark -->
   <!-- Clock outer ring - large, centered on right half -->

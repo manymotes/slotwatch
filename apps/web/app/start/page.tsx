@@ -9,6 +9,15 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://slotwatcher.app/start',
   },
+  openGraph: {
+    title: 'Start watching — SlotWatch',
+    description: 'Pick your Tesla service center and get emailed when an earlier appointment opens. No Tesla login required.',
+    url: 'https://slotwatcher.app/start',
+  },
+  twitter: {
+    title: 'Start watching — SlotWatch',
+    description: 'Pick your Tesla service center and get emailed when an earlier appointment opens. No Tesla login required.',
+  },
 }
 
 export default function StartPage() {
