@@ -27,7 +27,7 @@ export async function generateMetadata({
   if (!data) return {}
 
   const title = `Skip the ${data.city} Tesla Service Wait | SlotWatch`
-  const description = `Tesla owners in ${data.city} report waiting ${data.waitWeeks} weeks for service appointments. SlotWatch monitors every cancellation slot and alerts you the moment one opens — no refreshing, no missed openings.`
+  const description = `Tesla owners in ${data.city} wait ${data.waitWeeks} weeks at the ${data.centers} Tesla Service ${data.centers === 1 ? 'Center' : 'Centers'} serving ${data.landmark}. SlotWatch tracks cancellations and emails you the moment an earlier slot opens.`
 
   return {
     title,
