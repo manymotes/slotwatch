@@ -310,6 +310,22 @@ const faqSchemaJson = JSON.stringify({
   })),
 })
 
+const softwareSchemaJson = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'SlotWatch',
+  applicationCategory: 'UtilitiesApplication',
+  operatingSystem: 'Web',
+  offers: {
+    '@type': 'Offer',
+    price: '24.00',
+    priceCurrency: 'USD',
+  },
+  description:
+    'SlotWatch monitors Tesla Service Center appointment availability across 170+ US cities and emails you the moment a cancellation slot opens.',
+  url: 'https://slotwatcher.app',
+})
+
 export default function HomePage() {
   return (
     <div style={{ minHeight: '100vh', background: '#080808' }}>
@@ -326,6 +342,10 @@ export default function HomePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: faqSchemaJson }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: softwareSchemaJson }}
       />
 
       {/* ── Nav ── */}
