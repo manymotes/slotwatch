@@ -11,6 +11,10 @@ export const metadata: Metadata = {
     description: 'Questions about SlotWatch? Email hello@slotwatcher.app.',
     url: 'https://slotwatcher.app/contact',
   },
+  twitter: {
+    title: 'Contact — SlotWatch',
+    description: 'Questions about SlotWatch? Email hello@slotwatcher.app.',
+  },
 }
 
 export default function ContactPage() {

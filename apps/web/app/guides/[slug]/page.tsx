@@ -17,6 +17,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
     description: g.description,
     alternates: { canonical: `https://slotwatcher.app/guides/${g.slug}` },
     openGraph: { title: g.title, description: g.description, url: `https://slotwatcher.app/guides/${g.slug}`, type: 'article' },
+    twitter: { title: g.title, description: g.description },
   }
 }
 

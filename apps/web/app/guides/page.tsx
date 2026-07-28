@@ -12,6 +12,10 @@ export const metadata: Metadata = {
     description: 'How to get an earlier Tesla service appointment — wait times, cancellations, and rescheduling.',
     url: 'https://slotwatcher.app/guides',
   },
+  twitter: {
+    title: 'Tesla Service Guides — SlotWatch',
+    description: 'How to get an earlier Tesla service appointment — wait times, cancellations, and rescheduling.',
+  },
 }
 
 export default function GuidesIndex() {

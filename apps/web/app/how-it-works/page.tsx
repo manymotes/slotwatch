@@ -13,6 +13,10 @@ export const metadata: Metadata = {
     description: 'We watch your Tesla service center and email you the moment an earlier appointment opens.',
     url: 'https://slotwatcher.app/how-it-works',
   },
+  twitter: {
+    title: 'How SlotWatch Works',
+    description: 'We watch your Tesla service center and email you the moment an earlier appointment opens.',
+  },
 }
 
 export default function HowItWorksPage() {

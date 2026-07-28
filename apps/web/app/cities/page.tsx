@@ -12,6 +12,10 @@ export const metadata: Metadata = {
     description: 'Browse Tesla service appointment wait times and cancellation-slot alerts for every city SlotWatch covers, organized by state.',
     url: 'https://slotwatcher.app/cities',
   },
+  twitter: {
+    title: 'Tesla Service Wait Times by City — SlotWatch',
+    description: 'Browse Tesla service appointment wait times and cancellation-slot alerts for every city SlotWatch covers, organized by state.',
+  },
 }
 
 export default function CitiesIndex() {
