@@ -21,6 +21,32 @@ export const metadata: Metadata = {
   },
 }
 
+// Mirrors extractHowToSteps() in app/guides/[slug]/page.tsx — pulls the
+// numbered "N. **lead-in.** rest" steps straight out of HOWITWORKS_MD so the
+// schema can never drift from the visible content.
+function extractHowToSteps(md: string): { name: string; text: string }[] {
+  const lines = md.split('\n')
+  let best: { name: string; text: string }[] = []
+  let current: { name: string; text: string }[] = []
+  let expectedNext = 1
+  for (const raw of lines) {
+    const line = raw.trim()
+    const m = line.match(/^(\d+)\.\s+\*\*(.+?)\*\*\s*(.*)$/)
+    if (m && Number(m[1]) === expectedNext) {
+      current.push({ name: m[2].replace(/\.$/, ''), text: `${m[2]} ${m[3]}`.trim() })
+      expectedNext++
+    } else if (!line) {
+      continue
+    } else {
+      if (current.length > best.length) best = current
+      current = []
+      expectedNext = 1
+    }
+  }
+  if (current.length > best.length) best = current
+  return best.length >= 3 ? best : []
+}
+
 export default function HowItWorksPage() {
   const faqSchema = JSON.stringify({
     '@context': 'https://schema.org',
@@ -32,9 +58,23 @@ export default function HowItWorksPage() {
     })),
   })
 
+  const steps = extractHowToSteps(HOWITWORKS_MD)
+  const howToSchema = steps.length
+    ? JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: 'How SlotWatch works',
+        description: 'How SlotWatch watches Tesla service centers and emails you when an earlier appointment opens.',
+        step: steps.map((s) => ({ '@type': 'HowToStep', name: s.name, text: s.text })),
+      })
+    : null
+
   return (
     <div style={{ minHeight: '100vh', background: '#080808' }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: faqSchema }} />
+      {howToSchema && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: howToSchema }} />
+      )}
       <nav style={{ borderBottom: '1px solid #1a1a1a' }}>
         <div style={{ maxWidth: '1120px', margin: '0 auto', padding: '0 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '56px' }}>
           <Logo size={28} />
