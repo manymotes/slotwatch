@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import Analytics from '../components/Analytics'
 
 export const metadata: Metadata = {
   title: 'SlotWatch — Tesla Service Appointment Alerts',
@@ -53,7 +54,7 @@ export default function RootLayout({
         <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='9' fill='%23e31937'/><circle cx='15' cy='17' r='7.5' fill='none' stroke='white' stroke-width='2'/><path d='M15 17 L15 12.2' stroke='white' stroke-width='2' stroke-linecap='round'/><path d='M15 17 L18.6 18.9' stroke='white' stroke-width='2' stroke-linecap='round'/><circle cx='15' cy='17' r='1.4' fill='white'/><circle cx='24.5' cy='8.5' r='4' fill='%23e31937'/><circle cx='24.5' cy='8.5' r='2.6' fill='white'/></svg>" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       </head>
-      <body>{children}</body>
+      <body>{children}<Analytics /></body>
     </html>
   )
 }
