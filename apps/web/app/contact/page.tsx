@@ -10,10 +10,12 @@ export const metadata: Metadata = {
     title: 'Contact — SlotWatch',
     description: 'Questions about SlotWatch? Email hello@slotwatcher.app.',
     url: 'https://slotwatcher.app/contact',
+    images: [{ url: 'https://slotwatcher.app/og-image.png', width: 1200, height: 630, alt: 'SlotWatch — Tesla Service Appointment Alerts' }],
   },
   twitter: {
     title: 'Contact — SlotWatch',
     description: 'Questions about SlotWatch? Email hello@slotwatcher.app.',
+    images: ['https://slotwatcher.app/og-image.png'],
   },
 }
 

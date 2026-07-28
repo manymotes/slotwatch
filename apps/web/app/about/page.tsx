@@ -10,10 +10,12 @@ export const metadata: Metadata = {
     title: 'About SlotWatch',
     description: 'An independent service that watches Tesla service centers for earlier appointment openings and emails you when one appears.',
     url: 'https://slotwatcher.app/about',
+    images: [{ url: 'https://slotwatcher.app/og-image.png', width: 1200, height: 630, alt: 'SlotWatch — Tesla Service Appointment Alerts' }],
   },
   twitter: {
     title: 'About SlotWatch',
     description: 'An independent service that watches Tesla service centers for earlier appointment openings and emails you when one appears.',
+    images: ['https://slotwatcher.app/og-image.png'],
   },
 }
 

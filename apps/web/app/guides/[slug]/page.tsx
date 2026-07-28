@@ -16,8 +16,14 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
     title: `${g.title} | SlotWatch`,
     description: g.description,
     alternates: { canonical: `https://slotwatcher.app/guides/${g.slug}` },
-    openGraph: { title: g.title, description: g.description, url: `https://slotwatcher.app/guides/${g.slug}`, type: 'article' },
-    twitter: { title: g.title, description: g.description },
+    openGraph: {
+      title: g.title,
+      description: g.description,
+      url: `https://slotwatcher.app/guides/${g.slug}`,
+      type: 'article',
+      images: [{ url: 'https://slotwatcher.app/og-image.png', width: 1200, height: 630, alt: 'SlotWatch — Tesla Service Appointment Alerts' }],
+    },
+    twitter: { title: g.title, description: g.description, images: ['https://slotwatcher.app/og-image.png'] },
   }
 }
 
