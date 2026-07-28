@@ -44,6 +44,33 @@ function extractFaqs(md: string): { q: string; a: string }[] {
   return faqs
 }
 
+// Finds the longest run of "1. **Lead-in.** rest of text" list items in the
+// markdown — the same numbered-step format authors already use for genuine
+// step-by-step guides (e.g. reschedule instructions). Requires 3+ steps so a
+// stray 2-item list doesn't get marked up as a HowTo.
+function extractHowToSteps(md: string): { name: string; text: string }[] {
+  const lines = md.split('\n')
+  let best: { name: string; text: string }[] = []
+  let current: { name: string; text: string }[] = []
+  let expectedNext = 1
+  for (const raw of lines) {
+    const line = raw.trim()
+    const m = line.match(/^(\d+)\.\s+\*\*(.+?)\*\*\s*(.*)$/)
+    if (m && Number(m[1]) === expectedNext) {
+      current.push({ name: m[2].replace(/\.$/, ''), text: `${m[2]} ${m[3]}`.trim() })
+      expectedNext++
+    } else if (!line) {
+      continue
+    } else {
+      if (current.length > best.length) best = current
+      current = []
+      expectedNext = 1
+    }
+  }
+  if (current.length > best.length) best = current
+  return best.length >= 3 ? best : []
+}
+
 export default function GuidePage({ params }: { params: { slug: string } }) {
   const g = guideBySlug.get(params.slug)
   if (!g) notFound()
@@ -74,6 +101,17 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
       })
     : null
 
+  const steps = extractHowToSteps(g.md)
+  const howToSchema = steps.length
+    ? JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: g.title,
+        description: g.description,
+        step: steps.map((s) => ({ '@type': 'HowToStep', name: s.name, text: s.text })),
+      })
+    : null
+
   const breadcrumbSchema = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -88,6 +126,7 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
     <div style={{ minHeight: '100vh', background: '#080808' }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schema }} />
       {faqSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: faqSchema }} />}
+      {howToSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: howToSchema }} />}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: breadcrumbSchema }} />
       <nav style={{ borderBottom: '1px solid #1a1a1a' }}>
         <div style={{ maxWidth: '1120px', margin: '0 auto', padding: '0 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '56px' }}>
