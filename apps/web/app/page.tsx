@@ -405,7 +405,7 @@ export default function HomePage() {
             textTransform: 'uppercase',
             marginBottom: '24px',
           }}>
-            Service appointment alerts
+            Tesla service appointment alerts
           </p>
           <h1 style={{
             fontSize: 'clamp(2.5rem, 6vw, 4rem)',
@@ -416,7 +416,7 @@ export default function HomePage() {
             textWrap: 'balance' as never,
             marginBottom: '24px',
           }}>
-            Get the service appointment you{' '}
+            Get the Tesla service appointment you{' '}
             <em style={{ color: '#e31937', fontStyle: 'normal' }}>actually</em>{' '}
             want.
           </h1>
