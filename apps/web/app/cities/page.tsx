@@ -49,9 +49,19 @@ export default function CitiesIndex() {
     },
   })
 
+  const breadcrumbSchema = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://slotwatcher.app/' },
+      { '@type': 'ListItem', position: 2, name: 'Cities', item: 'https://slotwatcher.app/cities' },
+    ],
+  })
+
   return (
     <div style={{ minHeight: '100vh', background: '#080808' }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schema }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: breadcrumbSchema }} />
       <nav style={{ borderBottom: '1px solid #1a1a1a' }}>
         <div style={{ maxWidth: '1120px', margin: '0 auto', padding: '0 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '56px' }}>
           <Logo size={28} />
