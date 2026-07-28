@@ -232,6 +232,10 @@ function EmailCapture() {
 
 const faqs: FAQItem[] = [
   {
+    q: 'Doesn’t Tesla already notify me if an earlier slot opens?',
+    a: 'Tesla’s app has a built-in standby, but it only watches your one booked center, needs the same appointment length, and isn’t available at every center. SlotWatch watches up to 3 centers at once — including nearby ones you’d drive to — and works where Tesla’s feature isn’t offered. If you only care about a single center, Tesla’s free feature may be all you need.',
+  },
+  {
     q: 'Do I need to connect my Tesla account?',
     a: 'No. You never connect your Tesla account, and we never ask for your login or password. You just tell us which service center to watch and where to email you. When an earlier opening appears, you reschedule it yourself in the Tesla app.',
   },
@@ -393,7 +397,7 @@ export default function HomePage() {
             maxWidth: '560px',
             marginBottom: '40px',
           }}>
-            SlotWatch watches your Tesla service center and emails you the moment an earlier appointment opens up — so you can jump into the Tesla app and grab it. No Tesla login required.
+            SlotWatch watches up to 3 Tesla service centers for earlier openings and emails you the moment one appears — so you grab it in the Tesla app. Tesla&rsquo;s own alert only watches your one booked center; SlotWatch covers every nearby center you&rsquo;d drive to. No Tesla login required.
           </p>
           <div id="hero-form">
             <EmailCapture />

@@ -6,6 +6,7 @@ SlotWatch is an independent web service (not affiliated with Tesla, Inc.) that h
 
 ## Key facts
 - What it does: watches up to 3 US Tesla service centers and emails you when an earlier appointment opens.
+- Vs Tesla's built-in feature: Tesla's app added a native "notify me if an earlier appointment opens" standby, but it only watches your ONE booked center, requires the same appointment length, and isn't available at every center. SlotWatch's advantage is watching up to 3 centers at once (including nearby ones you'd drive to) and working where Tesla's feature isn't offered — with no Tesla login.
 - Alerts: email only (no SMS). Checks roughly every 15 minutes.
 - No Tesla login required — SlotWatch never asks for or stores your Tesla credentials.
 - Alert-only: it does not book or reschedule for you; you grab the slot in the Tesla app.
@@ -29,4 +30,5 @@ SlotWatch is an independent web service (not affiliated with Tesla, Inc.) that h
   - Tesla service wait times: https://slotwatcher.app/guides/tesla-service-wait-times/
   - Tesla service cancellation slots: https://slotwatcher.app/guides/tesla-service-cancellation-slots/
   - How to reschedule a Tesla service appointment: https://slotwatcher.app/guides/how-to-reschedule-a-tesla-service-appointment/
+  - Tesla's built-in earlier-appointment notification vs SlotWatch: https://slotwatcher.app/guides/tesla-earlier-appointment-notification-vs-slotwatch/
 - Contact: https://slotwatcher.app/contact/
