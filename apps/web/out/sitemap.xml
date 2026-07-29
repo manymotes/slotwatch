@@ -36,6 +36,16 @@
 <priority>0.5</priority>
 </url>
 <url>
+<loc>https://slotwatcher.app/privacy/</loc>
+<changefreq>monthly</changefreq>
+<priority>0.3</priority>
+</url>
+<url>
+<loc>https://slotwatcher.app/terms/</loc>
+<changefreq>monthly</changefreq>
+<priority>0.3</priority>
+</url>
+<url>
 <loc>https://slotwatcher.app/los-angeles-tesla-service/</loc>
 <lastmod>2026-06-01</lastmod>
 <changefreq>daily</changefreq>

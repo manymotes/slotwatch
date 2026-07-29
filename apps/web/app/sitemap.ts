@@ -18,6 +18,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/guides/`, changeFrequency: 'weekly', priority: 0.7 },
     { url: `${BASE_URL}/contact/`, changeFrequency: 'weekly', priority: 0.7 },
     { url: `${BASE_URL}/about/`, changeFrequency: 'monthly', priority: 0.5 },
+    { url: `${BASE_URL}/privacy/`, changeFrequency: 'monthly', priority: 0.3 },
+    { url: `${BASE_URL}/terms/`, changeFrequency: 'monthly', priority: 0.3 },
   ]
 
   const cityPages: MetadataRoute.Sitemap = liveCenters.map((c) => ({

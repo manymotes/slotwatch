@@ -7,6 +7,17 @@ export const metadata: Metadata = {
   title: 'Privacy Policy — SlotWatch',
   description: 'How SlotWatch handles your data.',
   alternates: { canonical: 'https://slotwatcher.app/privacy' },
+  openGraph: {
+    title: 'Privacy Policy — SlotWatch',
+    description: 'How SlotWatch handles your data.',
+    url: 'https://slotwatcher.app/privacy',
+    images: [{ url: 'https://slotwatcher.app/og-image.png', width: 1200, height: 630, alt: 'SlotWatch — Tesla Service Appointment Alerts' }],
+  },
+  twitter: {
+    title: 'Privacy Policy — SlotWatch',
+    description: 'How SlotWatch handles your data.',
+    images: ['https://slotwatcher.app/og-image.png'],
+  },
 }
 
 export default function PrivacyPage() {
