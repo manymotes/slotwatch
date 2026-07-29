@@ -89,7 +89,7 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
     datePublished: g.datePublished,
     dateModified: g.datePublished,
     author: { '@type': 'Organization', name: 'SlotWatch', url: 'https://slotwatcher.app' },
-    url: `https://slotwatcher.app/guides/${g.slug}`,
+    url: `https://slotwatcher.app/guides/${g.slug}/`,
     publisher: { '@type': 'Organization', name: 'SlotWatch', url: 'https://slotwatcher.app' },
   })
 
@@ -122,8 +122,8 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://slotwatcher.app/' },
-      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://slotwatcher.app/guides' },
-      { '@type': 'ListItem', position: 3, name: g.title, item: `https://slotwatcher.app/guides/${g.slug}` },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://slotwatcher.app/guides/' },
+      { '@type': 'ListItem', position: 3, name: g.title, item: `https://slotwatcher.app/guides/${g.slug}/` },
     ],
   })
 

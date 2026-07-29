@@ -72,7 +72,7 @@ export default function CenterPage({ params }: { params: { center: string } }) {
       priceCurrency: 'USD',
     },
     description: `SlotWatch monitors Tesla Service Center appointment availability in ${data.city}, ${data.stateAbbr} and sends instant alerts when a cancellation slot opens.`,
-    url: `https://slotwatcher.app/${data.slug}`,
+    url: `https://slotwatcher.app/${data.slug}/`,
     areaServed: {
       '@type': 'City',
       name: data.city,
@@ -133,7 +133,7 @@ export default function CenterPage({ params }: { params: { center: string } }) {
         '@type': 'ListItem',
         position: 2,
         name: `${data.city}, ${data.stateAbbr}`,
-        item: `https://slotwatcher.app/${data.slug}`,
+        item: `https://slotwatcher.app/${data.slug}/`,
       },
     ],
   })

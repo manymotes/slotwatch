@@ -37,13 +37,13 @@ export default function CitiesIndex() {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
     name: 'Tesla Service Wait Times by City — SlotWatch',
-    url: 'https://slotwatcher.app/cities',
+    url: 'https://slotwatcher.app/cities/',
     mainEntity: {
       '@type': 'ItemList',
       itemListElement: live.map((c, i) => ({
         '@type': 'ListItem',
         position: i + 1,
-        url: `https://slotwatcher.app/${c.slug}`,
+        url: `https://slotwatcher.app/${c.slug}/`,
         name: `${c.city}, ${c.stateAbbr}`,
       })),
     },
@@ -54,7 +54,7 @@ export default function CitiesIndex() {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://slotwatcher.app/' },
-      { '@type': 'ListItem', position: 2, name: 'Cities', item: 'https://slotwatcher.app/cities' },
+      { '@type': 'ListItem', position: 2, name: 'Cities', item: 'https://slotwatcher.app/cities/' },
     ],
   })
 

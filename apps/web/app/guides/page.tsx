@@ -25,13 +25,13 @@ export default function GuidesIndex() {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
     name: 'Tesla Service Guides — SlotWatch',
-    url: 'https://slotwatcher.app/guides',
+    url: 'https://slotwatcher.app/guides/',
     mainEntity: {
       '@type': 'ItemList',
       itemListElement: GUIDES.map((g, i) => ({
         '@type': 'ListItem',
         position: i + 1,
-        url: `https://slotwatcher.app/guides/${g.slug}`,
+        url: `https://slotwatcher.app/guides/${g.slug}/`,
         name: g.title,
       })),
     },
@@ -42,7 +42,7 @@ export default function GuidesIndex() {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://slotwatcher.app/' },
-      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://slotwatcher.app/guides' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://slotwatcher.app/guides/' },
     ],
   })
 
