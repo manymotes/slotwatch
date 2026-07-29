@@ -407,6 +407,20 @@ If you're happy watching a single center, Tesla's free built-in notification is 
 
 [Start watching up to 3 centers](/start)
 
+## FAQ
+
+**Is Tesla's built-in earlier-appointment notification free?**
+Yes, it's built into the Tesla app at no extra cost. The tradeoff is that it only watches the single center where you already have an appointment booked.
+
+**Can I use SlotWatch and Tesla's built-in notification at the same time?**
+Yes. They're not exclusive. SlotWatch watches up to 3 centers on its own schedule, so running both just gives you more coverage than either alone.
+
+**Does Tesla's built-in notification work at every service center?**
+No. It's not offered everywhere, and it only applies to a center where you already have an appointment booked. SlotWatch can watch any service center in its directory, existing appointment or not.
+
+**Do I need to give SlotWatch my Tesla login to compare centers?**
+No. SlotWatch never asks for your Tesla credentials. It watches availability and emails you when an earlier slot opens; you still book the new slot yourself in the Tesla app.
+
 ---
 
 Related: [how to get an earlier Tesla service appointment](/guides/how-to-get-an-earlier-tesla-service-appointment) and [Tesla service wait times](/guides/tesla-service-wait-times).`,
