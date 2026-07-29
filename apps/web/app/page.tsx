@@ -287,7 +287,7 @@ const organizationSchemaJson = JSON.stringify({
   '@type': 'Organization',
   name: 'SlotWatch',
   url: 'https://slotwatcher.app',
-  logo: 'https://slotwatcher.app/og-image.png',
+  logo: 'https://slotwatcher.app/apple-touch-icon.png',
   description:
     'SlotWatch monitors Tesla service centers for earlier appointment openings and emails you the moment one appears.',
   sameAs: ['https://github.com/manymotes/slotwatch'],
