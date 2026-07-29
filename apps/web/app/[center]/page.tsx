@@ -28,7 +28,7 @@ export async function generateMetadata({
 
   const n = data.centers.length
   const title = `Earlier Tesla Service Appointments in ${data.city} | SlotWatch`
-  const description = `SlotWatch monitors ${n === 1 ? 'the' : `all ${n}`} Tesla Service ${n === 1 ? 'Center' : 'Centers'} in ${data.city}, ${data.stateAbbr} and emails you the moment an earlier appointment opens — so you can reschedule before it's gone. No Tesla login required.`
+  const description = `SlotWatch watches ${n === 1 ? 'the' : n} Tesla Service ${n === 1 ? 'Center' : 'Centers'} in ${data.city}, ${data.stateAbbr} and emails you when an earlier appointment opens. No Tesla login required.`
 
   return {
     title,
