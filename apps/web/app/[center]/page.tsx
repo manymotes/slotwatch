@@ -45,7 +45,11 @@ export async function generateMetadata({
         },
       ],
     },
-    twitter: { title, description },
+    twitter: {
+      title,
+      description,
+      images: ['https://slotwatcher.app/og-image.png'],
+    },
     alternates: {
       canonical: `https://slotwatcher.app/${data.slug}`,
     },
