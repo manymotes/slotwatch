@@ -12,8 +12,13 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const g = guideBySlug.get(params.slug)
   if (!g) return {}
+  // Google truncates title tags around ~60 characters. Only append the brand
+  // suffix when it still fits, and skip it entirely if the guide title
+  // already names SlotWatch (avoids "... vs. SlotWatch | SlotWatch").
+  const brand = ' | SlotWatch'
+  const pageTitle = /slotwatch/i.test(g.title) || g.title.length + brand.length > 60 ? g.title : `${g.title}${brand}`
   return {
-    title: `${g.title} | SlotWatch`,
+    title: pageTitle,
     description: g.description,
     alternates: { canonical: `https://slotwatcher.app/guides/${g.slug}` },
     openGraph: {
