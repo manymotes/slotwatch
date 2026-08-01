@@ -350,6 +350,10 @@ Whichever queue you're waiting on, don't rely on catching the opening by luck. [
 
 Tesla recently added a built-in way to get notified if an earlier service appointment opens up. So do you still need a tool like SlotWatch? Here's an honest, side-by-side look — including when Tesla's free feature is all you need.
 
+## Does Tesla notify you when an earlier service appointment opens?
+
+Yes — in recent versions of the Tesla app, once you have a service visit booked you can join a standby list for an earlier slot at that same center, and Tesla will reach out if a cancellation frees one up. It's free. The important caveats: it only watches the **one center you already booked**, only offers slots that match your current appointment's length, and **isn't available at every location**. There's still no general "service waitlist" that watches multiple centers for you — which is the gap SlotWatch fills. The rest of this guide covers exactly how each option works and when to use which.
+
 ## What Tesla's built-in feature does
 
 In recent versions of the Tesla app, when you have a service visit booked you can opt in to be put on standby for an earlier appointment. If a cancellation frees up a sooner slot, Tesla contacts you to reschedule. It's free and built right into the app.
@@ -360,6 +364,21 @@ It comes with real limits, though:
 - **Same appointment length only.** The earlier slot has to match your current appointment's scheduled length, which depends on your issue.
 - **Not available everywhere.** The feature isn't offered at every service center.
 - **You need an existing appointment**, and then you wait for Tesla to reach out.
+
+## How to turn on Tesla's built-in earlier-appointment standby
+
+If your center supports it, enabling Tesla's own notification takes under a minute:
+
+1. Open the **Tesla app** and tap the car that has the service visit.
+2. Go to **Service** (or tap the existing service appointment banner) to open your booked visit.
+3. Open the appointment details and look for an **earlier-appointment** or **standby** option — wording varies by app version, but it's near the reschedule controls.
+4. **Opt in.** Tesla will then contact you if a sooner slot opens at that center.
+
+If you don't see the option, your service center probably doesn't offer it — that's common, and it's one of the cases where a tool that watches availability directly (like SlotWatch) is the only route to an earlier slot. Either way, it's worth turning Tesla's standby on if it's there; it costs nothing and it's one more line in the water.
+
+## Does Tesla have a service waitlist?
+
+Not in the general sense people usually mean. There's no list you join that watches every nearby center and books you the first opening anywhere. The closest thing is the single-center standby above: it only applies to the center you already booked, and only when that center supports it. If you want something that behaves like a real waitlist — watching several centers at once and pinging you the moment any of them frees up — that's specifically what SlotWatch does.
 
 ## What SlotWatch does
 
@@ -420,6 +439,12 @@ No. It's not offered everywhere, and it only applies to a center where you alrea
 
 **Do I need to give SlotWatch my Tesla login to compare centers?**
 No. SlotWatch never asks for your Tesla credentials. It watches availability and emails you when an earlier slot opens; you still book the new slot yourself in the Tesla app.
+
+**How do I get notified of an earlier Tesla service appointment?**
+Two ways. If your center supports Tesla's built-in standby, opt in from your booked appointment in the Tesla app and Tesla will contact you for an earlier slot at that one center. To cover more than one center — or if your center doesn't offer standby — SlotWatch watches up to 3 centers and emails you within about 15 minutes of an earlier slot appearing, no Tesla login required.
+
+**Why doesn't Tesla show an earlier-appointment option for my service center?**
+Tesla's standby feature isn't offered at every location, so if you don't see it, your center likely doesn't support it yet. That's one of the main reasons SlotWatch exists — it watches availability at the centers you pick regardless of whether Tesla's built-in standby is available there.
 
 ---
 
