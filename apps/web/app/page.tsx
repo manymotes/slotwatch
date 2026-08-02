@@ -377,7 +377,7 @@ export default function HomePage() {
               <IconGithub />
               <span style={{ display: 'none' }}>GitHub</span>
             </a>
-            <a href="/start" style={{
+            <a href="/start/" style={{
               background: '#e31937',
               color: '#fff',
               textDecoration: 'none',
@@ -628,7 +628,7 @@ export default function HomePage() {
                 </li>
               ))}
             </ul>
-            <a href="/start" style={{
+            <a href="/start/" style={{
               display: 'block',
               textAlign: 'center',
               background: '#e31937',
