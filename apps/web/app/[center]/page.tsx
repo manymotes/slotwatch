@@ -148,6 +148,16 @@ export default function CenterPage({ params }: { params: { center: string } }) {
   const otherState = SERVICE_CENTERS.filter((c) => c.slug !== data.slug && c.stateAbbr !== data.stateAbbr)
   const otherAreas = [...sameState, ...otherState].slice(0, 12)
 
+  // Real neighborhood names (from the actual centers list) and 2-3 sibling
+  // metros for a contextual paragraph — no invented data, just what's already above.
+  const neighborhoods = Array.from(new Set(data.centers.map((c) => c.city))).filter(
+    (city) => city.toLowerCase() !== data.city.toLowerCase()
+  )
+  const joinNatural = (items: string[]) =>
+    items.length <= 1 ? (items[0] ?? '') : `${items.slice(0, -1).join(', ')} and ${items[items.length - 1]}`
+  const neighborhoodList = joinNatural(neighborhoods.slice(0, 4))
+  const siblingMetros = (sameState.length > 0 ? sameState : otherState).slice(0, 3)
+
   return (
     <div style={{ minHeight: '100vh', background: '#080808' }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: appSchema }} />
@@ -242,6 +252,30 @@ export default function CenterPage({ params }: { params: { center: string } }) {
             </div>
           ))}
         </div>
+
+        <p style={{ fontSize: '0.95rem', lineHeight: 1.7, color: '#6b6b6b', marginTop: '28px', maxWidth: '680px' }}>
+          {n === 1 ? (
+            <>With just one Tesla-owned center covering the whole {data.city} area, an earlier opening can fill within minutes of appearing. Tesla&apos;s own advice is to keep checking and grab whatever opens first — SlotWatch automates exactly that.</>
+          ) : (
+            <>{data.city}&apos;s {n} centers are spread across {neighborhoodList}, so availability varies a lot by location. Tesla&apos;s own advice is to check multiple centers and take whatever opens first — SlotWatch watches all of them at once so you don&apos;t have to.</>
+          )}
+          {siblingMetros.length > 0 && (
+            <>
+              {' '}If you&apos;re also near{' '}
+              {siblingMetros.map((c, i) => (
+                <span key={c.slug}>
+                  {i > 0 && (i === siblingMetros.length - 1 ? (siblingMetros.length > 2 ? ', or ' : ' or ') : ', ')}
+                  <Link href={`/${c.slug}`} style={{ color: '#e5556f', textDecoration: 'none' }}>{c.city}</Link>
+                </span>
+              ))}
+              , we watch those Tesla service centers too.
+            </>
+          )}{' '}
+          For the bigger picture on why Tesla service books out nationally, see our{' '}
+          <Link href="/guides/tesla-service-wait-times" style={{ color: '#e5556f', textDecoration: 'none' }}>
+            breakdown of Tesla service wait times
+          </Link>.
+        </p>
       </section>
 
       {/* How it works */}
