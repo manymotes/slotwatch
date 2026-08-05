@@ -274,6 +274,10 @@ export default function CenterPage({ params }: { params: { center: string } }) {
           For the bigger picture on why Tesla service books out nationally, see our{' '}
           <Link href="/guides/tesla-service-wait-times" style={{ color: '#e5556f', textDecoration: 'none' }}>
             breakdown of Tesla service wait times
+          </Link>{' '}
+          — or for concrete tactics that can move your date up (not just watching {data.city}), read our guide on{' '}
+          <Link href="/guides/how-to-get-an-earlier-tesla-service-appointment" style={{ color: '#e5556f', textDecoration: 'none' }}>
+            how to get an earlier Tesla service appointment
           </Link>.
         </p>
       </section>
