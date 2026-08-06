@@ -322,7 +322,7 @@ const softwareSchemaJson = JSON.stringify({
     priceCurrency: 'USD',
   },
   description:
-    'SlotWatch monitors Tesla Service Center appointment availability across 170+ US cities and emails you the moment a cancellation slot opens.',
+    'SlotWatch monitors Tesla Service Center appointment availability across 40 US metros and emails you the moment a cancellation slot opens.',
   url: 'https://slotwatcher.app',
 })
 
