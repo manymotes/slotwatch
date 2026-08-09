@@ -255,7 +255,7 @@ A few things worth knowing about how SlotWatch works:
 
 Want the deeper strategy? Our companion guide, [how to get an earlier Tesla service appointment](/guides/how-to-get-an-earlier-tesla-service-appointment), covers the tactics that consistently move people's appointments up by days or weeks.
 
-In a busy metro? Cancellations happen constantly at high-traffic locations. For example, see availability patterns on our [Dallas Tesla service](/dallas-tesla-service) page.
+In a busy metro? Cancellations happen constantly at high-traffic locations. For example, see availability patterns on our [Dallas–Fort Worth Tesla service](/dallas-fort-worth-tesla-service) page.
 
 ## FAQ
 
