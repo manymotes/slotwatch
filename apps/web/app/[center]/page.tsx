@@ -203,14 +203,13 @@ export default function CenterPage({ params }: { params: { center: string } }) {
                 Watch {data.city}
               </button>
             </form>
-            <p style={{ fontSize: '0.75rem', color: '#3a3a3a', marginTop: '10px' }}>
-              $24 one-time · 60-day watch · money-back guarantee
+            <p style={{ fontSize: '0.75rem', color: '#22c55e', fontWeight: 600, marginTop: '10px' }}>
+              You only pay if it works — full refund if no earlier slot opens in 60 days.
+            </p>
+            <p style={{ fontSize: '0.75rem', color: '#3a3a3a', marginTop: '4px' }}>
+              $24 one-time · 60-day watch · no subscription
             </p>
           </div>
-
-          <a href="https://github.com/manymotes/slotwatch" style={{ color: '#3a3a3a', textDecoration: 'none', fontSize: '0.8125rem' }}>
-            Or self-host for free on GitHub →
-          </a>
         </div>
       </section>
 
@@ -323,7 +322,7 @@ export default function CenterPage({ params }: { params: { center: string } }) {
             <h2 style={{ fontSize: '1.375rem', fontWeight: 800, color: '#f0f0f0', letterSpacing: '-0.02em', marginBottom: '6px' }}>
               Stop waiting for a {data.city} Tesla appointment.
             </h2>
-            <p style={{ color: '#6b6b6b', fontSize: '0.9375rem' }}>$24 one-time · money-back guarantee · no subscription</p>
+            <p style={{ color: '#6b6b6b', fontSize: '0.9375rem' }}>$24 one-time · you only pay if it works — full refund if we find you nothing</p>
           </div>
           <Link href={`/start?city=${encodeURIComponent(`${data.city}, ${data.stateAbbr}`)}`} style={{ display: 'inline-flex', alignItems: 'center', background: '#e31937', color: '#fff', textDecoration: 'none', fontWeight: 700, fontSize: '0.9375rem', padding: '13px 26px', borderRadius: '8px', whiteSpace: 'nowrap' }}>
             Start watching {data.city}

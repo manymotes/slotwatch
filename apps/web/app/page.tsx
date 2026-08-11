@@ -237,7 +237,7 @@ const faqs: FAQItem[] = [
   },
   {
     q: 'How does pricing work — is it a subscription?',
-    a: 'No subscription. It’s a one-time $24 for a 60-day watch of up to 3 service centers. If no earlier slot opens during those 60 days, email us for a full refund. If you want to keep watching after 60 days, you can optionally continue for $6.99/mo, cancel anytime.',
+    a: 'No subscription. It’s a one-time $24 for a 60-day watch of up to 3 service centers — and you only pay if it works: if no earlier slot opens during those 60 days, email us and we’ll refund every cent. If you want to keep watching after 60 days, you can optionally continue for $6.99/mo, cancel anytime.',
   },
   {
     q: 'Which service centers does SlotWatch watch?',
@@ -265,13 +265,6 @@ const steps = [
     label: 'Get an email, then book',
     body: 'The moment an earlier opening appears at your center, we email you. Open the Tesla app to reschedule before it\'s gone.',
   },
-]
-
-const freeFeatures = [
-  'Open source on GitHub',
-  'Docker Compose setup',
-  'Self-managed server',
-  'Full source access',
 ]
 
 const proFeatures = [
@@ -432,22 +425,18 @@ export default function HomePage() {
           <div id="hero-form">
             <EmailCapture />
           </div>
-          <div style={{ marginTop: '16px' }}>
-            <a href="https://github.com/manymotes/slotwatch" style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '8px',
-              color: '#8a8a8a',
-              textDecoration: 'none',
-              fontWeight: 500,
-              fontSize: '0.9375rem',
-              padding: '4px 0',
-              transition: 'color 0.15s',
-            }}>
-              <IconGithub />
-              Self-host for free
-            </a>
-          </div>
+          <p style={{
+            marginTop: '16px',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px',
+            color: '#8a8a8a',
+            fontWeight: 500,
+            fontSize: '0.9375rem',
+          }}>
+            <span style={{ color: '#22c55e', flexShrink: 0 }} aria-hidden="true"><IconCheck /></span>
+            $24 one-time — fully refunded if we don&rsquo;t find you an earlier slot.
+          </p>
         </div>
       </section>
 
@@ -536,114 +525,81 @@ export default function HomePage() {
           Pricing
         </h2>
         <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-          gap: '2px',
-          background: '#1a1a1a',
+          background: '#0d0d0d',
+          border: '1px solid #1a1a1a',
           borderRadius: '12px',
-          overflow: 'hidden',
-          maxWidth: '720px',
+          padding: '40px 36px',
+          maxWidth: '440px',
+          position: 'relative',
         }}>
-          {/* Free */}
-          <div style={{ background: '#0d0d0d', padding: '40px 36px' }}>
-            <p style={{
-              fontSize: '0.75rem',
-              fontWeight: 700,
-              letterSpacing: '0.12em',
-              textTransform: 'uppercase',
-              color: '#3a3a3a',
-              marginBottom: '16px',
-            }}>
-              Free
+          <p style={{
+            fontSize: '0.75rem',
+            fontWeight: 700,
+            letterSpacing: '0.12em',
+            textTransform: 'uppercase',
+            color: '#e31937',
+            marginBottom: '16px',
+          }}>
+            One simple price
+          </p>
+          <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px', marginBottom: '8px' }}>
+            <span style={{ fontSize: '2.25rem', fontWeight: 800, color: '#f0f0f0', letterSpacing: '-0.03em' }}>$24</span>
+            <span style={{ fontSize: '0.875rem', color: '#6b6b6b' }}>one-time · no subscription</span>
+          </div>
+          <p style={{ fontSize: '0.875rem', color: '#6b6b6b', marginBottom: '24px' }}>
+            60-day watch of up to 3 service centers
+          </p>
+
+          {/* Guarantee callout — the headline of the offer */}
+          <div style={{
+            display: 'flex',
+            gap: '12px',
+            background: 'rgba(34,197,94,0.08)',
+            border: '1px solid rgba(34,197,94,0.25)',
+            borderRadius: '9px',
+            padding: '14px 16px',
+            marginBottom: '28px',
+          }}>
+            <span style={{ color: '#22c55e', flexShrink: 0, marginTop: '2px' }} aria-hidden="true"><IconCheck /></span>
+            <p style={{ fontSize: '0.875rem', lineHeight: 1.55, color: '#c8c8c8', margin: 0 }}>
+              <strong style={{ color: '#f0f0f0' }}>You only pay if it works.</strong> If no earlier slot opens during your 60 days, email us and we&rsquo;ll refund every cent.
             </p>
-            <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px', marginBottom: '8px' }}>
-              <span style={{ fontSize: '2.25rem', fontWeight: 800, color: '#f0f0f0', letterSpacing: '-0.03em' }}>$0</span>
-            </div>
-            <p style={{ fontSize: '0.875rem', color: '#6b6b6b', marginBottom: '32px' }}>
-              Run it yourself
-            </p>
-            <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 32px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              {freeFeatures.map((f) => (
-                <li key={f} style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#8a8a8a', fontSize: '0.9375rem' }}>
-                  <span style={{ color: '#3a3a3a', flexShrink: 0 }}><IconCheck /></span>
-                  {f}
-                </li>
-              ))}
-            </ul>
-            <a href="https://github.com/manymotes/slotwatch" style={{
-              display: 'block',
-              textAlign: 'center',
-              border: '1px solid #2a2a2a',
-              color: '#6b6b6b',
-              textDecoration: 'none',
-              fontWeight: 600,
-              fontSize: '0.875rem',
-              padding: '11px 20px',
-              borderRadius: '7px',
-              transition: 'border-color 0.15s, color 0.15s',
-            }}>
-              View on GitHub
-            </a>
           </div>
 
-          {/* Pro */}
-          <div style={{ background: '#0d0d0d', padding: '40px 36px', position: 'relative' }}>
-            <div style={{
-              position: 'absolute',
-              top: '20px',
-              right: '20px',
-              background: '#e31937',
-              color: '#fff',
-              fontSize: '0.625rem',
-              fontWeight: 800,
-              letterSpacing: '0.1em',
-              textTransform: 'uppercase',
-              padding: '4px 8px',
-              borderRadius: '4px',
-            }}>
-              Recommended
-            </div>
-            <p style={{
-              fontSize: '0.75rem',
-              fontWeight: 700,
-              letterSpacing: '0.12em',
-              textTransform: 'uppercase',
-              color: '#e31937',
-              marginBottom: '16px',
-            }}>
-              Managed
-            </p>
-            <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px', marginBottom: '8px' }}>
-              <span style={{ fontSize: '2.25rem', fontWeight: 800, color: '#f0f0f0', letterSpacing: '-0.03em' }}>$24</span>
-              <span style={{ fontSize: '0.875rem', color: '#6b6b6b' }}>one-time</span>
-            </div>
-            <p style={{ fontSize: '0.875rem', color: '#6b6b6b', marginBottom: '32px' }}>
-              60-day watch · money-back guarantee · optional $6.99/mo to keep watching after
-            </p>
-            <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 32px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              {proFeatures.map((f) => (
-                <li key={f} style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#c8c8c8', fontSize: '0.9375rem' }}>
-                  <span style={{ color: '#e31937', flexShrink: 0 }}><IconCheck /></span>
-                  {f}
-                </li>
-              ))}
-            </ul>
-            <a href="/start/" style={{
-              display: 'block',
-              textAlign: 'center',
-              background: '#e31937',
-              color: '#fff',
-              textDecoration: 'none',
-              fontWeight: 700,
-              fontSize: '0.9375rem',
-              padding: '12px 20px',
-              borderRadius: '7px',
-              transition: 'opacity 0.15s',
-            }}>
-              Get started
-            </a>
-          </div>
+          <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 32px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            {proFeatures.map((f) => (
+              <li key={f} style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#c8c8c8', fontSize: '0.9375rem' }}>
+                <span style={{ color: '#e31937', flexShrink: 0 }}><IconCheck /></span>
+                {f}
+              </li>
+            ))}
+          </ul>
+          <a href="/start/" style={{
+            display: 'block',
+            textAlign: 'center',
+            background: '#e31937',
+            color: '#fff',
+            textDecoration: 'none',
+            fontWeight: 700,
+            fontSize: '0.9375rem',
+            padding: '13px 20px',
+            borderRadius: '7px',
+            transition: 'opacity 0.15s',
+          }}>
+            Start watching — $24
+          </a>
+          <p style={{ fontSize: '0.8125rem', color: '#5a5a5a', textAlign: 'center', marginTop: '12px' }}>
+            Optional $6.99/mo to keep watching after 60 days · cancel anytime
+          </p>
         </div>
+
+        {/* Self-host — kept available, but off the conversion path */}
+        <p style={{ fontSize: '0.875rem', color: '#4a4a4a', marginTop: '20px', maxWidth: '440px' }}>
+          Prefer to run it yourself? SlotWatch is open source —{' '}
+          <a href="https://github.com/manymotes/slotwatch" style={{ color: '#6b6b6b', textDecoration: 'underline' }}>
+            self-host it free on GitHub
+          </a>.
+        </p>
       </section>
 
       {/* ── FAQ ── */}
