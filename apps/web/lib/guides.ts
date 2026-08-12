@@ -57,7 +57,7 @@ Pricing is simple and honest: a **one-time $24** covers a 60-day watch of up to 
 
 We'll be straight with you: SlotWatch can't create appointments that don't exist. It only helps you catch openings that other customers free up. But when those openings do appear, being the first to know is the whole difference between grabbing a slot and missing it.
 
-If you're in a major metro, start with your city page: [Los Angeles](/los-angeles-tesla-service), [San Francisco](/san-francisco-tesla-service), or [New York](/new-york-tesla-service). And if you're curious how long people are typically waiting right now, our guide to [Tesla service wait times](/guides/tesla-service-wait-times) breaks it down by region.
+If you're in a major metro, start with your city page: [Los Angeles](/los-angeles-tesla-service), [San Francisco](/san-francisco-tesla-service), [New York](/new-york-tesla-service), [Phoenix](/phoenix-tesla-service) (five centers spread from Glendale to Tempe, so the "watch several nearby centers" tactic really pays off there), [Austin](/austin-tesla-service), or [Dallas–Fort Worth](/dallas-fort-worth-tesla-service) (which includes both Plano locations). And if you're curious how long people are typically waiting right now, our guide to [Tesla service wait times](/guides/tesla-service-wait-times) breaks it down by region.
 
 ## Frequently asked questions
 
