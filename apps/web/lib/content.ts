@@ -78,7 +78,7 @@ We offer an open-source, self-host version of SlotWatch on GitHub. That code is 
 
 To the fullest extent allowed by law, SlotWatch and its owners will not be liable for any indirect, incidental, special, or consequential damages, or for any lost appointments, missed slots, lost time, or lost savings, arising out of or related to your use of (or inability to use) the Service.
 
-If we're found liable for anything despite the above, our **total liability to you is limited to the amount you paid us in the 12 months before the claim** (or $9.99 if you hadn't paid anything). Some jurisdictions don't allow certain limitations, so parts of this section may not apply to you.
+If we're found liable for anything despite the above, our **total liability to you is limited to the amount you paid us in the 12 months before the claim** (or $24 if you hadn't paid anything). Some jurisdictions don't allow certain limitations, so parts of this section may not apply to you.
 
 ## 9. Termination
 
