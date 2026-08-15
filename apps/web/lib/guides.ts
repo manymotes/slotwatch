@@ -119,6 +119,8 @@ Wait times are local, so start with your metro area. Each page below covers what
 - [Chicago](/chicago-tesla-service)
 - [Boston](/boston-tesla-service)
 - [Atlanta](/atlanta-tesla-service)
+- [Phoenix](/phoenix-tesla-service) (five centers spread from Glendale to Tempe)
+- [Dallas–Fort Worth](/dallas-fort-worth-tesla-service) (includes both Plano locations)
 
 Don't see your city yet? Browse the [full list of Tesla service wait times by city](/cities) — we cover 40 US metros, organized by state. The strategies below also work anywhere in the US.
 
