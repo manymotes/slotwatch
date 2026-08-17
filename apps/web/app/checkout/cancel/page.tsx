@@ -41,7 +41,7 @@ export default function CheckoutCancelPage() {
         <p style={{ color: '#6b6b6b', fontSize: '0.9375rem', lineHeight: 1.65, marginBottom: '36px' }}>
           No charge was made. You can try again whenever you're ready.
         </p>
-        <Link href="/checkout" style={{
+        <Link href="/checkout/" style={{
           display: 'block',
           background: '#e31937',
           color: '#fff',

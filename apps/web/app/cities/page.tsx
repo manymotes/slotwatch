@@ -65,7 +65,7 @@ export default function CitiesIndex() {
       <nav style={{ borderBottom: '1px solid #1a1a1a' }}>
         <div style={{ maxWidth: '1120px', margin: '0 auto', padding: '0 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '56px' }}>
           <Logo size={28} />
-          <Link href="/start" style={{ background: '#e31937', color: '#fff', textDecoration: 'none', fontSize: '0.8125rem', fontWeight: 600, padding: '7px 14px', borderRadius: '6px' }}>Start watching</Link>
+          <Link href="/start/" style={{ background: '#e31937', color: '#fff', textDecoration: 'none', fontSize: '0.8125rem', fontWeight: 600, padding: '7px 14px', borderRadius: '6px' }}>Start watching</Link>
         </div>
       </nav>
 
@@ -77,11 +77,11 @@ export default function CitiesIndex() {
         <p style={{ color: '#8a8a8a', fontSize: '1.0625rem', lineHeight: 1.6, marginBottom: '48px', maxWidth: '640px' }}>
           SlotWatch tracks typical wait times and cancellation slots at {live.length} US Tesla service centers.
           Find your city below, see our{' '}
-          <Link href="/guides/tesla-service-wait-times" style={{ color: '#e31937', textDecoration: 'none' }}>
+          <Link href="/guides/tesla-service-wait-times/" style={{ color: '#e31937', textDecoration: 'none' }}>
             national wait-time breakdown
           </Link>{' '}
           for what drives the delays, or read{' '}
-          <Link href="/guides/how-to-get-an-earlier-tesla-service-appointment" style={{ color: '#e31937', textDecoration: 'none' }}>
+          <Link href="/guides/how-to-get-an-earlier-tesla-service-appointment/" style={{ color: '#e31937', textDecoration: 'none' }}>
             how to get an earlier Tesla service appointment
           </Link>{' '}
           for strategies that work anywhere.

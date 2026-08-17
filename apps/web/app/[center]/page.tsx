@@ -169,7 +169,7 @@ export default function CenterPage({ params }: { params: { center: string } }) {
       <nav style={{ position: 'sticky', top: 0, zIndex: 50, background: 'rgba(8,8,8,0.9)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)', borderBottom: '1px solid #1a1a1a' }}>
         <div style={{ maxWidth: '1120px', margin: '0 auto', padding: '0 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '56px' }}>
           <Logo size={28} />
-          <Link href={`/start?city=${encodeURIComponent(`${data.city}, ${data.stateAbbr}`)}`} style={{ background: '#e31937', color: '#fff', textDecoration: 'none', fontSize: '0.8125rem', fontWeight: 600, padding: '7px 14px', borderRadius: '6px' }}>
+          <Link href={`/start/?city=${encodeURIComponent(`${data.city}, ${data.stateAbbr}`)}`} style={{ background: '#e31937', color: '#fff', textDecoration: 'none', fontSize: '0.8125rem', fontWeight: 600, padding: '7px 14px', borderRadius: '6px' }}>
             Start watching
           </Link>
         </div>
@@ -271,11 +271,11 @@ export default function CenterPage({ params }: { params: { center: string } }) {
             </>
           )}{' '}
           For the bigger picture on why Tesla service books out nationally, see our{' '}
-          <Link href="/guides/tesla-service-wait-times" style={{ color: '#e5556f', textDecoration: 'none' }}>
+          <Link href="/guides/tesla-service-wait-times/" style={{ color: '#e5556f', textDecoration: 'none' }}>
             breakdown of Tesla service wait times
           </Link>{' '}
           — or for concrete tactics that can move your date up (not just watching {data.city}), read our guide on{' '}
-          <Link href="/guides/how-to-get-an-earlier-tesla-service-appointment" style={{ color: '#e5556f', textDecoration: 'none' }}>
+          <Link href="/guides/how-to-get-an-earlier-tesla-service-appointment/" style={{ color: '#e5556f', textDecoration: 'none' }}>
             how to get an earlier Tesla service appointment
           </Link>.
         </p>
@@ -324,7 +324,7 @@ export default function CenterPage({ params }: { params: { center: string } }) {
             </h2>
             <p style={{ color: '#6b6b6b', fontSize: '0.9375rem' }}>$24 one-time · you only pay if it works — full refund if we find you nothing</p>
           </div>
-          <Link href={`/start?city=${encodeURIComponent(`${data.city}, ${data.stateAbbr}`)}`} style={{ display: 'inline-flex', alignItems: 'center', background: '#e31937', color: '#fff', textDecoration: 'none', fontWeight: 700, fontSize: '0.9375rem', padding: '13px 26px', borderRadius: '8px', whiteSpace: 'nowrap' }}>
+          <Link href={`/start/?city=${encodeURIComponent(`${data.city}, ${data.stateAbbr}`)}`} style={{ display: 'inline-flex', alignItems: 'center', background: '#e31937', color: '#fff', textDecoration: 'none', fontWeight: 700, fontSize: '0.9375rem', padding: '13px 26px', borderRadius: '8px', whiteSpace: 'nowrap' }}>
             Start watching {data.city}
           </Link>
         </div>
@@ -341,7 +341,7 @@ export default function CenterPage({ params }: { params: { center: string } }) {
               {c.city}, {c.stateAbbr}
             </Link>
           ))}
-          <Link href="/cities" style={{ background: '#0d0d0d', border: '1px solid #2a1519', color: '#e5556f', textDecoration: 'none', fontSize: '0.8125rem', padding: '6px 13px', borderRadius: '6px' }}>
+          <Link href="/cities/" style={{ background: '#0d0d0d', border: '1px solid #2a1519', color: '#e5556f', textDecoration: 'none', fontSize: '0.8125rem', padding: '6px 13px', borderRadius: '6px' }}>
             All cities →
           </Link>
         </div>

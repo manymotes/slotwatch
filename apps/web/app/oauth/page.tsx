@@ -73,7 +73,7 @@ export default function OAuthPage() {
           <p style={{ color: '#6b6b6b', fontSize: '0.9375rem', lineHeight: 1.65, marginBottom: '36px' }}>
             SlotWatch is now authorized. Head to your dashboard to set up your first watch.
           </p>
-          <Link href="/dashboard" style={{
+          <Link href="/account/" style={{
             display: 'block',
             background: '#e31937',
             color: '#fff',

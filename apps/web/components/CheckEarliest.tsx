@@ -66,7 +66,7 @@ export default function CheckEarliest() {
               No openings showing right now — which is exactly when watching pays off. SlotWatch emails you the moment one appears.
             </p>
           )}
-          <a href={`/start?city=${encodeURIComponent(res.city)}`}
+          <a href={`/start/?city=${encodeURIComponent(res.city)}`}
             style={{ display: 'inline-block', background: '#e31937', color: '#fff', textDecoration: 'none', fontWeight: 700, fontSize: '0.9375rem', padding: '12px 22px', borderRadius: '8px' }}>
             Watch {res.center.replace('Tesla Service ', '')} — $24 →
           </a>
