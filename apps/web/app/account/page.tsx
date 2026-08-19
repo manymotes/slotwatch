@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Your account — SlotWatch',
   description: 'Manage your SlotWatch alerts.',
   robots: { index: false },
-  alternates: { canonical: 'https://slotwatcher.app/account' },
+  alternates: { canonical: 'https://slotwatcher.app/account/' },
 }
 
 export default function AccountPage() {

@@ -4,7 +4,7 @@ export const metadata: Metadata = {
   title: 'Connect your account — SlotWatch',
   robots: { index: false },
   alternates: {
-    canonical: 'https://slotwatcher.app/oauth',
+    canonical: 'https://slotwatcher.app/oauth/',
   },
 }
 

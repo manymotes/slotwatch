@@ -5,11 +5,11 @@ import { Logo } from '../../components/Logo'
 export const metadata: Metadata = {
   title: 'Contact — SlotWatch',
   description: 'Get in touch with the SlotWatch team. Email hello@slotwatcher.app and we’ll get back to you.',
-  alternates: { canonical: 'https://slotwatcher.app/contact' },
+  alternates: { canonical: 'https://slotwatcher.app/contact/' },
   openGraph: {
     title: 'Contact — SlotWatch',
     description: 'Questions about SlotWatch? Email hello@slotwatcher.app.',
-    url: 'https://slotwatcher.app/contact',
+    url: 'https://slotwatcher.app/contact/',
     images: [{ url: 'https://slotwatcher.app/og-image.png', width: 1200, height: 630, alt: 'SlotWatch — Tesla Service Appointment Alerts' }],
   },
   twitter: {

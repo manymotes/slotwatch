@@ -20,11 +20,11 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   return {
     title: pageTitle,
     description: g.description,
-    alternates: { canonical: `https://slotwatcher.app/guides/${g.slug}` },
+    alternates: { canonical: `https://slotwatcher.app/guides/${g.slug}/` },
     openGraph: {
       title: g.title,
       description: g.description,
-      url: `https://slotwatcher.app/guides/${g.slug}`,
+      url: `https://slotwatcher.app/guides/${g.slug}/`,
       type: 'article',
       images: [{ url: 'https://slotwatcher.app/og-image.png', width: 1200, height: 630, alt: 'SlotWatch — Tesla Service Appointment Alerts' }],
     },

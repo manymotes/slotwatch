@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Payment cancelled — SlotWatch',
   robots: { index: false },
   alternates: {
-    canonical: 'https://slotwatcher.app/checkout/cancel',
+    canonical: 'https://slotwatcher.app/checkout/cancel/',
   },
 }
 

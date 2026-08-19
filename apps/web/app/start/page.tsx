@@ -7,12 +7,12 @@ export const metadata: Metadata = {
   title: 'Start watching — SlotWatch',
   description: 'Pick your Tesla service center and get emailed when an earlier appointment opens. No Tesla login required.',
   alternates: {
-    canonical: 'https://slotwatcher.app/start',
+    canonical: 'https://slotwatcher.app/start/',
   },
   openGraph: {
     title: 'Start watching — SlotWatch',
     description: 'Pick your Tesla service center and get emailed when an earlier appointment opens. No Tesla login required.',
-    url: 'https://slotwatcher.app/start',
+    url: 'https://slotwatcher.app/start/',
     images: [{ url: 'https://slotwatcher.app/og-image.png', width: 1200, height: 630, alt: 'SlotWatch — Tesla Service Appointment Alerts' }],
   },
   twitter: {

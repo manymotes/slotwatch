@@ -36,7 +36,7 @@ export async function generateMetadata({
     openGraph: {
       title,
       description,
-      url: `https://slotwatcher.app/${data.slug}`,
+      url: `https://slotwatcher.app/${data.slug}/`,
       images: [
         {
           url: 'https://slotwatcher.app/og-image.png',
@@ -52,7 +52,7 @@ export async function generateMetadata({
       images: ['https://slotwatcher.app/og-image.png'],
     },
     alternates: {
-      canonical: `https://slotwatcher.app/${data.slug}`,
+      canonical: `https://slotwatcher.app/${data.slug}/`,
     },
   }
 }

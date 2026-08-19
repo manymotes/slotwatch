@@ -5,11 +5,11 @@ import { Logo } from '../../components/Logo'
 export const metadata: Metadata = {
   title: 'About SlotWatch — Earlier Tesla Service Appointment Alerts',
   description: 'SlotWatch is an independent service that monitors Tesla service centers for earlier appointment openings and emails you when one appears. No Tesla login. $24 one-time.',
-  alternates: { canonical: 'https://slotwatcher.app/about' },
+  alternates: { canonical: 'https://slotwatcher.app/about/' },
   openGraph: {
     title: 'About SlotWatch',
     description: 'An independent service that watches Tesla service centers for earlier appointment openings and emails you when one appears.',
-    url: 'https://slotwatcher.app/about',
+    url: 'https://slotwatcher.app/about/',
     images: [{ url: 'https://slotwatcher.app/og-image.png', width: 1200, height: 630, alt: 'SlotWatch — Tesla Service Appointment Alerts' }],
   },
   twitter: {

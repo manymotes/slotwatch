@@ -7,11 +7,11 @@ import { HOWITWORKS_MD, FOUNDER_MD, FAQ } from '../../lib/content'
 export const metadata: Metadata = {
   title: 'How SlotWatch Works — Earlier Tesla Service Appointments',
   description: 'How SlotWatch watches Tesla service centers and emails you when an earlier appointment opens. No Tesla login required.',
-  alternates: { canonical: 'https://slotwatcher.app/how-it-works' },
+  alternates: { canonical: 'https://slotwatcher.app/how-it-works/' },
   openGraph: {
     title: 'How SlotWatch Works',
     description: 'We watch your Tesla service center and email you the moment an earlier appointment opens.',
-    url: 'https://slotwatcher.app/how-it-works',
+    url: 'https://slotwatcher.app/how-it-works/',
     images: [{ url: 'https://slotwatcher.app/og-image.png', width: 1200, height: 630, alt: 'SlotWatch — Tesla Service Appointment Alerts' }],
   },
   twitter: {

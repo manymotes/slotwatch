@@ -6,11 +6,11 @@ import { GUIDES } from '../../lib/guides'
 export const metadata: Metadata = {
   title: 'Tesla Service Guides — SlotWatch',
   description: 'Guides on getting an earlier Tesla service appointment: wait times, cancellation slots, rescheduling, and how to beat the queue.',
-  alternates: { canonical: 'https://slotwatcher.app/guides' },
+  alternates: { canonical: 'https://slotwatcher.app/guides/' },
   openGraph: {
     title: 'Tesla Service Guides — SlotWatch',
     description: 'How to get an earlier Tesla service appointment — wait times, cancellations, and rescheduling.',
-    url: 'https://slotwatcher.app/guides',
+    url: 'https://slotwatcher.app/guides/',
     images: [{ url: 'https://slotwatcher.app/og-image.png', width: 1200, height: 630, alt: 'SlotWatch — Tesla Service Appointment Alerts' }],
   },
   twitter: {
