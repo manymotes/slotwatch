@@ -5,8 +5,8 @@ export type Guide = { slug: string; title: string; description: string; md: stri
 export const GUIDES: Guide[] = [
   {
     slug: "how-to-get-an-earlier-tesla-service-appointment",
-    title: "How to Get an Earlier Tesla Service Appointment",
-    description: "Stuck with a Tesla service appointment weeks away? Here's how to get an earlier slot when cancellations open up, plus a way to automate the hunt.",
+    title: "7 Ways to Get an Earlier Tesla Service Appointment",
+    description: "7 proven tactics to snag an earlier Tesla service slot when cancellations open up — plus one way to automate the hunt so you stop refreshing the app.",
     datePublished: "2026-07-25",
     md: `# How to Get an Earlier Tesla Service Appointment
 
