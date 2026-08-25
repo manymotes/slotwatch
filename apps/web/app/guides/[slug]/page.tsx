@@ -150,9 +150,9 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
       <section style={{ maxWidth: '760px', margin: '0 auto', padding: '0 24px 96px' }}>
         <div style={{ background: '#111', border: '1px solid #1f1f1f', borderRadius: '14px', padding: '28px', textAlign: 'center' }}>
           <p style={{ color: '#f0f0f0', fontSize: '1.125rem', fontWeight: 700, margin: '0 0 8px' }}>Let SlotWatch catch the earlier slot for you</p>
-          <p style={{ color: '#8a8a8a', fontSize: '0.9375rem', margin: '0 0 18px' }}>One-time $24 · 60-day watch · money-back guarantee · no Tesla login</p>
+          <p style={{ color: '#8a8a8a', fontSize: '0.9375rem', margin: '0 0 18px' }}>14 days free, then $6.99/mo · cancel anytime · no Tesla login</p>
           <Link href="/start/" style={{ display: 'inline-block', background: '#e31937', color: '#fff', textDecoration: 'none', fontWeight: 700, fontSize: '0.9375rem', padding: '13px 26px', borderRadius: '8px' }}>
-            Start watching — $24 →
+            Start free trial →
           </Link>
         </div>
       </section>

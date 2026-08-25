@@ -128,13 +128,13 @@ export default function SignupForm() {
       )}
 
       <button style={{ ...btn('#e31937'), width: '100%', marginTop: '22px' }} disabled={!!busy} onClick={() => void submit()}>
-        {busy === 'go' ? 'Starting…' : 'Start watching — $24 →'}
+        {busy === 'go' ? 'Starting…' : 'Start free trial →'}
       </button>
       <p style={{ color: '#22c55e', fontSize: '0.8125rem', fontWeight: 600, marginTop: '12px', textAlign: 'center' }}>
-        You only pay if it works — full refund if no earlier slot opens in 60 days.
+        No charge for 14 days — cancel anytime before then and you pay nothing.
       </p>
       <p style={{ color: '#5a5a5a', fontSize: '0.8125rem', marginTop: '6px', textAlign: 'center' }}>
-        One-time $24 · 60-day watch · up to 3 centers · no Tesla login
+        14 days free, then $6.99/mo · up to 3 centers · no Tesla login
       </p>
       {err && <p style={{ color: '#ef4444', fontSize: '0.875rem', marginTop: '12px' }}>{err}</p>}
     </div>

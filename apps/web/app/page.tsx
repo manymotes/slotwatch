@@ -237,7 +237,7 @@ const faqs: FAQItem[] = [
   },
   {
     q: 'How does pricing work — is it a subscription?',
-    a: 'No subscription. It’s a one-time $24 for a 60-day watch of up to 3 service centers — and you only pay if it works: if no earlier slot opens during those 60 days, email us and we’ll refund every cent. If you want to keep watching after 60 days, you can optionally continue for $6.99/mo, cancel anytime.',
+    a: 'Your first 14 days are free, then it’s $6.99/mo to watch up to 3 service centers — cancel anytime, no lock-in. We ask for a card to start, but you’re not charged during the trial: cancel before day 14 and you pay nothing. No Tesla login required. Prefer to run it yourself? The self-hosted version on GitHub is free and open source.',
   },
   {
     q: 'Which service centers does SlotWatch watch?',
@@ -272,7 +272,7 @@ const proFeatures = [
   'Instant email alerts',
   'Checks every 15 minutes',
   'Watch up to 3 centers',
-  'Money-back guarantee',
+  'Cancel anytime',
 ]
 
 const organizationSchemaJson = JSON.stringify({
@@ -435,7 +435,7 @@ export default function HomePage() {
             fontSize: '0.9375rem',
           }}>
             <span style={{ color: '#22c55e', flexShrink: 0 }} aria-hidden="true"><IconCheck /></span>
-            $24 one-time — fully refunded if we don&rsquo;t find you an earlier slot.
+            14 days free, then $6.99/mo — cancel anytime, no lock-in.
           </p>
         </div>
       </section>
@@ -543,14 +543,13 @@ export default function HomePage() {
             One simple price
           </p>
           <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px', marginBottom: '8px' }}>
-            <span style={{ fontSize: '2.25rem', fontWeight: 800, color: '#f0f0f0', letterSpacing: '-0.03em' }}>$24</span>
-            <span style={{ fontSize: '0.875rem', color: '#6b6b6b' }}>one-time · no subscription</span>
+            <span style={{ fontSize: '2.25rem', fontWeight: 800, color: '#f0f0f0', letterSpacing: '-0.03em' }}>Free for 14 days</span>
           </div>
           <p style={{ fontSize: '0.875rem', color: '#6b6b6b', marginBottom: '24px' }}>
-            60-day watch of up to 3 service centers
+            then $6.99/mo · cancel anytime · up to 3 service centers
           </p>
 
-          {/* Guarantee callout — the headline of the offer */}
+          {/* Risk-reversal callout — the headline of the offer */}
           <div style={{
             display: 'flex',
             gap: '12px',
@@ -562,7 +561,7 @@ export default function HomePage() {
           }}>
             <span style={{ color: '#22c55e', flexShrink: 0, marginTop: '2px' }} aria-hidden="true"><IconCheck /></span>
             <p style={{ fontSize: '0.875rem', lineHeight: 1.55, color: '#c8c8c8', margin: 0 }}>
-              <strong style={{ color: '#f0f0f0' }}>You only pay if it works.</strong> If no earlier slot opens during your 60 days, email us and we&rsquo;ll refund every cent.
+              <strong style={{ color: '#f0f0f0' }}>No charge for 14 days.</strong> Cancel anytime before then and you pay nothing.
             </p>
           </div>
 
@@ -586,10 +585,10 @@ export default function HomePage() {
             borderRadius: '7px',
             transition: 'opacity 0.15s',
           }}>
-            Start watching — $24
+            Start free trial
           </a>
           <p style={{ fontSize: '0.8125rem', color: '#5a5a5a', textAlign: 'center', marginTop: '12px' }}>
-            Optional $6.99/mo to keep watching after 60 days · cancel anytime
+            $6.99/mo after your 14-day trial · cancel anytime
           </p>
         </div>
 

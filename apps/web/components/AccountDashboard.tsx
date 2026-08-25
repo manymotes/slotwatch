@@ -106,7 +106,7 @@ export default function AccountDashboard() {
   }
 
   async function reactivate() {
-    if (!confirm('Keep watching for $6.99/mo? Your card on file will be charged. Cancel anytime.')) return
+    if (!confirm('Resume your SlotWatch subscription for $6.99/mo? Your card on file will be charged. Cancel anytime.')) return
     setBusy('reactivate'); setErr(''); setMsg('')
     try {
       const r = await fetch(`${API}/api/reactivate`, { method: 'POST', headers: tokenHeader() })
@@ -149,13 +149,13 @@ export default function AccountDashboard() {
 
       {!active && (
         <div style={{ background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)', borderRadius: '10px', padding: '16px 18px', marginTop: '18px' }}>
-          <p style={{ color: '#f87171', fontSize: '0.9375rem', fontWeight: 600, margin: '0 0 4px' }}>Your watch has ended</p>
+          <p style={{ color: '#f87171', fontSize: '0.9375rem', fontWeight: 600, margin: '0 0 4px' }}>Your subscription is inactive</p>
           <p style={{ color: '#c58a8a', fontSize: '0.8125rem', margin: '0 0 14px', lineHeight: 1.5 }}>
-            Your 60-day watch is over. Keep watching for $6.99/mo — billed to your card on file, cancel anytime.
+            Your watches are paused. Resume for $6.99/mo — billed to your card on file, cancel anytime.
           </p>
           <button onClick={() => void reactivate()} disabled={busy === 'reactivate'}
             style={{ ...btn('#e31937'), width: '100%' }}>
-            {busy === 'reactivate' ? 'Starting…' : 'Keep watching — $6.99/mo'}
+            {busy === 'reactivate' ? 'Starting…' : 'Resume — $6.99/mo'}
           </button>
         </div>
       )}
@@ -169,11 +169,11 @@ export default function AccountDashboard() {
           )}
           {daysLeft != null && (
             <p style={{ color: '#8a8a8a', fontSize: '0.8125rem', marginTop: '6px', marginBottom: 0 }}>
-              One-time watch · <strong style={{ color: '#c8c8c8' }}>{daysLeft} day{daysLeft === 1 ? '' : 's'} left</strong>. No earlier slot in your window? Email hello@slotwatcher.app for a full refund.
+              <strong style={{ color: '#c8c8c8' }}>{daysLeft} day{daysLeft === 1 ? '' : 's'} left</strong> in your current watch · cancel anytime below.
             </p>
           )}
           {plan === 'subscription' && (
-            <p style={{ color: '#8a8a8a', fontSize: '0.8125rem', marginTop: '6px', marginBottom: 0 }}>Continuation plan · $6.99/mo · cancel anytime below.</p>
+            <p style={{ color: '#8a8a8a', fontSize: '0.8125rem', marginTop: '6px', marginBottom: 0 }}>$6.99/mo after your 14-day free trial · cancel anytime below.</p>
           )}
         </>
       )}

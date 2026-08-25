@@ -124,7 +124,7 @@ export default function CenterPage({ params }: { params: { center: string } }) {
     },
     {
       q: 'Is there a free option?',
-      a: 'The self-hosted version on GitHub is completely free and open source. The managed plan is a one-time $24 for a 60-day watch of up to 3 centers, with a money-back guarantee if no earlier slot opens — no subscription. If you need longer, you can keep watching for $6.99/mo.',
+      a: 'The self-hosted version on GitHub is completely free and open source. The managed plan is free for your first 14 days, then $6.99/mo to watch up to 3 centers — cancel anytime, no lock-in. A card is required to start, but you’re not charged during the trial, and you never connect your Tesla login.',
     },
   ]
   const faqSchema = JSON.stringify({
@@ -204,10 +204,10 @@ export default function CenterPage({ params }: { params: { center: string } }) {
               </button>
             </form>
             <p style={{ fontSize: '0.75rem', color: '#22c55e', fontWeight: 600, marginTop: '10px' }}>
-              You only pay if it works — full refund if no earlier slot opens in 60 days.
+              No charge for 14 days — cancel anytime before then and you pay nothing.
             </p>
             <p style={{ fontSize: '0.75rem', color: '#3a3a3a', marginTop: '4px' }}>
-              $24 one-time · 60-day watch · no subscription
+              14 days free, then $6.99/mo · cancel anytime
             </p>
           </div>
         </div>
@@ -322,7 +322,7 @@ export default function CenterPage({ params }: { params: { center: string } }) {
             <h2 style={{ fontSize: '1.375rem', fontWeight: 800, color: '#f0f0f0', letterSpacing: '-0.02em', marginBottom: '6px' }}>
               Stop waiting for a {data.city} Tesla appointment.
             </h2>
-            <p style={{ color: '#6b6b6b', fontSize: '0.9375rem' }}>$24 one-time · you only pay if it works — full refund if we find you nothing</p>
+            <p style={{ color: '#6b6b6b', fontSize: '0.9375rem' }}>14 days free, then $6.99/mo · cancel anytime, no lock-in</p>
           </div>
           <Link href={`/start/?city=${encodeURIComponent(`${data.city}, ${data.stateAbbr}`)}`} style={{ display: 'inline-flex', alignItems: 'center', background: '#e31937', color: '#fff', textDecoration: 'none', fontWeight: 700, fontSize: '0.9375rem', padding: '13px 26px', borderRadius: '8px', whiteSpace: 'nowrap' }}>
             Start watching {data.city}

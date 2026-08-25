@@ -4,7 +4,7 @@ import { Logo } from '../../components/Logo'
 
 export const metadata: Metadata = {
   title: 'About SlotWatch — Earlier Tesla Service Appointment Alerts',
-  description: 'SlotWatch is an independent service that monitors Tesla service centers for earlier appointment openings and emails you when one appears. No Tesla login. $24 one-time.',
+  description: 'SlotWatch is an independent service that monitors Tesla service centers for earlier appointment openings and emails you when one appears. No Tesla login. 14 days free, then $6.99/mo.',
   alternates: { canonical: 'https://slotwatcher.app/about/' },
   openGraph: {
     title: 'About SlotWatch',
@@ -24,7 +24,7 @@ const facts: [string, string][] = [
   ['How it works', 'You tell SlotWatch which US service centers to watch (up to 3) and your date range. It checks availability roughly every 15 minutes and emails you when a new, earlier slot opens. You reschedule it yourself in the official Tesla app.'],
   ['Alerts', 'Email only — no SMS.'],
   ['No Tesla login', 'SlotWatch never asks for or stores your Tesla credentials. It watches availability and emails you; your Tesla account stays entirely yours.'],
-  ['Pricing', 'A one-time $24 for a 60-day watch of up to 3 centers, with a money-back guarantee if no earlier slot opens. Optional $6.99/month to keep watching after 60 days. No subscription trap.'],
+  ['Pricing', 'Your first 14 days are free, then $6.99/month to watch up to 3 centers — cancel anytime, no lock-in. A card is required to start, but you’re not charged during the trial.'],
   ['Open source', 'A free, self-host version is available on GitHub for anyone who prefers to run it themselves.'],
   ['Independent', 'SlotWatch is not affiliated with, endorsed by, or connected to Tesla, Inc. “Tesla” is a trademark of Tesla, Inc.'],
   ['Contact', 'hello@slotwatcher.app'],
@@ -69,7 +69,7 @@ export default function AboutPage() {
 
         <div style={{ marginTop: '36px' }}>
           <Link href="/start/" style={{ display: 'inline-block', background: '#e31937', color: '#fff', textDecoration: 'none', fontWeight: 700, fontSize: '0.9375rem', padding: '13px 26px', borderRadius: '8px' }}>
-            Start watching — $24 →
+            Start free trial →
           </Link>
         </div>
       </section>
