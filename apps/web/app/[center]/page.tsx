@@ -277,6 +277,9 @@ export default function CenterPage({ params }: { params: { center: string } }) {
           — or for concrete tactics that can move your date up (not just watching {data.city}), read our guide on{' '}
           <Link href="/guides/how-to-get-an-earlier-tesla-service-appointment/" style={{ color: '#e5556f', textDecoration: 'none' }}>
             how to get an earlier Tesla service appointment
+          </Link>. And if you&apos;re wondering whether an early or after-hours drop-off gets you seen sooner in {data.city}, it doesn&apos;t —{' '}
+          <Link href="/guides/can-i-drop-off-my-tesla-early-for-service/" style={{ color: '#e5556f', textDecoration: 'none' }}>
+            here&apos;s why, and what actually works instead
           </Link>.
         </p>
       </section>
