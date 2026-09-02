@@ -36,8 +36,10 @@ export default function AboutPage() {
     '@type': 'Organization',
     name: 'SlotWatch',
     url: 'https://slotwatcher.app',
+    logo: 'https://slotwatcher.app/apple-touch-icon.png',
     email: 'hello@slotwatcher.app',
     description: 'SlotWatch monitors Tesla service centers for earlier appointment openings and emails you when one appears. Independent; not affiliated with Tesla, Inc.',
+    sameAs: ['https://github.com/manymotes/slotwatch'],
   })
 
   return (

@@ -75,7 +75,7 @@ export default function CenterPage({ params }: { params: { center: string } }) {
     name: 'SlotWatch',
     applicationCategory: 'UtilitiesApplication',
     operatingSystem: 'Web',
-    offers: { '@type': 'Offer', price: '24.00', priceCurrency: 'USD' },
+    offers: { '@type': 'Offer', price: '6.99', priceCurrency: 'USD' },
     description: `SlotWatch monitors Tesla Service Center appointment availability across ${data.city}, ${data.stateAbbr} and emails you when an earlier slot opens.`,
     url: `https://slotwatcher.app/${data.slug}/`,
     areaServed: { '@type': 'City', name: data.city, containedInPlace: { '@type': 'State', name: data.state } },
@@ -185,7 +185,7 @@ export default function CenterPage({ params }: { params: { center: string } }) {
             Earlier Tesla service appointments in {data.city}
           </h1>
           <p style={{ fontSize: '1.0625rem', lineHeight: 1.65, color: '#8a8a8a', marginBottom: '12px', maxWidth: '520px' }}>
-            Tesla service in {data.city} is booked weeks out — but earlier slots open all day as people cancel and reschedule. SlotWatch watches {n === 1 ? 'the local center' : `all ${n} ${data.city}-area centers`} and emails you the moment a sooner opening appears, so you can grab it before it fills.
+            Tesla service wait times in {data.city} can stretch weeks — but earlier slots open all day as people cancel and reschedule. SlotWatch watches {n === 1 ? 'the local center' : `all ${n} ${data.city}-area centers`} and emails you the moment a sooner opening appears, so you can grab it before it fills.
           </p>
           <p style={{ fontSize: '0.9375rem', lineHeight: 1.6, color: '#5a5a5a', marginBottom: '36px', maxWidth: '520px' }}>
             No refreshing the Tesla app. No Tesla login. Just an email when a real earlier slot opens.
@@ -264,7 +264,7 @@ export default function CenterPage({ params }: { params: { center: string } }) {
               {siblingMetros.map((c, i) => (
                 <span key={c.slug}>
                   {i > 0 && (i === siblingMetros.length - 1 ? (siblingMetros.length > 2 ? ', or ' : ' or ') : ', ')}
-                  <Link href={`/${c.slug}`} style={{ color: '#e5556f', textDecoration: 'none' }}>{c.city}</Link>
+                  <Link href={`/${c.slug}/`} style={{ color: '#e5556f', textDecoration: 'none' }}>{c.city}</Link>
                 </span>
               ))}
               , we watch those Tesla service centers too.
@@ -340,7 +340,7 @@ export default function CenterPage({ params }: { params: { center: string } }) {
         </h2>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
           {otherAreas.map((c) => (
-            <Link key={c.slug} href={`/${c.slug}`} style={{ background: '#0d0d0d', border: '1px solid #1e1e1e', color: '#6b6b6b', textDecoration: 'none', fontSize: '0.8125rem', padding: '6px 13px', borderRadius: '6px' }}>
+            <Link key={c.slug} href={`/${c.slug}/`} style={{ background: '#0d0d0d', border: '1px solid #1e1e1e', color: '#6b6b6b', textDecoration: 'none', fontSize: '0.8125rem', padding: '6px 13px', borderRadius: '6px' }}>
               {c.city}, {c.stateAbbr}
             </Link>
           ))}

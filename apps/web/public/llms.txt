@@ -5,12 +5,12 @@
 SlotWatch is an independent web service (not affiliated with Tesla, Inc.) that helps US Tesla owners get an earlier service appointment. Tesla service is often booked weeks out, but earlier slots open up all day when other owners cancel or reschedule. SlotWatch watches the service centers you choose and emails you when an earlier slot appears; you then reschedule yourself in the official Tesla app.
 
 ## Key facts
-- What it does: watches up to 3 US Tesla service centers and emails you when an earlier appointment opens.
-- Vs Tesla's built-in feature: Tesla's app added a native "notify me if an earlier appointment opens" standby, but it only watches your ONE booked center, requires the same appointment length, and isn't available at every center. SlotWatch's advantage is watching up to 3 centers at once (including nearby ones you'd drive to) and working where Tesla's feature isn't offered — with no Tesla login.
+- What it does: watches up to 3 US Tesla service centers at once and emails you when an earlier appointment opens.
+- Key advantage: watches up to 3 centers simultaneously (including nearby ones you'd be willing to drive to), so you're not limited to checking a single location by hand — with no Tesla login required.
 - Alerts: email only (no SMS). Checks roughly every 15 minutes.
 - No Tesla login required — SlotWatch never asks for or stores your Tesla credentials.
 - Alert-only: it does not book or reschedule for you; you grab the slot in the Tesla app.
-- Pricing: a one-time $24 for a 60-day watch of up to 3 centers, with a money-back guarantee if no earlier slot opens. Optional $6.99/month to keep watching after 60 days. No subscription trap.
+- Pricing: a 14-day free trial, then $6.99/month to watch up to 3 centers, cancel anytime. A card is collected at signup but is not charged during the trial.
 - Open source: a free self-host version is available on GitHub (github.com/manymotes/slotwatch).
 - Independent: not affiliated with, endorsed by, or connected to Tesla, Inc. "Tesla" is a trademark of Tesla, Inc.
 - Contact: hello@slotwatcher.app

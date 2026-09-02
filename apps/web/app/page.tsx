@@ -311,8 +311,9 @@ const softwareSchemaJson = JSON.stringify({
   operatingSystem: 'Web',
   offers: {
     '@type': 'Offer',
-    price: '24.00',
+    price: '6.99',
     priceCurrency: 'USD',
+    description: '14-day free trial, then $6.99/month to watch up to 3 Tesla service centers. Cancel anytime.',
   },
   description:
     'SlotWatch monitors Tesla Service Center appointment availability across 40 US metros and emails you the moment a cancellation slot opens.',
