@@ -121,6 +121,15 @@ Wait times are local, so start with your metro area. Each page below covers what
 - [Atlanta](/atlanta-tesla-service/)
 - [Phoenix](/phoenix-tesla-service/) (five centers spread from Glendale to Tempe)
 - [Dallas–Fort Worth](/dallas-fort-worth-tesla-service/) (includes both Plano locations)
+- [Houston](/houston-tesla-service/) (Cypress, Westchase, League City, and The Woodlands)
+- [San Diego](/san-diego-tesla-service/)
+- [Denver](/denver-tesla-service/) (Aurora, Englewood, Littleton, and Superior)
+- [Washington, D.C.](/washington-dc-tesla-service/)
+- [Philadelphia](/philadelphia-tesla-service/)
+- [Charlotte](/charlotte-tesla-service/)
+- [New Jersey](/new-jersey-tesla-service/) (eight centers — more than any other Northeast metro)
+- [Minneapolis–St. Paul](/minneapolis-tesla-service/)
+- [Detroit](/detroit-tesla-service/)
 
 Don't see your city yet? Browse the [full list of Tesla service wait times by city](/cities/) — we cover 40 US metros, organized by state. The strategies below also work anywhere in the US.
 
