@@ -433,6 +433,8 @@ SlotWatch earns its keep when Tesla's limits get in your way:
 - You want to **actively compare** availability across locations, not just sit on standby at one.
 - You want an email the instant a slot appears so you can grab it before someone else does.
 
+This matters most in metro areas with more than one service center, where Tesla's single-center standby can't help you compare locations — [Austin](/austin-tesla-service/) (3 centers), [Atlanta](/atlanta-tesla-service/) (5 centers), and [Boston](/boston-tesla-service/) (4 centers) are good examples of areas where watching several at once pays off.
+
 ## The honest bottom line
 
 If you're happy watching a single center, Tesla's free built-in notification is the right tool — use it. But if you'd travel a bit to get your car in weeks sooner, or your center doesn't offer it, SlotWatch watches every nearby center for you, with no Tesla login, free for 14 days then $6.99/mo, cancel anytime.
