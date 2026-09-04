@@ -130,8 +130,28 @@ Wait times are local, so start with your metro area. Each page below covers what
 - [New Jersey](/new-jersey-tesla-service/) (eight centers — more than any other Northeast metro)
 - [Minneapolis–St. Paul](/minneapolis-tesla-service/)
 - [Detroit](/detroit-tesla-service/)
+- [Orange County](/orange-county-tesla-service/) (Aliso Viejo, Anaheim, Irvine, and four more)
+- [San Jose & South Bay](/san-jose-tesla-service/) (Fremont, Palo Alto, Santa Clara, and more)
+- [Sacramento](/sacramento-tesla-service/)
+- [Fresno](/fresno-tesla-service/)
+- [Tucson](/tucson-tesla-service/)
+- [Colorado Springs](/colorado-springs-tesla-service/)
+- [Portland](/portland-tesla-service/)
+- [Las Vegas](/las-vegas-tesla-service/)
+- [Reno](/reno-tesla-service/)
+- [San Antonio](/san-antonio-tesla-service/)
+- [Orlando](/orlando-tesla-service/)
+- [Tampa Bay](/tampa-tesla-service/) (St. Petersburg, Tampa, and Wesley Chapel)
+- [Jacksonville](/jacksonville-tesla-service/)
+- [Pittsburgh](/pittsburgh-tesla-service/) (Bridgeville and Wexford)
+- [Baltimore](/baltimore-tesla-service/)
+- [Nashville](/nashville-tesla-service/)
+- [Raleigh](/raleigh-tesla-service/)
+- [Salt Lake City](/salt-lake-city-tesla-service/) (Pleasant Grove, Riverdale, and Salt Lake City)
+- [St. Louis](/st-louis-tesla-service/) (Chesterfield and South County)
+- [Kansas City](/kansas-city-tesla-service/)
 
-Don't see your city yet? Browse the [full list of Tesla service wait times by city](/cities/) — we cover 40 US metros, organized by state. The strategies below also work anywhere in the US.
+That's all 40 US metros SlotWatch currently covers, so wherever you are, there's likely a page above for your area.
 
 ## How to get seen sooner
 
