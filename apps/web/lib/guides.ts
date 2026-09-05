@@ -26,7 +26,7 @@ It's worth setting expectations honestly. No tactic guarantees an earlier appoin
 
 Here are the concrete moves that actually work, roughly in order of impact:
 
-1. **Check the Tesla app frequently, at the right times.** Open your appointment in the app and tap into the reschedule screen to see current availability. Cancellations tend to cluster in the morning and in the late afternoon as people reorganize their days, so check first thing, around lunch, and early evening. The more often you look, the better your odds of catching a fresh opening before someone else does.
+1. **Check the Tesla app frequently, at the right times.** Open your appointment in the app and tap into the reschedule screen to see current availability (see our step-by-step [guide to rescheduling a Tesla service appointment](/guides/how-to-reschedule-a-tesla-service-appointment/) if you haven't done it before). Cancellations tend to cluster in the morning and in the late afternoon as people reorganize their days, so check first thing, around lunch, and early evening. The more often you look, the better your odds of catching a fresh opening before someone else does.
 
 2. **Watch several nearby service centers, not just one.** Your closest center might be booked solid while another one 20 minutes away has an opening next week. In the app, change the location on the scheduling screen and compare dates across every center within a reasonable drive. In big metros this alone can save weeks.
 
@@ -211,7 +211,7 @@ We won't pretend to know an exact number of seconds, because it genuinely varies
 
 There are three realistic approaches.
 
-**1. Check often, manually.** Open the Tesla app, go to your appointment, tap reschedule, and see what's available. The more often you look, the better your odds of being there when a slot opens. The downside is obvious: you can't watch the calendar all day, and openings don't wait for you.
+**1. Check often, manually.** Open the Tesla app, go to your appointment, tap reschedule, and see what's available — our [guide to rescheduling a Tesla service appointment](/guides/how-to-reschedule-a-tesla-service-appointment/) walks through the exact steps and timing rules. The more often you look, the better your odds of being there when a slot opens. The downside is obvious: you can't watch the calendar all day, and openings don't wait for you.
 
 **2. Watch multiple service centers.** If you're willing to drive a bit farther, add nearby centers to your search. More centers means more cancellations and more released capacity flowing through your view. This matters most in metros where centers are spread across several suburbs — Chicago has 10 centers stretching from Batavia to Orland Park, and Denver has 4 spanning Aurora, Englewood, Littleton, and Superior — since a cancellation at any one of them is a chance you'd miss entirely if you were only watching your nearest location. See our city guides for [Los Angeles](/los-angeles-tesla-service/), [Phoenix](/phoenix-tesla-service/), [Chicago](/chicago-tesla-service/), and [Denver](/denver-tesla-service/) for how availability tends to work in those markets.
 
