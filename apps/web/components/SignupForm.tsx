@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { getUtm, track } from './Analytics'
 
 // The backend worker (API + cron). CORS allows this origin.
 const API = 'https://slotwatch.motesmass.workers.dev'
@@ -70,11 +71,12 @@ export default function SignupForm() {
           email: email.trim(),
           centers: picked.map((c) => ({ trtId: c.trtId, name: c.name })),
           dateFrom: from, dateTo: to,
+          utm: getUtm(),
         }),
       })
       const d = await r.json()
       if (!d.ok) throw new Error(d.error || 'Signup failed')
-      if (d.checkoutUrl) { window.location.href = d.checkoutUrl; return }
+      if (d.checkoutUrl) { track('checkout_started'); window.location.href = d.checkoutUrl; return }
       window.location.href = '/checkout/success'
     } catch (e: unknown) { setErr(e instanceof Error ? e.message : 'Signup failed') }
     finally { setBusy(null) }

@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useState, useRef, FormEvent } from 'react'
 import { Logo, LogoMark } from '../components/Logo'
 import CheckEarliest from '../components/CheckEarliest'
+import ProofCounter from '../components/ProofCounter'
 
 // ── Icons (inline SVG, no external deps) ──────────────────────────────────────
 
@@ -438,6 +439,8 @@ export default function HomePage() {
             <span style={{ color: '#22c55e', flexShrink: 0 }} aria-hidden="true"><IconCheck /></span>
             14 days free, then $6.99/mo — cancel anytime, no lock-in.
           </p>
+          {/* Proof line — real detection counts from the API; renders nothing if unavailable or zero */}
+          <ProofCounter style={{ marginTop: '10px', paddingLeft: '22px', fontSize: '0.875rem', color: '#6b6b6b' }} />
         </div>
       </section>
 

@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { SERVICE_CENTERS, centerBySlug } from '@/lib/service-centers'
 import { Logo, LogoMark } from '@/components/Logo'
+import ProofCounter from '@/components/ProofCounter'
 
 // re-export for consumers that import from this page
 export type { CenterMeta } from '@/lib/service-centers'
@@ -210,6 +211,8 @@ export default function CenterPage({ params }: { params: { center: string } }) {
               14 days free, then $6.99/mo · cancel anytime
             </p>
           </div>
+          {/* Local proof — real openings detected at this metro's centers; renders nothing if none */}
+          <ProofCounter metro={data.city} centerNames={data.centers.map((c) => c.name)} style={{ fontSize: '0.875rem', color: '#6b6b6b' }} />
         </div>
       </section>
 

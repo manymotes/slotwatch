@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import SignupForm from '../../components/SignupForm'
+import TrackEvent from '../../components/TrackEvent'
 import { Logo } from '../../components/Logo'
 
 export const metadata: Metadata = {
@@ -25,6 +26,7 @@ export const metadata: Metadata = {
 export default function StartPage() {
   return (
     <div style={{ minHeight: '100vh', background: '#080808' }}>
+      <TrackEvent event="start_view" />
       <nav style={{ borderBottom: '1px solid #1a1a1a' }}>
         <div style={{ maxWidth: '1120px', margin: '0 auto', padding: '0 24px', display: 'flex', alignItems: 'center', height: '56px' }}>
           <Logo size={28} />
