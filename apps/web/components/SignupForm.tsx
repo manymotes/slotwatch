@@ -24,6 +24,9 @@ export default function SignupForm() {
   const [picked, setPicked] = useState<Center[]>([])
   const [from, setFrom] = useState('')
   const [to, setTo] = useState('')
+  const [currentApptAt, setCurrentApptAt] = useState('')
+  const [today, setToday] = useState('')
+  const [maxAppt, setMaxAppt] = useState('')
   const [busy, setBusy] = useState<'find' | 'go' | null>(null)
   const [err, setErr] = useState('')
 
@@ -33,6 +36,7 @@ export default function SignupForm() {
     const now = new Date()
     const fmt = (d: Date) => d.toISOString().slice(0, 10)
     setFrom(fmt(now)); setTo(fmt(new Date(now.getTime() + 90 * 864e5)))
+    setToday(fmt(now)); setMaxAppt(fmt(new Date(now.getTime() + 365 * 864e5)))
     const city = p.get('city')
     if (city) { setLoc(city); void findCenters(city) }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -63,6 +67,8 @@ export default function SignupForm() {
   async function submit() {
     if (!email.trim()) return setErr('Enter your email.')
     if (!picked.length) return setErr('Add at least one service center.')
+    if (!currentApptAt) return setErr('Enter your current appointment date.')
+    if (currentApptAt < today || (maxAppt && currentApptAt > maxAppt)) return setErr('Your current appointment date must be between today and a year from now.')
     setBusy('go'); setErr('')
     try {
       const r = await fetch(`${API}/api/signup`, {
@@ -71,6 +77,7 @@ export default function SignupForm() {
           email: email.trim(),
           centers: picked.map((c) => ({ trtId: c.trtId, name: c.name })),
           dateFrom: from, dateTo: to,
+          currentApptAt,
           utm: getUtm(),
         }),
       })
@@ -91,6 +98,10 @@ export default function SignupForm() {
     <div style={{ maxWidth: '460px' }}>
       <label style={label}>Your email</label>
       <input style={input} type="email" placeholder="you@example.com" value={email} onChange={(e) => setEmail(e.target.value)} />
+
+      <label style={label} htmlFor="currentApptAt">Your current appointment date</label>
+      <input style={input} id="currentApptAt" name="currentApptAt" type="date" required min={today} max={maxAppt} value={currentApptAt} onChange={(e) => setCurrentApptAt(e.target.value)} />
+      <p style={{ color: '#5a5a5a', fontSize: '0.8125rem', margin: '7px 0 0' }}>We only charge if we find something at least 3 days earlier than this.</p>
 
       <label style={label}>Find your service center{picked.length > 0 ? ` (${picked.length}/${MAX})` : ''}</label>
       <div style={{ display: 'flex', gap: '8px' }}>
@@ -130,13 +141,13 @@ export default function SignupForm() {
       )}
 
       <button style={{ ...btn('#e31937'), width: '100%', marginTop: '22px' }} disabled={!!busy} onClick={() => void submit()}>
-        {busy === 'go' ? 'Starting…' : 'Start free trial →'}
+        {busy === 'go' ? 'Starting…' : 'Start watching — free →'}
       </button>
       <p style={{ color: '#22c55e', fontSize: '0.8125rem', fontWeight: 600, marginTop: '12px', textAlign: 'center' }}>
-        No charge for 14 days — cancel anytime before then and you pay nothing.
+        You&rsquo;ll only pay $19 if we find you an earlier slot.
       </p>
       <p style={{ color: '#5a5a5a', fontSize: '0.8125rem', marginTop: '6px', textAlign: 'center' }}>
-        14 days free, then $6.99/mo · up to 3 centers · no Tesla login
+        $0 today — card saved, nothing charged · up to 3 centers · no Tesla login
       </p>
       {err && <p style={{ color: '#ef4444', fontSize: '0.875rem', marginTop: '12px' }}>{err}</p>}
     </div>

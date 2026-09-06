@@ -76,7 +76,7 @@ export default function CenterPage({ params }: { params: { center: string } }) {
     name: 'SlotWatch',
     applicationCategory: 'UtilitiesApplication',
     operatingSystem: 'Web',
-    offers: { '@type': 'Offer', price: '6.99', priceCurrency: 'USD' },
+    offers: { '@type': 'Offer', price: '19.00', priceCurrency: 'USD', description: 'Free to start; $19 success fee charged only when an earlier slot is found' },
     description: `SlotWatch monitors Tesla Service Center appointment availability across ${data.city}, ${data.stateAbbr} and emails you when an earlier slot opens.`,
     url: `https://slotwatcher.app/${data.slug}/`,
     areaServed: { '@type': 'City', name: data.city, containedInPlace: { '@type': 'State', name: data.state } },
@@ -109,7 +109,7 @@ export default function CenterPage({ params }: { params: { center: string } }) {
   const localFaqs = [
     {
       q: `Which Tesla service centers does SlotWatch watch in ${data.city}?`,
-      a: `SlotWatch can watch ${n === 1 ? 'the' : `any of the ${n}`} Tesla Service ${n === 1 ? 'Center' : 'Centers'} in the ${data.city} area${n > 1 ? ` — including ${data.centers.slice(0, 3).map((c) => c.name.replace('Tesla Service ', '')).join(', ')}${n > 3 ? ', and more' : ''}` : `: ${data.centers[0].name}`}. You can monitor up to 3 of them at once on a single subscription.`,
+      a: `SlotWatch can watch ${n === 1 ? 'the' : `any of the ${n}`} Tesla Service ${n === 1 ? 'Center' : 'Centers'} in the ${data.city} area${n > 1 ? ` — including ${data.centers.slice(0, 3).map((c) => c.name.replace('Tesla Service ', '')).join(', ')}${n > 3 ? ', and more' : ''}` : `: ${data.centers[0].name}`}. You can monitor up to 3 of them at once on a single watch.`,
     },
     {
       q: 'How quickly will I get the alert?',
@@ -125,7 +125,7 @@ export default function CenterPage({ params }: { params: { center: string } }) {
     },
     {
       q: 'Is there a free option?',
-      a: 'The self-hosted version on GitHub is completely free and open source. The managed plan is free for your first 14 days, then $6.99/mo to watch up to 3 centers — cancel anytime, no lock-in. A card is required to start, but you’re not charged during the trial, and you never connect your Tesla login.',
+      a: 'The self-hosted version on GitHub is completely free and open source. The managed service is free to start: watch up to 3 centers at no charge, and pay a $19 success fee — charged once per watch — only when we alert you to an appointment at least 3 days earlier than your current one. A card is saved at signup but nothing is charged up front, and you never connect your Tesla login.',
     },
   ]
   const faqSchema = JSON.stringify({
@@ -205,10 +205,10 @@ export default function CenterPage({ params }: { params: { center: string } }) {
               </button>
             </form>
             <p style={{ fontSize: '0.75rem', color: '#22c55e', fontWeight: 600, marginTop: '10px' }}>
-              No charge for 14 days — cancel anytime before then and you pay nothing.
+              Free to start — you&rsquo;ll only pay $19 if we find you an earlier slot.
             </p>
             <p style={{ fontSize: '0.75rem', color: '#3a3a3a', marginTop: '4px' }}>
-              14 days free, then $6.99/mo · cancel anytime
+              $0 today · up to 3 centers · no Tesla login
             </p>
           </div>
           {/* Local proof — real openings detected at this metro's centers; renders nothing if none */}
@@ -295,7 +295,7 @@ export default function CenterPage({ params }: { params: { center: string } }) {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '2px', background: '#1a1a1a', borderRadius: '12px', overflow: 'hidden' }}>
           {[
             { label: 'Sign up in 30 seconds', body: 'Just your email — no Tesla login, no password, nothing to connect.' },
-            { label: `Pick your ${data.city} centers`, body: `Choose up to 3 of the area's Tesla service centers and set your earliest acceptable date.` },
+            { label: `Pick your ${data.city} centers`, body: `Choose up to 3 of the area's Tesla service centers and tell us your current appointment date.` },
             { label: 'Get an email, then book', body: 'An earlier slot opens. We email you within minutes — you reschedule in the Tesla app before it fills.' },
           ].map((step) => (
             <div key={step.label} style={{ background: '#0d0d0d', padding: '32px 28px' }}>
@@ -328,7 +328,7 @@ export default function CenterPage({ params }: { params: { center: string } }) {
             <h2 style={{ fontSize: '1.375rem', fontWeight: 800, color: '#f0f0f0', letterSpacing: '-0.02em', marginBottom: '6px' }}>
               Stop waiting for a {data.city} Tesla appointment.
             </h2>
-            <p style={{ color: '#6b6b6b', fontSize: '0.9375rem' }}>14 days free, then $6.99/mo · cancel anytime, no lock-in</p>
+            <p style={{ color: '#6b6b6b', fontSize: '0.9375rem' }}>Free to start · pay $19 only when we find you an earlier slot</p>
           </div>
           <Link href={`/start/?city=${encodeURIComponent(`${data.city}, ${data.stateAbbr}`)}`} style={{ display: 'inline-flex', alignItems: 'center', background: '#e31937', color: '#fff', textDecoration: 'none', fontWeight: 700, fontSize: '0.9375rem', padding: '13px 26px', borderRadius: '8px', whiteSpace: 'nowrap' }}>
             Start watching {data.city}

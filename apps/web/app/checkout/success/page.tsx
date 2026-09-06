@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import { LogoMark } from '../../../components/Logo'
 
 export const metadata: Metadata = {
-  title: 'Free trial started — SlotWatch',
+  title: 'You’re all set — SlotWatch',
   robots: { index: false },
   alternates: {
     canonical: 'https://slotwatcher.app/checkout/success/',
@@ -51,10 +51,10 @@ export default function CheckoutSuccessPage() {
           </svg>
         </div>
         <h1 style={{ fontSize: '1.375rem', fontWeight: 800, color: '#f0f0f0', marginBottom: '12px', letterSpacing: '-0.02em' }}>
-          You're all set
+          You're all set — we're watching
         </h1>
         <p style={{ color: '#6b6b6b', fontSize: '0.9375rem', lineHeight: 1.65, marginBottom: '36px' }}>
-          Your 14-day free trial has started — we're now watching your service center. The moment an earlier appointment opens, we'll email you so you can grab it in the Tesla app. No charge for 14 days; cancel anytime before then and you pay nothing.
+          We're now watching your service centers until your current appointment date. The moment an earlier appointment opens, we'll email you so you can grab it in the Tesla app. You'll only be charged $19 if we find you an earlier appointment.
         </p>
         <Link href="/" style={{
           display: 'block',

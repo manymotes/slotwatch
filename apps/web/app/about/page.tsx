@@ -4,7 +4,7 @@ import { Logo } from '../../components/Logo'
 
 export const metadata: Metadata = {
   title: 'About SlotWatch — Earlier Tesla Service Appointment Alerts',
-  description: 'SlotWatch is an independent service that monitors Tesla service centers for earlier appointment openings and emails you when one appears. No Tesla login. 14 days free, then $6.99/mo.',
+  description: 'SlotWatch is an independent service that monitors Tesla service centers for earlier appointment openings and emails you when one appears. No Tesla login. Free to start — pay $19 only when we find you an earlier slot.',
   alternates: { canonical: 'https://slotwatcher.app/about/' },
   openGraph: {
     title: 'About SlotWatch',
@@ -21,10 +21,10 @@ export const metadata: Metadata = {
 
 const facts: [string, string][] = [
   ['What it is', 'SlotWatch is an independent web service that monitors Tesla service centers for earlier appointment openings and emails you the moment one appears, so you can reschedule in the Tesla app.'],
-  ['How it works', 'You tell SlotWatch which US service centers to watch (up to 3) and your date range. It checks availability roughly every 15 minutes and emails you when a new, earlier slot opens. You reschedule it yourself in the official Tesla app.'],
+  ['How it works', 'You tell SlotWatch which US service centers to watch (up to 3) and your current appointment date. It checks availability roughly every 15 minutes and emails you when a new, earlier slot opens. You reschedule it yourself in the official Tesla app.'],
   ['Alerts', 'Email only — no SMS.'],
   ['No Tesla login', 'SlotWatch never asks for or stores your Tesla credentials. It watches availability and emails you; your Tesla account stays entirely yours.'],
-  ['Pricing', 'Your first 14 days are free, then $6.99/month to watch up to 3 centers — cancel anytime, no lock-in. A card is required to start, but you’re not charged during the trial.'],
+  ['Pricing', 'Free to start. A card is saved at signup but nothing is charged. You pay a $19 success fee only when SlotWatch alerts you to an appointment at least 3 days earlier than your current one — once per watch. Your watch runs until your current appointment date; keeping it running after that is an optional $6.99/month.'],
   ['Open source', 'A free, self-host version is available on GitHub for anyone who prefers to run it themselves.'],
   ['Independent', 'SlotWatch is not affiliated with, endorsed by, or connected to Tesla, Inc. “Tesla” is a trademark of Tesla, Inc.'],
   ['Contact', 'hello@slotwatcher.app'],
@@ -71,7 +71,7 @@ export default function AboutPage() {
 
         <div style={{ marginTop: '36px' }}>
           <Link href="/start/" style={{ display: 'inline-block', background: '#e31937', color: '#fff', textDecoration: 'none', fontWeight: 700, fontSize: '0.9375rem', padding: '13px 26px', borderRadius: '8px' }}>
-            Start free trial →
+            Start watching — free →
           </Link>
         </div>
       </section>

@@ -237,8 +237,8 @@ const faqs: FAQItem[] = [
     a: 'No. You never connect your Tesla account, and we never ask for your login or password. You just tell us which service center to watch and where to email you. When an earlier opening appears, you reschedule it yourself in the Tesla app.',
   },
   {
-    q: 'How does pricing work — is it a subscription?',
-    a: 'Your first 14 days are free, then it’s $6.99/mo to watch up to 3 service centers — cancel anytime, no lock-in. We ask for a card to start, but you’re not charged during the trial: cancel before day 14 and you pay nothing. No Tesla login required. Prefer to run it yourself? The self-hosted version on GitHub is free and open source.',
+    q: 'How does pricing work — what do I pay?',
+    a: 'It’s free to start: set up a watch on up to 3 service centers at no charge. We save a card at signup but charge nothing. You pay a $19 success fee only when SlotWatch alerts you to an appointment at least 3 days earlier than your current one — charged once per watch. Your watch runs until your current appointment date; if you want to keep watching after that, there’s an optional $6.99/mo. No Tesla login required. Prefer to run it yourself? The self-hosted version on GitHub is free and open source.',
   },
   {
     q: 'Which service centers does SlotWatch watch?',
@@ -258,8 +258,8 @@ const steps = [
   },
   {
     icon: <IconKey />,
-    label: 'Set your window',
-    body: 'Tell us the date range you\'d take an earlier appointment in — we\'ll only email you about openings that fit.',
+    label: 'Tell us your current appointment',
+    body: 'Give us your current appointment date. We watch until then and only email you about openings that are actually earlier.',
   },
   {
     icon: <IconBell />,
@@ -273,7 +273,7 @@ const proFeatures = [
   'Instant email alerts',
   'Checks every 15 minutes',
   'Watch up to 3 centers',
-  'Cancel anytime',
+  'Runs until your current appointment',
 ]
 
 const organizationSchemaJson = JSON.stringify({
@@ -312,9 +312,9 @@ const softwareSchemaJson = JSON.stringify({
   operatingSystem: 'Web',
   offers: {
     '@type': 'Offer',
-    price: '6.99',
+    price: '19.00',
     priceCurrency: 'USD',
-    description: '14-day free trial, then $6.99/month to watch up to 3 Tesla service centers. Cancel anytime.',
+    description: 'Free to start; $19 success fee charged only when an earlier slot is found',
   },
   description:
     'SlotWatch monitors Tesla Service Center appointment availability across 40 US metros and emails you the moment a cancellation slot opens.',
@@ -437,7 +437,7 @@ export default function HomePage() {
             fontSize: '0.9375rem',
           }}>
             <span style={{ color: '#22c55e', flexShrink: 0 }} aria-hidden="true"><IconCheck /></span>
-            14 days free, then $6.99/mo — cancel anytime, no lock-in.
+            Free to start — you only pay $19 if we find you an earlier slot.
           </p>
           {/* Proof line — real detection counts from the API; renders nothing if unavailable or zero */}
           <ProofCounter style={{ marginTop: '10px', paddingLeft: '22px', fontSize: '0.875rem', color: '#6b6b6b' }} />
@@ -544,13 +544,13 @@ export default function HomePage() {
             color: '#e31937',
             marginBottom: '16px',
           }}>
-            One simple price
+            Pay when it works
           </p>
           <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px', marginBottom: '8px' }}>
-            <span style={{ fontSize: '2.25rem', fontWeight: 800, color: '#f0f0f0', letterSpacing: '-0.03em' }}>Free for 14 days</span>
+            <span style={{ fontSize: '2.25rem', fontWeight: 800, color: '#f0f0f0', letterSpacing: '-0.03em' }}>Free to start</span>
           </div>
           <p style={{ fontSize: '0.875rem', color: '#6b6b6b', marginBottom: '24px' }}>
-            then $6.99/mo · cancel anytime · up to 3 service centers
+            $19 only when we find you an earlier slot · up to 3 service centers
           </p>
 
           {/* Risk-reversal callout — the headline of the offer */}
@@ -565,7 +565,7 @@ export default function HomePage() {
           }}>
             <span style={{ color: '#22c55e', flexShrink: 0, marginTop: '2px' }} aria-hidden="true"><IconCheck /></span>
             <p style={{ fontSize: '0.875rem', lineHeight: 1.55, color: '#c8c8c8', margin: 0 }}>
-              <strong style={{ color: '#f0f0f0' }}>No charge for 14 days.</strong> Cancel anytime before then and you pay nothing.
+              <strong style={{ color: '#f0f0f0' }}>$0 today.</strong> We save a card but charge nothing. You pay a $19 success fee only when we alert you to an appointment at least 3 days earlier than your current one — once per watch. If we never find one, you never pay.
             </p>
           </div>
 
@@ -589,10 +589,10 @@ export default function HomePage() {
             borderRadius: '7px',
             transition: 'opacity 0.15s',
           }}>
-            Start free trial
+            Start watching — free
           </a>
           <p style={{ fontSize: '0.8125rem', color: '#5a5a5a', textAlign: 'center', marginTop: '12px' }}>
-            $6.99/mo after your 14-day trial · cancel anytime
+            Watch runs until your current appointment · optional $6.99/mo to keep watching after
           </p>
         </div>
 

@@ -32,6 +32,18 @@ function relTime(iso: string): string {
   return `${Math.floor(hrs / 24)} day(s) ago`
 }
 
+// Plain YYYY-MM-DD parses as UTC midnight, which shows the previous day in US
+// timezones — pin it to local midnight first.
+function fmtDate(iso: string): string {
+  const d = new Date(/^\d{4}-\d{2}-\d{2}$/.test(iso) ? `${iso}T00:00:00` : iso)
+  return isNaN(d.getTime()) ? iso : d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+}
+
+function fmtFee(cents: number | null): string {
+  const c = cents ?? 1900
+  return c % 100 === 0 ? `$${c / 100}` : `$${(c / 100).toFixed(2)}`
+}
+
 export default function AccountDashboard() {
   const [loading, setLoading] = useState(true)
   const [email, setEmail] = useState('')
@@ -48,6 +60,11 @@ export default function AccountDashboard() {
   const [lastChecked, setLastChecked] = useState('')
   const [daysLeft, setDaysLeft] = useState<number | null>(null)
   const [plan, setPlan] = useState('')
+  const [currentApptAt, setCurrentApptAt] = useState('')
+  const [watchExpiresAt, setWatchExpiresAt] = useState('')
+  const [successFeeCents, setSuccessFeeCents] = useState<number | null>(null)
+  const [successChargedAt, setSuccessChargedAt] = useState('')
+  const [successChargeFailedAt, setSuccessChargeFailedAt] = useState('')
 
   useEffect(() => {
     if (typeof window !== 'undefined' && !localStorage.getItem('sw_token')) { window.location.href = '/login/'; return }
@@ -65,6 +82,9 @@ export default function AccountDashboard() {
       setPicked((d.centers || []).map((c: Center) => ({ trtId: c.trtId, name: c.name })))
       setFrom(d.dateFrom || ''); setTo(d.dateTo || ''); setLastChecked(d.lastChecked || '')
       setDaysLeft(d.daysLeft ?? null); setPlan(d.plan || '')
+      setCurrentApptAt(d.currentApptAt || ''); setWatchExpiresAt(d.watchExpiresAt || '')
+      setSuccessFeeCents(typeof d.successFeeCents === 'number' ? d.successFeeCents : null)
+      setSuccessChargedAt(d.successChargedAt || ''); setSuccessChargeFailedAt(d.successChargeFailedAt || '')
     } catch (e: unknown) { setErr(e instanceof Error ? e.message : 'Could not load account') }
     finally { setLoading(false) }
   }
@@ -134,6 +154,9 @@ export default function AccountDashboard() {
   if (loading) return <p style={{ color: '#8a8a8a' }}>Loading your account…</p>
 
   const active = status === 'active'
+  const successFee = plan === 'success-fee'
+  const fee = fmtFee(successFeeCents)
+  const watchUntil = watchExpiresAt || currentApptAt
   return (
     <div style={{ maxWidth: '520px' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '12px' }}>
@@ -149,13 +172,15 @@ export default function AccountDashboard() {
 
       {!active && (
         <div style={{ background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)', borderRadius: '10px', padding: '16px 18px', marginTop: '18px' }}>
-          <p style={{ color: '#f87171', fontSize: '0.9375rem', fontWeight: 600, margin: '0 0 4px' }}>Your subscription is inactive</p>
+          <p style={{ color: '#f87171', fontSize: '0.9375rem', fontWeight: 600, margin: '0 0 4px' }}>{successFee ? 'Your watch has ended' : 'Your subscription is inactive'}</p>
           <p style={{ color: '#c58a8a', fontSize: '0.8125rem', margin: '0 0 14px', lineHeight: 1.5 }}>
-            Your watches are paused. Resume for $6.99/mo — billed to your card on file, cancel anytime.
+            {successFee
+              ? <>Your watch ran until {watchUntil ? fmtDate(watchUntil) : 'your appointment date'} and is no longer checking. Keep watching for $6.99/mo — billed to your card on file, cancel anytime.</>
+              : <>Your watches are paused. Resume for $6.99/mo — billed to your card on file, cancel anytime.</>}
           </p>
           <button onClick={() => void reactivate()} disabled={busy === 'reactivate'}
             style={{ ...btn('#e31937'), width: '100%' }}>
-            {busy === 'reactivate' ? 'Starting…' : 'Resume — $6.99/mo'}
+            {busy === 'reactivate' ? 'Starting…' : successFee ? 'Keep watching — $6.99/mo' : 'Resume — $6.99/mo'}
           </button>
         </div>
       )}
@@ -167,15 +192,49 @@ export default function AccountDashboard() {
               ● Watching now — last checked {relTime(lastChecked)}. We email you the moment an earlier slot opens.
             </p>
           )}
-          {daysLeft != null && (
-            <p style={{ color: '#8a8a8a', fontSize: '0.8125rem', marginTop: '6px', marginBottom: 0 }}>
-              <strong style={{ color: '#c8c8c8' }}>{daysLeft} day{daysLeft === 1 ? '' : 's'} left</strong> in your current watch · cancel anytime below.
-            </p>
-          )}
-          {plan === 'subscription' && (
-            <p style={{ color: '#8a8a8a', fontSize: '0.8125rem', marginTop: '6px', marginBottom: 0 }}>$6.99/mo after your 14-day free trial · cancel anytime below.</p>
+          {successFee ? (
+            <>
+              {watchUntil && (
+                <p style={{ color: '#8a8a8a', fontSize: '0.8125rem', marginTop: '6px', marginBottom: 0 }}>
+                  Watching until <strong style={{ color: '#c8c8c8' }}>{fmtDate(watchUntil)}</strong>{currentApptAt ? ' — your current appointment date' : ''}{daysLeft != null ? ` · ${daysLeft} day${daysLeft === 1 ? '' : 's'} left` : ''}.
+                </p>
+              )}
+              {successChargedAt ? (
+                <p style={{ color: '#8a8a8a', fontSize: '0.8125rem', marginTop: '6px', marginBottom: 0 }}>
+                  <strong style={{ color: '#c8c8c8' }}>Charged {fee} on {fmtDate(successChargedAt)}</strong> — we found you an earlier slot.
+                </p>
+              ) : (
+                <p style={{ color: '#8a8a8a', fontSize: '0.8125rem', marginTop: '6px', marginBottom: 0 }}>
+                  Success fee: <strong style={{ color: '#c8c8c8' }}>not charged yet</strong> — you&rsquo;ll only pay {fee} if we find an earlier slot.
+                </p>
+              )}
+            </>
+          ) : (
+            <>
+              {daysLeft != null && (
+                <p style={{ color: '#8a8a8a', fontSize: '0.8125rem', marginTop: '6px', marginBottom: 0 }}>
+                  <strong style={{ color: '#c8c8c8' }}>{daysLeft} day{daysLeft === 1 ? '' : 's'} left</strong> in your current watch · cancel anytime below.
+                </p>
+              )}
+              {plan === 'subscription' && (
+                <p style={{ color: '#8a8a8a', fontSize: '0.8125rem', marginTop: '6px', marginBottom: 0 }}>$6.99/mo · cancel anytime below.</p>
+              )}
+            </>
           )}
         </>
+      )}
+
+      {successFee && successChargeFailedAt && !successChargedAt && (
+        <div style={{ background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)', borderRadius: '10px', padding: '16px 18px', marginTop: '18px' }}>
+          <p style={{ color: '#f87171', fontSize: '0.9375rem', fontWeight: 600, margin: '0 0 4px' }}>We couldn&rsquo;t charge your card</p>
+          <p style={{ color: '#c58a8a', fontSize: '0.8125rem', margin: '0 0 14px', lineHeight: 1.5 }}>
+            We found you an earlier slot on {fmtDate(successChargeFailedAt)}, but the {fee} success fee didn&rsquo;t go through on your card on file. Email us and we&rsquo;ll send a secure link to update it.
+          </p>
+          <a href={`mailto:hello@slotwatcher.app?subject=${encodeURIComponent('Update my card — SlotWatch')}&body=${encodeURIComponent(`Hi — my ${fee} success fee didn't go through. Please send me a link to update my card.\n\nAccount: ${email}`)}`}
+            style={{ ...btn('#e31937'), display: 'block', textAlign: 'center', textDecoration: 'none', boxSizing: 'border-box', width: '100%' }}>
+            Update my card
+          </a>
+        </div>
       )}
 
       <h2 style={{ fontSize: '1.0625rem', color: '#f0f0f0', marginTop: '20px', marginBottom: 0 }}>Centers you&rsquo;re watching <span style={{ color: '#5a5a5a', fontWeight: 400 }}>({picked.length}/{MAX})</span></h2>

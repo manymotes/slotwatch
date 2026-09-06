@@ -76,7 +76,7 @@ export default function CheckoutPage() {
               Preparing checkout
             </h1>
             <p style={{ color: '#6b6b6b', fontSize: '0.9375rem', lineHeight: 1.6 }}>
-              Redirecting to Stripe for secure payment processing...
+              Redirecting to Stripe to securely save your card. $0 today — you only pay $19 if we find you an earlier slot.
             </p>
           </>
         )}
@@ -124,7 +124,7 @@ export default function CheckoutPage() {
         {state === 'idle' && (
           <>
             <h1 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#f0f0f0', marginBottom: '12px', letterSpacing: '-0.02em' }}>
-              SlotWatch Pro
+              Save a card to start watching
             </h1>
             <div style={{
               display: 'flex',
@@ -133,10 +133,10 @@ export default function CheckoutPage() {
               gap: '4px',
               marginBottom: '8px',
             }}>
-              <span style={{ fontSize: '2.5rem', fontWeight: 800, color: '#f0f0f0', letterSpacing: '-0.03em' }}>Free for 14 days</span>
+              <span style={{ fontSize: '2.5rem', fontWeight: 800, color: '#f0f0f0', letterSpacing: '-0.03em' }}>$0 today</span>
             </div>
             <p style={{ color: '#6b6b6b', fontSize: '0.875rem', marginBottom: '32px' }}>
-              then $6.99/mo · up to 3 centers · cancel anytime, no charge during the trial.
+              Your card is saved securely with Stripe but not charged. You only pay a $19 success fee — charged once — if we find you an appointment at least 3 days earlier than your current one.
             </p>
             <button
               onClick={startCheckout}
@@ -153,7 +153,7 @@ export default function CheckoutPage() {
                 transition: 'opacity 0.15s',
               }}
             >
-              Continue to payment
+              Save card and start watching
             </button>
           </>
         )}
