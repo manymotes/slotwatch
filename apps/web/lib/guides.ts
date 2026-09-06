@@ -36,7 +36,7 @@ Here are the concrete moves that actually work, roughly in order of impact:
 
 5. **Call or message the service center directly.** The app is the primary tool, but a polite call or a message through the app can help, especially if your issue is urgent or safety-related. Ask to be considered if anything opens up sooner. Staff can sometimes see near-term gaps that are awkward to catch in the app.
 
-6. **Consider Tesla Mobile Service.** Many jobs (tire rotations, wiper and cabin filter replacements, some recalls and minor repairs) can be handled by a mobile technician who comes to you. Mobile Service often has different, sometimes sooner availability than in-center bays. When you schedule, check whether your issue qualifies for a mobile visit.
+6. **Consider Tesla Mobile Service.** Many jobs (tire rotations, wiper and cabin filter replacements, some recalls and minor repairs) can be handled by a mobile technician who comes to you. Mobile Service often has different, sometimes sooner availability than in-center bays. When you schedule, check whether your issue qualifies for a mobile visit — see our [Mobile Service vs. service center guide](/guides/tesla-mobile-service-vs-service-center/) for exactly which jobs qualify and how to tell which path is faster.
 
 7. **Be flexible on time of day and be ready to confirm fast.** Early-morning and mid-week slots turn over more often. When you spot one, book immediately from your phone. Hesitating even a few minutes can mean losing it to the next person refreshing the app.
 
@@ -197,7 +197,7 @@ Tesla service scheduling is dynamic. The calendar you see isn't fixed the day yo
 - **Cancellations.** Someone booked a slot ahead of you and then cancels. Their time gets released back into the pool, and if it's sooner than your current appointment, you can grab it.
 - **Reschedules.** Just like you, other owners are hunting for better times. When they move their appointment, the slot they abandon becomes available to everyone else.
 - **Newly released capacity.** Service centers don't always open their entire calendar at once. As they finalize technician schedules, receive parts, or adjust staffing, they may release additional appointment windows, sometimes for dates much sooner than what was showing before.
-- **Mobile vs. in-center routing.** Depending on your issue, Tesla may shift availability between mobile service and in-center visits, which can surface new times.
+- **Mobile vs. in-center routing.** Depending on your issue, Tesla may shift availability between mobile service and in-center visits, which can surface new times — see our [Mobile Service vs. service center guide](/guides/tesla-mobile-service-vs-service-center/) for which jobs qualify and which path tends to be faster.
 
 The key thing to understand: these openings are not announced. Tesla doesn't notify you when a slot frees up. It simply appears in the reschedule screen, and it's first-come, first-served.
 
