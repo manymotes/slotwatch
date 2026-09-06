@@ -283,7 +283,11 @@ export default function CenterPage({ params }: { params: { center: string } }) {
           </Link>. And if you&apos;re wondering whether an early or after-hours drop-off gets you seen sooner in {data.city}, it doesn&apos;t —{' '}
           <Link href="/guides/can-i-drop-off-my-tesla-early-for-service/" style={{ color: '#e5556f', textDecoration: 'none' }}>
             here&apos;s why, and what actually works instead
-          </Link>.
+          </Link>. Curious exactly why a {data.city} slot frees up in the first place?{' '}
+          <Link href="/guides/tesla-service-cancellation-slots/" style={{ color: '#e5556f', textDecoration: 'none' }}>
+            Here&apos;s how cancellation slots actually open up
+          </Link>{' '}
+          — and how fast they tend to get grabbed.
         </p>
       </section>
 
