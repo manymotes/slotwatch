@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { SERVICE_CENTERS, centerBySlug } from '@/lib/service-centers'
 import { Logo, LogoMark } from '@/components/Logo'
 import ProofCounter from '@/components/ProofCounter'
+import LiveAvailability from '@/components/LiveAvailability'
 
 // re-export for consumers that import from this page
 export type { CenterMeta } from '@/lib/service-centers'
@@ -266,6 +267,9 @@ export default function CenterPage({ params }: { params: { center: string } }) {
             </div>
           ))}
         </div>
+
+        {/* Live snapshot of the earliest slot at each center above — renders an empty line if the worker can't answer */}
+        <LiveAvailability centers={data.centers} city={`${data.city}, ${data.stateAbbr}`} style={{ marginTop: '28px' }} />
 
         <p style={{ fontSize: '0.95rem', lineHeight: 1.7, color: '#6b6b6b', marginTop: '28px', maxWidth: '680px' }}>
           {n === 1 ? (

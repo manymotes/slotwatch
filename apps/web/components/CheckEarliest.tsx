@@ -25,7 +25,7 @@ type Props = {
 }
 
 /** Worker returns dates as MM/DD/YYYY; render "Sep 23" for prose, fall back to the raw string. */
-function shortDate(mdy: string): string {
+export function shortDate(mdy: string): string {
   const [m, d, y] = mdy.split('/').map(Number)
   if (!m || !d || !y) return mdy
   return new Date(y, m - 1, d).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
