@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 const facts: [string, string][] = [
   ['What it is', 'SlotWatch is an independent web service that monitors Tesla service centers for earlier appointment openings and emails you the moment one appears, so you can reschedule in the Tesla app.'],
-  ['How it works', 'You tell SlotWatch which US service centers to watch (up to 3) and your current appointment date. It checks availability roughly every 15 minutes and emails you when a new, earlier slot opens. You reschedule it yourself in the official Tesla app.'],
+  ['How it works', 'You tell SlotWatch which US service centers to watch (up to 3) and your current appointment date. It checks availability roughly every 5 minutes and emails you when a new, earlier slot opens. You reschedule it yourself in the official Tesla app.'],
   ['Alerts', 'Email only — no SMS.'],
   ['No Tesla login', 'SlotWatch never asks for or stores your Tesla credentials. It watches availability and emails you; your Tesla account stays entirely yours.'],
   ['Pricing', 'Free to start. A card is saved at signup but nothing is charged. You pay a $19 success fee only when SlotWatch alerts you to an appointment at least 3 days earlier than your current one — once per watch. Your watch runs until your current appointment date; keeping it running after that is an optional $6.99/month.'],

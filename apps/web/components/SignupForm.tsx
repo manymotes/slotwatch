@@ -22,8 +22,6 @@ export default function SignupForm() {
   const [results, setResults] = useState<Center[]>([])
   const [sel, setSel] = useState<number | ''>('')
   const [picked, setPicked] = useState<Center[]>([])
-  const [from, setFrom] = useState('')
-  const [to, setTo] = useState('')
   const [currentApptAt, setCurrentApptAt] = useState('')
   const [today, setToday] = useState('')
   const [maxAppt, setMaxAppt] = useState('')
@@ -35,7 +33,6 @@ export default function SignupForm() {
     if (p.get('email')) setEmail(p.get('email') as string)
     const now = new Date()
     const fmt = (d: Date) => d.toISOString().slice(0, 10)
-    setFrom(fmt(now)); setTo(fmt(new Date(now.getTime() + 90 * 864e5)))
     setToday(fmt(now)); setMaxAppt(fmt(new Date(now.getTime() + 365 * 864e5)))
     const city = p.get('city')
     if (city) { setLoc(city); void findCenters(city) }
@@ -65,18 +62,22 @@ export default function SignupForm() {
   function removePicked(trtId: number) { setPicked(picked.filter((c) => c.trtId !== trtId)) }
 
   async function submit() {
-    if (!email.trim()) return setErr('Enter your email.')
-    if (!picked.length) return setErr('Add at least one service center.')
-    if (!currentApptAt) return setErr('Enter your current appointment date.')
+    if (!picked.length) return setErr('Add at least one service center to watch.')
+    if (!currentApptAt) return setErr('Enter your current Tesla appointment date — it tells us what counts as "earlier" and when your watch ends.')
     if (currentApptAt < today || (maxAppt && currentApptAt > maxAppt)) return setErr('Your current appointment date must be between today and a year from now.')
+    if (!email.trim()) return setErr('Enter the email address we should alert.')
     setBusy('go'); setErr('')
     try {
+      // The watch window is implied: from today until the current appointment.
+      // dateFrom/dateTo are still sent because the worker falls back to fixed
+      // calendar-year defaults when they're missing.
       const r = await fetch(`${API}/api/signup`, {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           email: email.trim(),
           centers: picked.map((c) => ({ trtId: c.trtId, name: c.name })),
-          dateFrom: from, dateTo: to,
+          dateFrom: today || new Date().toISOString().slice(0, 10),
+          dateTo: currentApptAt,
           currentApptAt,
           utm: getUtm(),
         }),
@@ -96,14 +97,7 @@ export default function SignupForm() {
 
   return (
     <div style={{ maxWidth: '460px' }}>
-      <label style={label}>Your email</label>
-      <input style={input} type="email" placeholder="you@example.com" value={email} onChange={(e) => setEmail(e.target.value)} />
-
-      <label style={label} htmlFor="currentApptAt">Your current appointment date</label>
-      <input style={input} id="currentApptAt" name="currentApptAt" type="date" required min={today} max={maxAppt} value={currentApptAt} onChange={(e) => setCurrentApptAt(e.target.value)} />
-      <p style={{ color: '#5a5a5a', fontSize: '0.8125rem', margin: '7px 0 0' }}>We only charge if we find something at least 3 days earlier than this.</p>
-
-      <label style={label}>Find your service center{picked.length > 0 ? ` (${picked.length}/${MAX})` : ''}</label>
+      <label style={{ ...label, marginTop: 0 }}>Which service centers should we watch?{picked.length > 0 ? ` (${picked.length}/${MAX})` : ''}</label>
       <div style={{ display: 'flex', gap: '8px' }}>
         <input style={{ ...input, flex: 1 }} type="text" placeholder="e.g. Provo, UT or 84604" value={loc}
           onChange={(e) => setLoc(e.target.value)} onKeyDown={(e) => { if (e.key === 'Enter') void findCenters(loc) }} />
@@ -133,12 +127,12 @@ export default function SignupForm() {
         </div>
       )}
 
-      {picked.length > 0 && (
-        <div style={{ display: 'flex', gap: '10px' }}>
-          <div style={{ flex: 1 }}><label style={label}>From</label><input style={input} type="date" value={from} onChange={(e) => setFrom(e.target.value)} /></div>
-          <div style={{ flex: 1 }}><label style={label}>Watch until</label><input style={input} type="date" value={to} onChange={(e) => setTo(e.target.value)} /></div>
-        </div>
-      )}
+      <label style={label} htmlFor="currentApptAt">When is your current appointment?</label>
+      <input style={input} id="currentApptAt" name="currentApptAt" type="date" required min={today} max={maxAppt} value={currentApptAt} onChange={(e) => setCurrentApptAt(e.target.value)} />
+      <p style={{ color: '#5a5a5a', fontSize: '0.8125rem', margin: '7px 0 0' }}>We watch from today until this date, and only charge if we find an opening at least 3 days earlier.</p>
+
+      <label style={label} htmlFor="email">Where should we email the alert?</label>
+      <input style={input} id="email" name="email" type="email" autoComplete="email" placeholder="you@example.com" value={email} onChange={(e) => setEmail(e.target.value)} />
 
       <button style={{ ...btn('#e31937'), width: '100%', marginTop: '22px' }} disabled={!!busy} onClick={() => void submit()}>
         {busy === 'go' ? 'Starting…' : 'Start watching — free →'}

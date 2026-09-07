@@ -1,6 +1,8 @@
 // AUTO-GENERATED from Tesla's public find-us directory (real service centers).
 // Each metro page lists the actual Tesla service centers serving that area.
-export type ServiceCenter = { name: string; street: string; city: string; zip: string }
+// trtId = Tesla's location id (identical in the public find-us data and the mobile slot
+// endpoint), taken from the worker's D1 service_centers directory. Every center has one.
+export type ServiceCenter = { name: string; street: string; city: string; zip: string; trtId: number }
 export type CenterMeta = {
   slug: string
   city: string        // metro / area display name
@@ -18,18 +20,18 @@ export const SERVICE_CENTERS: CenterMeta[] = [
     stateAbbr: 'CA',
     releaseDate: '2026-06-01',
     centers: [
-      { name: 'Tesla Service Burbank', street: '811 South San Fernando Boulevard', city: 'Burbank', zip: '91502' },
-      { name: 'Tesla Service Long Beach', street: '1800 E SPRING ST', city: 'Long Beach', zip: '90755' },
-      { name: 'Tesla Service Los Angeles-Centinela', street: '5840 W Centinela Avenue', city: 'Los Angeles', zip: '90045' },
-      { name: 'Tesla Service West Los Angeles-Santa Monica Blvd', street: '11163 Santa Monica Boulevard', city: 'Los Angeles', zip: '90025' },
-      { name: 'Tesla Service Marina del Rey', street: '4755 Alla Road', city: 'Marina Del Rey', zip: '90292' },
-      { name: 'Tesla Service North Hollywood', street: '13005 Sherman Way', city: 'North Hollywood', zip: '91605' },
-      { name: 'Tesla Service Santa Clarita', street: '24050 Creekside Rd', city: 'Santa Clarita', zip: '91355' },
-      { name: 'Tesla Service Santa Monica', street: '1100 Colorado Ave', city: 'Santa Monica', zip: '90401' },
-      { name: 'Tesla Service Thousand Oaks', street: '2000 Corporate Center Dr', city: 'Thousand Oaks', zip: '91320' },
-      { name: 'Tesla Service Los Angeles-Torrance', street: '2560 W. 237th St', city: 'Torrance', zip: '90505' },
-      { name: 'Tesla Service Upland', street: '1018 E 20TH ST', city: 'Upland', zip: '91784' },
-      { name: 'Tesla Service West Covina', street: '1932 E GARVEY AVE S', city: 'West Covina', zip: '91791' },
+      { name: 'Tesla Service Burbank', street: '811 South San Fernando Boulevard', city: 'Burbank', zip: '91502', trtId: 651 },
+      { name: 'Tesla Service Long Beach', street: '1800 E SPRING ST', city: 'Long Beach', zip: '90755', trtId: 15328 },
+      { name: 'Tesla Service Los Angeles-Centinela', street: '5840 W Centinela Avenue', city: 'Los Angeles', zip: '90045', trtId: 78 },
+      { name: 'Tesla Service West Los Angeles-Santa Monica Blvd', street: '11163 Santa Monica Boulevard', city: 'Los Angeles', zip: '90025', trtId: 80 },
+      { name: 'Tesla Service Marina del Rey', street: '4755 Alla Road', city: 'Marina Del Rey', zip: '90292', trtId: 3975 },
+      { name: 'Tesla Service North Hollywood', street: '13005 Sherman Way', city: 'North Hollywood', zip: '91605', trtId: 58573 },
+      { name: 'Tesla Service Santa Clarita', street: '24050 Creekside Rd', city: 'Santa Clarita', zip: '91355', trtId: 13749 },
+      { name: 'Tesla Service Santa Monica', street: '1100 Colorado Ave', city: 'Santa Monica', zip: '90401', trtId: 32057 },
+      { name: 'Tesla Service Thousand Oaks', street: '2000 Corporate Center Dr', city: 'Thousand Oaks', zip: '91320', trtId: 29520 },
+      { name: 'Tesla Service Los Angeles-Torrance', street: '2560 W. 237th St', city: 'Torrance', zip: '90505', trtId: 89 },
+      { name: 'Tesla Service Upland', street: '1018 E 20TH ST', city: 'Upland', zip: '91784', trtId: 20080 },
+      { name: 'Tesla Service West Covina', street: '1932 E GARVEY AVE S', city: 'West Covina', zip: '91791', trtId: 20083 },
     ],
   },
   {
@@ -39,13 +41,13 @@ export const SERVICE_CENTERS: CenterMeta[] = [
     stateAbbr: 'CA',
     releaseDate: '2026-06-01',
     centers: [
-      { name: 'Tesla Service Aliso Viejo', street: '26501 Aliso Creek Rd', city: 'Aliso Viejo', zip: '92656' },
-      { name: 'Tesla Service Anaheim', street: '5635 E La Palma Ave', city: 'Anaheim', zip: '92807' },
-      { name: 'Tesla Service Buena Park', street: '6692 Auto Center Drive', city: 'Buena Park', zip: '90621' },
-      { name: 'Tesla Service Costa Mesa', street: '3020 Pullman Street', city: 'Costa Mesa', zip: '92626' },
-      { name: 'Tesla Service Irvine', street: '2801 Barranca Pkwy', city: 'Irvine', zip: '92606' },
-      { name: 'Tesla Service Lake Forest', street: '25471 Arctic Ocean Dr', city: 'Lake Forest', zip: '92630' },
-      { name: 'Tesla Service Santa Ana', street: '3240 South Standard Ave', city: 'Santa Ana', zip: '92705' },
+      { name: 'Tesla Service Aliso Viejo', street: '26501 Aliso Creek Rd', city: 'Aliso Viejo', zip: '92656', trtId: 17573 },
+      { name: 'Tesla Service Anaheim', street: '5635 E La Palma Ave', city: 'Anaheim', zip: '92807', trtId: 27764 },
+      { name: 'Tesla Service Buena Park', street: '6692 Auto Center Drive', city: 'Buena Park', zip: '90621', trtId: 826 },
+      { name: 'Tesla Service Costa Mesa', street: '3020 Pullman Street', city: 'Costa Mesa', zip: '92626', trtId: 345 },
+      { name: 'Tesla Service Irvine', street: '2801 Barranca Pkwy', city: 'Irvine', zip: '92606', trtId: 13726 },
+      { name: 'Tesla Service Lake Forest', street: '25471 Arctic Ocean Dr', city: 'Lake Forest', zip: '92630', trtId: 3735 },
+      { name: 'Tesla Service Santa Ana', street: '3240 South Standard Ave', city: 'Santa Ana', zip: '92705', trtId: 8996 },
     ],
   },
   {
@@ -55,10 +57,10 @@ export const SERVICE_CENTERS: CenterMeta[] = [
     stateAbbr: 'CA',
     releaseDate: '2026-06-01',
     centers: [
-      { name: 'Tesla Service Carlsbad', street: '3248 Lionshead Avenue', city: 'Carlsbad', zip: '92010' },
-      { name: 'Tesla Service Encinitas', street: '1302 Encinitas Blvd', city: 'Encinitas', zip: '92024' },
-      { name: 'Tesla Service San Diego-Kearny Mesa', street: '5600 Kearny Mesa Road', city: 'San Diego', zip: '92111' },
-      { name: 'Tesla Service San Diego-Miramar', street: '9250 Trade Pl', city: 'San Diego', zip: '92121' },
+      { name: 'Tesla Service Carlsbad', street: '3248 Lionshead Avenue', city: 'Carlsbad', zip: '92010', trtId: 4347 },
+      { name: 'Tesla Service Encinitas', street: '1302 Encinitas Blvd', city: 'Encinitas', zip: '92024', trtId: 13727 },
+      { name: 'Tesla Service San Diego-Kearny Mesa', street: '5600 Kearny Mesa Road', city: 'San Diego', zip: '92111', trtId: 4567 },
+      { name: 'Tesla Service San Diego-Miramar', street: '9250 Trade Pl', city: 'San Diego', zip: '92121', trtId: 228 },
     ],
   },
   {
@@ -68,12 +70,12 @@ export const SERVICE_CENTERS: CenterMeta[] = [
     stateAbbr: 'CA',
     releaseDate: '2026-06-01',
     centers: [
-      { name: 'Tesla Service Berkeley', street: '901 Gilman St', city: 'Berkeley', zip: '94710' },
-      { name: 'Tesla Service Burlingame', street: '50 Edwards Ct', city: 'Burlingame', zip: '94010' },
-      { name: 'Tesla Service Corte Madera', street: '201 Casa Buena Dr', city: 'Corte Madera', zip: '94925' },
-      { name: 'Tesla Service San Francisco-Van Ness', street: '999 Van Ness Avenue', city: 'San Francisco', zip: '94109' },
-      { name: 'Tesla Service Santa Rosa', street: '3286 Airway Drive', city: 'Santa Rosa', zip: '95403' },
-      { name: 'Tesla Service Vallejo', street: '1001 Admiral Callaghan Ln', city: 'Vallejo', zip: '94591' },
+      { name: 'Tesla Service Berkeley', street: '901 Gilman St', city: 'Berkeley', zip: '94710', trtId: 3518 },
+      { name: 'Tesla Service Burlingame', street: '50 Edwards Ct', city: 'Burlingame', zip: '94010', trtId: 74 },
+      { name: 'Tesla Service Corte Madera', street: '201 Casa Buena Dr', city: 'Corte Madera', zip: '94925', trtId: 15367 },
+      { name: 'Tesla Service San Francisco-Van Ness', street: '999 Van Ness Avenue', city: 'San Francisco', zip: '94109', trtId: 825 },
+      { name: 'Tesla Service Santa Rosa', street: '3286 Airway Drive', city: 'Santa Rosa', zip: '95403', trtId: 20585 },
+      { name: 'Tesla Service Vallejo', street: '1001 Admiral Callaghan Ln', city: 'Vallejo', zip: '94591', trtId: 13468 },
     ],
   },
   {
@@ -83,14 +85,14 @@ export const SERVICE_CENTERS: CenterMeta[] = [
     stateAbbr: 'CA',
     releaseDate: '2026-06-01',
     centers: [
-      { name: 'Tesla Service Dublin-Amador Plaza', street: '6701 Amador Plaza Road', city: 'Dublin', zip: '94568' },
-      { name: 'Tesla Service Fremont', street: '48370 Kato Rd', city: 'Fremont', zip: '94538' },
-      { name: 'Tesla Service Gilroy', street: '500 Automall Dr', city: 'Gilroy', zip: '95020' },
-      { name: 'Tesla Service Los Gatos', street: '15500 Los Gatos Blvd', city: 'Los Gatos', zip: '95032' },
-      { name: 'Tesla Service Palo Alto', street: '4180 El Camino Real', city: 'Palo Alto', zip: '94306' },
-      { name: 'Tesla Service Santa Clara', street: '2801 Northwestern Parkway', city: 'Santa Clara', zip: '95051' },
-      { name: 'Tesla Service Sunnyvale', street: '680 E El Camino Real', city: 'Sunnyvale', zip: '94087' },
-      { name: 'Tesla Service Sunnyvale-El Camino', street: '750 El Camino Real', city: 'Sunnyvale', zip: '94087' },
+      { name: 'Tesla Service Dublin-Amador Plaza', street: '6701 Amador Plaza Road', city: 'Dublin', zip: '94568', trtId: 325 },
+      { name: 'Tesla Service Fremont', street: '48370 Kato Rd', city: 'Fremont', zip: '94538', trtId: 4456 },
+      { name: 'Tesla Service Gilroy', street: '500 Automall Dr', city: 'Gilroy', zip: '95020', trtId: 15620 },
+      { name: 'Tesla Service Los Gatos', street: '15500 Los Gatos Blvd', city: 'Los Gatos', zip: '95032', trtId: 58570 },
+      { name: 'Tesla Service Palo Alto', street: '4180 El Camino Real', city: 'Palo Alto', zip: '94306', trtId: 82 },
+      { name: 'Tesla Service Santa Clara', street: '2801 Northwestern Parkway', city: 'Santa Clara', zip: '95051', trtId: 1051 },
+      { name: 'Tesla Service Sunnyvale', street: '680 E El Camino Real', city: 'Sunnyvale', zip: '94087', trtId: 14226 },
+      { name: 'Tesla Service Sunnyvale-El Camino', street: '750 El Camino Real', city: 'Sunnyvale', zip: '94087', trtId: 88 },
     ],
   },
   {
@@ -100,8 +102,8 @@ export const SERVICE_CENTERS: CenterMeta[] = [
     stateAbbr: 'CA',
     releaseDate: '2026-06-01',
     centers: [
-      { name: 'Tesla Service Rocklin', street: '1104 Tinker Rd', city: 'Rocklin', zip: '95765' },
-      { name: 'Tesla Service Sacramento', street: '2535 Arden Way', city: 'Sacramento', zip: '95825' },
+      { name: 'Tesla Service Rocklin', street: '1104 Tinker Rd', city: 'Rocklin', zip: '95765', trtId: 29177 },
+      { name: 'Tesla Service Sacramento', street: '2535 Arden Way', city: 'Sacramento', zip: '95825', trtId: 13746 },
     ],
   },
   {
@@ -111,7 +113,7 @@ export const SERVICE_CENTERS: CenterMeta[] = [
     stateAbbr: 'CA',
     releaseDate: '2026-06-01',
     centers: [
-      { name: 'Tesla Service Fresno-N Burl Avenue', street: '2988 N Burl Ave', city: 'Fresno', zip: '93727' },
+      { name: 'Tesla Service Fresno-N Burl Avenue', street: '2988 N Burl Ave', city: 'Fresno', zip: '93727', trtId: 11258 },
     ],
   },
   {
@@ -121,11 +123,11 @@ export const SERVICE_CENTERS: CenterMeta[] = [
     stateAbbr: 'AZ',
     releaseDate: '2026-06-01',
     centers: [
-      { name: 'Tesla Service Glendale', street: '9245 W Glendale Ave', city: 'Glendale', zip: '85305' },
-      { name: 'Tesla Service Mesa', street: '7444 E Hampton Ave', city: 'Mesa', zip: '85209' },
-      { name: 'Tesla Service Deer Valley', street: '21030 N 19th Ave', city: 'Phoenix', zip: '85027' },
-      { name: 'Tesla Service Scottsdale', street: '8300 E Raintree Dr', city: 'Scottsdale', zip: '85260' },
-      { name: 'Tesla Service Tempe University Drive', street: '2077 East University Drive', city: 'Tempe', zip: '85281' },
+      { name: 'Tesla Service Glendale', street: '9245 W Glendale Ave', city: 'Glendale', zip: '85305', trtId: 13465 },
+      { name: 'Tesla Service Mesa', street: '7444 E Hampton Ave', city: 'Mesa', zip: '85209', trtId: 11975 },
+      { name: 'Tesla Service Deer Valley', street: '21030 N 19th Ave', city: 'Phoenix', zip: '85027', trtId: 35965 },
+      { name: 'Tesla Service Scottsdale', street: '8300 E Raintree Dr', city: 'Scottsdale', zip: '85260', trtId: 3768 },
+      { name: 'Tesla Service Tempe University Drive', street: '2077 East University Drive', city: 'Tempe', zip: '85281', trtId: 964 },
     ],
   },
   {
@@ -135,7 +137,7 @@ export const SERVICE_CENTERS: CenterMeta[] = [
     stateAbbr: 'AZ',
     releaseDate: '2026-06-01',
     centers: [
-      { name: 'Tesla Service Tucson-N Oracle', street: '5081 N Oracle Rd', city: 'Tucson', zip: '85704' },
+      { name: 'Tesla Service Tucson-N Oracle', street: '5081 N Oracle Rd', city: 'Tucson', zip: '85704', trtId: 13830 },
     ],
   },
   {
@@ -145,10 +147,10 @@ export const SERVICE_CENTERS: CenterMeta[] = [
     stateAbbr: 'CO',
     releaseDate: '2026-06-01',
     centers: [
-      { name: 'Tesla Service Denver-Aurora', street: '11951 E 33rd Ave', city: 'Aurora', zip: '80010' },
-      { name: 'Tesla Service Centennial', street: '8677 Double Helix Court', city: 'Englewood', zip: '80112' },
-      { name: 'Tesla Service Denver-Littleton-Broadway', street: '5700 S Broadway', city: 'Littleton', zip: '80121' },
-      { name: 'Tesla Service Colorado-Superior', street: '2 S Marshall Rd', city: 'Superior', zip: '80027' },
+      { name: 'Tesla Service Denver-Aurora', street: '11951 E 33rd Ave', city: 'Aurora', zip: '80010', trtId: 19433 },
+      { name: 'Tesla Service Centennial', street: '8677 Double Helix Court', city: 'Englewood', zip: '80112', trtId: 27748 },
+      { name: 'Tesla Service Denver-Littleton-Broadway', street: '5700 S Broadway', city: 'Littleton', zip: '80121', trtId: 2369 },
+      { name: 'Tesla Service Colorado-Superior', street: '2 S Marshall Rd', city: 'Superior', zip: '80027', trtId: 4020 },
     ],
   },
   {
@@ -158,7 +160,7 @@ export const SERVICE_CENTERS: CenterMeta[] = [
     stateAbbr: 'CO',
     releaseDate: '2026-06-01',
     centers: [
-      { name: 'Tesla Service Colorado Springs', street: '1323 Motor City Dr', city: 'Colorado Springs', zip: '80905' },
+      { name: 'Tesla Service Colorado Springs', street: '1323 Motor City Dr', city: 'Colorado Springs', zip: '80905', trtId: 12610 },
     ],
   },
   {
@@ -168,11 +170,11 @@ export const SERVICE_CENTERS: CenterMeta[] = [
     stateAbbr: 'WA',
     releaseDate: '2026-06-01',
     centers: [
-      { name: 'Tesla Service Bellevue', street: '14408 NE 20th Street', city: 'Bellevue', zip: '98007' },
-      { name: 'Tesla Service Fife', street: '3701 20th St E', city: 'Fife', zip: '98424' },
-      { name: 'Tesla Service Lynnwood', street: '17731 Pacific Hwy', city: 'Lynnwood', zip: '98037' },
-      { name: 'Tesla Service Renton', street: '600 SW 10th St', city: 'Renton', zip: '98057' },
-      { name: 'Tesla Service Seattle-Sodo', street: '2200 6th Ave S', city: 'Seattle', zip: '98134' },
+      { name: 'Tesla Service Bellevue', street: '14408 NE 20th Street', city: 'Bellevue', zip: '98007', trtId: 856 },
+      { name: 'Tesla Service Fife', street: '3701 20th St E', city: 'Fife', zip: '98424', trtId: 15475 },
+      { name: 'Tesla Service Lynnwood', street: '17731 Pacific Hwy', city: 'Lynnwood', zip: '98037', trtId: 8962 },
+      { name: 'Tesla Service Renton', street: '600 SW 10th St', city: 'Renton', zip: '98057', trtId: 450202 },
+      { name: 'Tesla Service Seattle-Sodo', street: '2200 6th Ave S', city: 'Seattle', zip: '98134', trtId: 12841 },
     ],
   },
   {
@@ -182,8 +184,8 @@ export const SERVICE_CENTERS: CenterMeta[] = [
     stateAbbr: 'OR',
     releaseDate: '2026-06-01',
     centers: [
-      { name: 'Tesla Service Portland-SW Macadam Ave', street: '4330 SW Macadam Ave', city: 'Portland', zip: '97239' },
-      { name: 'Tesla Service Tigard', street: '10065 SW Cascade Ave', city: 'Tigard', zip: '97223' },
+      { name: 'Tesla Service Portland-SW Macadam Ave', street: '4330 SW Macadam Ave', city: 'Portland', zip: '97239', trtId: 941 },
+      { name: 'Tesla Service Tigard', street: '10065 SW Cascade Ave', city: 'Tigard', zip: '97223', trtId: 13807 },
     ],
   },
   {
@@ -193,8 +195,8 @@ export const SERVICE_CENTERS: CenterMeta[] = [
     stateAbbr: 'NV',
     releaseDate: '2026-06-01',
     centers: [
-      { name: 'Tesla Service Las Vegas-East', street: '3250 E SAHARA AVE', city: 'Las Vegas', zip: '89104' },
-      { name: 'Tesla Service Las Vegas-West', street: '7077 West Sahara Avenue', city: 'Las Vegas', zip: '89117' },
+      { name: 'Tesla Service Las Vegas-East', street: '3250 E SAHARA AVE', city: 'Las Vegas', zip: '89104', trtId: 13469 },
+      { name: 'Tesla Service Las Vegas-West', street: '7077 West Sahara Avenue', city: 'Las Vegas', zip: '89117', trtId: 1940 },
     ],
   },
   {
@@ -204,7 +206,7 @@ export const SERVICE_CENTERS: CenterMeta[] = [
     stateAbbr: 'NV',
     releaseDate: '2026-06-01',
     centers: [
-      { name: 'Tesla Service Reno-Sparks', street: '9732 S Virginia Street', city: 'Reno', zip: '89511' },
+      { name: 'Tesla Service Reno-Sparks', street: '9732 S Virginia Street', city: 'Reno', zip: '89511', trtId: 4450 },
     ],
   },
   {
@@ -214,11 +216,11 @@ export const SERVICE_CENTERS: CenterMeta[] = [
     stateAbbr: 'TX',
     releaseDate: '2026-06-01',
     centers: [
-      { name: 'Tesla Service Dallas-Cedar Springs Road', street: '6500 Cedar Springs Road', city: 'Dallas', zip: '75235' },
-      { name: 'Tesla Service Flower Mound', street: '1805 Justin Rd', city: 'Flower Mound', zip: '75028' },
-      { name: 'Tesla Service Fort Worth', street: '5812 N Fwy', city: 'Fort Worth', zip: '76137' },
-      { name: 'Tesla Service Plano', street: '5800 Democracy Drive', city: 'Plano', zip: '75024' },
-      { name: 'Tesla Service Plano-Lexington Drive', street: '300 Lexington Dr', city: 'Plano', zip: '75075' },
+      { name: 'Tesla Service Dallas-Cedar Springs Road', street: '6500 Cedar Springs Road', city: 'Dallas', zip: '75235', trtId: 940 },
+      { name: 'Tesla Service Flower Mound', street: '1805 Justin Rd', city: 'Flower Mound', zip: '75028', trtId: 59115 },
+      { name: 'Tesla Service Fort Worth', street: '5812 N Fwy', city: 'Fort Worth', zip: '76137', trtId: 400524 },
+      { name: 'Tesla Service Plano', street: '5800 Democracy Drive', city: 'Plano', zip: '75024', trtId: 2859 },
+      { name: 'Tesla Service Plano-Lexington Drive', street: '300 Lexington Dr', city: 'Plano', zip: '75075', trtId: 56382 },
     ],
   },
   {
@@ -228,10 +230,10 @@ export const SERVICE_CENTERS: CenterMeta[] = [
     stateAbbr: 'TX',
     releaseDate: '2026-06-01',
     centers: [
-      { name: 'Tesla Service Houston-Cypress', street: '19820 Hempstead Hwy', city: 'Houston', zip: '77065' },
-      { name: 'Tesla Service Houston-Westchase', street: '9633 Westheimer Rd', city: 'Houston', zip: '77063' },
-      { name: 'Tesla Service League City', street: '400 GULF FWY S', city: 'League City', zip: '77573' },
-      { name: 'Tesla Service The Woodlands', street: '9420 College Park Dr', city: 'The Woodlands', zip: '77384' },
+      { name: 'Tesla Service Houston-Cypress', street: '19820 Hempstead Hwy', city: 'Houston', zip: '77065', trtId: 17589 },
+      { name: 'Tesla Service Houston-Westchase', street: '9633 Westheimer Rd', city: 'Houston', zip: '77063', trtId: 4399 },
+      { name: 'Tesla Service League City', street: '400 GULF FWY S', city: 'League City', zip: '77573', trtId: 13736 },
+      { name: 'Tesla Service The Woodlands', street: '9420 College Park Dr', city: 'The Woodlands', zip: '77384', trtId: 58665 },
     ],
   },
   {
@@ -241,9 +243,9 @@ export const SERVICE_CENTERS: CenterMeta[] = [
     stateAbbr: 'TX',
     releaseDate: '2026-06-01',
     centers: [
-      { name: 'Tesla Service Austin-Ridgepoint', street: '2323 RIDGEPOINT DR', city: 'Austin', zip: '78754' },
-      { name: 'Tesla Service Austin-St. Elmo', street: '500 E St Elmo Rd', city: 'Austin', zip: '78745' },
-      { name: 'Tesla Service Austin-West', street: '7010 State Hwy 71', city: 'Austin', zip: '78735' },
+      { name: 'Tesla Service Austin-Ridgepoint', street: '2323 RIDGEPOINT DR', city: 'Austin', zip: '78754', trtId: 25755 },
+      { name: 'Tesla Service Austin-St. Elmo', street: '500 E St Elmo Rd', city: 'Austin', zip: '78745', trtId: 15472 },
+      { name: 'Tesla Service Austin-West', street: '7010 State Hwy 71', city: 'Austin', zip: '78735', trtId: 18836 },
     ],
   },
   {
@@ -253,7 +255,7 @@ export const SERVICE_CENTERS: CenterMeta[] = [
     stateAbbr: 'TX',
     releaseDate: '2026-06-01',
     centers: [
-      { name: 'Tesla Service San Antonio-Airport Blvd', street: '8320 Airport Blvd', city: 'San Antonio', zip: '78216' },
+      { name: 'Tesla Service San Antonio-Airport Blvd', street: '8320 Airport Blvd', city: 'San Antonio', zip: '78216', trtId: 15189 },
     ],
   },
   {
@@ -263,16 +265,16 @@ export const SERVICE_CENTERS: CenterMeta[] = [
     stateAbbr: 'IL',
     releaseDate: '2026-06-01',
     centers: [
-      { name: 'Tesla Service Batavia', street: '501 N Randall Rd', city: 'Batavia', zip: '60510' },
-      { name: 'Tesla Service Buffalo Grove', street: '915 Dundee Rd', city: 'Buffalo Grove', zip: '60089' },
-      { name: 'Tesla Service Chicago-Elston', street: '3067 N Elston Avenue', city: 'Chicago', zip: '60618' },
-      { name: 'Tesla Service Chicago-South Loop', street: '717 S Desplaines St', city: 'Chicago', zip: '60607' },
-      { name: 'Tesla Service Libertyville', street: '1121 S Milwaukee Ave', city: 'Libertyville', zip: '60048' },
-      { name: 'Tesla Service Naperville', street: '3200 Ogden Ave', city: 'Lisle', zip: '60532' },
-      { name: 'Tesla Service Northbrook', street: '1200 Skokie Blvd', city: 'Northbrook', zip: '60062' },
-      { name: 'Tesla Service Orland Park', street: '8601 W 159th st', city: 'Orland Park', zip: '60462' },
-      { name: 'Tesla Service Schaumburg', street: '320 West Golf Road', city: 'Schaumburg', zip: '60195' },
-      { name: 'Tesla Service Westmont', street: '50 W. Ogden Ave', city: 'Westmont', zip: '60559' },
+      { name: 'Tesla Service Batavia', street: '501 N Randall Rd', city: 'Batavia', zip: '60510', trtId: 35959 },
+      { name: 'Tesla Service Buffalo Grove', street: '915 Dundee Rd', city: 'Buffalo Grove', zip: '60089', trtId: 27758 },
+      { name: 'Tesla Service Chicago-Elston', street: '3067 N Elston Avenue', city: 'Chicago', zip: '60618', trtId: 4132 },
+      { name: 'Tesla Service Chicago-South Loop', street: '717 S Desplaines St', city: 'Chicago', zip: '60607', trtId: 36206 },
+      { name: 'Tesla Service Libertyville', street: '1121 S Milwaukee Ave', city: 'Libertyville', zip: '60048', trtId: 13516 },
+      { name: 'Tesla Service Naperville', street: '3200 Ogden Ave', city: 'Lisle', zip: '60532', trtId: 4418 },
+      { name: 'Tesla Service Northbrook', street: '1200 Skokie Blvd', city: 'Northbrook', zip: '60062', trtId: 13806 },
+      { name: 'Tesla Service Orland Park', street: '8601 W 159th st', city: 'Orland Park', zip: '60462', trtId: 13947 },
+      { name: 'Tesla Service Schaumburg', street: '320 West Golf Road', city: 'Schaumburg', zip: '60195', trtId: 3739 },
+      { name: 'Tesla Service Westmont', street: '50 W. Ogden Ave', city: 'Westmont', zip: '60559', trtId: 1178 },
     ],
   },
   {
@@ -282,12 +284,12 @@ export const SERVICE_CENTERS: CenterMeta[] = [
     stateAbbr: 'FL',
     releaseDate: '2026-06-01',
     centers: [
-      { name: 'Tesla Service Delray Beach', street: '3000 S Federal Hwy', city: 'Delray Beach', zip: '33483' },
-      { name: 'Tesla Service Doral', street: '9950 NW 25TH ST', city: 'Doral', zip: '33172' },
-      { name: 'Tesla Service Fort Lauderdale', street: '2829 N. Federal Highway', city: 'Fort Lauderdale', zip: '33306' },
-      { name: 'Tesla Service Coral Gables', street: '3851 Bird Road', city: 'Miami', zip: '33146' },
-      { name: 'Tesla Service Miami Gardens', street: '20850 Northwest 2nd Ave', city: 'Miami Gardens', zip: '33169' },
-      { name: 'Tesla Service West Palm Beach', street: '5544 Okeechobee Boulevard', city: 'West Palm Beach', zip: '33417' },
+      { name: 'Tesla Service Delray Beach', street: '3000 S Federal Hwy', city: 'Delray Beach', zip: '33483', trtId: 16003 },
+      { name: 'Tesla Service Doral', street: '9950 NW 25TH ST', city: 'Doral', zip: '33172', trtId: 32360 },
+      { name: 'Tesla Service Fort Lauderdale', street: '2829 N. Federal Highway', city: 'Fort Lauderdale', zip: '33306', trtId: 3455 },
+      { name: 'Tesla Service Coral Gables', street: '3851 Bird Road', city: 'Miami', zip: '33146', trtId: 95 },
+      { name: 'Tesla Service Miami Gardens', street: '20850 Northwest 2nd Ave', city: 'Miami Gardens', zip: '33169', trtId: 13972 },
+      { name: 'Tesla Service West Palm Beach', street: '5544 Okeechobee Boulevard', city: 'West Palm Beach', zip: '33417', trtId: 3408 },
     ],
   },
   {
@@ -297,8 +299,8 @@ export const SERVICE_CENTERS: CenterMeta[] = [
     stateAbbr: 'FL',
     releaseDate: '2026-06-01',
     centers: [
-      { name: 'Tesla Service Orlando-Eatonville', street: '100 S Lake Destiny Dr', city: 'Eatonville', zip: '32751' },
-      { name: 'Tesla Service Orlando', street: '6855 Lee Vista Blvd', city: 'Orlando', zip: '32822' },
+      { name: 'Tesla Service Orlando-Eatonville', street: '100 S Lake Destiny Dr', city: 'Eatonville', zip: '32751', trtId: 461 },
+      { name: 'Tesla Service Orlando', street: '6855 Lee Vista Blvd', city: 'Orlando', zip: '32822', trtId: 401040 },
     ],
   },
   {
@@ -308,9 +310,9 @@ export const SERVICE_CENTERS: CenterMeta[] = [
     stateAbbr: 'FL',
     releaseDate: '2026-06-01',
     centers: [
-      { name: 'Tesla Service St. Petersburg', street: '4601 34TH ST N', city: 'Saint Petersburg', zip: '33714' },
-      { name: 'Tesla Service Tampa', street: '11945 North Florida Avenue', city: 'Tampa', zip: '33612' },
-      { name: 'Tesla Service Wesley Chapel', street: '4980 Eagleston Blvd', city: 'Wesley Chapel', zip: '33544' },
+      { name: 'Tesla Service St. Petersburg', street: '4601 34TH ST N', city: 'Saint Petersburg', zip: '33714', trtId: 19421 },
+      { name: 'Tesla Service Tampa', street: '11945 North Florida Avenue', city: 'Tampa', zip: '33612', trtId: 3488 },
+      { name: 'Tesla Service Wesley Chapel', street: '4980 Eagleston Blvd', city: 'Wesley Chapel', zip: '33544', trtId: 425007 },
     ],
   },
   {
@@ -320,7 +322,7 @@ export const SERVICE_CENTERS: CenterMeta[] = [
     stateAbbr: 'FL',
     releaseDate: '2026-06-01',
     centers: [
-      { name: 'Tesla Service Jacksonville', street: '11650 Abess Blvd', city: 'Jacksonville', zip: '32225' },
+      { name: 'Tesla Service Jacksonville', street: '11650 Abess Blvd', city: 'Jacksonville', zip: '32225', trtId: 18804 },
     ],
   },
   {
@@ -330,11 +332,11 @@ export const SERVICE_CENTERS: CenterMeta[] = [
     stateAbbr: 'GA',
     releaseDate: '2026-06-01',
     centers: [
-      { name: 'Tesla Service Briarcliff', street: '2121 Briarcliff Rd NE', city: 'Atlanta', zip: '30329' },
-      { name: 'Tesla Service Duluth', street: '3380 Satellite Blvd', city: 'Duluth', zip: '30096' },
-      { name: 'Tesla Service Fayetteville', street: '1302 Highway 85 N', city: 'Fayetteville', zip: '30214' },
-      { name: 'Tesla Service Kennesaw', street: '1875 Greers Chapel Rd NW', city: 'Kennesaw', zip: '30144' },
-      { name: 'Tesla Service Alpharetta', street: '1400 Upper Hembree Rd', city: 'Roswell', zip: '30076' },
+      { name: 'Tesla Service Briarcliff', street: '2121 Briarcliff Rd NE', city: 'Atlanta', zip: '30329', trtId: 28367 },
+      { name: 'Tesla Service Duluth', street: '3380 Satellite Blvd', city: 'Duluth', zip: '30096', trtId: 27762 },
+      { name: 'Tesla Service Fayetteville', street: '1302 Highway 85 N', city: 'Fayetteville', zip: '30214', trtId: 27805 },
+      { name: 'Tesla Service Kennesaw', street: '1875 Greers Chapel Rd NW', city: 'Kennesaw', zip: '30144', trtId: 5272 },
+      { name: 'Tesla Service Alpharetta', street: '1400 Upper Hembree Rd', city: 'Roswell', zip: '30076', trtId: 3120 },
     ],
   },
   {
@@ -344,10 +346,10 @@ export const SERVICE_CENTERS: CenterMeta[] = [
     stateAbbr: 'MA',
     releaseDate: '2026-06-01',
     centers: [
-      { name: 'Tesla Service Dedham', street: '820 Boston Providence Hwy', city: 'Dedham', zip: '02026' },
-      { name: 'Tesla Service Norwell', street: '98 Accord Park Dr', city: 'Norwell', zip: '02061' },
-      { name: 'Tesla Service Peabody', street: '210 Andover St', city: 'Peabody', zip: '01960' },
-      { name: 'Tesla Service Boston-Watertown', street: '457 Pleasant Street', city: 'Watertown', zip: '02472' },
+      { name: 'Tesla Service Dedham', street: '820 Boston Providence Hwy', city: 'Dedham', zip: '02026', trtId: 400763 },
+      { name: 'Tesla Service Norwell', street: '98 Accord Park Dr', city: 'Norwell', zip: '02061', trtId: 14999 },
+      { name: 'Tesla Service Peabody', street: '210 Andover St', city: 'Peabody', zip: '01960', trtId: 4585 },
+      { name: 'Tesla Service Boston-Watertown', street: '457 Pleasant Street', city: 'Watertown', zip: '02472', trtId: 107 },
     ],
   },
   {
@@ -357,11 +359,11 @@ export const SERVICE_CENTERS: CenterMeta[] = [
     stateAbbr: 'NY',
     releaseDate: '2026-06-01',
     centers: [
-      { name: 'Tesla Service Brooklyn Gowanus', street: '106 2nd Ave', city: 'Brooklyn', zip: '11215' },
-      { name: 'Tesla Service Westchester-Mt. Kisco', street: '115 Kisco Avenue', city: 'Mount Kisco', zip: '10549' },
-      { name: 'Tesla Service Smithtown-Long Island', street: '1000 Nesconset Hwy', city: 'Nesconset', zip: '11767' },
-      { name: 'Tesla Service Westbury', street: '1350 CORPORATE DR', city: 'Westbury', zip: '11590' },
-      { name: 'Tesla Service White Plains-Tarrytown', street: '250 Tarrytown Rd', city: 'White Plains', zip: '10607' },
+      { name: 'Tesla Service Brooklyn Gowanus', street: '106 2nd Ave', city: 'Brooklyn', zip: '11215', trtId: 16674 },
+      { name: 'Tesla Service Westchester-Mt. Kisco', street: '115 Kisco Avenue', city: 'Mount Kisco', zip: '10549', trtId: 119 },
+      { name: 'Tesla Service Smithtown-Long Island', street: '1000 Nesconset Hwy', city: 'Nesconset', zip: '11767', trtId: 4669 },
+      { name: 'Tesla Service Westbury', street: '1350 CORPORATE DR', city: 'Westbury', zip: '11590', trtId: 16624 },
+      { name: 'Tesla Service White Plains-Tarrytown', street: '250 Tarrytown Rd', city: 'White Plains', zip: '10607', trtId: 3448 },
     ],
   },
   {
@@ -371,14 +373,14 @@ export const SERVICE_CENTERS: CenterMeta[] = [
     stateAbbr: 'NJ',
     releaseDate: '2026-06-01',
     centers: [
-      { name: 'Tesla Service Eatontown', street: '269 Route 35', city: 'Eatontown', zip: '07724' },
-      { name: 'Tesla Service Englewood', street: '45 Cedar Ln', city: 'Englewood', zip: '07631' },
-      { name: 'Tesla Service Princeton', street: '3371 Brunswick Pike', city: 'Lawrence Township', zip: '08648' },
-      { name: 'Tesla Service Old Bridge', street: '1324 US-9', city: 'Old Bridge', zip: '08857' },
-      { name: 'Tesla Service Paramus-Route 17', street: '530 NJ-17', city: 'Paramus', zip: '07652' },
-      { name: 'Tesla Service Randolph', street: '140 NJ-10', city: 'Randolph', zip: '07869' },
-      { name: 'Tesla Service Springfield NJ', street: '135 US 22', city: 'Springfield', zip: '07081' },
-      { name: 'Tesla Service Totowa', street: '545 US-46', city: 'Totowa', zip: '07512' },
+      { name: 'Tesla Service Eatontown', street: '269 Route 35', city: 'Eatontown', zip: '07724', trtId: 13811 },
+      { name: 'Tesla Service Englewood', street: '45 Cedar Ln', city: 'Englewood', zip: '07631', trtId: 400917 },
+      { name: 'Tesla Service Princeton', street: '3371 Brunswick Pike', city: 'Lawrence Township', zip: '08648', trtId: 798 },
+      { name: 'Tesla Service Old Bridge', street: '1324 US-9', city: 'Old Bridge', zip: '08857', trtId: 485367 },
+      { name: 'Tesla Service Paramus-Route 17', street: '530 NJ-17', city: 'Paramus', zip: '07652', trtId: 378 },
+      { name: 'Tesla Service Randolph', street: '140 NJ-10', city: 'Randolph', zip: '07869', trtId: 424012 },
+      { name: 'Tesla Service Springfield NJ', street: '135 US 22', city: 'Springfield', zip: '07081', trtId: 1173 },
+      { name: 'Tesla Service Totowa', street: '545 US-46', city: 'Totowa', zip: '07512', trtId: 407061 },
     ],
   },
   {
@@ -388,9 +390,9 @@ export const SERVICE_CENTERS: CenterMeta[] = [
     stateAbbr: 'PA',
     releaseDate: '2026-06-01',
     centers: [
-      { name: 'Tesla Service King of Prussia', street: '201 S Gulph Rd', city: 'King of Prussia', zip: '19406' },
-      { name: 'Tesla Service Warminster', street: '700 York Rd', city: 'Warminster', zip: '18974' },
-      { name: 'Tesla Service West Chester', street: '1568 W CHESTER PIKE', city: 'West Chester', zip: '19382' },
+      { name: 'Tesla Service King of Prussia', street: '201 S Gulph Rd', city: 'King of Prussia', zip: '19406', trtId: 401009 },
+      { name: 'Tesla Service Warminster', street: '700 York Rd', city: 'Warminster', zip: '18974', trtId: 32393 },
+      { name: 'Tesla Service West Chester', street: '1568 W CHESTER PIKE', city: 'West Chester', zip: '19382', trtId: 15952 },
     ],
   },
   {
@@ -400,8 +402,8 @@ export const SERVICE_CENTERS: CenterMeta[] = [
     stateAbbr: 'PA',
     releaseDate: '2026-06-01',
     centers: [
-      { name: 'Tesla Service Pittsburgh-Presto', street: '1400 Brockwell St', city: 'Bridgeville', zip: '15017' },
-      { name: 'Tesla Service Pittsburgh-Wexford', street: '14010 Perry Hwy', city: 'Wexford', zip: '15090' },
+      { name: 'Tesla Service Pittsburgh-Presto', street: '1400 Brockwell St', city: 'Bridgeville', zip: '15017', trtId: 13768 },
+      { name: 'Tesla Service Pittsburgh-Wexford', street: '14010 Perry Hwy', city: 'Wexford', zip: '15090', trtId: 871 },
     ],
   },
   {
@@ -411,10 +413,10 @@ export const SERVICE_CENTERS: CenterMeta[] = [
     stateAbbr: 'DC',
     releaseDate: '2026-06-01',
     centers: [
-      { name: 'Tesla Service Arlington', street: '2710 S GLEBE RD', city: 'Arlington', zip: '22206' },
-      { name: 'Tesla Service Rockville-Rockville Pike', street: '1300 ROCKVILLE PIKE', city: 'Rockville', zip: '20852' },
-      { name: 'Tesla Service Silver Spring', street: '2320 Broadbirch Dr', city: 'Silver Spring', zip: '20904' },
-      { name: 'Tesla Service Tysons Corner-Tyco Road', street: '8500 Tyco Rd', city: 'Vienna', zip: '22182' },
+      { name: 'Tesla Service Arlington', street: '2710 S GLEBE RD', city: 'Arlington', zip: '22206', trtId: 16965 },
+      { name: 'Tesla Service Rockville-Rockville Pike', street: '1300 ROCKVILLE PIKE', city: 'Rockville', zip: '20852', trtId: 4453 },
+      { name: 'Tesla Service Silver Spring', street: '2320 Broadbirch Dr', city: 'Silver Spring', zip: '20904', trtId: 19462 },
+      { name: 'Tesla Service Tysons Corner-Tyco Road', street: '8500 Tyco Rd', city: 'Vienna', zip: '22182', trtId: 343 },
     ],
   },
   {
@@ -424,7 +426,7 @@ export const SERVICE_CENTERS: CenterMeta[] = [
     stateAbbr: 'MD',
     releaseDate: '2026-06-01',
     centers: [
-      { name: 'Tesla Service Baltimore', street: '9428 Reisterstown Road', city: 'Owings Mills', zip: '21117' },
+      { name: 'Tesla Service Baltimore', street: '9428 Reisterstown Road', city: 'Owings Mills', zip: '21117', trtId: 976 },
     ],
   },
   {
@@ -434,8 +436,8 @@ export const SERVICE_CENTERS: CenterMeta[] = [
     stateAbbr: 'MI',
     releaseDate: '2026-06-01',
     centers: [
-      { name: 'Tesla Service Ann Arbor', street: '3530 Jackson Rd', city: 'Ann Arbor', zip: '48103' },
-      { name: 'Tesla Service West Bloomfield Township', street: '6800 Orchard Lake Rd', city: 'West Bloomfield Township', zip: '48322' },
+      { name: 'Tesla Service Ann Arbor', street: '3530 Jackson Rd', city: 'Ann Arbor', zip: '48103', trtId: 13509 },
+      { name: 'Tesla Service West Bloomfield Township', street: '6800 Orchard Lake Rd', city: 'West Bloomfield Township', zip: '48322', trtId: 36130 },
     ],
   },
   {
@@ -445,9 +447,9 @@ export const SERVICE_CENTERS: CenterMeta[] = [
     stateAbbr: 'MN',
     releaseDate: '2026-06-01',
     centers: [
-      { name: 'Tesla Service Minneapolis-Golden Valley', street: '700 Ottawa Ave N', city: 'Golden Valley', zip: '55422' },
-      { name: 'Tesla Service Lake Elmo', street: '9800 Hudson Blvd N', city: 'Lake Elmo', zip: '55042' },
-      { name: 'Tesla Service Minneapolis-Rogers', street: '22015 S Diamond Lake Rd', city: 'Rogers', zip: '55374' },
+      { name: 'Tesla Service Minneapolis-Golden Valley', street: '700 Ottawa Ave N', city: 'Golden Valley', zip: '55422', trtId: 27754 },
+      { name: 'Tesla Service Lake Elmo', street: '9800 Hudson Blvd N', city: 'Lake Elmo', zip: '55042', trtId: 27755 },
+      { name: 'Tesla Service Minneapolis-Rogers', street: '22015 S Diamond Lake Rd', city: 'Rogers', zip: '55374', trtId: 13756 },
     ],
   },
   {
@@ -457,8 +459,8 @@ export const SERVICE_CENTERS: CenterMeta[] = [
     stateAbbr: 'TN',
     releaseDate: '2026-06-01',
     centers: [
-      { name: 'Tesla Service Franklin', street: '122 Market Exchange CT', city: 'Franklin', zip: '37067' },
-      { name: 'Tesla Service Nashville', street: '7256 Centennial Pl', city: 'Nashville', zip: '37209' },
+      { name: 'Tesla Service Franklin', street: '122 Market Exchange CT', city: 'Franklin', zip: '37067', trtId: 15401 },
+      { name: 'Tesla Service Nashville', street: '7256 Centennial Pl', city: 'Nashville', zip: '37209', trtId: 15401 },
     ],
   },
   {
@@ -468,8 +470,8 @@ export const SERVICE_CENTERS: CenterMeta[] = [
     stateAbbr: 'NC',
     releaseDate: '2026-06-01',
     centers: [
-      { name: 'Tesla Service Northlake', street: '10615 Twin Lakes Pkwy', city: 'Charlotte', zip: '28269' },
-      { name: 'Tesla Service Matthews', street: '9140 E Independence Blvd', city: 'Matthews', zip: '28105' },
+      { name: 'Tesla Service Northlake', street: '10615 Twin Lakes Pkwy', city: 'Charlotte', zip: '28269', trtId: 36355 },
+      { name: 'Tesla Service Matthews', street: '9140 E Independence Blvd', city: 'Matthews', zip: '28105', trtId: 584 },
     ],
   },
   {
@@ -479,8 +481,8 @@ export const SERVICE_CENTERS: CenterMeta[] = [
     stateAbbr: 'NC',
     releaseDate: '2026-06-01',
     centers: [
-      { name: 'Tesla Service Raleigh-Glenwood Avenue', street: '7101 Glenwood Avenue', city: 'Raleigh', zip: '27612' },
-      { name: 'Tesla Service Raleigh-Sumner Blvd', street: '2641 Sumner Blvd', city: 'Raleigh', zip: '27616' },
+      { name: 'Tesla Service Raleigh-Glenwood Avenue', street: '7101 Glenwood Avenue', city: 'Raleigh', zip: '27612', trtId: 6694 },
+      { name: 'Tesla Service Raleigh-Sumner Blvd', street: '2641 Sumner Blvd', city: 'Raleigh', zip: '27616', trtId: 29084 },
     ],
   },
   {
@@ -490,9 +492,9 @@ export const SERVICE_CENTERS: CenterMeta[] = [
     stateAbbr: 'UT',
     releaseDate: '2026-06-01',
     centers: [
-      { name: 'Tesla Service Pleasant Grove', street: '2265 W 700 S', city: 'Pleasant Grove', zip: '84062' },
-      { name: 'Tesla Service Ogden', street: '4851 S 1500 W', city: 'Riverdale', zip: '84405' },
-      { name: 'Tesla Service Salt Lake City', street: '1038 South 300 West', city: 'Salt Lake City', zip: '84101' },
+      { name: 'Tesla Service Pleasant Grove', street: '2265 W 700 S', city: 'Pleasant Grove', zip: '84062', trtId: 9003 },
+      { name: 'Tesla Service Ogden', street: '4851 S 1500 W', city: 'Riverdale', zip: '84405', trtId: 13527 },
+      { name: 'Tesla Service Salt Lake City', street: '1038 South 300 West', city: 'Salt Lake City', zip: '84101', trtId: 1046 },
     ],
   },
   {
@@ -502,8 +504,8 @@ export const SERVICE_CENTERS: CenterMeta[] = [
     stateAbbr: 'MO',
     releaseDate: '2026-06-01',
     centers: [
-      { name: 'Tesla Service St. Louis-Chesterfield', street: '16955 Chesterfield Airport Road', city: 'Chesterfield', zip: '63005' },
-      { name: 'Tesla Service St. Louis-South County', street: '5711 S LINDBERGH BLVD', city: 'Saint Louis', zip: '63123' },
+      { name: 'Tesla Service St. Louis-Chesterfield', street: '16955 Chesterfield Airport Road', city: 'Chesterfield', zip: '63005', trtId: 1154 },
+      { name: 'Tesla Service St. Louis-South County', street: '5711 S LINDBERGH BLVD', city: 'Saint Louis', zip: '63123', trtId: 17376 },
     ],
   },
   {
@@ -513,7 +515,7 @@ export const SERVICE_CENTERS: CenterMeta[] = [
     stateAbbr: 'MO',
     releaseDate: '2026-06-01',
     centers: [
-      { name: 'Tesla Service Kansas City', street: '10111 State Line Road', city: 'Kansas City', zip: '64114' },
+      { name: 'Tesla Service Kansas City', street: '10111 State Line Road', city: 'Kansas City', zip: '64114', trtId: 3996 },
     ],
   },
 ]

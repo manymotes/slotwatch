@@ -113,7 +113,7 @@ export default function CenterPage({ params }: { params: { center: string } }) {
     },
     {
       q: 'How quickly will I get the alert?',
-      a: 'SlotWatch checks availability about every 15 minutes. When an earlier opening appears in your date range, we email you right away so you can reschedule in the Tesla app before it fills.',
+      a: 'SlotWatch checks availability about every 5 minutes. When an earlier opening appears in your date range, we email you right away so you can reschedule in the Tesla app before it fills.',
     },
     {
       q: 'Do I need to connect my Tesla account?',
@@ -126,6 +126,18 @@ export default function CenterPage({ params }: { params: { center: string } }) {
     {
       q: 'Is there a free option?',
       a: 'The self-hosted version on GitHub is completely free and open source. The managed service is free to start: watch up to 3 centers at no charge, and pay a $19 success fee — charged once per watch — only when we alert you to an appointment at least 3 days earlier than your current one. A card is saved at signup but nothing is charged up front, and you never connect your Tesla login.',
+    },
+    {
+      q: 'What counts as an earlier slot?',
+      a: 'An opening at one of your watched centers at least 3 days before the appointment date you gave us. A same-day slot at an earlier time doesn’t count and never triggers the fee.',
+    },
+    {
+      q: 'What if I find a slot myself, or the slot is gone by the time I check?',
+      a: 'We only bill when we alert you to a qualifying earlier opening — finding one on your own costs nothing. Cancellations do get grabbed fast, so open the Tesla app the moment the email lands. If you couldn’t book the slot we alerted you to, email hello@slotwatcher.app within 7 days for a full refund.',
+    },
+    {
+      q: 'Why do you ask for a card if it’s free to start?',
+      a: 'So the $19 success fee can be charged only if and when we find you an earlier slot. Nothing is charged at signup, and nothing is charged if we never find one. Your card details are held by Stripe — we never see them.',
     },
   ]
   const faqSchema = JSON.stringify({
@@ -222,7 +234,7 @@ export default function CenterPage({ params }: { params: { center: string } }) {
           {[
             { label: `Tesla ${centerWord} in area`, value: n.toString() },
             { label: 'Centers you can watch', value: `${Math.min(n, 3)}` },
-            { label: 'Check interval', value: '15 min' },
+            { label: 'Check interval', value: '5 min' },
             { label: 'Alerts', value: 'Email' },
           ].map((stat, i, arr) => (
             <div key={stat.label} style={{ padding: '28px 40px 28px 0', marginRight: i < arr.length - 1 ? '40px' : 0, borderRight: i < arr.length - 1 ? '1px solid #1a1a1a' : 'none', flexShrink: 0 }}>

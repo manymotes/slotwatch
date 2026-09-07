@@ -39,7 +39,7 @@ export default function StartPage() {
           Start watching for an earlier slot
         </h1>
         <p style={{ color: '#8a8a8a', fontSize: '1rem', lineHeight: 1.6, marginBottom: '8px' }}>
-          Tell us your service center and email. We check roughly every 15 minutes and email you the moment an earlier appointment opens — then you reschedule in the Tesla app.
+          Tell us your service center, your current appointment date, and your email. We check roughly every 5 minutes and email you the moment an earlier appointment opens — then you reschedule in the Tesla app.
         </p>
         {/* Shared / metro-page links arrive as /start/?city=… — show the live earliest-slot result for that city first. Renders nothing without a city param. */}
         <div style={{ margin: '24px 0 8px' }}>

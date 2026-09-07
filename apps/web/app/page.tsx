@@ -246,7 +246,23 @@ const faqs: FAQItem[] = [
   },
   {
     q: 'How quickly will I be alerted?',
-    a: 'SlotWatch checks your service center roughly every 15 minutes. When an earlier opening appears, we email you right away so you can jump into the Tesla app and grab it.',
+    a: 'SlotWatch checks your service center roughly every 5 minutes. When an earlier opening appears, we email you right away so you can jump into the Tesla app and grab it.',
+  },
+  {
+    q: 'What counts as an earlier slot?',
+    a: 'An opening at one of your watched centers at least 3 days before the appointment date you gave us. A same-day slot at an earlier time doesn’t count and never triggers the fee.',
+  },
+  {
+    q: 'What if I find a slot myself, or the slot is gone by the time I check?',
+    a: 'We only bill when we alert you to a qualifying earlier opening — finding one on your own costs nothing. Cancellations do get grabbed fast, so open the Tesla app the moment the email lands. If you couldn’t book the slot we alerted you to, email hello@slotwatcher.app within 7 days for a full refund.',
+  },
+  {
+    q: 'Why do you ask for a card if it’s free to start?',
+    a: 'So the $19 success fee can be charged only if and when we find you an earlier slot. Nothing is charged at signup, and nothing is charged if we never find one. Your card details are held by Stripe — we never see them.',
+  },
+  {
+    q: 'What happens when my appointment date arrives?',
+    a: 'Your watch ends automatically. You can start a new watch for a future appointment, or opt into $6.99/mo to keep watching continuously.',
   },
 ]
 
@@ -271,7 +287,7 @@ const steps = [
 const proFeatures = [
   'No Tesla login required',
   'Instant email alerts',
-  'Checks every 15 minutes',
+  'Checks every 5 minutes',
   'Watch up to 3 centers',
   'Runs until your current appointment',
 ]

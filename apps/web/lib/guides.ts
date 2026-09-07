@@ -49,7 +49,7 @@ Refreshing the Tesla app all day isn't realistic for most people. That's exactly
 Here's what makes it low-friction:
 
 - **No Tesla login required.** We never ask for your Tesla account or credentials. You tell us which centers to watch and your current appointment date, and we do the watching. You do the booking in the official Tesla app, as always. See exactly [how it works](/how-it-works/).
-- **It checks about every 15 minutes,** around the clock, including while you sleep, so a slot that opens at 6 a.m. doesn't slip by unnoticed.
+- **It checks about every 5 minutes,** around the clock, including while you sleep, so a slot that opens at 6 a.m. doesn't slip by unnoticed.
 - **It watches up to 3 US service centers at once,** which pairs perfectly with the "watch multiple nearby centers" tactic above.
 - **Email alerts only.** When an earlier slot appears, you get an email with the details so you can reschedule right away.
 
@@ -164,7 +164,7 @@ A long "first available" date doesn't have to be the date you actually go in. A 
 
 For a step-by-step walkthrough, read our guide: [How to get an earlier Tesla service appointment](/guides/how-to-get-an-earlier-tesla-service-appointment/).
 
-This is where SlotWatch helps. SlotWatch is an independent service (we're not affiliated with Tesla, Inc.) that watches your chosen service centers for you and emails you the moment an earlier slot opens, so you can hop into the Tesla app and grab it. It checks roughly every 15 minutes, needs no Tesla login, and covers up to 3 US service centers — free to start, and you only pay $19 if we find you an earlier slot. [Start a watch](/start/).
+This is where SlotWatch helps. SlotWatch is an independent service (we're not affiliated with Tesla, Inc.) that watches your chosen service centers for you and emails you the moment an earlier slot opens, so you can hop into the Tesla app and grab it. It checks roughly every 5 minutes, needs no Tesla login, and covers up to 3 US service centers — free to start, and you only pay $19 if we find you an earlier slot. [Start a watch](/start/).
 
 ## FAQ
 
@@ -215,7 +215,7 @@ There are three realistic approaches.
 
 **2. Watch multiple service centers.** If you're willing to drive a bit farther, add nearby centers to your search. More centers means more cancellations and more released capacity flowing through your view. This matters most in metros where centers are spread across several suburbs — Chicago has 10 centers stretching from Batavia to Orland Park, and Denver has 4 spanning Aurora, Englewood, Littleton, and Superior — since a cancellation at any one of them is a chance you'd miss entirely if you were only watching your nearest location. See our city guides for [Los Angeles](/los-angeles-tesla-service/), [Phoenix](/phoenix-tesla-service/), [Chicago](/chicago-tesla-service/), and [Denver](/denver-tesla-service/) for how availability tends to work in those markets.
 
-**3. Automate the watching.** This is the problem [SlotWatch](/start/) was built to solve. Instead of you refreshing the app, SlotWatch checks for earlier openings roughly every 15 minutes and emails you the moment one appears at a center you're watching. You then open the Tesla app and reschedule yourself. There's no Tesla login required, we never touch your account, and you stay in full control of the booking.
+**3. Automate the watching.** This is the problem [SlotWatch](/start/) was built to solve. Instead of you refreshing the app, SlotWatch checks for earlier openings roughly every 5 minutes and emails you the moment one appears at a center you're watching. You then open the Tesla app and reschedule yourself. There's no Tesla login required, we never touch your account, and you stay in full control of the booking.
 
 For a broader walkthrough of tactics, including how to think about which centers to watch, read our companion guide: [how to get an earlier Tesla service appointment](/guides/how-to-get-an-earlier-tesla-service-appointment/).
 
@@ -276,7 +276,7 @@ You have two options.
 
 **Option 1: Check manually.** Open the app several times a day, tap into Reschedule, and see whether an earlier date has appeared. This works, but it's tedious and you're relying on luck to catch a cancellation before someone else does.
 
-**Option 2: Get alerted automatically.** This is exactly what [SlotWatch](/start/) does. We monitor your chosen Tesla service centers roughly every 15 minutes, and the moment an earlier opening appears, we **email you** so you can jump into the Tesla app and grab it.
+**Option 2: Get alerted automatically.** This is exactly what [SlotWatch](/start/) does. We monitor your chosen Tesla service centers roughly every 5 minutes, and the moment an earlier opening appears, we **email you** so you can jump into the Tesla app and grab it.
 
 A few things worth knowing about how SlotWatch works:
 
@@ -358,7 +358,7 @@ A few things help regardless of which service type you're booked into:
 - **Describe the issue precisely when you book**, so the app can correctly route you to mobile service if it qualifies, rather than defaulting you to a center visit that might be slower.
 - **Check back for earlier openings.** Cancellations happen on both mobile and in-center schedules. Reopen the reschedule screen periodically to see if something sooner has appeared.
 - **Watch nearby service centers too**, if your job isn't mobile-eligible. Availability varies by location, and a center a bit farther away may have an earlier bay open. See how this plays out in a specific metro on our [Los Angeles](/los-angeles-tesla-service/) or [Seattle](/seattle-tesla-service/) service pages.
-- **Let a watcher catch the opening for you.** [SlotWatch](/start/) monitors your chosen service centers roughly every 15 minutes and **emails you** the instant an earlier appointment opens, so you're not the one refreshing the app all day. No Tesla login required, we never touch your account, and you still book the new slot yourself in the Tesla app.
+- **Let a watcher catch the opening for you.** [SlotWatch](/start/) monitors your chosen service centers roughly every 5 minutes and **emails you** the instant an earlier appointment opens, so you're not the one refreshing the app all day. No Tesla login required, we never touch your account, and you still book the new slot yourself in the Tesla app.
 
 For the fuller strategy on getting an earlier date once you know which queue you're in, see our guide: [how to get an earlier Tesla service appointment](/guides/how-to-get-an-earlier-tesla-service-appointment/).
 
@@ -429,7 +429,7 @@ SlotWatch is an independent tool that watches Tesla service centers for earlier 
 - **Watches up to 3 centers at once.** This is the big one. If you'd be willing to drive a bit farther to get seen weeks sooner, SlotWatch covers every nearby center — Tesla's feature can't look beyond your single booked location.
 - **Works where Tesla's feature isn't offered.**
 - **No Tesla login required.** You never hand SlotWatch your Tesla credentials — it watches availability and emails you; your account stays entirely yours.
-- **Checks about every 15 minutes** and emails you directly so you can grab the slot fast.
+- **Checks about every 5 minutes** and emails you directly so you can grab the slot fast.
 
 ## Side by side
 
@@ -440,7 +440,7 @@ SlotWatch is an independent tool that watches Tesla service centers for earlier 
 | Different / nearby centers | No | Yes |
 | Available at all centers | No | Anywhere in the US |
 | Needs your Tesla login | It's your own app | No — never |
-| How you're notified | Tesla contacts you (standby) | Email, about every 15 min |
+| How you're notified | Tesla contacts you (standby) | Email, about every 5 min |
 
 ## When Tesla's built-in feature is all you need
 
@@ -526,7 +526,7 @@ Since early drop-off won't move your appointment date up, here's what actually c
 
 - **Check the Tesla app for cancellations.** Open your appointment and tap into the reschedule screen periodically — earlier dates appear when other customers cancel or reschedule, and they're first-come, first-served. See our [guide to how cancellation slots open up](/guides/tesla-service-cancellation-slots/).
 - **Watch more than one nearby center.** A center a bit farther away may have an earlier opening than your usual one. Boston-area owners, for example, have more than one center to compare — see our [Boston Tesla service page](/boston-tesla-service/).
-- **Let SlotWatch do the watching for you.** [SlotWatch](/start/) monitors up to 3 Tesla service centers you choose and **emails you the moment an earlier slot opens**, so you're not stuck refreshing the app or hoping an early drop-off will bump your place in line. No Tesla login required, checks roughly every 15 minutes, and it's free to start — you only pay $19 if we find you an earlier slot. See [how it works](/how-it-works/).
+- **Let SlotWatch do the watching for you.** [SlotWatch](/start/) monitors up to 3 Tesla service centers you choose and **emails you the moment an earlier slot opens**, so you're not stuck refreshing the app or hoping an early drop-off will bump your place in line. No Tesla login required, checks roughly every 5 minutes, and it's free to start — you only pay $19 if we find you an earlier slot. See [how it works](/how-it-works/).
 
 ## FAQ
 
