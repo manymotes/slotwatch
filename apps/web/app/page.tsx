@@ -144,7 +144,7 @@ function EmailCapture() {
     e.preventDefault()
     if (!email.trim()) return
     // Carry the email into the real signup + checkout flow
-    window.location.href = '/start?email=' + encodeURIComponent(email.trim())
+    window.location.href = '/start/?email=' + encodeURIComponent(email.trim())
   }
 
   if (status === 'success') {

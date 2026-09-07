@@ -197,7 +197,7 @@ export default function CenterPage({ params }: { params: { center: string } }) {
             <p style={{ fontSize: '0.8125rem', fontWeight: 600, color: '#e8e8e8', marginBottom: '14px', letterSpacing: '-0.01em' }}>
               Get alerted when a {data.city} slot opens
             </p>
-            <form action="/start" method="GET" style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+            <form action="/start/" method="GET" style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
               <input type="hidden" name="city" value={`${data.city}, ${data.stateAbbr}`} />
               <input type="email" name="email" required placeholder="your@email.com" style={{ flex: '1 1 200px', background: '#161616', border: '1px solid #2a2a2a', borderRadius: '6px', color: '#f0f0f0', fontSize: '0.875rem', padding: '10px 14px', outline: 'none', minWidth: 0 }} />
               <button type="submit" style={{ background: '#e31937', color: '#fff', fontWeight: 700, fontSize: '0.875rem', border: 'none', borderRadius: '6px', padding: '10px 18px', cursor: 'pointer', whiteSpace: 'nowrap', flexShrink: 0 }}>
