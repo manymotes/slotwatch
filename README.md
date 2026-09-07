@@ -17,7 +17,7 @@ Tesla service is often booked weeks out, but earlier slots open up all day as ot
 
 | | Hosted ([slotwatcher.app](https://slotwatcher.app)) | Self-host (this repo) |
 |---|---|---|
-| Price | **$24 one-time** for a 60-day watch (up to 3 centers), money-back guarantee; optional $6.99/mo to continue | Free, open source |
+| Price | **Free to start.** A $19 success fee is charged only when SlotWatch finds you an earlier slot (up to 3 centers, one fee per watch) | Free, open source |
 | Tesla login | Not required | You run it against your own Tesla account token |
 | Alerts | Email | Email (SMS optional via Twilio) |
 | Setup | None — sign up on the site | Docker, ~5 min |
@@ -59,9 +59,7 @@ docker compose up -d
 
 **Is it affiliated with Tesla?** No. SlotWatch is an independent project and is not affiliated with, endorsed by, or connected to Tesla, Inc. "Tesla" is a trademark of Tesla, Inc.
 
-## Keywords
-
-Tesla service appointment, earlier Tesla service appointment, Tesla service cancellation alert, Tesla appointment watcher, Tesla service wait time, reschedule Tesla service, monitor Tesla service availability.
+**Just want to see the earliest slot near you right now?** The lookup at [slotwatcher.app/start](https://slotwatcher.app/start/) is free, no signup.
 
 ## Legal
 
