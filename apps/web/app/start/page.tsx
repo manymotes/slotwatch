@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import SignupForm from '../../components/SignupForm'
+import CheckEarliest from '../../components/CheckEarliest'
 import TrackEvent from '../../components/TrackEvent'
 import { Logo } from '../../components/Logo'
 
@@ -40,7 +41,13 @@ export default function StartPage() {
         <p style={{ color: '#8a8a8a', fontSize: '1rem', lineHeight: 1.6, marginBottom: '8px' }}>
           Tell us your service center and email. We check roughly every 15 minutes and email you the moment an earlier appointment opens — then you reschedule in the Tesla app.
         </p>
-        <SignupForm />
+        {/* Shared / metro-page links arrive as /start/?city=… — show the live earliest-slot result for that city first. Renders nothing without a city param. */}
+        <div style={{ margin: '24px 0 8px' }}>
+          <CheckEarliest autoRunFromQuery ctaHref="#watch" />
+        </div>
+        <div id="watch">
+          <SignupForm />
+        </div>
       </section>
     </div>
   )
