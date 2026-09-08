@@ -93,7 +93,7 @@ export default function CitiesIndex() {
               <h2 style={{ color: '#f0f0f0', fontSize: '0.9375rem', fontWeight: 700, marginBottom: '10px' }}>{state}</h2>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
                 {byState.get(state)!.map((c) => (
-                  <Link key={c.slug} href={`/${c.slug}`} style={{ color: '#8a8a8a', textDecoration: 'none', fontSize: '0.875rem' }}>
+                  <Link key={c.slug} href={`/${c.slug}/`} style={{ color: '#8a8a8a', textDecoration: 'none', fontSize: '0.875rem' }}>
                     {c.city}
                   </Link>
                 ))}

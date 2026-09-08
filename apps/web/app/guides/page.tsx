@@ -68,7 +68,7 @@ export default function GuidesIndex() {
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1px', background: '#1e1e1e', borderRadius: '12px', overflow: 'hidden' }}>
           {GUIDES.map((g) => (
-            <Link key={g.slug} href={`/guides/${g.slug}`} style={{ display: 'block', background: '#0d0d0d', padding: '22px 24px', textDecoration: 'none' }}>
+            <Link key={g.slug} href={`/guides/${g.slug}/`} style={{ display: 'block', background: '#0d0d0d', padding: '22px 24px', textDecoration: 'none' }}>
               <span style={{ display: 'block', color: '#f0f0f0', fontSize: '1.0625rem', fontWeight: 600, marginBottom: '6px' }}>{g.title}</span>
               <span style={{ display: 'block', color: '#8a8a8a', fontSize: '0.9375rem', lineHeight: 1.55 }}>{g.description}</span>
             </Link>
