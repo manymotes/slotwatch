@@ -61,6 +61,21 @@ If you're in a major metro, start with your city page: [Los Angeles](/los-angele
 
 ## Frequently asked questions
 
+**Can anyone explain how Tesla service center scheduling actually works?**
+There's no visible waitlist and no queue number. Each service center runs its own calendar, and the date you're first offered is just that center's earliest open slot at the moment you looked — it shifts constantly as other owners book, cancel, and reschedule. The reschedule screen inside your existing appointment (tactic #1 above) is a live view into that same calendar, and it also lets you check other centers' calendars from the same screen, which is the single most useful thing to understand about how this system works.
+
+**Is a 2-month wait for Tesla service normal everywhere?**
+No. Waits vary a lot by metro and by season — see our [Tesla service wait times guide](/guides/tesla-service-wait-times/) for the honest range. A specialized repair at a busy urban center can stretch toward two months, while the same job in a quieter market, or at a second center just 20–30 minutes away, is often bookable in a week or two. If your center is showing two months out, checking a nearby second center (tactic #2) is usually the fastest fix.
+
+**Can I show up a few days early for my service appointment?**
+Not reliably. Tesla schedules by appointment slot, not by walk-in order, so arriving early doesn't move you up the line — the center is staffed and prepped for the times on the calendar, not for early arrivals, and a tech generally can't just fit you in ahead of the person actually booked in that bay. If you want in sooner, work the reschedule screen (tactic #1) or watch for a cancellation instead of trying to walk in ahead of your slot.
+
+**No service appointments available for over 2 months — what can I do?**
+Widen the pool of centers you're checking (tactic #2) — a two-month wait at your closest center is often much shorter at one 30–45 minutes away. If the issue is safety-related (can't charge, brakes, steering), put that exact detail in the request description and message the center directly (tactic #5); those tend to get triaged ahead of cosmetic issues. Also check whether the job qualifies for Mobile Service (tactic #6), which runs on a separate, often sooner, calendar.
+
+**Does priority vs. non-priority matter for a Tesla service appointment?**
+Tesla doesn't publish a formal priority system, but in practice, requests that clearly describe a safety issue — a car that won't charge, or brake or steering problems — tend to get triaged and offered sooner slots than routine or cosmetic requests. Being specific in the request description, and following up with a message to the center, is the honest way to signal urgency; there's no hidden setting to flip.
+
 **How much sooner can I actually get in?**
 It varies completely. Some people catch a slot days or even weeks earlier within the first day of watching; others wait longer or don't see an opening at all. Earlier appointments only appear when other customers cancel, so no honest service can promise a specific date.
 
