@@ -303,6 +303,12 @@ Want the deeper strategy? Our companion guide, [how to get an earlier Tesla serv
 
 In a busy metro? Cancellations happen constantly at high-traffic locations. For example, see availability patterns on our [Dallas–Fort Worth Tesla service](/dallas-fort-worth-tesla-service/) page.
 
+## Can you reschedule to a different Tesla service center?
+
+Not from the reschedule screen itself. Tapping "Reschedule" on an existing appointment only moves your date and time at the **same center** you already booked — it doesn't offer a way to switch to a different location. If a nearby center might actually have something sooner, the app doesn't surface that; you'd have to cancel your existing appointment and start a new booking there to find out.
+
+That's the part SlotWatch handles for you. Instead of gambling on one center's calendar, you can watch **up to 3 centers at once** and get emailed the moment any of them opens an earlier slot — so you know before you cancel anything whether another location is actually worth switching to. See how this compares across [multiple centers in a metro area](/guides/tesla-earlier-appointment-notification-vs-slotwatch/) or browse [all the areas we watch](/cities/).
+
 ## FAQ
 
 **Can I reschedule my Tesla service appointment more than once?**
@@ -313,6 +319,9 @@ No. Rescheduling keeps your existing appointment and its notes and estimate inta
 
 **How do I move my appointment to an earlier date if nothing earlier is showing?**
 You can't force it, an earlier slot has to open up first, usually from another customer's cancellation. Check the app frequently, or let [SlotWatch](/start/) email you the instant an earlier opening appears at your service center.
+
+**Can I reschedule my Tesla appointment to a different service center?**
+Not from the standard reschedule screen — that only changes the date and time at your current center. To move to a different one, you'd cancel the existing appointment and book fresh there. [SlotWatch](/start/) watches up to 3 centers at once, so you can see whether another location has an earlier opening before you cancel anything.
 
 ## Ready to get seen sooner?
 
