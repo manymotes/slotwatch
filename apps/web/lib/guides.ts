@@ -563,6 +563,9 @@ No. Centers generally work through appointments in scheduled order, not by arriv
 **Can I drop my Tesla off the night before my appointment?**
 At many centers, yes, if they support after-hours drop-off. You'll typically park in a designated area and check in through the app; you'll need your own way home since the center likely won't be staffed overnight.
 
+**Does every Tesla service center let you drop off early?**
+No — it varies by location, and there's no single policy that covers all of them. Some centers have a marked drop-off area and an app-based check-in built for unattended visits; others don't publish early-drop-off instructions at all, which usually means they expect you during your scheduled window instead. Since it's center-specific, the reliable way to find out is your appointment confirmation in the Tesla app (it lists that center's real instructions) or a quick call to the center itself before you plan around it.
+
 **How do I actually get an earlier appointment, not just an earlier drop-off?**
 You need an earlier slot to open up, which happens when another customer cancels or reschedules. Check the app frequently, watch nearby centers too, or let [SlotWatch](/start/) email you the instant an earlier opening appears at a center you choose.
 
