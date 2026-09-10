@@ -271,6 +271,12 @@ export default function CenterPage({ params }: { params: { center: string } }) {
         {/* Live snapshot of the earliest slot at each center above — renders an empty line if the worker can't answer */}
         <LiveAvailability centers={data.centers} city={`${data.city}, ${data.stateAbbr}`} style={{ marginTop: '28px' }} />
 
+        {data.localNote && (
+          <p style={{ fontSize: '0.9375rem', lineHeight: 1.7, color: '#8a8a8a', marginTop: '24px', maxWidth: '680px', background: '#0d0d0d', border: '1px solid #1a1a1a', borderRadius: '10px', padding: '18px 20px' }}>
+            {data.localNote}
+          </p>
+        )}
+
         <p style={{ fontSize: '0.95rem', lineHeight: 1.7, color: '#6b6b6b', marginTop: '28px', maxWidth: '680px' }}>
           {n === 1 ? (
             <>With just one Tesla-owned center covering the whole {data.city} area, an earlier opening can fill within minutes of appearing. Tesla&apos;s own advice is to keep checking and grab whatever opens first — SlotWatch automates exactly that.</>

@@ -10,6 +10,7 @@ export type CenterMeta = {
   stateAbbr: string
   releaseDate: string // YYYY-MM-DD — pages only built if releaseDate <= today
   centers: ServiceCenter[]
+  localNote?: string  // optional unique local substance (e.g. disambiguating same-city centers)
 }
 
 export const SERVICE_CENTERS: CenterMeta[] = [
@@ -222,6 +223,7 @@ export const SERVICE_CENTERS: CenterMeta[] = [
       { name: 'Tesla Service Plano', street: '5800 Democracy Drive', city: 'Plano', zip: '75024', trtId: 2859 },
       { name: 'Tesla Service Plano-Lexington Drive', street: '300 Lexington Dr', city: 'Plano', zip: '75075', trtId: 56382 },
     ],
+    localNote: 'Plano actually has two separate Tesla service centers, not one: Tesla Service Plano at 5800 Democracy Drive (75024), and Tesla Service Plano-Lexington Drive at 300 Lexington Dr (75075) — about 10 miles apart. If you’re not sure which one your appointment is at, check the address on your confirmation in the Tesla app. SlotWatch can watch either one, or both at once, for an earlier opening.',
   },
   {
     slug: 'houston-tesla-service',
