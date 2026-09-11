@@ -34,6 +34,7 @@ export const SERVICE_CENTERS: CenterMeta[] = [
       { name: 'Tesla Service Upland', street: '1018 E 20TH ST', city: 'Upland', zip: '91784', trtId: 20080 },
       { name: 'Tesla Service West Covina', street: '1932 E GARVEY AVE S', city: 'West Covina', zip: '91791', trtId: 20083 },
     ],
+    localNote: 'Los Angeles is SlotWatch’s largest metro — 12 real Tesla service centers stretching from Santa Clarita and North Hollywood in the north, through the Westside (Santa Monica, Marina del Rey, and West Los Angeles-Santa Monica Blvd), down to Torrance and Long Beach in the south, and out to Upland and West Covina in the Inland Empire. Two centers also share the “Los Angeles” city name on Tesla’s own listings — Tesla Service Los Angeles-Centinela (90045) and Tesla Service West Los Angeles-Santa Monica Blvd (90025) — so check the street address on your appointment confirmation if you’re not sure which one you booked. With this many centers spread this wide, picking the 3 you’d actually drive to — not just the 3 nearest on a map — usually gets you seen soonest.',
   },
   {
     slug: 'orange-county-tesla-service',
