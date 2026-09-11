@@ -253,8 +253,8 @@ Earlier slots really do open up, but they don't wait around and Tesla won't tell
   },
   {
     slug: "how-to-reschedule-a-tesla-service-appointment",
-    title: "How to Reschedule a Tesla Service Appointment Sooner",
-    description: "Step-by-step: reschedule a Tesla service appointment in the app — plus how to catch an earlier slot the moment a cancellation opens one up, without refreshing all day.",
+    title: "How to Reschedule a Tesla Service Appointment in 5 Steps",
+    description: "Reschedule your Tesla service appointment in 5 quick taps — plus how to catch an earlier slot the moment a cancellation frees one up, without refreshing the app all day.",
     datePublished: "2026-07-25",
     md: `# How to Reschedule a Tesla Service Appointment
 
