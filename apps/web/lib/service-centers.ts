@@ -96,6 +96,7 @@ export const SERVICE_CENTERS: CenterMeta[] = [
       { name: 'Tesla Service Sunnyvale', street: '680 E El Camino Real', city: 'Sunnyvale', zip: '94087', trtId: 14226 },
       { name: 'Tesla Service Sunnyvale-El Camino', street: '750 El Camino Real', city: 'Sunnyvale', zip: '94087', trtId: 88 },
     ],
+    localNote: 'San Jose & South Bay has 8 real Tesla service centers spanning from Dublin and Fremont in the East Bay down to Gilroy at the south end of the valley. Two centers are easy to mix up: Tesla Service Sunnyvale (680 E El Camino Real) and Tesla Service Sunnyvale-El Camino (750 El Camino Real) sit less than a block apart on the same street, same city, same 94087 zip. If you’re watching or booking in Sunnyvale, check the street number on your appointment confirmation — 680 vs. 750 — so you know exactly which one you’re dealing with.',
   },
   {
     slug: 'sacramento-tesla-service',
