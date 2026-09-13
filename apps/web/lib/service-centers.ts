@@ -79,6 +79,7 @@ export const SERVICE_CENTERS: CenterMeta[] = [
       { name: 'Tesla Service Santa Rosa', street: '3286 Airway Drive', city: 'Santa Rosa', zip: '95403', trtId: 20585 },
       { name: 'Tesla Service Vallejo', street: '1001 Admiral Callaghan Ln', city: 'Vallejo', zip: '94591', trtId: 13468 },
     ],
+    localNote: 'San Francisco Bay Area’s 6 real Tesla service centers span more distinct sub-regions than any other SlotWatch metro: Santa Rosa is deep in Sonoma County wine country in the North Bay, Vallejo is further south in Solano County, Corte Madera is across the Golden Gate in Marin, Berkeley anchors the East Bay, Burlingame sits on the Peninsula near SFO, and Tesla Service San Francisco-Van Ness is the only one actually in the city. If you regularly cross a bridge for work or errands, watching the 3 centers along your real route — not just the 3 nearest your home address — usually gets you seen soonest.',
   },
   {
     slug: 'san-jose-tesla-service',
