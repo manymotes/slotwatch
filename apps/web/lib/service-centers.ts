@@ -252,6 +252,7 @@ export const SERVICE_CENTERS: CenterMeta[] = [
       { name: 'Tesla Service Austin-St. Elmo', street: '500 E St Elmo Rd', city: 'Austin', zip: '78745', trtId: 15472 },
       { name: 'Tesla Service Austin-West', street: '7010 State Hwy 71', city: 'Austin', zip: '78735', trtId: 18836 },
     ],
+    localNote: 'Austin’s 3 real Tesla service centers cover very different sides of the metro: Tesla Service Austin-Ridgepoint (78754) in the northeast near the airport and Mueller, Tesla Service Austin-St. Elmo (78745) in south-central Austin, and Tesla Service Austin-West (78735) off Hwy 71 toward Bee Cave and Lakeway. Because SlotWatch lets you watch up to 3 centers on one watch, Austin drivers can cover every center in the metro at once — no need to guess which side of town will open up first.',
   },
   {
     slug: 'san-antonio-tesla-service',
