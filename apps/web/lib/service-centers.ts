@@ -282,6 +282,7 @@ export const SERVICE_CENTERS: CenterMeta[] = [
       { name: 'Tesla Service Schaumburg', street: '320 West Golf Road', city: 'Schaumburg', zip: '60195', trtId: 3739 },
       { name: 'Tesla Service Westmont', street: '50 W. Ogden Ave', city: 'Westmont', zip: '60559', trtId: 1178 },
     ],
+    localNote: 'Chicagoland has 10 real Tesla service centers — more than almost any other metro — ringing the city from Batavia and Naperville (this one is actually addressed in Lisle, 60532, despite the name) in the west, to Buffalo Grove, Libertyville and Northbrook in the north suburbs, Schaumburg and Westmont closer in, and Orland Park to the south, plus the two in-city locations on Elston Ave and in the South Loop. With that many options spread across such a wide area, SlotWatch lets you watch up to 3 at once so you can cover the centers you’d actually drive to instead of guessing which side of Chicagoland opens up first.',
   },
   {
     slug: 'miami-tesla-service',
