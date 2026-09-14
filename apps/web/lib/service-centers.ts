@@ -344,6 +344,7 @@ export const SERVICE_CENTERS: CenterMeta[] = [
       { name: 'Tesla Service Kennesaw', street: '1875 Greers Chapel Rd NW', city: 'Kennesaw', zip: '30144', trtId: 5272 },
       { name: 'Tesla Service Alpharetta', street: '1400 Upper Hembree Rd', city: 'Roswell', zip: '30076', trtId: 3120 },
     ],
+    localNote: 'Atlanta’s 5 centers span a big metro: Tesla Service Briarcliff (30329) inside the city, Tesla Service Duluth (30096) to the northeast, Tesla Service Kennesaw (30144) to the northwest, Tesla Service Fayetteville (30214) to the south, and Tesla Service Alpharetta (30076) — despite the name, its street address is actually in Roswell, not Alpharetta proper. With centers this spread out, SlotWatch lets you watch up to 3 at once so you can cover the ones you’d actually drive to instead of guessing which side of metro Atlanta opens up first.',
   },
   {
     slug: 'boston-tesla-service',
