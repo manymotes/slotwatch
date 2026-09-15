@@ -390,6 +390,7 @@ export const SERVICE_CENTERS: CenterMeta[] = [
       { name: 'Tesla Service Springfield NJ', street: '135 US 22', city: 'Springfield', zip: '07081', trtId: 1173 },
       { name: 'Tesla Service Totowa', street: '545 US-46', city: 'Totowa', zip: '07512', trtId: 407061 },
     ],
+    localNote: 'New Jersey has 8 real Tesla service centers, more than any other SlotWatch metro without a single-city center. North Jersey has Tesla Service Paramus-Route 17 (07652), Tesla Service Englewood (07631) near the GW Bridge, Tesla Service Totowa (07512), and Tesla Service Randolph (07869) further west in Morris County; central and shore-area coverage comes from Tesla Service Springfield NJ (07081), Tesla Service Old Bridge (08857), Tesla Service Eatontown (07724) near the Jersey Shore, and Tesla Service Princeton — despite the name, its street address is actually in Lawrence Township (08648), not Princeton proper. With centers spread across the whole state, SlotWatch lets you watch up to 3 at once so you can cover the ones on your actual commute instead of guessing which corner of New Jersey opens up first.',
   },
   {
     slug: 'philadelphia-tesla-service',
