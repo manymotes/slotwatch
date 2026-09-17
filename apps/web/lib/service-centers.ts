@@ -298,6 +298,7 @@ export const SERVICE_CENTERS: CenterMeta[] = [
       { name: 'Tesla Service Miami Gardens', street: '20850 Northwest 2nd Ave', city: 'Miami Gardens', zip: '33169', trtId: 13972 },
       { name: 'Tesla Service West Palm Beach', street: '5544 Okeechobee Boulevard', city: 'West Palm Beach', zip: '33417', trtId: 3408 },
     ],
+    localNote: 'Miami & South Florida’s 6 real Tesla service centers span three counties: Tesla Service West Palm Beach (33417) and Tesla Service Delray Beach (33483) up in Palm Beach County, Tesla Service Fort Lauderdale (33306) in Broward County, and Tesla Service Doral (33172), Tesla Service Miami Gardens (33169), and Tesla Service Coral Gables further south in Miami-Dade — the Coral Gables one, despite the name, has a street address in Miami (3851 Bird Road), not Coral Gables proper. With centers running the length of the tri-county area, SlotWatch lets you watch up to 3 at once so you can cover the ones you’d actually drive to instead of guessing which end of South Florida opens up first.',
   },
   {
     slug: 'orlando-tesla-service',
