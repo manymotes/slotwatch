@@ -51,6 +51,7 @@ export const SERVICE_CENTERS: CenterMeta[] = [
       { name: 'Tesla Service Lake Forest', street: '25471 Arctic Ocean Dr', city: 'Lake Forest', zip: '92630', trtId: 3735 },
       { name: 'Tesla Service Santa Ana', street: '3240 South Standard Ave', city: 'Santa Ana', zip: '92705', trtId: 8996 },
     ],
+    localNote: 'Orange County’s 7 real Tesla service centers run from Buena Park and Anaheim in the north down to Lake Forest and Aliso Viejo in the south, with Santa Ana, Costa Mesa, and Irvine anchoring the middle of the county. One quirk worth knowing: Tesla Service Buena Park’s zip code (90621) looks like a Los Angeles County address, but the center is actually in Orange County. With centers spread the length of the county, SlotWatch lets you watch up to 3 at once so you can cover the ones you’d actually drive to instead of guessing which end of Orange County opens up first.',
   },
   {
     slug: 'san-diego-tesla-service',
