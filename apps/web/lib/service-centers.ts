@@ -375,6 +375,7 @@ export const SERVICE_CENTERS: CenterMeta[] = [
       { name: 'Tesla Service Westbury', street: '1350 CORPORATE DR', city: 'Westbury', zip: '11590', trtId: 16624 },
       { name: 'Tesla Service White Plains-Tarrytown', street: '250 Tarrytown Rd', city: 'White Plains', zip: '10607', trtId: 3448 },
     ],
+    localNote: 'New York City’s 5 real Tesla service centers are spread far wider than the five boroughs suggest. Tesla Service Brooklyn Gowanus (11215) is the only one actually inside NYC — there’s no Tesla service center in Manhattan, Queens, the Bronx, or Staten Island. The rest ring the suburbs: Tesla Service Westbury (11590) and Tesla Service Smithtown-Long Island (11767) out on Long Island, and Tesla Service Westchester-Mt. Kisco (10549) and Tesla Service White Plains-Tarrytown (10607) up in Westchester County. If you’re in an outer borough without a nearby center, Brooklyn Gowanus is usually the closest option unless you’re willing to cross into Long Island or Westchester. SlotWatch lets you watch up to 3 of these at once, so you can cover Brooklyn plus whichever suburban center is actually on your commute instead of guessing which one opens up first.',
   },
   {
     slug: 'new-jersey-tesla-service',
