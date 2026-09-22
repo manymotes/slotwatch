@@ -181,6 +181,7 @@ export const SERVICE_CENTERS: CenterMeta[] = [
       { name: 'Tesla Service Renton', street: '600 SW 10th St', city: 'Renton', zip: '98057', trtId: 450202 },
       { name: 'Tesla Service Seattle-Sodo', street: '2200 6th Ave S', city: 'Seattle', zip: '98134', trtId: 12841 },
     ],
+    localNote: 'Only one of Seattle’s 5 real Tesla service centers, Tesla Service Seattle-Sodo (98134), actually sits inside Seattle city limits, in the SoDo neighborhood just south of downtown. The other four ring the metro: Tesla Service Lynnwood (98037) covers the north end toward Everett, Tesla Service Bellevue (98007) and Tesla Service Renton (98057) are east of Lake Washington — a bridge crossing (I-90 or SR-520) from downtown — and Tesla Service Fife (98424) covers the south end near Tacoma. If you’re downtown or on Capitol Hill, Sodo is usually closest; if you’re already east of the lake, Bellevue or Renton often beats fighting bridge traffic into the city. SlotWatch lets you watch up to 3 of these at once, so you can cover Sodo plus whichever side of the lake or metro actually matches your commute instead of guessing which one opens up first.',
   },
   {
     slug: 'portland-tesla-service',
