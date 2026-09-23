@@ -363,6 +363,7 @@ export const SERVICE_CENTERS: CenterMeta[] = [
       { name: 'Tesla Service Peabody', street: '210 Andover St', city: 'Peabody', zip: '01960', trtId: 4585 },
       { name: 'Tesla Service Boston-Watertown', street: '457 Pleasant Street', city: 'Watertown', zip: '02472', trtId: 107 },
     ],
+    localNote: 'Boston’s 4 real Tesla service centers ring the metro from very different directions: Tesla Service Dedham (02026) sits southwest of the city along Route 1, Tesla Service Norwell (02061) is further out on the South Shore, and Tesla Service Peabody (01960) covers the North Shore near Salem and Danvers. Only Tesla Service Boston-Watertown (02472) carries the city’s name, but it’s actually west of Boston proper, closer to Cambridge and Newton, not downtown. So if you’re north of the city, Peabody usually beats a South Shore trip to Norwell, and vice versa. SlotWatch lets you watch up to 3 of these at once, so you can cover the centers on your actual side of town instead of guessing which one frees up first.',
   },
   {
     slug: 'new-york-tesla-service',
