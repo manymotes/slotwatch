@@ -134,6 +134,7 @@ export const SERVICE_CENTERS: CenterMeta[] = [
       { name: 'Tesla Service Scottsdale', street: '8300 E Raintree Dr', city: 'Scottsdale', zip: '85260', trtId: 3768 },
       { name: 'Tesla Service Tempe University Drive', street: '2077 East University Drive', city: 'Tempe', zip: '85281', trtId: 964 },
     ],
+    localNote: 'Only one of Phoenix’s 5 real Tesla service centers, Tesla Service Deer Valley (85027), is actually addressed inside Phoenix — and even that one sits in the far north of the city, well away from downtown. The other four are named for the separate cities that ring the valley: Tesla Service Glendale (85305) on the west side, Tesla Service Scottsdale (85260) to the northeast, and Tesla Service Mesa (85209) and Tesla Service Tempe University Drive (85281) out in the East Valley. If you’re on the west side, Glendale is usually closest; if you’re in the East Valley (Mesa, Tempe, Chandler, Gilbert), Mesa or Tempe beats crossing the whole valley to get to Deer Valley. SlotWatch lets you watch up to 3 of these at once, so you can cover Deer Valley plus whichever side of the valley actually matches your commute instead of guessing which one opens up first.',
   },
   {
     slug: 'tucson-tesla-service',
