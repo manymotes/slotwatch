@@ -243,6 +243,7 @@ export const SERVICE_CENTERS: CenterMeta[] = [
       { name: 'Tesla Service League City', street: '400 GULF FWY S', city: 'League City', zip: '77573', trtId: 13736 },
       { name: 'Tesla Service The Woodlands', street: '9420 College Park Dr', city: 'The Woodlands', zip: '77384', trtId: 58665 },
     ],
+    localNote: 'Houston’s 4 real Tesla service centers cover opposite ends of one of the country’s largest metros: Tesla Service Houston-Cypress (77065) is out on the northwest side toward Cypress and Copperfield, Tesla Service Houston-Westchase (77063) sits inside the Westchase district on the west side, Tesla Service The Woodlands (77384) is well north of the city near Conroe, and Tesla Service League City (77573) covers the south end toward Clear Lake and Galveston. With drive times across Houston often running 45+ minutes in traffic, watching the 3 centers actually on your side of town — not just the 3 closest on a map — usually gets you seen soonest.',
   },
   {
     slug: 'austin-tesla-service',
