@@ -434,6 +434,7 @@ export const SERVICE_CENTERS: CenterMeta[] = [
       { name: 'Tesla Service Silver Spring', street: '2320 Broadbirch Dr', city: 'Silver Spring', zip: '20904', trtId: 19462 },
       { name: 'Tesla Service Tysons Corner-Tyco Road', street: '8500 Tyco Rd', city: 'Vienna', zip: '22182', trtId: 343 },
     ],
+    localNote: 'None of Washington, D.C.’s 4 real Tesla service centers are actually addressed inside the District — all four sit in the surrounding suburbs. Two are in Northern Virginia: Tesla Service Arlington (22206), just across the Potomac from downtown, and Tesla Service Tysons Corner-Tyco Road in Vienna (22182), further out along the Beltway. The other two are in Montgomery County, Maryland: Tesla Service Rockville-Rockville Pike (20852) and Tesla Service Silver Spring (20904). If you’re in the District or Northern Virginia, Arlington is usually the shortest trip across the river; if you’re in the Maryland suburbs, Rockville or Silver Spring beats crossing into Virginia. SlotWatch lets you watch up to 3 of these at once, so you can cover the ones on your actual side of the Beltway instead of guessing which one opens up first.',
   },
   {
     slug: 'baltimore-tesla-service',
