@@ -160,7 +160,7 @@ export const SERVICE_CENTERS: CenterMeta[] = [
     ],
   },
   {
-    slug: 'colorado-springs-tesla-service',
+    slug: 'tesla-service-colorado-springs',
     city: 'Colorado Springs',
     state: 'Colorado',
     stateAbbr: 'CO',

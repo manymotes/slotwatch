@@ -150,7 +150,7 @@ Wait times are local, so start with your metro area. Each page below covers what
 - [Sacramento](/sacramento-tesla-service/)
 - [Fresno](/fresno-tesla-service/)
 - [Tucson](/tucson-tesla-service/)
-- [Colorado Springs](/colorado-springs-tesla-service/)
+- [Colorado Springs](/tesla-service-colorado-springs/)
 - [Portland](/portland-tesla-service/)
 - [Las Vegas](/las-vegas-tesla-service/)
 - [Reno](/reno-tesla-service/)
