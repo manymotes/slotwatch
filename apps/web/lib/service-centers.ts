@@ -159,6 +159,7 @@ export const SERVICE_CENTERS: CenterMeta[] = [
       { name: 'Tesla Service Denver-Littleton-Broadway', street: '5700 S Broadway', city: 'Littleton', zip: '80121', trtId: 2369 },
       { name: 'Tesla Service Colorado-Superior', street: '2 S Marshall Rd', city: 'Superior', zip: '80027', trtId: 4020 },
     ],
+    localNote: 'Denver’s 4 real Tesla service centers cover four different sides of the metro. Tesla Service Denver-Aurora (80010) is east toward the airport, Tesla Service Colorado-Superior (80027) is northwest along the US-36 corridor toward Boulder, and Tesla Service Centennial (80112) and Tesla Service Denver-Littleton-Broadway (80121) both sit in the south metro — only about 6 miles apart, in neighboring Englewood and Littleton, so check the street address on your appointment confirmation if you’re not sure which one you booked. If you’re on the south side (Highlands Ranch, Parker, DTC), Centennial or Littleton is the shorter drive; if you’re northwest toward Boulder or Broomfield, Superior beats crossing the whole metro to Aurora. SlotWatch lets you watch up to 3 of these 4 at once, so you can cover the pair on your side of town plus whichever outlying center actually matches your commute instead of guessing which one opens up first.',
   },
   {
     slug: 'tesla-service-colorado-springs',
