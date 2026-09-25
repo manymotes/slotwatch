@@ -65,6 +65,7 @@ export const SERVICE_CENTERS: CenterMeta[] = [
       { name: 'Tesla Service San Diego-Kearny Mesa', street: '5600 Kearny Mesa Road', city: 'San Diego', zip: '92111', trtId: 4567 },
       { name: 'Tesla Service San Diego-Miramar', street: '9250 Trade Pl', city: 'San Diego', zip: '92121', trtId: 228 },
     ],
+    localNote: 'San Diego’s 4 real Tesla service centers split into two pairs. Tesla Service San Diego-Kearny Mesa (92111) and Tesla Service San Diego-Miramar (92121) both carry the “San Diego” name and sit only a few miles apart in the central part of the city, near MCAS Miramar off I-15 — easy to mix up if you’re just skimming names, so check the street address on your appointment confirmation. Carlsbad (92010) and Encinitas (92024) are a separate pair up in North County, roughly 30 miles north along I-5. If you’re in the city or south of it, Kearny Mesa or Miramar is the shorter drive; if you’re in North County (Oceanside, Vista, San Marcos), Carlsbad or Encinitas usually beats fighting I-5 traffic into the city. SlotWatch lets you watch up to 3 of these 4 at once, so you can cover the city pair plus whichever North County center matches your commute instead of guessing which one opens up first.',
   },
   {
     slug: 'san-francisco-tesla-service',
