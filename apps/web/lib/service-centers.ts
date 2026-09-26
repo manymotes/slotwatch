@@ -471,6 +471,7 @@ export const SERVICE_CENTERS: CenterMeta[] = [
       { name: 'Tesla Service Lake Elmo', street: '9800 Hudson Blvd N', city: 'Lake Elmo', zip: '55042', trtId: 27755 },
       { name: 'Tesla Service Minneapolis-Rogers', street: '22015 S Diamond Lake Rd', city: 'Rogers', zip: '55374', trtId: 13756 },
     ],
+    localNote: 'Minneapolis–St. Paul’s 3 real Tesla service centers sit on three different sides of the Twin Cities, so the nearest one depends heavily on which twin city you’re closer to. Tesla Service Minneapolis-Golden Valley (55422) is an inner-ring western suburb, just minutes from downtown Minneapolis. Tesla Service Lake Elmo (55042) is on the opposite side of the metro in Washington County, east of St. Paul — a much shorter drive if you’re on the St. Paul side of the river. Tesla Service Minneapolis-Rogers (55374) is a northwest exurb off I-94/Highway 101, better suited to the northern and western suburbs than to either downtown. SlotWatch lets you watch all 3 at once, so whichever side of the Twin Cities you’re on, you catch the earlier slot at the center that actually saves you the drive.',
   },
   {
     slug: 'nashville-tesla-service',
