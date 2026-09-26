@@ -412,6 +412,7 @@ export const SERVICE_CENTERS: CenterMeta[] = [
       { name: 'Tesla Service Warminster', street: '700 York Rd', city: 'Warminster', zip: '18974', trtId: 32393 },
       { name: 'Tesla Service West Chester', street: '1568 W CHESTER PIKE', city: 'West Chester', zip: '19382', trtId: 15952 },
     ],
+    localNote: 'None of Philadelphia’s 3 real Tesla service centers are actually inside the city — all three sit in the surrounding suburbs, each on a different side. Tesla Service King of Prussia (19406) is west of the city off the PA Turnpike/I-76, Tesla Service Warminster (18974) is north in Bucks County off Route 611, and Tesla Service West Chester (19382) is southwest in Chester County off West Chester Pike. If you’re in Center City or South Philly, King of Prussia is usually the shortest drive; if you’re already in Bucks County or the northern suburbs, Warminster beats crossing the whole metro. SlotWatch lets you watch up to 3 of these at once, so you can cover whichever side of the region actually matches your commute instead of guessing which one opens up first.',
   },
   {
     slug: 'pittsburgh-tesla-service',
