@@ -328,6 +328,7 @@ export const SERVICE_CENTERS: CenterMeta[] = [
       { name: 'Tesla Service Tampa', street: '11945 North Florida Avenue', city: 'Tampa', zip: '33612', trtId: 3488 },
       { name: 'Tesla Service Wesley Chapel', street: '4980 Eagleston Blvd', city: 'Wesley Chapel', zip: '33544', trtId: 425007 },
     ],
+    localNote: 'Tampa Bay’s 3 real Tesla service centers sit on different sides of the bay and the metro. Tesla Service St. Petersburg (33714) is in Pinellas County, across the bay via the Howard Frankland or Gandy bridges from Tampa itself. Tesla Service Tampa (33612) is on the north side of the city, near the University of South Florida area in Hillsborough County. Tesla Service Wesley Chapel (33544) is a further exurb up in Pasco County, north along I-75. If you’re on the Pinellas side (St. Petersburg, Clearwater), crossing the bay to St. Petersburg usually beats driving into Tampa; if you’re already north of the city, Wesley Chapel is closer than doubling back downtown. SlotWatch lets you watch all 3 at once, so whichever side of the bay you’re on, you catch the earlier slot at the center that actually saves you the drive.',
   },
   {
     slug: 'jacksonville-tesla-service',
