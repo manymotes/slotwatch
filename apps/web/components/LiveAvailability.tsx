@@ -98,7 +98,7 @@ export default function LiveAvailability({ centers, city, style }: Props) {
         onClick={() => track('live_availability_cta')}
         style={{ display: 'inline-block', marginTop: '14px', color: '#e5556f', textDecoration: 'none', fontWeight: 600, fontSize: '0.875rem' }}
       >
-        Watch these centers — free to start →
+        Watch these centers — free, no card →
       </a>
     </div>
   )

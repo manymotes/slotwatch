@@ -4,7 +4,7 @@ export const TERMS_MD = `# SlotWatch Terms of Service
 
 *This is a starting template only. Please have it reviewed by qualified legal counsel before you rely on it.*
 
-**Last updated: 2026-09-05**
+**Last updated: 2026-09-28**
 
 Welcome to SlotWatch. These Terms of Service ("Terms") are an agreement between you and SlotWatch ("SlotWatch," "we," "us," or "our") covering your use of the SlotWatch website and service at slotwatcher.app (the "Service"). By creating an account or using the Service, you agree to these Terms. If you don't agree, please don't use the Service.
 
@@ -33,17 +33,18 @@ To use the Service, you create an account with a valid email address. Because ou
 
 You're responsible for activity that happens under your account. Please keep your login secure and let us know if you think someone else is using it.
 
-## 4. Success fee and billing
+## 4. Unlock fee and billing
 
-SlotWatch is **free to start**. You set up a watch on up to 3 service centers and give us the date of your current Tesla service appointment. A payment card is saved through **Stripe** at signup, but **nothing is charged** when you sign up. By starting a watch, you agree that:
+SlotWatch is **free to start — no card required**. You set up a watch on up to 3 service centers, give us the date of your current Tesla service appointment and your email, and we start watching immediately. Nothing is charged, and no payment details are collected, when you sign up. By starting a watch, you agree that:
 
-- **What triggers the charge:** we charge a **$19 success fee** when SlotWatch alerts you to an appointment at one of your watched centers that is **at least 3 days earlier** than the current appointment date you gave us. The fee is charged to your saved card at the time of that alert.
-- **Once per watch:** the success fee is charged at most once per watch, no matter how many alerts you receive after that.
-- **If we never find one, you never pay.** If no qualifying earlier slot appears, there is no charge.
+- **What triggers the fee:** when SlotWatch finds an opening at one of your watched centers that is **at least 3 days earlier** than the current appointment date you gave us (a "qualifying opening"), we email you which center it is at and how many days sooner it is. Seeing that is free. The **one-time $19 unlock fee** is charged only if **you choose to unlock** the exact date and time of that opening. You pay through **Stripe** at the moment you unlock; we never charge you automatically.
+- **Once per watch:** the unlock fee is paid at most once per watch. Once unlocked, every later alert for that watch — including new qualifying openings — is delivered in full at no extra charge.
+- **Smaller openings are always free:** openings only 1–2 days earlier than your current appointment are always shown in full, for free, and never trigger the fee.
+- **If we never find one, you never pay.** If no qualifying opening appears, or you choose not to unlock, there is no charge.
 - **When your watch ends:** your watch runs until your current appointment date, then ends automatically.
 - **Optional continuation:** if you want to keep watching after your appointment date, you can opt in to a **$6.99/month** plan that you can cancel anytime from your dashboard. It is never started automatically.
-- **Refunds:** if you were unable to book the slot we alerted you to, email us at hello@slotwatcher.app within 7 days of the alert and we'll refund the $19 in full.
-- Payment details are handled by Stripe under Stripe's own terms and privacy policy. We don't store your full card number.
+- **Refunds:** if you unlock an opening and the slot was already taken by the time you checked, email us at hello@slotwatcher.app within 7 days of the unlock and we'll refund the $19 in full. We keep watching for you either way.
+- Payment details are handled by Stripe under Stripe's own terms and privacy policy. We don't store your card number.
 
 If we change the fee, we'll give you advance notice before the new fee applies, and you can end your watch if you don't want to continue.
 
@@ -84,7 +85,7 @@ If we're found liable for anything despite the above, our **total liability to y
 
 ## 9. Termination
 
-You can stop using the Service, end your watch, or cancel any optional continuation plan anytime from your account dashboard. We may suspend or end your access if you violate these Terms or if we stop offering the Service. If we discontinue the Service, we'll try to give reasonable notice. On termination, your right to use the Service ends, no success fee is charged for alerts after that point, and any continuation plan will not renew.
+You can stop using the Service, end your watch, or cancel any optional continuation plan anytime from your account dashboard. We may suspend or end your access if you violate these Terms or if we stop offering the Service. If we discontinue the Service, we'll try to give reasonable notice. On termination, your right to use the Service ends, no unlock fee is charged after that point, and any continuation plan will not renew.
 
 ## 10. Changes to these Terms
 
@@ -120,7 +121,7 @@ We do not collect or store Tesla account credentials, vehicle data, or location 
 
 - To send you email alerts when an earlier appointment slot appears.
 - To provide, maintain, and improve the service.
-- To bill you through Stripe (the success fee and any optional continuation plan).
+- To bill you through Stripe (the one-time $19 unlock fee, if you choose to unlock an opening we found, and any optional continuation plan).
 - To respond to your questions and support requests.
 - To keep the service secure and prevent abuse.
 
@@ -179,9 +180,9 @@ Tesla service waits can stretch weeks, sometimes close to two months. But slots 
 
 ## How it works
 
-1. **Tell us your center, email, and current appointment date.** Pick up to 3 US Tesla service centers to watch, give us the email address where you want alerts, and the date of the appointment you already have. Starting is free.
+1. **Tell us your center, email, and current appointment date.** Pick up to 3 US Tesla service centers to watch, give us the email address where you want alerts, and the date of the appointment you already have. Starting is free — no card required.
 2. **We check every ~5 minutes.** Our watcher keeps an eye on your centers day and night, so you do not have to keep refreshing the Tesla app.
-3. **We email you the moment an earlier slot opens.** When an opening appears sooner than your current appointment, you get an email right away with the details.
+3. **We email you the moment an earlier slot opens.** When an opening appears at least 3 days before your current appointment, we email you which center and how many days sooner. Unlock the exact date and time for a one-time $19 — after that, every alert for that watch arrives in full. Openings only 1–2 days earlier are always shown in full, free.
 4. **You reschedule in the Tesla app in seconds.** Open the app, grab the slot, and you are done. The appointment always stays in your hands.
 
 ---
@@ -211,7 +212,7 @@ We never ask for your Tesla username, password, or account access, and we never 
 
 ## Ready to stop refreshing the app?
 
-**Start watching your service center today — free to start, and you only pay $19 if we find you an earlier slot.**
+**Start watching your service center today — free to start, no card required. You only pay $19 to unlock an earlier slot we find.**
 
 ---
 
@@ -228,4 +229,4 @@ That felt like something a computer should do instead of me. So I built SlotWatc
 That's it. I hope it saves you some refreshing too.
 `;
 
-export const FAQ: { q: string; a: string }[] = [{"q": "Do I need to give you my Tesla login?", "a": "No. SlotWatch never asks for or stores your Tesla credentials, and no Tesla login is required to use our service. We monitor publicly available service center availability, and you reschedule any earlier slot yourself directly in the Tesla app."}, {"q": "How fast will I get the alert?", "a": "We check your watched service centers roughly every 5 minutes, so you'll get an email alert within about 15 minutes of an earlier slot appearing. Alerts are email only (no SMS), so keep an eye on your inbox and act quickly, since popular openings can get grabbed fast."}, {"q": "Which service centers can you watch?", "a": "You can watch real US Tesla service centers that we monitor. Just pick the locations you want to keep an eye on, and we'll track them for earlier openings that free up from cancellations."}, {"q": "How many centers can I watch?", "a": "You can watch up to 3 US Tesla service centers at the same time on a single watch. This lets you cover multiple nearby locations to improve your chances of catching an earlier opening."}, {"q": "What if no earlier slot ever opens?", "a": "We're honest about this: earlier slots only appear when someone else cancels, so we can't guarantee one will ever open. SlotWatch monitors continuously and alerts you the moment an earlier opening shows up, but if openings are rare in your area you may not get an alert. That's why SlotWatch is free to start — you only pay the $19 success fee if we actually find you an appointment at least 3 days earlier than your current one. If we never do, you never pay."}, {"q": "Are you affiliated with Tesla?", "a": "No. SlotWatch is an independent service that is not affiliated with, endorsed by, or connected to Tesla, Inc. \"Tesla\" is a trademark of Tesla, Inc."}, {"q": "How does pricing work?", "a": "SlotWatch is free to start: watch up to 3 centers at no charge. A card is saved at signup but nothing is charged. You pay a $19 success fee only when we alert you to an appointment at least 3 days earlier than your current one — charged once per watch. Your watch runs until your current appointment date; keeping it running after that is an optional $6.99/mo you can cancel anytime from your dashboard."}, {"q": "Is my data safe?", "a": "Yes. We never ask for or store your Tesla login credentials, and payments are processed securely through Stripe rather than being stored by us. If you'd prefer full control, there's also an open-source self-host option available on GitHub."}];
+export const FAQ: { q: string; a: string }[] = [{"q": "Do I need to give you my Tesla login?", "a": "No. SlotWatch never asks for or stores your Tesla credentials, and no Tesla login is required to use our service. We monitor publicly available service center availability, and you reschedule any earlier slot yourself directly in the Tesla app."}, {"q": "How fast will I get the alert?", "a": "We check your watched service centers roughly every 5 minutes, so you'll get an email alert within about 15 minutes of an earlier slot appearing. Alerts are email only (no SMS), so keep an eye on your inbox and act quickly, since popular openings can get grabbed fast."}, {"q": "Which service centers can you watch?", "a": "You can watch real US Tesla service centers that we monitor. Just pick the locations you want to keep an eye on, and we'll track them for earlier openings that free up from cancellations."}, {"q": "How many centers can I watch?", "a": "You can watch up to 3 US Tesla service centers at the same time on a single watch. This lets you cover multiple nearby locations to improve your chances of catching an earlier opening."}, {"q": "What if no earlier slot ever opens?", "a": "We're honest about this: earlier slots only appear when someone else cancels, so we can't guarantee one will ever open. SlotWatch monitors continuously and alerts you the moment an earlier opening shows up, but if openings are rare in your area you may not get an alert. That's why SlotWatch is free to start with no card required — you only pay $19 if we find an appointment at least 3 days earlier than your current one and you choose to unlock its exact time. If we never do, you never pay."}, {"q": "Are you affiliated with Tesla?", "a": "No. SlotWatch is an independent service that is not affiliated with, endorsed by, or connected to Tesla, Inc. \"Tesla\" is a trademark of Tesla, Inc."}, {"q": "How does pricing work?", "a": "Free to start — no card required. Enter up to 3 centers, your current appointment date, and your email, and we start watching immediately. When an opening appears at least 3 days before your current appointment, we email you which center and how many days sooner; unlock the exact date and time for a one-time $19. Once unlocked, every alert for that watch arrives in full, no extra charge. Openings only 1–2 days earlier are always shown in full for free. Your watch runs until your appointment date; keeping it running after that is an optional $6.99/mo you can cancel anytime from your dashboard."}, {"q": "When do I pay?", "a": "Only when we find you an earlier slot — and only if you choose to unlock it. Starting is free and needs no card. When an opening appears at least 3 days before your current appointment, we email you which center and how many days sooner. Unlock the exact date and time for a one-time $19; once unlocked, every alert for that watch arrives in full, no extra charge. Openings only 1–2 days earlier are always shown in full for free and never trigger the fee. If we never find one, you never pay."}, {"q": "What if I unlock and the slot is already gone?", "a": "Cancellations get grabbed fast, so open the Tesla app the moment you unlock. If the slot was already taken, email hello@slotwatcher.app within 7 days for a full refund — we keep watching for you either way."}, {"q": "Is my data safe?", "a": "Yes. We never ask for or store your Tesla login credentials, and payments are processed securely through Stripe rather than being stored by us. If you'd prefer full control, there's also an open-source self-host option available on GitHub."}];

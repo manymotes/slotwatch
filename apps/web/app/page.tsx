@@ -238,7 +238,7 @@ const faqs: FAQItem[] = [
   },
   {
     q: 'How does pricing work — what do I pay?',
-    a: 'It’s free to start: set up a watch on up to 3 service centers at no charge. We save a card at signup but charge nothing. You pay a $19 success fee only when SlotWatch alerts you to an appointment at least 3 days earlier than your current one — charged once per watch. Your watch runs until your current appointment date; if you want to keep watching after that, there’s an optional $6.99/mo. No Tesla login required. Prefer to run it yourself? The self-hosted version on GitHub is free and open source.',
+    a: 'Free to start — no card required. Enter up to 3 service centers, your current appointment date, and your email, and we start watching immediately. When an opening appears at least 3 days before your current appointment, we email you which center and how many days sooner; unlock the exact date and time for a one-time $19. Once unlocked, every alert for that watch arrives in full, no extra charge. Openings only 1–2 days earlier are always shown in full for free. Your watch runs until your appointment date; if you want to keep watching after that, there’s an optional $6.99/mo. No Tesla login required. Prefer to run it yourself? The self-hosted version on GitHub is free and open source.',
   },
   {
     q: 'Which service centers does SlotWatch watch?',
@@ -250,15 +250,15 @@ const faqs: FAQItem[] = [
   },
   {
     q: 'What counts as an earlier slot?',
-    a: 'An opening at one of your watched centers at least 3 days before the appointment date you gave us. A same-day slot at an earlier time doesn’t count and never triggers the fee.',
+    a: 'An opening at one of your watched centers at least 3 days before the appointment date you gave us. That’s the kind you can unlock: we email you which center and how many days sooner, and you choose whether to reveal the exact date and time for a one-time $19. Openings only 1–2 days earlier are always shown in full for free and never trigger the fee. A same-day slot at an earlier time doesn’t count.',
   },
   {
     q: 'What if I find a slot myself, or the slot is gone by the time I check?',
-    a: 'We only bill when we alert you to a qualifying earlier opening — finding one on your own costs nothing. Cancellations do get grabbed fast, so open the Tesla app the moment the email lands. If you couldn’t book the slot we alerted you to, email hello@slotwatcher.app within 7 days for a full refund.',
+    a: 'You only pay if you choose to unlock an opening we found — finding one on your own costs nothing. Cancellations do get grabbed fast, so open the Tesla app the moment you unlock. If you unlock and the slot was already taken, email hello@slotwatcher.app within 7 days for a full refund; we keep watching either way.',
   },
   {
-    q: 'Why do you ask for a card if it’s free to start?',
-    a: 'So the $19 success fee can be charged only if and when we find you an earlier slot. Nothing is charged at signup, and nothing is charged if we never find one. Your card details are held by Stripe — we never see them.',
+    q: 'When do I pay?',
+    a: 'Only when we find you an earlier slot — and only if you choose to unlock it. Starting is free and needs no card. When an opening appears at least 3 days before your current appointment, we email you which center and how many days sooner. Unlock the exact date and time for a one-time $19; once unlocked, every alert for that watch arrives in full, no extra charge. Openings only 1–2 days earlier are always shown in full for free and never trigger the fee. If we never find one, you never pay.',
   },
   {
     q: 'What happens when my appointment date arrives?',
@@ -270,7 +270,7 @@ const steps = [
   {
     icon: <IconTarget />,
     label: 'Pick your service center',
-    body: 'Enter your email and choose your Tesla service center by city or ZIP. No Tesla login required.',
+    body: 'Enter your email and choose up to 3 Tesla service centers by city or ZIP. No Tesla login, no card required.',
   },
   {
     icon: <IconKey />,
@@ -280,11 +280,12 @@ const steps = [
   {
     icon: <IconBell />,
     label: 'Get an email, then book',
-    body: 'The moment an earlier opening appears at your center, we email you. Open the Tesla app to reschedule before it\'s gone.',
+    body: 'The moment an earlier opening appears, we email you which center and how many days sooner. Unlock the exact time for $19, then reschedule in the Tesla app before it\'s gone.',
   },
 ]
 
 const proFeatures = [
+  'No card required to start',
   'No Tesla login required',
   'Instant email alerts',
   'Checks every 5 minutes',
@@ -330,7 +331,7 @@ const softwareSchemaJson = JSON.stringify({
     '@type': 'Offer',
     price: '19.00',
     priceCurrency: 'USD',
-    description: 'Free to start; $19 success fee charged only when an earlier slot is found',
+    description: 'Free to start; $19 one-time to unlock an earlier slot we find',
   },
   description:
     'SlotWatch monitors Tesla Service Center appointment availability across 40 US metros and emails you the moment a cancellation slot opens.',
@@ -453,7 +454,7 @@ export default function HomePage() {
             fontSize: '0.9375rem',
           }}>
             <span style={{ color: '#22c55e', flexShrink: 0 }} aria-hidden="true"><IconCheck /></span>
-            Free to start — you only pay $19 if we find you an earlier slot.
+            Free to start — no card. Pay $19 only to unlock a slot we find.
           </p>
           {/* Proof line — real detection counts from the API; renders nothing if unavailable or zero */}
           <ProofCounter style={{ marginTop: '10px', paddingLeft: '22px', fontSize: '0.875rem', color: '#6b6b6b' }} />
@@ -563,10 +564,10 @@ export default function HomePage() {
             Pay when it works
           </p>
           <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px', marginBottom: '8px' }}>
-            <span style={{ fontSize: '2.25rem', fontWeight: 800, color: '#f0f0f0', letterSpacing: '-0.03em' }}>Free to start</span>
+            <span style={{ fontSize: '2rem', fontWeight: 800, color: '#f0f0f0', letterSpacing: '-0.03em' }}>Free to start — no card</span>
           </div>
           <p style={{ fontSize: '0.875rem', color: '#6b6b6b', marginBottom: '24px' }}>
-            $19 only when we find you an earlier slot · up to 3 service centers
+            Pay $19 only to unlock a slot we find · up to 3 service centers
           </p>
 
           {/* Risk-reversal callout — the headline of the offer */}
@@ -581,7 +582,7 @@ export default function HomePage() {
           }}>
             <span style={{ color: '#22c55e', flexShrink: 0, marginTop: '2px' }} aria-hidden="true"><IconCheck /></span>
             <p style={{ fontSize: '0.875rem', lineHeight: 1.55, color: '#c8c8c8', margin: 0 }}>
-              <strong style={{ color: '#f0f0f0' }}>$0 today.</strong> We save a card but charge nothing. You pay a $19 success fee only when we alert you to an appointment at least 3 days earlier than your current one — once per watch. If we never find one, you never pay.
+              <strong style={{ color: '#f0f0f0' }}>No card required.</strong> When an opening appears at least 3 days before your appointment, we email you which center and how many days sooner. Unlock the exact date and time for a one-time $19 — after that, every alert for that watch arrives in full. If we never find one, you never pay.
             </p>
           </div>
 

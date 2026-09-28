@@ -1,15 +1,40 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import { LogoMark } from '../../../components/Logo'
+import QueryVariant from '../../../components/QueryVariant'
 
 export const metadata: Metadata = {
-  title: 'Payment cancelled — SlotWatch',
+  title: 'Nothing was charged — SlotWatch',
   robots: { index: false },
   alternates: {
     canonical: 'https://slotwatcher.app/checkout/cancel/',
   },
 }
 
+const h1: React.CSSProperties = { fontSize: '1.375rem', fontWeight: 800, color: '#f0f0f0', marginBottom: '12px', letterSpacing: '-0.02em' }
+const body: React.CSSProperties = { color: '#6b6b6b', fontSize: '0.9375rem', lineHeight: 1.65, marginBottom: '36px' }
+const primary: React.CSSProperties = {
+  display: 'block',
+  background: '#e31937',
+  color: '#fff',
+  textDecoration: 'none',
+  fontWeight: 700,
+  fontSize: '0.9375rem',
+  padding: '12px 20px',
+  borderRadius: '7px',
+  transition: 'opacity 0.15s',
+  marginBottom: '12px',
+}
+const secondary: React.CSSProperties = {
+  display: 'block',
+  color: '#3a3a3a',
+  textDecoration: 'none',
+  fontSize: '0.875rem',
+  padding: '8px',
+}
+
+// Default: the user backed out of a (legacy) hosted checkout.
+// ?unlock=1: the user backed out of paying the $19 unlock — their watch is unaffected.
 export default function CheckoutCancelPage() {
   return (
     <div style={{
@@ -35,35 +60,30 @@ export default function CheckoutCancelPage() {
         maxWidth: '440px',
         textAlign: 'center',
       }}>
-        <h1 style={{ fontSize: '1.375rem', fontWeight: 800, color: '#f0f0f0', marginBottom: '12px', letterSpacing: '-0.02em' }}>
-          Payment cancelled
-        </h1>
-        <p style={{ color: '#6b6b6b', fontSize: '0.9375rem', lineHeight: 1.65, marginBottom: '36px' }}>
-          No charge was made. You can try again whenever you're ready.
-        </p>
-        <Link href="/checkout/" style={{
-          display: 'block',
-          background: '#e31937',
-          color: '#fff',
-          textDecoration: 'none',
-          fontWeight: 700,
-          fontSize: '0.9375rem',
-          padding: '12px 20px',
-          borderRadius: '7px',
-          transition: 'opacity 0.15s',
-          marginBottom: '12px',
-        }}>
-          Try again
-        </Link>
-        <Link href="/" style={{
-          display: 'block',
-          color: '#3a3a3a',
-          textDecoration: 'none',
-          fontSize: '0.875rem',
-          padding: '8px',
-        }}>
-          Back to home
-        </Link>
+        <QueryVariant
+          param="unlock"
+          match={
+            <>
+              <h1 style={h1}>Nothing was charged</h1>
+              <p style={body}>
+                Your watch is still running and the opening we found is still listed in your account — unlock it any time from{' '}
+                <Link href="/account/" style={{ color: '#e5556f', textDecoration: 'none' }}>/account/</Link>.
+              </p>
+              <Link href="/account/" style={primary}>Go to your account</Link>
+              <Link href="/" style={secondary}>Back to home</Link>
+            </>
+          }
+          fallback={
+            <>
+              <h1 style={h1}>No problem — nothing was charged</h1>
+              <p style={body}>
+                Starting a watch is free and needs no card. Come back whenever you&rsquo;re ready.
+              </p>
+              <Link href="/start/" style={primary}>Start watching — free</Link>
+              <Link href="/" style={secondary}>Back to home</Link>
+            </>
+          }
+        />
       </div>
     </div>
   )

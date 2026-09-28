@@ -6,6 +6,8 @@ const API = 'https://slotwatch.motesmass.workers.dev'
 const MAX = 3
 
 type Center = { trtId: number; name: string; distance?: number }
+// An opening we emailed about. Locked = qualifying (≥3 days earlier) but the exact time is behind the $19 unlock.
+type Alert = { center: string; slotDate: string; slotTime: string | null; earlierByDays: number | null; sentAt: string; locked: boolean }
 
 const input: React.CSSProperties = {
   width: '100%', boxSizing: 'border-box', background: '#111', border: '1px solid #2a2a2a',
@@ -39,6 +41,13 @@ function fmtDate(iso: string): string {
   return isNaN(d.getTime()) ? iso : d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
 }
 
+// Worker sends slot dates as MM/DD/YYYY.
+function fmtSlotDate(mdy: string): string {
+  const [m, d, y] = mdy.split('/').map(Number)
+  if (!m || !d || !y) return mdy
+  return new Date(y, m - 1, d).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+}
+
 function fmtFee(cents: number | null): string {
   const c = cents ?? 1900
   return c % 100 === 0 ? `$${c / 100}` : `$${(c / 100).toFixed(2)}`
@@ -65,6 +74,9 @@ export default function AccountDashboard() {
   const [successFeeCents, setSuccessFeeCents] = useState<number | null>(null)
   const [successChargedAt, setSuccessChargedAt] = useState('')
   const [successChargeFailedAt, setSuccessChargeFailedAt] = useState('')
+  const [hasCard, setHasCard] = useState(false)
+  const [alerts, setAlerts] = useState<Alert[]>([])
+  const [unlockUrl, setUnlockUrl] = useState('')
 
   useEffect(() => {
     if (typeof window !== 'undefined' && !localStorage.getItem('sw_token')) { window.location.href = '/login/'; return }
@@ -85,6 +97,7 @@ export default function AccountDashboard() {
       setCurrentApptAt(d.currentApptAt || ''); setWatchExpiresAt(d.watchExpiresAt || '')
       setSuccessFeeCents(typeof d.successFeeCents === 'number' ? d.successFeeCents : null)
       setSuccessChargedAt(d.successChargedAt || ''); setSuccessChargeFailedAt(d.successChargeFailedAt || '')
+      setHasCard(!!d.hasCard); setAlerts(Array.isArray(d.alerts) ? d.alerts : []); setUnlockUrl(d.unlockUrl || '')
     } catch (e: unknown) { setErr(e instanceof Error ? e.message : 'Could not load account') }
     finally { setLoading(false) }
   }
@@ -126,7 +139,7 @@ export default function AccountDashboard() {
   }
 
   async function reactivate() {
-    if (!confirm('Resume your SlotWatch subscription for $6.99/mo? Your card on file will be charged. Cancel anytime.')) return
+    if (!confirm(`Resume your SlotWatch subscription for $6.99/mo? ${hasCard ? 'Your card on file will be charged.' : "You'll enter a card on the next screen."} Cancel anytime.`)) return
     setBusy('reactivate'); setErr(''); setMsg('')
     try {
       const r = await fetch(`${API}/api/reactivate`, { method: 'POST', headers: tokenHeader() })
@@ -175,8 +188,8 @@ export default function AccountDashboard() {
           <p style={{ color: '#f87171', fontSize: '0.9375rem', fontWeight: 600, margin: '0 0 4px' }}>{successFee ? 'Your watch has ended' : 'Your subscription is inactive'}</p>
           <p style={{ color: '#c58a8a', fontSize: '0.8125rem', margin: '0 0 14px', lineHeight: 1.5 }}>
             {successFee
-              ? <>Your watch ran until {watchUntil ? fmtDate(watchUntil) : 'your appointment date'} and is no longer checking. Keep watching for $6.99/mo — billed to your card on file, cancel anytime.</>
-              : <>Your watches are paused. Resume for $6.99/mo — billed to your card on file, cancel anytime.</>}
+              ? <>Your watch ran until {watchUntil ? fmtDate(watchUntil) : 'your appointment date'} and is no longer checking. Keep watching for $6.99/mo — {hasCard ? 'billed to your card on file, ' : ''}cancel anytime.</>
+              : <>Your watches are paused. Resume for $6.99/mo — {hasCard ? 'billed to your card on file, ' : ''}cancel anytime.</>}
           </p>
           <button onClick={() => void reactivate()} disabled={busy === 'reactivate'}
             style={{ ...btn('#e31937'), width: '100%' }}>
@@ -196,16 +209,16 @@ export default function AccountDashboard() {
             <>
               {watchUntil && (
                 <p style={{ color: '#8a8a8a', fontSize: '0.8125rem', marginTop: '6px', marginBottom: 0 }}>
-                  Watching until <strong style={{ color: '#c8c8c8' }}>{fmtDate(watchUntil)}</strong>{currentApptAt ? ' — your current appointment date' : ''}{daysLeft != null ? ` · ${daysLeft} day${daysLeft === 1 ? '' : 's'} left` : ''}.
+                  Watching until <strong style={{ color: '#c8c8c8' }}>{fmtDate(watchUntil)}</strong>{currentApptAt ? ' — your current appointment date' : ''}{daysLeft != null ? ` · ${daysLeft} day${daysLeft === 1 ? '' : 's'} left` : ''} · {hasCard ? 'card on file' : 'no card on file'}.
                 </p>
               )}
               {successChargedAt ? (
                 <p style={{ color: '#8a8a8a', fontSize: '0.8125rem', marginTop: '6px', marginBottom: 0 }}>
-                  <strong style={{ color: '#c8c8c8' }}>Charged {fee} on {fmtDate(successChargedAt)}</strong> — we found you an earlier slot.
+                  <strong style={{ color: '#c8c8c8' }}>Unlocked for {fee} on {fmtDate(successChargedAt)}</strong> — every alert for this watch arrives in full.
                 </p>
               ) : (
                 <p style={{ color: '#8a8a8a', fontSize: '0.8125rem', marginTop: '6px', marginBottom: 0 }}>
-                  Success fee: <strong style={{ color: '#c8c8c8' }}>not charged yet</strong> — you&rsquo;ll only pay {fee} if we find an earlier slot.
+                  <strong style={{ color: '#c8c8c8' }}>Nothing charged</strong> — you only pay {fee} if you choose to unlock an opening we find (at least 3 days earlier).
                 </p>
               )}
             </>
@@ -224,13 +237,42 @@ export default function AccountDashboard() {
         </>
       )}
 
+      {alerts.length > 0 && (
+        <div style={{ background: '#0d0d0d', border: '1px solid #1e1e1e', borderRadius: '10px', padding: '16px 18px', marginTop: '18px' }}>
+          <p style={{ color: '#f0f0f0', fontSize: '0.9375rem', fontWeight: 600, margin: '0 0 10px' }}>Openings we found</p>
+          <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            {alerts.map((a, i) => (
+              <li key={`${a.center}-${a.sentAt}-${i}`} style={{ fontSize: '0.875rem', lineHeight: 1.5, color: '#8a8a8a' }}>
+                <span style={{ color: '#e8e8e8', fontWeight: 600 }}>{a.center}</span>
+                {a.locked ? (
+                  <> — an opening {a.earlierByDays != null ? `${a.earlierByDays} day${a.earlierByDays === 1 ? '' : 's'}` : 'days'} before your appointment · 🔒 exact time locked</>
+                ) : (
+                  <> — <span style={{ color: '#f0f0f0' }}>{fmtSlotDate(a.slotDate)}{a.slotTime ? ` at ${a.slotTime}` : ''}</span>{a.earlierByDays != null ? ` · ${a.earlierByDays} day${a.earlierByDays === 1 ? '' : 's'} earlier` : ''}</>
+                )}
+                {a.sentAt && <span style={{ color: '#5a5a5a' }}> · {relTime(a.sentAt)}</span>}
+              </li>
+            ))}
+          </ul>
+          {unlockUrl && (
+            <>
+              <a href={unlockUrl} style={{ ...btn('#e31937'), display: 'block', textAlign: 'center', textDecoration: 'none', boxSizing: 'border-box', width: '100%', marginTop: '14px' }}>
+                Unlock the exact time — {fee}
+              </a>
+              <p style={{ color: '#5a5a5a', fontSize: '0.75rem', lineHeight: 1.5, margin: '10px 0 0' }}>
+                One-time. Once unlocked, every alert for this watch arrives in full. If the slot was already taken, email hello@slotwatcher.app within 7 days for a full refund — we keep watching either way.
+              </p>
+            </>
+          )}
+        </div>
+      )}
+
       {successFee && successChargeFailedAt && !successChargedAt && (
         <div style={{ background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)', borderRadius: '10px', padding: '16px 18px', marginTop: '18px' }}>
           <p style={{ color: '#f87171', fontSize: '0.9375rem', fontWeight: 600, margin: '0 0 4px' }}>We couldn&rsquo;t charge your card</p>
           <p style={{ color: '#c58a8a', fontSize: '0.8125rem', margin: '0 0 14px', lineHeight: 1.5 }}>
-            We found you an earlier slot on {fmtDate(successChargeFailedAt)}, but the {fee} success fee didn&rsquo;t go through on your card on file. Email us and we&rsquo;ll send a secure link to update it.
+            We found you an earlier slot on {fmtDate(successChargeFailedAt)}, but the {fee} charge didn&rsquo;t go through on your card on file. Email us and we&rsquo;ll send a secure link to update it.
           </p>
-          <a href={`mailto:hello@slotwatcher.app?subject=${encodeURIComponent('Update my card — SlotWatch')}&body=${encodeURIComponent(`Hi — my ${fee} success fee didn't go through. Please send me a link to update my card.\n\nAccount: ${email}`)}`}
+          <a href={`mailto:hello@slotwatcher.app?subject=${encodeURIComponent('Update my card — SlotWatch')}&body=${encodeURIComponent(`Hi — my ${fee} charge didn't go through. Please send me a link to update my card.\n\nAccount: ${email}`)}`}
             style={{ ...btn('#e31937'), display: 'block', textAlign: 'center', textDecoration: 'none', boxSizing: 'border-box', width: '100%' }}>
             Update my card
           </a>

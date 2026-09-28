@@ -84,8 +84,11 @@ export default function SignupForm() {
       })
       const d = await r.json()
       if (!d.ok) throw new Error(d.error || 'Signup failed')
+      // Legacy: older flows may still hand back a hosted-checkout URL.
       if (d.checkoutUrl) { track('checkout_started'); window.location.href = d.checkoutUrl; return }
-      window.location.href = '/checkout/success'
+      // New watches start immediately — no card, nothing charged.
+      if (d.active) track('watch_created')
+      window.location.href = '/checkout/success/'
     } catch (e: unknown) { setErr(e instanceof Error ? e.message : 'Signup failed') }
     finally { setBusy(null) }
   }
@@ -129,7 +132,7 @@ export default function SignupForm() {
 
       <label style={label} htmlFor="currentApptAt">When is your current appointment?</label>
       <input style={input} id="currentApptAt" name="currentApptAt" type="date" required min={today} max={maxAppt} value={currentApptAt} onChange={(e) => setCurrentApptAt(e.target.value)} />
-      <p style={{ color: '#5a5a5a', fontSize: '0.8125rem', margin: '7px 0 0' }}>We watch from today until this date, and only charge if we find an opening at least 3 days earlier.</p>
+      <p style={{ color: '#5a5a5a', fontSize: '0.8125rem', margin: '7px 0 0' }}>We watch from today until this date. Openings at least 3 days earlier are the ones you can unlock for $19.</p>
 
       <label style={label} htmlFor="email">Where should we email the alert?</label>
       <input style={input} id="email" name="email" type="email" autoComplete="email" placeholder="you@example.com" value={email} onChange={(e) => setEmail(e.target.value)} />
@@ -138,10 +141,10 @@ export default function SignupForm() {
         {busy === 'go' ? 'Starting…' : 'Start watching — free →'}
       </button>
       <p style={{ color: '#22c55e', fontSize: '0.8125rem', fontWeight: 600, marginTop: '12px', textAlign: 'center' }}>
-        You&rsquo;ll only pay $19 if we find you an earlier slot.
+        No card required. You only pay $19 to unlock a slot we actually find (at least 3 days earlier).
       </p>
       <p style={{ color: '#5a5a5a', fontSize: '0.8125rem', marginTop: '6px', textAlign: 'center' }}>
-        $0 today — card saved, nothing charged · up to 3 centers · no Tesla login
+        Free to start · up to 3 centers · no Tesla login
       </p>
       {err && <p style={{ color: '#ef4444', fontSize: '0.875rem', marginTop: '12px' }}>{err}</p>}
     </div>

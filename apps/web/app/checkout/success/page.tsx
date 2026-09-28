@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import { LogoMark } from '../../../components/Logo'
+import QueryVariant from '../../../components/QueryVariant'
 
 export const metadata: Metadata = {
   title: 'You’re all set — SlotWatch',
@@ -10,6 +11,30 @@ export const metadata: Metadata = {
   },
 }
 
+const h1: React.CSSProperties = { fontSize: '1.375rem', fontWeight: 800, color: '#f0f0f0', marginBottom: '12px', letterSpacing: '-0.02em' }
+const body: React.CSSProperties = { color: '#6b6b6b', fontSize: '0.9375rem', lineHeight: 1.65, marginBottom: '36px' }
+const primary: React.CSSProperties = {
+  display: 'block',
+  background: '#e31937',
+  color: '#fff',
+  textDecoration: 'none',
+  fontWeight: 700,
+  fontSize: '0.9375rem',
+  padding: '12px 20px',
+  borderRadius: '7px',
+  transition: 'opacity 0.15s',
+  marginBottom: '12px',
+}
+const secondary: React.CSSProperties = {
+  display: 'block',
+  color: '#3a3a3a',
+  textDecoration: 'none',
+  fontSize: '0.875rem',
+  padding: '8px',
+}
+
+// Default: a new watch was just created (no card, nothing charged).
+// ?unlocked=1: Stripe sent the user back after paying the $19 unlock.
 export default function CheckoutSuccessPage() {
   return (
     <div style={{
@@ -50,35 +75,29 @@ export default function CheckoutSuccessPage() {
             <polyline points="20 6 9 17 4 12" />
           </svg>
         </div>
-        <h1 style={{ fontSize: '1.375rem', fontWeight: 800, color: '#f0f0f0', marginBottom: '12px', letterSpacing: '-0.02em' }}>
-          You're all set — we're watching
-        </h1>
-        <p style={{ color: '#6b6b6b', fontSize: '0.9375rem', lineHeight: 1.65, marginBottom: '36px' }}>
-          We're now watching your service centers until your current appointment date. The moment an earlier appointment opens, we'll email you so you can grab it in the Tesla app. You'll only be charged $19 if we find you an earlier appointment.
-        </p>
-        <Link href="/" style={{
-          display: 'block',
-          background: '#e31937',
-          color: '#fff',
-          textDecoration: 'none',
-          fontWeight: 700,
-          fontSize: '0.9375rem',
-          padding: '12px 20px',
-          borderRadius: '7px',
-          transition: 'opacity 0.15s',
-          marginBottom: '12px',
-        }}>
-          Done
-        </Link>
-        <Link href="/" style={{
-          display: 'block',
-          color: '#3a3a3a',
-          textDecoration: 'none',
-          fontSize: '0.875rem',
-          padding: '8px',
-        }}>
-          Back to home
-        </Link>
+        <QueryVariant
+          param="unlocked"
+          match={
+            <>
+              <h1 style={h1}>Unlocked — the exact times are in your inbox</h1>
+              <p style={body}>
+                Every future alert for this watch arrives in full. Open the Tesla app → Service → Reschedule to grab it.
+              </p>
+              <Link href="/account/" style={primary}>View your watch</Link>
+              <Link href="/" style={secondary}>Back to home</Link>
+            </>
+          }
+          fallback={
+            <>
+              <h1 style={h1}>You&rsquo;re all set — we&rsquo;re watching</h1>
+              <p style={body}>
+                No card needed. When an opening at least 3 days before your appointment appears, we&rsquo;ll email you; you can unlock the exact time for $19.
+              </p>
+              <Link href="/" style={primary}>Done</Link>
+              <Link href="/account/" style={secondary}>View your watch</Link>
+            </>
+          }
+        />
       </div>
     </div>
   )

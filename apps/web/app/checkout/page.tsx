@@ -76,7 +76,7 @@ export default function CheckoutPage() {
               Preparing checkout
             </h1>
             <p style={{ color: '#6b6b6b', fontSize: '0.9375rem', lineHeight: 1.6 }}>
-              Redirecting to Stripe to securely save your card. $0 today — you only pay $19 if we find you an earlier slot.
+              Redirecting to Stripe&rsquo;s secure checkout.
             </p>
           </>
         )}
@@ -124,19 +124,10 @@ export default function CheckoutPage() {
         {state === 'idle' && (
           <>
             <h1 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#f0f0f0', marginBottom: '12px', letterSpacing: '-0.02em' }}>
-              Save a card to start watching
+              Continue to secure checkout
             </h1>
-            <div style={{
-              display: 'flex',
-              alignItems: 'baseline',
-              justifyContent: 'center',
-              gap: '4px',
-              marginBottom: '8px',
-            }}>
-              <span style={{ fontSize: '2.5rem', fontWeight: 800, color: '#f0f0f0', letterSpacing: '-0.03em' }}>$0 today</span>
-            </div>
             <p style={{ color: '#6b6b6b', fontSize: '0.875rem', marginBottom: '32px' }}>
-              Your card is saved securely with Stripe but not charged. You only pay a $19 success fee — charged once — if we find you an appointment at least 3 days earlier than your current one.
+              Payments are handled by Stripe. SlotWatch is free to start — no card required — and you only pay a one-time $19 to unlock the exact time of an earlier slot we find.
             </p>
             <button
               onClick={startCheckout}
@@ -153,7 +144,7 @@ export default function CheckoutPage() {
                 transition: 'opacity 0.15s',
               }}
             >
-              Save card and start watching
+              Continue to Stripe
             </button>
           </>
         )}

@@ -10,7 +10,7 @@ SlotWatch is an independent web service (not affiliated with Tesla, Inc.) that h
 - Alerts: email only (no SMS). Checks roughly every 15 minutes.
 - No Tesla login required — SlotWatch never asks for or stores your Tesla credentials.
 - Alert-only: it does not book or reschedule for you; you grab the slot in the Tesla app.
-- Pricing: free to start (watch up to 3 centers at no charge; a card is saved at signup but nothing is charged). A $19 success fee is charged only when SlotWatch alerts you to an appointment at least 3 days earlier than your current one, once per watch. The watch runs until your current appointment date; continuing after that is an optional $6.99/month.
+- Pricing: free to start — no card required (watch up to 3 centers at no charge). When SlotWatch finds an opening at least 3 days before your current appointment, it emails you which center and how many days sooner; unlocking the exact date and time is a one-time $19, after which every alert for that watch arrives in full. Openings only 1–2 days earlier are always shown in full for free. The watch runs until your current appointment date; continuing after that is an optional $6.99/month. Refund: if you unlock and the slot was already taken, email hello@slotwatcher.app within 7 days.
 - Open source: a free self-host version is available on GitHub (github.com/manymotes/slotwatch).
 - Independent: not affiliated with, endorsed by, or connected to Tesla, Inc. "Tesla" is a trademark of Tesla, Inc.
 - Contact: hello@slotwatcher.app
