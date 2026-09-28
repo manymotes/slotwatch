@@ -518,6 +518,7 @@ export const SERVICE_CENTERS: CenterMeta[] = [
       { name: 'Tesla Service Ogden', street: '4851 S 1500 W', city: 'Riverdale', zip: '84405', trtId: 13527 },
       { name: 'Tesla Service Salt Lake City', street: '1038 South 300 West', city: 'Salt Lake City', zip: '84101', trtId: 1046 },
     ],
+    localNote: 'Salt Lake City’s 3 real Tesla service centers sit roughly a valley apart, not clustered downtown. Tesla Service Salt Lake City (84101) is the only one actually in the city, just south of downtown. Tesla Service Pleasant Grove (84062) is about 35 miles south in Utah County, near American Fork and Provo. Tesla Service Ogden (its street address is in Riverdale, 84405) is about 35 miles north in Weber County. If you’re in Utah County, Pleasant Grove beats fighting I-15 traffic into the city; if you’re up in Ogden or Davis County, the Riverdale center is closer than driving all the way south. SlotWatch lets you watch all 3 at once, so whichever end of the valley you’re on, you catch the earlier slot at the center that actually saves you the drive.',
   },
   {
     slug: 'st-louis-tesla-service',
