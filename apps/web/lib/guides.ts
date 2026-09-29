@@ -6,7 +6,7 @@ export const GUIDES: Guide[] = [
   {
     slug: "how-to-get-an-earlier-tesla-service-appointment",
     title: "7 Ways to Get an Earlier Tesla Service Appointment",
-    description: "How to get an earlier Tesla service appointment: 7 proven ways to move your date up when cancellations open earlier slots, plus how to get alerted automatically so you stop refreshing the app.",
+    description: "7 proven ways to get an earlier Tesla service appointment — plus how to get emailed the moment a cancellation frees up a sooner slot.",
     datePublished: "2026-07-25",
     md: `# How to Get an Earlier Tesla Service Appointment
 
@@ -254,7 +254,7 @@ Earlier slots really do open up, but they don't wait around and Tesla won't tell
   {
     slug: "how-to-reschedule-a-tesla-service-appointment",
     title: "How to Reschedule a Tesla Service Appointment in 5 Steps",
-    description: "Reschedule your Tesla service appointment in 5 quick taps — plus how to catch an earlier slot the moment a cancellation frees one up, without refreshing the app all day.",
+    description: "Reschedule your Tesla service appointment in 5 quick taps, plus how to catch an earlier slot before someone else grabs it.",
     datePublished: "2026-07-25",
     md: `# How to Reschedule a Tesla Service Appointment
 
