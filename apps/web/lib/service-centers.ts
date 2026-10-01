@@ -460,6 +460,7 @@ export const SERVICE_CENTERS: CenterMeta[] = [
       { name: 'Tesla Service Ann Arbor', street: '3530 Jackson Rd', city: 'Ann Arbor', zip: '48103', trtId: 13509 },
       { name: 'Tesla Service West Bloomfield Township', street: '6800 Orchard Lake Rd', city: 'West Bloomfield Township', zip: '48322', trtId: 36130 },
     ],
+    localNote: 'Metro Detroit’s 2 Tesla service centers sit on opposite sides of the region: Tesla Service Ann Arbor (48103) is southwest, off I-94 near the University of Michigan, while Tesla Service West Bloomfield Township (48322) is in the northern suburbs, off Orchard Lake Rd in Oakland County near Farmington Hills and Pontiac. They’re roughly 35–45 miles apart — about 40–50 minutes via M-14, more with traffic — so for most Detroit-area owners one of the two is clearly the shorter trip. If you’re near downtown Detroit, Dearborn, or the Grosse Pointes, you’re roughly equidistant from both, which is exactly the case where watching both at once pays off: whichever one has a cancellation first, you take it.',
   },
   {
     slug: 'minneapolis-tesla-service',
