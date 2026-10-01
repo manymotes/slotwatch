@@ -520,8 +520,8 @@ Related: [how to get an earlier Tesla service appointment](/guides/how-to-get-an
   },
   {
     slug: "can-i-drop-off-my-tesla-early-for-service",
-    title: "Can I Drop Off My Tesla Early for Service? Yes, Here's How",
-    description: "Most Tesla centers allow early or after-hours drop-off, but it won't get your car serviced sooner. Here's how it works, and what actually moves your appointment up.",
+    title: "Can I Drop Off My Tesla Early for Service? The Catch",
+    description: "Yes, most Tesla centers allow early drop-off — but it will not get your car serviced sooner. Here is the catch, and what actually moves your appointment up.",
     datePublished: "2026-08-20",
     md: `# Can I Drop Off My Tesla Early for a Service Appointment?
 
