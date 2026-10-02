@@ -207,6 +207,7 @@ export const SERVICE_CENTERS: CenterMeta[] = [
       { name: 'Tesla Service Las Vegas-East', street: '3250 E SAHARA AVE', city: 'Las Vegas', zip: '89104', trtId: 13469 },
       { name: 'Tesla Service Las Vegas-West', street: '7077 West Sahara Avenue', city: 'Las Vegas', zip: '89117', trtId: 1940 },
     ],
+    localNote: 'Las Vegas’s 2 Tesla service centers share a street name but sit on opposite ends of the valley — Tesla Service Las Vegas-East (3250 E Sahara Ave, 89104) is on the east side, while Tesla Service Las Vegas-West (7077 West Sahara Avenue, 89117) is clear across town near Summerlin. "Sahara Ave" alone won’t tell you which one you booked, so check the full address on your appointment confirmation before you drive. With only 2 centers covering the entire valley, a sooner slot at either one is worth grabbing — SlotWatch can watch both at once so you catch whichever opens first.',
   },
   {
     slug: 'reno-tesla-service',
