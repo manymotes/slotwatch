@@ -497,6 +497,7 @@ export const SERVICE_CENTERS: CenterMeta[] = [
       { name: 'Tesla Service Northlake', street: '10615 Twin Lakes Pkwy', city: 'Charlotte', zip: '28269', trtId: 36355 },
       { name: 'Tesla Service Matthews', street: '9140 E Independence Blvd', city: 'Matthews', zip: '28105', trtId: 584 },
     ],
+    localNote: 'Charlotte’s 2 real Tesla service centers sit on opposite sides of the metro. Tesla Service Northlake (28269) is in north Charlotte near the Northlake Mall/University City area, the shorter drive if you’re coming from Huntersville, Concord, or the Lake Norman towns. Tesla Service Matthews (9140 E Independence Blvd, 28105) is southeast of downtown off Independence Blvd (US-74), better suited to Matthews, Mint Hill, or Union County (Monroe, Indian Trail). If you’re north of the city, Northlake usually beats crossing all of Charlotte for Matthews, and vice versa for the southeast suburbs. SlotWatch lets you watch both at once, so whichever side of the metro you’re on, you catch whichever one opens up first.',
   },
   {
     slug: 'raleigh-tesla-service',
