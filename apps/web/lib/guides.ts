@@ -520,12 +520,14 @@ Related: [how to get an earlier Tesla service appointment](/guides/how-to-get-an
   },
   {
     slug: "can-i-drop-off-my-tesla-early-for-service",
-    title: "Can I Drop Off My Tesla Early for an Appointment?",
-    description: "Yes, most Tesla centers let you drop off early for your appointment — but it won't get serviced sooner. Here's the catch, and what actually moves it up.",
+    title: "Can I Drop Off My Tesla Early for Service? Yes — Here's How (2026)",
+    description: "Yes — most Tesla service centers accept early or after-hours drop-off. Here's the step-by-step, what to check in the app, and why it won't get you serviced sooner.",
     datePublished: "2026-08-20",
     md: `# Can I Drop Off My Tesla Early for a Service Appointment?
 
-Short answer: usually yes. Most Tesla service centers let you drop your car off before your scheduled appointment window, including before the center opens for the day. But there's an important distinction worth understanding first: dropping off early is not the same thing as getting an *earlier appointment*. Here's how each one actually works.
+**Quick answer:** Yes, at most centers. Confirm in your Tesla app appointment details, park in the drop-off area, mark the car as dropped off, and arrange your own ride home. It won't move your car up the queue, though.
+
+Most Tesla service centers let you drop your car off before your scheduled appointment window, including before the center opens for the day. But there's an important distinction worth understanding first: dropping off early is not the same thing as getting an *earlier appointment*. Here's how each one actually works.
 
 ## How early drop-off works
 
@@ -537,6 +539,13 @@ Many Tesla service centers support after-hours or early drop-off, so you don't h
 4. **Arrange your own ride.** Since you're often dropping off outside business hours, you'll need a ride home, a rideshare, or someone to pick you up — the center won't be staffed to shuttle you at that hour.
 
 Not every service center offers this, and the exact process (marked stalls, key drop box, app-based check-in) varies by location. If you don't see drop-off instructions in your appointment details, call or message the center directly to ask what they support.
+
+## Before you drop off: a quick checklist
+
+- **Remove valuables and personal items.** You won't hand the car to a person at an unattended drop-off.
+- **Note any warning messages or noises** in the app's service request so the technician sees them without having to reach you.
+- **Make sure the key setup is clear.** Check whether the center expects a key card or phone key to stay with you, or a drop box. The appointment instructions say which.
+- **Lock in your ride home** and check that the center's pickup hours work for you.
 
 ## Does dropping off early get your car serviced sooner?
 
