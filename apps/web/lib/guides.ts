@@ -253,10 +253,12 @@ Earlier slots really do open up, but they don't wait around and Tesla won't tell
   },
   {
     slug: "how-to-reschedule-a-tesla-service-appointment",
-    title: "How to Reschedule a Tesla Service Appointment in 5 Steps",
-    description: "Reschedule your Tesla service appointment in 5 quick taps, plus how to catch an earlier slot before someone else grabs it.",
+    title: "How to Reschedule a Tesla Service Appointment (App Steps + Earlier Slots)",
+    description: "Open the Tesla app → Service → your appointment → Reschedule. Plus the ~24-hour cutoff, why no earlier dates show, and how to get emailed when one opens.",
     datePublished: "2026-07-25",
     md: `# How to Reschedule a Tesla Service Appointment
+
+**Quick answer:** open the Tesla app, tap **Service**, select your appointment, tap **Reschedule**, pick a new slot and confirm. You can generally do this up to about 24 hours before your visit, as many times as you need. If no earlier date is showing, it's because none is open yet — slots appear when other customers cancel, and you can get [emailed the moment one opens](/start/).
 
 Need to move your Tesla service appointment? Whether your plans changed or you're hoping to get seen sooner, rescheduling is quick and happens entirely in the Tesla app. This guide walks through the exact steps, explains the timing rules, and shows you how to actually land an *earlier* slot when the calendar looks full.
 
