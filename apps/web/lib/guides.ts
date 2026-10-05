@@ -555,6 +555,20 @@ Generally, no — and this is the part that trips people up. Early drop-off is a
 
 If what you're actually after is getting your car looked at sooner than your current appointment date, early drop-off doesn't solve that. What solves it is landing an earlier *appointment slot* in the first place, which only happens when another customer cancels or reschedules and frees up a sooner date. That's a different problem, covered in our guide on [how to get an earlier Tesla service appointment](/guides/how-to-get-an-earlier-tesla-service-appointment/).
 
+## Drop off early vs. arrive early vs. get an earlier appointment
+
+These three get mixed up constantly, and only one of them changes when your car is actually worked on:
+
+| What you want | What it means | Does it change when your car is serviced? |
+| --- | --- | --- |
+| **Drop off early** | Leave the car at the center before your appointment window (often the night before or before opening) | No — the car waits for its scheduled turn |
+| **Arrive early** | Show up ahead of your slot and ask at the front desk if they can take you now | Rarely — only if a technician and bay happen to be free, and it's never guaranteed |
+| **Get an earlier appointment** | Move your booking to a sooner date or time | Yes — this is the only reliable way |
+
+**What if I just want to show up early and ask?** It can occasionally work, especially for quick jobs on a slow day, but centers book technician time in advance, so walking in rarely beats a real reservation. If you try it, go in expecting to be told "we'll see you at your scheduled time," and don't count on it as a plan.
+
+**Is there a cutoff for changing my appointment?** Rescheduling in the app generally stops being available close to the appointment time. Our guide on [how to reschedule a Tesla service appointment](/guides/how-to-reschedule-a-tesla-service-appointment/) covers the app steps and why earlier dates sometimes don't show up. If your wait is long overall, see [Tesla service wait times](/guides/tesla-service-wait-times/) for how much it varies by city.
+
 ## If you're trying to get seen sooner, not just drop off sooner
 
 Since early drop-off won't move your appointment date up, here's what actually can:
