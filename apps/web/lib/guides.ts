@@ -18,7 +18,7 @@ This guide walks through every practical way to move your appointment sooner, th
 
 Tesla service scheduling is dynamic. When you first book, the app shows the earliest date that currently has capacity. But people cancel, reschedule, or finish diagnostics early all the time. Every cancellation frees up a slot, and that slot becomes bookable to whoever sees it first.
 
-There's no waitlist and no "notify me" button inside the Tesla app. If you want an earlier date, you have to catch the opening yourself. That's the whole game: openings are real and frequent, but they're first-come, first-served and they surface without warning.
+There's no visible waitlist or queue number, so in practice you have to catch the opening yourself. That's the whole game: openings are real and frequent, but they're first-come, first-served and they surface without warning.
 
 It's worth setting expectations honestly. No tactic guarantees an earlier appointment will appear. It depends entirely on other customers cancelling near you. What you *can* control is how quickly you notice and grab an opening when it happens.
 
@@ -68,7 +68,7 @@ There's no visible waitlist and no queue number. Each service center runs its ow
 No. Waits vary a lot by metro and by season — see our [Tesla service wait times guide](/guides/tesla-service-wait-times/) for the honest range. A specialized repair at a busy urban center can stretch toward two months, while the same job in a quieter market, or at a second center just 20–30 minutes away, is often bookable in a week or two. If your center is showing two months out, checking a nearby second center (tactic #2) is usually the fastest fix.
 
 **Can I show up a few days early for my service appointment?**
-Not reliably. Tesla schedules by appointment slot, not by walk-in order, so arriving early doesn't move you up the line — the center is staffed and prepped for the times on the calendar, not for early arrivals, and a tech generally can't just fit you in ahead of the person actually booked in that bay. If you want in sooner, work the reschedule screen (tactic #1) or watch for a cancellation instead of trying to walk in ahead of your slot.
+Not reliably. Tesla schedules by appointment slot, not by walk-in order, so arriving early doesn't move you up the line — the center is staffed and prepped for the times on the calendar, not for early arrivals, and a tech generally can't just fit you in ahead of the person actually booked in that bay. If you want in sooner, work the reschedule screen (tactic #1) or watch for a cancellation instead of trying to walk in ahead of your slot. (Dropping the car off early *is* possible at many centers, but it's a convenience, not a queue-jump — see [can I drop off my Tesla early for service?](/guides/can-i-drop-off-my-tesla-early-for-service/))
 
 **No service appointments available for over 2 months — what can I do?**
 Widen the pool of centers you're checking (tactic #2) — a two-month wait at your closest center is often much shorter at one 30–45 minutes away. If the issue is safety-related (can't charge, brakes, steering), put that exact detail in the request description and message the center directly (tactic #5); those tend to get triaged ahead of cosmetic issues. Also check whether the job qualifies for Mobile Service (tactic #6), which runs on a separate, often sooner, calendar.
