@@ -176,6 +176,7 @@ A long "first available" date doesn't have to be the date you actually go in. A 
 - **Check often, at off-peak times.** New openings surface throughout the day. Early mornings and midweek tend to be quieter.
 - **Keep your existing appointment while you look.** There's no penalty for holding a later slot and moving up if something better appears.
 - **Let a watcher do the refreshing for you.** Instead of checking manually, you can have the app monitored automatically.
+- **Don't confuse early drop-off with an earlier appointment.** Leaving your car at the center before your slot is convenient, but it doesn't move you up the queue. See [can I drop off my Tesla early for service?](/guides/can-i-drop-off-my-tesla-early-for-service/) for how it works, and [how to reschedule a Tesla service appointment](/guides/how-to-reschedule-a-tesla-service-appointment/) for the steps that do.
 
 For a step-by-step walkthrough, read our guide: [How to get an earlier Tesla service appointment](/guides/how-to-get-an-earlier-tesla-service-appointment/).
 
