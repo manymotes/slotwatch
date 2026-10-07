@@ -326,6 +326,18 @@ You can't force it, an earlier slot has to open up first, usually from another c
 **Can I reschedule my Tesla appointment to a different service center?**
 Not from the standard reschedule screen — that only changes the date and time at your current center. To move to a different one, you'd cancel the existing appointment and book fresh there. [SlotWatch](/start/) watches up to 3 centers at once, so you can see whether another location has an earlier opening before you cancel anything.
 
+**Can I reschedule a Tesla service appointment within 24 hours?**
+Usually not from the app. Inside roughly 24 hours of your visit the Reschedule option is typically locked, and the cutoff can vary by center and type of work. Your options are to message or call the service center directly and ask, or to keep the original time. Don't cancel first to "reset" things; you could lose your spot and end up with a much later date.
+
+**Why does the Tesla app say there are no service appointments available?**
+It means every slot the app is allowed to offer at that center is currently taken, often for several weeks out in busy metros. Openings return when other customers cancel or reschedule, so the screen can look different an hour later. Checking another nearby center, or letting [SlotWatch](/start/) watch up to 3 centers for you, is the practical way to catch one. Waits vary a lot by city; see [Tesla service wait times](/guides/tesla-service-wait-times/).
+
+**Can I reschedule my Tesla service appointment on a computer or by phone?**
+Scheduling is built around the Tesla mobile app, so that's the reliable route. If you can't use the app, call or message your service center and ask them to move the appointment. They can only offer what the calendar currently has open, so an earlier date still depends on a cancellation.
+
+**Is there a fee to reschedule a Tesla service appointment?**
+Tesla doesn't publicly list a fee for moving a routine service appointment, and none is shown in the app's reschedule flow. If you're dropping a paid or deposit-based service, check the terms on your appointment confirmation.
+
 ## Ready to get seen sooner?
 
 Rescheduling is easy. The hard part is catching an earlier slot before it's gone. Let SlotWatch watch for you and email you the moment one opens up.
