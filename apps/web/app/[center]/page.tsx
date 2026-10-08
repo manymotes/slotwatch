@@ -309,11 +309,11 @@ export default function CenterPage({ params }: { params: { center: string } }) {
           <Link href="/guides/tesla-service-cancellation-slots/" style={{ color: '#e5556f', textDecoration: 'none' }}>
             Here&apos;s how cancellation slots actually open up
           </Link>{' '}
-          — and how fast they tend to get grabbed. Already have a {data.city} appointment booked? Tesla&apos;s app has its own free standby notification, but it only watches the single center you already booked —{' '}
+          — and how fast they tend to get grabbed. Already have a {data.city} appointment booked?{' '}
           <Link href="/guides/tesla-earlier-appointment-notification-vs-slotwatch/" style={{ color: '#e5556f', textDecoration: 'none' }}>
-            see how it compares to SlotWatch
+            See how earlier-appointment notifications work and what SlotWatch adds
           </Link>{' '}
-          before deciding whether one center is enough{n > 1 ? ` or you'd rather cover all ${n} ${data.city}-area centers at once` : ''}.
+          {n > 1 ? `— including watching up to 3 of the ${n} ${data.city}-area centers at once` : '— including watching up to 3 centers at once'}.
         </p>
       </section>
 
