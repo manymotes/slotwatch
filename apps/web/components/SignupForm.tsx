@@ -46,9 +46,14 @@ export default function SignupForm() {
       const d = await r.json()
       if (!d.ok) throw new Error(d.error || 'Lookup failed')
       setResults(d.centers || [])
-      if (d.centers?.length) setSel(d.centers[0].trtId)
-      else setErr('No Tesla service centers found near that location.')
-    } catch (e: unknown) { setErr(e instanceof Error ? e.message : 'Lookup failed') }
+      if (d.centers?.length) {
+        setSel(d.centers[0].trtId)
+        // Nearest center is watched automatically — most people only ever wanted that one,
+        // and the extra "+ Add" click was the #1 reason submits failed with "add a center".
+        setPicked((prev) => (prev.length || prev.some((c) => c.trtId === d.centers[0].trtId) ? prev : [d.centers[0]]))
+        track('signup_centers_found')
+      } else { setErr('No Tesla service centers found near that location.'); track('signup_error_no_centers') }
+    } catch (e: unknown) { setErr(e instanceof Error ? e.message : 'Lookup failed'); track('signup_error_lookup') }
     finally { setBusy(null) }
   }
 
@@ -57,16 +62,16 @@ export default function SignupForm() {
     if (picked.length >= MAX) return setErr(`You can watch up to ${MAX} centers.`)
     if (picked.some((c) => c.trtId === sel)) return
     const c = results.find((x) => x.trtId === sel)
-    if (c) { setPicked([...picked, c]); setErr('') }
+    if (c) { setPicked([...picked, c]); setErr(''); track('signup_center_added') }
   }
   function removePicked(trtId: number) { setPicked(picked.filter((c) => c.trtId !== trtId)) }
 
   async function submit() {
-    if (!picked.length) return setErr('Add at least one service center to watch.')
-    if (!currentApptAt) return setErr('Enter your current Tesla appointment date — it tells us what counts as "earlier" and when your watch ends.')
-    if (currentApptAt < today || (maxAppt && currentApptAt > maxAppt)) return setErr('Your current appointment date must be between today and a year from now.')
-    if (!email.trim()) return setErr('Enter the email address we should alert.')
-    setBusy('go'); setErr('')
+    if (!picked.length) { track('signup_error_no_center'); return setErr('Search for your city or ZIP above so we know which service center to watch.') }
+    if (!currentApptAt) { track('signup_error_no_date'); return setErr('Enter your current Tesla appointment date — it tells us what counts as "earlier" and when your watch ends.') }
+    if (currentApptAt < today || (maxAppt && currentApptAt > maxAppt)) { track('signup_error_bad_date'); return setErr('Your current appointment date must be between today and a year from now.') }
+    if (!email.trim()) { track('signup_error_no_email'); return setErr('Enter the email address we should alert.') }
+    setBusy('go'); setErr(''); track('signup_submit')
     try {
       // The watch window is implied: from today until the current appointment.
       // dateFrom/dateTo are still sent because the worker falls back to fixed
@@ -89,7 +94,7 @@ export default function SignupForm() {
       // New watches start immediately — no card, nothing charged.
       if (d.active) track('watch_created')
       window.location.href = '/checkout/success/'
-    } catch (e: unknown) { setErr(e instanceof Error ? e.message : 'Signup failed') }
+    } catch (e: unknown) { setErr(e instanceof Error ? e.message : 'Signup failed'); track('signup_error_api') }
     finally { setBusy(null) }
   }
 
@@ -109,13 +114,16 @@ export default function SignupForm() {
         </button>
       </div>
 
-      {results.length > 0 && (
+      {results.length > 0 && picked.length < MAX && (
         <div style={{ display: 'flex', gap: '8px', marginTop: '10px' }}>
           <select style={{ ...input, flex: 1 }} value={sel} onChange={(e) => setSel(Number(e.target.value))}>
             {results.map((c) => <option key={c.trtId} value={c.trtId}>{c.name}{c.distance != null ? ` — ${c.distance} mi away` : ''}</option>)}
           </select>
-          <button style={btn('#2a2a2a')} disabled={picked.length >= MAX} onClick={addSelected}>+ Add</button>
+          <button style={btn('#2a2a2a')} disabled={picked.length >= MAX} onClick={addSelected}>+ Add another</button>
         </div>
+      )}
+      {results.length > 0 && picked.length < MAX && (
+        <p style={{ color: '#5a5a5a', fontSize: '0.8125rem', margin: '7px 0 0' }}>Nearest center added automatically. Add up to {MAX} — a second center nearby roughly doubles your odds.</p>
       )}
 
       {picked.length > 0 && (
@@ -133,6 +141,7 @@ export default function SignupForm() {
       <label style={label} htmlFor="currentApptAt">When is your current appointment?</label>
       <input style={input} id="currentApptAt" name="currentApptAt" type="date" required min={today} max={maxAppt} value={currentApptAt} onChange={(e) => setCurrentApptAt(e.target.value)} />
       <p style={{ color: '#5a5a5a', fontSize: '0.8125rem', margin: '7px 0 0' }}>We watch from today until this date. Openings at least 3 days earlier are the ones you can unlock for $19.</p>
+      <p style={{ color: '#5a5a5a', fontSize: '0.8125rem', margin: '4px 0 0' }}>Haven&rsquo;t booked yet? Book the first date Tesla offers in the app (you can always move it), then enter that date here.</p>
 
       <label style={label} htmlFor="email">Where should we email the alert?</label>
       <input style={input} id="email" name="email" type="email" autoComplete="email" placeholder="you@example.com" value={email} onChange={(e) => setEmail(e.target.value)} />

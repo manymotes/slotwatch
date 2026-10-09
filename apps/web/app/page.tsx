@@ -143,8 +143,9 @@ function EmailCapture() {
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     if (!email.trim()) return
-    // Carry the email into the real signup + checkout flow
-    window.location.href = '/start/?email=' + encodeURIComponent(email.trim())
+    // Value first: the city/ZIP lands on /start with the live earliest-slot result and the
+    // nearest center pre-selected, so the only things left to type are a date and an email.
+    window.location.href = '/start/?city=' + encodeURIComponent(email.trim())
   }
 
   if (status === 'success') {
@@ -168,11 +169,11 @@ function EmailCapture() {
       <div style={{ position: 'relative', flex: '1 1 260px' }}>
         <input
           ref={inputRef}
-          type="email"
+          type="text"
           required
           value={email}
           onChange={(e) => { setEmail(e.target.value); if (status === 'error') setStatus('idle') }}
-          placeholder="Your email address"
+          placeholder="Your city or ZIP"
           style={{
             width: '100%',
             boxSizing: 'border-box',
@@ -217,7 +218,7 @@ function EmailCapture() {
           onMouseEnter={(e) => { if (status !== 'loading') e.currentTarget.style.background = '#c4152f' }}
           onMouseLeave={(e) => { if (status !== 'loading') e.currentTarget.style.background = '#e31937' }}
         >
-          {status === 'loading' ? 'Sending…' : 'Get started →'}
+          {status === 'loading' ? 'Checking…' : 'See the earliest slot →'}
         </button>
         {status === 'error' && (
           <p style={{ color: '#ef4444', fontSize: '0.8125rem', margin: 0 }}>

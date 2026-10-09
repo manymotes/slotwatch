@@ -58,6 +58,12 @@ export default function Analytics() {
   useEffect(() => {
     try {
       captureUtm()
+      // Guard against the same path being reported twice within a few seconds (hydration
+      // re-mounts, prerender + real load) so session depth isn't inflated.
+      const k = 'sw_pv:' + pathname
+      const last = Number(sessionStorage.getItem(k) || 0)
+      if (Date.now() - last < 3000) return
+      sessionStorage.setItem(k, String(Date.now()))
       post({ path: pathname, ref: document.referrer || '', session: sessionId(), utm: getUtm() })
     } catch { /* no-op */ }
   }, [pathname])

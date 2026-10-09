@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { Logo } from '../../../components/Logo'
 import Markdown from '../../../components/Markdown'
+import CheckEarliest from '../../../components/CheckEarliest'
 import { GUIDES, guideBySlug } from '../../../lib/guides'
 
 export function generateStaticParams() {
@@ -93,6 +94,7 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
     publisher: { '@type': 'Organization', name: 'SlotWatch', url: 'https://slotwatcher.app' },
   })
 
+  const splitAt = g.md.indexOf('\n## ')
   const faqs = extractFaqs(g.md)
   const faqSchema = faqs.length
     ? JSON.stringify({
@@ -143,7 +145,17 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
       <article style={{ maxWidth: '760px', margin: '0 auto', padding: '56px 24px 40px' }}>
         <Link href="/guides/" style={{ color: '#8a8a8a', textDecoration: 'none', fontSize: '0.8125rem' }}>← All guides</Link>
         <div style={{ marginTop: '20px' }}>
-          <Markdown md={g.md} />
+          {/* The live lookup sits right after the intro: readers of a wait-times article want
+              THEIR center's number, and that answer is the natural handoff to the watch. */}
+          {splitAt > 0 ? (
+            <>
+              <Markdown md={g.md.slice(0, splitAt)} />
+              <div style={{ margin: '28px 0 36px' }}><CheckEarliest /></div>
+              <Markdown md={g.md.slice(splitAt)} />
+            </>
+          ) : (
+            <Markdown md={g.md} />
+          )}
         </div>
       </article>
 
