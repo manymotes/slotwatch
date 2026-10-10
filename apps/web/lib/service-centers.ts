@@ -196,6 +196,7 @@ export const SERVICE_CENTERS: CenterMeta[] = [
       { name: 'Tesla Service Portland-SW Macadam Ave', street: '4330 SW Macadam Ave', city: 'Portland', zip: '97239', trtId: 941 },
       { name: 'Tesla Service Tigard', street: '10065 SW Cascade Ave', city: 'Tigard', zip: '97223', trtId: 13807 },
     ],
+    localNote: 'Portland’s 2 real Tesla service centers are both on the southwest side of the metro, about 8 miles apart. Tesla Service Portland-SW Macadam Ave (4330 SW Macadam Ave, 97239) is the one actually in the city, along the Willamette just south of downtown — the shorter drive from downtown, the South Waterfront, and inner Southeast. Tesla Service Tigard (10065 SW Cascade Ave, 97223) is in the southwest suburbs off Highway 99W/I-5, closer to Tigard, Tualatin, Beaverton, and Lake Oswego. If you’re on the east side of the Willamette or in Vancouver, WA, either one means a bridge or freeway crossing, which is exactly the case where watching both at once pays off: whichever one has a cancellation first, you take it.',
   },
   {
     slug: 'las-vegas-tesla-service',
