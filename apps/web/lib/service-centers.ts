@@ -317,6 +317,7 @@ export const SERVICE_CENTERS: CenterMeta[] = [
       { name: 'Tesla Service Orlando-Eatonville', street: '100 S Lake Destiny Dr', city: 'Eatonville', zip: '32751', trtId: 461 },
       { name: 'Tesla Service Orlando', street: '6855 Lee Vista Blvd', city: 'Orlando', zip: '32822', trtId: 401040 },
     ],
+    localNote: 'Orlando’s 2 real Tesla service centers sit on opposite sides of the metro. Tesla Service Orlando-Eatonville (32751) is in the north, just off the I-4 corridor near Winter Park and Maitland — the shorter drive from Winter Park, Altamonte Springs, Lake Mary, and Sanford. Tesla Service Orlando (6855 Lee Vista Blvd, 32822) is in the southeast near Orlando International Airport, closer to Lake Nona, Conway, and east Orlando. Only one carries “Eatonville” in its name even though both are in the Orlando area, so check the street address on your appointment confirmation if you’re not sure which one you booked. If you’re in the Kissimmee, Celebration, or Windermere area, neither is close and I-4 traffic can add real time — exactly the case where watching both at once pays off: whichever one has a cancellation first, you take it.',
   },
   {
     slug: 'tampa-tesla-service',
