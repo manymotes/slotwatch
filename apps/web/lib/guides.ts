@@ -95,8 +95,8 @@ Ready to stop refreshing the app and let the watching run in the background? [St
   },
   {
     slug: "tesla-service-wait-times",
-    title: "Tesla Service Wait Times in 2026",
-    description: "How long are Tesla service wait times in 2026? Waits vary by city and season. Check wait times by city and learn how to get an earlier appointment.",
+    title: "Tesla Service Wait Times by City (2026): How Long Is It?",
+    description: "Tesla service waits run from days to a couple of months depending on your city. See what drives them, check your metro, and learn how to get seen sooner.",
     datePublished: "2026-07-25",
     md: `# Tesla Service Wait Times in 2026
 
