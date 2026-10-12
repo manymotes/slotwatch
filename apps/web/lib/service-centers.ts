@@ -111,6 +111,7 @@ export const SERVICE_CENTERS: CenterMeta[] = [
       { name: 'Tesla Service Rocklin', street: '1104 Tinker Rd', city: 'Rocklin', zip: '95765', trtId: 29177 },
       { name: 'Tesla Service Sacramento', street: '2535 Arden Way', city: 'Sacramento', zip: '95825', trtId: 13746 },
     ],
+    localNote: 'Sacramento’s 2 real Tesla service centers sit on opposite sides of the region, about 20 miles apart. Tesla Service Sacramento (2535 Arden Way, 95825) is the one actually in the city, in the Arden-Arcade area just east of downtown off Business 80 — the shorter drive from midtown, East Sacramento, Carmichael, and Folsom. Tesla Service Rocklin (1104 Tinker Rd, 95765) is in Placer County off Highway 65/I-80, closer to Roseville, Lincoln, Granite Bay, and Loomis. If you’re in West Sacramento, Davis, or Elk Grove, either one means a real freeway crossing, which is exactly the case where watching both at once pays off: whichever one has a cancellation first, you take it.',
   },
   {
     slug: 'fresno-tesla-service',
