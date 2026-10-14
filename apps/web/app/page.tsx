@@ -165,9 +165,12 @@ function EmailCapture() {
   }
 
   return (
-    <form onSubmit={handleSubmit} style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', alignItems: 'flex-start' }}>
+    <form onSubmit={handleSubmit} style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', alignItems: 'flex-end' }}>
       <div style={{ position: 'relative', flex: '1 1 260px' }}>
+        <label htmlFor="hero-city" style={{ display: 'block', fontSize: '0.8125rem', color: '#8a8a8a', fontWeight: 500, marginBottom: '7px' }}>Your city or ZIP</label>
         <input
+          id="hero-city"
+          name="city"
           ref={inputRef}
           type="text"
           required

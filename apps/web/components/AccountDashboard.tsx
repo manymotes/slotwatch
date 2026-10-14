@@ -295,7 +295,7 @@ export default function AccountDashboard() {
         <>
           <label style={label}>Add a center</label>
           <div style={{ display: 'flex', gap: '8px' }}>
-            <input style={{ ...input, flex: 1 }} placeholder="City or ZIP" value={loc}
+            <input aria-label="City or ZIP" style={{ ...input, flex: 1 }} placeholder="City or ZIP" value={loc}
               onChange={(e) => setLoc(e.target.value)} onKeyDown={(e) => { if (e.key === 'Enter') void search() }} />
             <button style={btn('#2a2a2a')} disabled={busy === 'find'} onClick={() => void search()}>{busy === 'find' ? 'Finding…' : 'Search'}</button>
           </div>

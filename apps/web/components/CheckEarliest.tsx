@@ -101,8 +101,9 @@ export default function CheckEarliest({ autoRunFromQuery = false, ctaHref }: Pro
       <p style={{ color: '#8a8a8a', fontSize: '0.9375rem', margin: '0 0 18px', lineHeight: 1.55 }}>
         See the soonest Tesla service appointment at your nearest center right now — free.
       </p>
+      <label htmlFor="check-city" style={{ display: 'block', fontSize: '0.8125rem', color: '#8a8a8a', fontWeight: 500, marginBottom: '7px' }}>City or ZIP</label>
       <div style={{ display: 'flex', gap: '8px' }}>
-        <input style={input} placeholder="City or ZIP (e.g. 90001)" value={loc}
+        <input id="check-city" name="city" style={input} placeholder="City or ZIP (e.g. 90001)" value={loc}
           onChange={(e) => setLoc(e.target.value)} onKeyDown={(e) => { if (e.key === 'Enter') void check() }} />
         <button onClick={() => void check()} disabled={busy}
           style={{ border: 'none', borderRadius: '8px', background: '#e31937', color: '#fff', fontWeight: 700, fontSize: '0.9375rem', padding: '13px 20px', cursor: busy ? 'wait' : 'pointer', whiteSpace: 'nowrap' }}>

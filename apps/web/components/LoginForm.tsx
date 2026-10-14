@@ -56,7 +56,7 @@ export default function LoginForm() {
       {stage === 'email' ? (
         <>
           <label style={label}>Email</label>
-          <input style={input} type="email" placeholder="you@example.com" value={email}
+          <input aria-label="Email address" style={input} type="email" placeholder="you@example.com" value={email}
             onChange={(e) => setEmail(e.target.value)} onKeyDown={(e) => { if (e.key === 'Enter') void requestCode() }} />
           <button style={btn} disabled={busy} onClick={() => void requestCode()}>
             {busy ? 'Sending…' : 'Email me a login code'}
@@ -71,7 +71,7 @@ export default function LoginForm() {
             Enter the 6-digit code we sent to <strong style={{ color: '#f0f0f0' }}>{email}</strong>.
           </p>
           <label style={label}>Login code</label>
-          <input style={{ ...input, letterSpacing: '0.3em', fontSize: '1.25rem' }} inputMode="numeric" maxLength={6}
+          <input aria-label="6-digit login code" style={{ ...input, letterSpacing: '0.3em', fontSize: '1.25rem' }} inputMode="numeric" maxLength={6}
             placeholder="000000" value={code}
             onChange={(e) => setCode(e.target.value.replace(/\D/g, ''))} onKeyDown={(e) => { if (e.key === 'Enter') void verify() }} />
           <button style={btn} disabled={busy} onClick={() => void verify()}>{busy ? 'Verifying…' : 'Log in'}</button>

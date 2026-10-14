@@ -105,9 +105,9 @@ export default function SignupForm() {
 
   return (
     <div style={{ maxWidth: '460px' }}>
-      <label style={{ ...label, marginTop: 0 }}>Which service centers should we watch?{picked.length > 0 ? ` (${picked.length}/${MAX})` : ''}</label>
+      <label style={{ ...label, marginTop: 0 }} htmlFor="signup-city">Which service centers should we watch?{picked.length > 0 ? ` (${picked.length}/${MAX})` : ''}</label>
       <div style={{ display: 'flex', gap: '8px' }}>
-        <input style={{ ...input, flex: 1 }} type="text" placeholder="e.g. Provo, UT or 84604" value={loc}
+        <input id="signup-city" name="city" style={{ ...input, flex: 1 }} type="text" placeholder="e.g. Provo, UT or 84604" value={loc}
           onChange={(e) => setLoc(e.target.value)} onKeyDown={(e) => { if (e.key === 'Enter') void findCenters(loc) }} />
         <button style={btn('#2a2a2a')} disabled={busy === 'find'} onClick={() => void findCenters(loc)}>
           {busy === 'find' ? 'Finding…' : 'Search'}
@@ -116,7 +116,7 @@ export default function SignupForm() {
 
       {results.length > 0 && picked.length < MAX && (
         <div style={{ display: 'flex', gap: '8px', marginTop: '10px' }}>
-          <select style={{ ...input, flex: 1 }} value={sel} onChange={(e) => setSel(Number(e.target.value))}>
+          <select aria-label="Service center to add" style={{ ...input, flex: 1 }} value={sel} onChange={(e) => setSel(Number(e.target.value))}>
             {results.map((c) => <option key={c.trtId} value={c.trtId}>{c.name}{c.distance != null ? ` — ${c.distance} mi away` : ''}</option>)}
           </select>
           <button style={btn('#2a2a2a')} disabled={picked.length >= MAX} onClick={addSelected}>+ Add another</button>
