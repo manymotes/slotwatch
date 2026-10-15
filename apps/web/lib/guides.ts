@@ -312,7 +312,33 @@ Not from the reschedule screen itself. Tapping "Reschedule" on an existing appoi
 
 That's the part SlotWatch handles for you. Instead of gambling on one center's calendar, you can watch **up to 3 centers at once** and get emailed the moment any of them opens an earlier slot — so you know before you cancel anything whether another location is actually worth switching to. See how this compares across [multiple centers in a metro area](/guides/tesla-earlier-appointment-notification-vs-slotwatch/) or browse [all the areas we watch](/cities/).
 
+## Can't find the Reschedule button? Quick fixes
+
+If the option is missing or greyed out, it's usually one of a few things:
+
+- **You're inside the cutoff.** Within roughly 24 hours of the visit, the app typically locks changes. Message or call the center instead.
+- **The appointment type doesn't allow it.** Some bookings, such as ones tied to a specific repair estimate or parts order, may need the service center to move them. Check the details on your appointment screen or message the center from the service request.
+- **The app is out of date or showing the wrong vehicle.** Update the Tesla app, confirm the right vehicle is selected at the top, and reopen **Service**.
+- **It's a Mobile Service visit.** Those run on a separate calendar from the service center, so the dates you see can differ. See [Tesla mobile service vs. service center](/guides/tesla-mobile-service-vs-service-center/).
+
+If Reschedule works but only shows later dates, nothing is wrong. It just means no earlier slot is open right now.
+
+## How to reschedule to an earlier date (not just a different one)
+
+Moving to a *different* date is a button press. Moving to an *earlier* date is a waiting game, because the slot has to be freed by someone else first. A practical routine:
+
+1. Open Reschedule and note the earliest date shown, so you can tell when something new appears.
+2. Check at the times openings tend to appear: first thing in the morning and in the evening, when people adjust plans. Slots can be claimed within minutes, so a quick look beats a long browse.
+3. If an earlier slot shows up, pick it and confirm right away. Don't cancel your current appointment first. Reschedule directly so you never end up with no booking.
+4. Widen the search to nearby centers, since another location may be weeks sooner. The reschedule screen won't show that, but [SlotWatch](/start/) can watch up to 3 centers at once and email you when any of them opens an earlier date.
+
 ## FAQ
+
+**How do I reschedule a Tesla service appointment for an earlier date?**
+Open the Tesla app, tap **Service**, select your appointment, tap **Reschedule**, and choose an earlier slot if one is listed. If none is listed, no earlier slot is open at that center right now; openings come from other customers' cancellations. Check back often, or have [SlotWatch](/start/) email you the moment one appears.
+
+**Why can't I reschedule my Tesla service appointment in the app?**
+Most often you're inside the roughly 24-hour cutoff, the appointment type needs the center to change it, or the app needs an update. Contact the service center from the service request in the app if the button is missing.
 
 **Can I reschedule my Tesla service appointment more than once?**
 Yes. There's no set limit on how many times you can change the date, as long as you make each change before the roughly 24-hour cutoff and there's an available slot to move into.
