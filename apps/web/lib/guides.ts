@@ -627,6 +627,12 @@ Not at centers that support unattended drop-off. You park in the designated area
 **How do I know when my Tesla is ready after an early drop-off?**
 The Tesla app service request shows progress and tells you when the car is ready for pickup. Check the center's pickup hours, since they may differ from when you were able to drop off.
 
+**What if my Tesla service center doesn't allow early drop-off?**
+Then plan on arriving within your scheduled window. If your appointment confirmation doesn't mention early or after-hours drop-off, call or message the center and ask before you leave the car anywhere. Don't leave a car unattended at a center that hasn't told you it's supported, since no one may know it's there or where the key is. If the real goal is to be seen sooner, the only fix is an earlier appointment slot — see [how to reschedule a Tesla service appointment](/guides/how-to-reschedule-a-tesla-service-appointment/).
+
+**Does early drop-off apply to Tesla Mobile Service appointments?**
+No. Mobile Service is a technician coming to your location, so there's no car to drop off. Early drop-off only applies to appointments at a service center. If your issue can be handled by Mobile Service, it runs on a separate calendar that's sometimes sooner; our guide on [getting an earlier Tesla service appointment](/guides/how-to-get-an-earlier-tesla-service-appointment/) covers when to try it.
+
 **How do I actually get an earlier appointment, not just an earlier drop-off?**
 You need an earlier slot to open up, which happens when another customer cancels or reschedules. Check the app frequently, watch nearby centers too, or let [SlotWatch](/start/) email you the instant an earlier opening appears at a center you choose.
 
