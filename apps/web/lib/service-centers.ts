@@ -429,6 +429,7 @@ export const SERVICE_CENTERS: CenterMeta[] = [
       { name: 'Tesla Service Pittsburgh-Presto', street: '1400 Brockwell St', city: 'Bridgeville', zip: '15017', trtId: 13768 },
       { name: 'Tesla Service Pittsburgh-Wexford', street: '14010 Perry Hwy', city: 'Wexford', zip: '15090', trtId: 871 },
     ],
+    localNote: 'Neither of Pittsburgh’s 2 real Tesla service centers is addressed inside the city, and they sit on opposite sides of it. Tesla Service Pittsburgh-Presto (1400 Brockwell St, 15017) has a Bridgeville address in the southwest suburbs, the shorter drive from the South Hills, Mt. Lebanon, Canonsburg, and Washington County. Tesla Service Pittsburgh-Wexford (14010 Perry Hwy, 15090) is in the North Hills along Route 19, closer to the North Hills, Cranberry, and Butler County. Both carry “Pittsburgh” in their names, so check the street address on your appointment confirmation if you’re not sure which one you booked. If you’re in the East End, Monroeville, or the eastern suburbs, neither is close, which is exactly the case where watching both at once pays off: whichever one has a cancellation first, you take it.',
   },
   {
     slug: 'washington-dc-tesla-service',
