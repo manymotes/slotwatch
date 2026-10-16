@@ -69,7 +69,7 @@ export default function CheckEarliest({ autoRunFromQuery = false, ctaHref }: Pro
     setBusy(true); setErr(''); setRes(null); setCopied(false)
     try {
       const c = await (await fetch(`${API}/api/centers?address=${encodeURIComponent(city)}`)).json()
-      if (!c.ok || !c.centers?.length) throw new Error(c.error || 'No Tesla service center found near there.')
+      if (!c.ok || !c.centers?.length) throw new Error(c.error || "We couldn't find that location. Try a city and state (e.g. Carlsbad, CA) or a 5-digit ZIP.")
       const nearest = c.centers[0]
       const e = await (await fetch(`${API}/api/earliest?trtId=${nearest.trtId}`)).json()
       if (!e.ok) throw new Error(e.error || "Couldn't check availability — try again in a moment.")

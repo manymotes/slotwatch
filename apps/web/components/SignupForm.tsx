@@ -44,7 +44,7 @@ export default function SignupForm() {
     try {
       const r = await fetch(`${API}/api/centers?address=${encodeURIComponent(address)}`)
       const d = await r.json()
-      if (!d.ok) throw new Error(d.error || 'Lookup failed')
+      if (!d.ok) { track(r.status === 400 ? 'signup_error_not_found' : 'signup_error_lookup'); setErr(d.error || 'Lookup failed'); return }
       setResults(d.centers || [])
       if (d.centers?.length) {
         setSel(d.centers[0].trtId)
@@ -53,7 +53,7 @@ export default function SignupForm() {
         setPicked((prev) => (prev.length || prev.some((c) => c.trtId === d.centers[0].trtId) ? prev : [d.centers[0]]))
         track('signup_centers_found')
       } else { setErr('No Tesla service centers found near that location.'); track('signup_error_no_centers') }
-    } catch (e: unknown) { setErr(e instanceof Error ? e.message : 'Lookup failed'); track('signup_error_lookup') }
+    } catch { setErr("We couldn't reach the lookup service. Check your connection and try again, or enter a 5-digit ZIP."); track('signup_error_lookup') }
     finally { setBusy(null) }
   }
 
