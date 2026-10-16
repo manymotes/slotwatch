@@ -659,6 +659,15 @@ Then plan on arriving within your scheduled window. If your appointment confirma
 **Does early drop-off apply to Tesla Mobile Service appointments?**
 No. Mobile Service is a technician coming to your location, so there's no car to drop off. Early drop-off only applies to appointments at a service center. If your issue can be handled by Mobile Service, it runs on a separate calendar that's sometimes sooner; our guide on [getting an earlier Tesla service appointment](/guides/how-to-get-an-earlier-tesla-service-appointment/) covers when to try it.
 
+**Can I drop off my Tesla early if I need a loaner or ride?**
+Loaner and ride availability is set by each center and isn't something early drop-off changes. Loaners are generally limited and handled through the center, so ask in the app message thread or by phone before you drop off, and have your own ride home as the default plan. Don't assume a loaner will be waiting just because you arrived early.
+
+**What if I can't make my drop-off window, or I'm running late?**
+Message the center through the Tesla app as soon as you know, rather than just showing up late. Because technician time is booked by slot, a late arrival can mean the center has to move you to a later opening. If you can't make the appointment at all, reschedule it in the app instead of no-showing; our guide on [how to reschedule a Tesla service appointment](/guides/how-to-reschedule-a-tesla-service-appointment/) walks through it.
+
+**Should I drop off early if my appointment is first thing in the morning?**
+It can make the morning easier, since you skip the front-desk line and avoid commute timing. The tradeoff is the same as any early drop-off: the car still waits for its scheduled turn, and you need a way home at that hour. If the center supports it and the logistics work, it's a reasonable convenience; if not, arriving at your slot is fine.
+
 **How do I actually get an earlier appointment, not just an earlier drop-off?**
 You need an earlier slot to open up, which happens when another customer cancels or reschedules. Check the app frequently, watch nearby centers too, or let [SlotWatch](/start/) email you the instant an earlier opening appears at a center you choose.
 
