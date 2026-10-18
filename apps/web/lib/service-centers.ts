@@ -514,6 +514,7 @@ export const SERVICE_CENTERS: CenterMeta[] = [
       { name: 'Tesla Service Raleigh-Glenwood Avenue', street: '7101 Glenwood Avenue', city: 'Raleigh', zip: '27612', trtId: 6694 },
       { name: 'Tesla Service Raleigh-Sumner Blvd', street: '2641 Sumner Blvd', city: 'Raleigh', zip: '27616', trtId: 29084 },
     ],
+    localNote: 'Raleigh’s 2 real Tesla service centers are on different sides of the city. Tesla Service Raleigh-Glenwood Avenue (7101 Glenwood Avenue, 27612) is on the west side along US-70, the more natural pick from Cary, Morrisville, Durham, or Chapel Hill. Tesla Service Raleigh-Sumner Blvd (2641 Sumner Blvd, 27616) is in northeast Raleigh, closer for Wake Forest, Knightdale, Wendell, or Rolesville. Crossing the Beltline to the far center is a real detour, so most owners start with the one on their side. SlotWatch lets you watch both at once (up to 3 centers), so a cancellation at either one reaches you by email within minutes, and you can decide whether the other side of town is worth the drive for a sooner date.',
   },
   {
     slug: 'salt-lake-city-tesla-service',
