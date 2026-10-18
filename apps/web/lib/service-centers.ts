@@ -490,6 +490,7 @@ export const SERVICE_CENTERS: CenterMeta[] = [
       { name: 'Tesla Service Franklin', street: '122 Market Exchange CT', city: 'Franklin', zip: '37067', trtId: 15401 },
       { name: 'Tesla Service Nashville', street: '7256 Centennial Pl', city: 'Nashville', zip: '37209', trtId: 15401 },
     ],
+    localNote: 'Nashville’s 2 real Tesla service centers are in different counties, roughly 20 miles apart. Tesla Service Nashville (7256 Centennial Pl, 37209) is the one actually in the city, on the west side near the I-40 corridor — the shorter drive from downtown, West End, and Bellevue. Tesla Service Franklin (122 Market Exchange Ct, 37067) is in Williamson County off I-65, closer to Franklin, Brentwood, Spring Hill, and Cool Springs. If you’re in East Nashville, Hendersonville, or Murfreesboro, either one means a real freeway drive, which is exactly the case where watching both at once pays off: whichever one has a cancellation first, you take it.',
   },
   {
     slug: 'charlotte-tesla-service',
