@@ -539,6 +539,7 @@ export const SERVICE_CENTERS: CenterMeta[] = [
       { name: 'Tesla Service St. Louis-Chesterfield', street: '16955 Chesterfield Airport Road', city: 'Chesterfield', zip: '63005', trtId: 1154 },
       { name: 'Tesla Service St. Louis-South County', street: '5711 S LINDBERGH BLVD', city: 'Saint Louis', zip: '63123', trtId: 17376 },
     ],
+    localNote: 'St. Louis’s 2 real Tesla service centers sit on opposite sides of the metro. Tesla Service St. Louis-South County (5711 S Lindbergh Blvd, 63123) is the one with a city address, in the south county area along Lindbergh — the shorter drive from south St. Louis, Affton, Kirkwood, and Arnold. Tesla Service St. Louis-Chesterfield (16955 Chesterfield Airport Rd, 63005) is out in west St. Louis County near the Missouri River valley, closer to Chesterfield, Wildwood, Ballwin, and St. Charles. Both carry “St. Louis” in their names, so check the street address on your appointment confirmation if you’re not sure which one you booked. If you’re in the Illinois suburbs or north county, either one means a real drive across the metro, which is exactly the case where watching both at once pays off: whichever one has a cancellation first, you take it.',
   },
   {
     slug: 'kansas-city-tesla-service',
