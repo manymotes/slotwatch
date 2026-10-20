@@ -633,7 +633,7 @@ These three get mixed up constantly, and only one of them changes when your car 
 Since early drop-off won't move your appointment date up, here's what actually can:
 
 - **Check the Tesla app for cancellations.** Open your appointment and tap into the reschedule screen periodically — earlier dates appear when other customers cancel or reschedule, and they're first-come, first-served. See our [guide to how cancellation slots open up](/guides/tesla-service-cancellation-slots/).
-- **Watch more than one nearby center.** A center a bit farther away may have an earlier opening than your usual one. Boston-area owners, for example, have more than one center to compare — see our [Boston Tesla service page](/boston-tesla-service/).
+- **Watch more than one nearby center.** A center a bit farther away may have an earlier opening than your usual one. Boston-area owners, for example, have more than one center to compare — see our [Boston Tesla service page](/boston-tesla-service/). Big metros like [Los Angeles](/los-angeles-tesla-service/), [Houston](/houston-tesla-service/) and [Dallas–Fort Worth](/dallas-fort-worth-tesla-service/) have several centers within driving distance, so the nearest one is rarely the only option.
 - **Let SlotWatch do the watching for you.** [SlotWatch](/start/) monitors up to 3 Tesla service centers you choose and **emails you the moment an earlier slot opens**, so you're not stuck refreshing the app or hoping an early drop-off will bump your place in line. No Tesla login required, checks roughly every 5 minutes, and it's free to start with no card — you only pay $19 to unlock an earlier slot we find. See [how it works](/how-it-works/).
 
 ## FAQ
