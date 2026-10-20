@@ -73,6 +73,15 @@ Not reliably. Tesla schedules by appointment slot, not by walk-in order, so arri
 **No service appointments available for over 2 months — what can I do?**
 Widen the pool of centers you're checking (tactic #2) — a two-month wait at your closest center is often much shorter at one 30–45 minutes away. If the issue is safety-related (can't charge, brakes, steering), put that exact detail in the request description and message the center directly (tactic #5); those tend to get triaged ahead of cosmetic issues. Also check whether the job qualifies for Mobile Service (tactic #6), which runs on a separate, often sooner, calendar.
 
+**How do I get on the Tesla service cancellation list?**
+There isn't a public cancellation list you can sign yourself up for with a queue position. The practical equivalent is to keep your existing appointment, check the reschedule screen often across every nearby center (tactics #1 and #2), and message the center once if your issue is urgent. If you'd rather not check manually, [SlotWatch](/start/) watches up to 3 centers for you and emails you when an earlier slot appears, with no Tesla login required.
+
+**Why does the Tesla app only show dates later than mine?**
+Because the reschedule screen only lists slots that are open right now. If every sooner slot at that center is already booked, the app will show only later dates, or nothing earlier than your current one. That usually isn't permanent: a cancellation can free a sooner slot at any time, and a different center's calendar may already have one. Switch the location on the same screen and compare before assuming nothing is available.
+
+**Can I get an earlier Tesla service appointment if my car is still drivable?**
+Yes, but drivable cars are generally offered sooner slots only when they open up, with no special queue. If the issue is safety-related, say so explicitly in the request description. Otherwise the levers are the same: check more centers, check more often, and consider Mobile Service if the job qualifies.
+
 **Does priority vs. non-priority matter for a Tesla service appointment?**
 Tesla doesn't publish a formal priority system, but in practice, requests that clearly describe a safety issue — a car that won't charge, or brake or steering problems — tend to get triaged and offered sooner slots than routine or cosmetic requests. Being specific in the request description, and following up with a message to the center, is the honest way to signal urgency; there's no hidden setting to flip.
 
