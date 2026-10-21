@@ -370,6 +370,9 @@ It means every slot the app is allowed to offer at that center is currently take
 **Can I reschedule my Tesla service appointment on a computer or by phone?**
 Scheduling is built around the Tesla mobile app, so that's the reliable route. If you can't use the app, call or message your service center and ask them to move the appointment. They can only offer what the calendar currently has open, so an earlier date still depends on a cancellation.
 
+**Can I drop my Tesla off early instead of rescheduling to an earlier appointment?**
+Dropping off early and rescheduling to an earlier date are two different things. Many centers let you leave the car before your slot, but it still waits for its scheduled turn, so your service date doesn't change. Only rescheduling into a freed-up earlier slot moves the date. See [can I drop off my Tesla early for service?](/guides/can-i-drop-off-my-tesla-early-for-service/) for how early drop-off works and which centers support it.
+
 **Is there a fee to reschedule a Tesla service appointment?**
 Tesla doesn't publicly list a fee for moving a routine service appointment, and none is shown in the app's reschedule flow. If you're dropping a paid or deposit-based service, check the terms on your appointment confirmation.
 
