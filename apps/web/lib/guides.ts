@@ -541,6 +541,17 @@ SlotWatch earns its keep when Tesla's limits get in your way:
 
 This matters most in metro areas with more than one service center, where Tesla's single-center standby can't help you compare locations — [Austin](/austin-tesla-service/) (3 centers), [Atlanta](/atlanta-tesla-service/) (5 centers), and [Boston](/boston-tesla-service/) (4 centers) are good examples of areas where watching several at once pays off.
 
+## A practical way to use both
+
+They don't conflict, so the lowest-effort setup is to stack them:
+
+1. **Keep your current appointment.** Never cancel it to chase a sooner one — an earlier slot isn't guaranteed.
+2. **Turn on Tesla's standby** if your center offers it. It's free and covers your booked center.
+3. **Add a [SlotWatch watch](/start/)** for the same center plus up to two nearby ones, so you're covered where Tesla's feature can't look.
+4. **When an email arrives, move fast.** Open the Tesla app, tap **Reschedule**, and pick the earlier slot. Cancellation openings can be taken within minutes, so don't wait until evening. If the app won't let you reschedule, see [how to reschedule a Tesla service appointment](/guides/how-to-reschedule-a-tesla-service-appointment/).
+
+Openings come from other owners' cancellations and reschedules, which is why they appear at unpredictable times — see [how often Tesla service cancellation slots open](/guides/tesla-service-cancellation-slots/).
+
 ## The honest bottom line
 
 If you're happy watching a single center, Tesla's free built-in notification is the right tool — use it. But if you'd travel a bit to get your car in weeks sooner, or your center doesn't offer it, SlotWatch watches every nearby center for you, with no Tesla login — free to start with no card, and you only pay $19 to unlock an earlier slot it finds.
@@ -566,6 +577,18 @@ Two ways. If your center supports Tesla's built-in standby, opt in from your boo
 
 **Why doesn't Tesla show an earlier-appointment option for my service center?**
 Tesla's standby feature isn't offered at every location, so if you don't see it, your center likely doesn't support it yet. That's one of the main reasons SlotWatch exists — it watches availability at the centers you pick regardless of whether Tesla's built-in standby is available there.
+
+**Will Tesla's standby move me to a different service center?**
+No. It only looks for an earlier slot at the center where your appointment is already booked. To be offered openings at other centers, you need to watch them separately — that's what SlotWatch's up-to-3-center watch is for.
+
+**What if Tesla never contacts me about an earlier appointment?**
+Standby isn't a guarantee: it only fires if a matching-length slot opens at your exact center. If you haven't heard anything, keep your current appointment, check the Tesla app yourself now and then, and consider watching nearby centers too — a nearby center may have an opening yours doesn't.
+
+**Should I cancel my appointment and rebook to get an earlier one?**
+No. Cancelling risks losing your place with nothing to replace it. Keep the booking you have and only reschedule once you've actually seen an earlier slot.
+
+**Do I need an existing appointment to use SlotWatch?**
+You enter your current appointment date so SlotWatch knows what counts as earlier. Openings at least 3 days sooner are flagged as qualifying; you unlock the exact date and time for a one-time $19 only if one is found.
 
 ---
 
