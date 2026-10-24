@@ -250,7 +250,19 @@ For a broader walkthrough of tactics, including how to think about which centers
 No. Cancellations and reschedules happen whenever other customers make changes, and centers release capacity on their own internal schedules. There's no reliable "best time" that works everywhere, which is exactly why continuous checking beats checking once a day.
 
 **Can I get notified automatically when an earlier slot opens?**
-Tesla itself doesn't send these alerts. SlotWatch does: it monitors the centers you choose and emails you when an earlier opening appears, so you can jump into the app and reschedule. You do the actual booking; we just tell you when to look.
+Yes. SlotWatch monitors up to 3 centers you choose and emails you when an earlier opening appears, so you can jump into the app and reschedule. You do the actual booking; we just tell you when to look.
+
+**How often do Tesla service cancellations happen?**
+Constantly, but unevenly. Busy metros with long waits see the most churn simply because more people hold appointments there, and each one is a chance to cancel or move. Openings are usually one-off slots rather than big blocks, which is why a slot that is "3 days sooner" can appear and vanish between two checks. See [Tesla service wait times by city](/guides/tesla-service-wait-times/) for how long the queues run in your area.
+
+**Why does the Tesla app only show later dates, then suddenly an earlier one?**
+The reschedule screen shows whatever is open at the moment you load it. When someone cancels, their slot reappears for everyone at once; when nothing has been released, you only see dates after the ones already booked. An earlier date showing up is almost always a cancellation or newly released capacity, not a change to your own appointment.
+
+**Is it worth moving to a slot only a day or two sooner?**
+It depends on the visit. A slot 1–2 days earlier rarely changes much; one a week or more earlier usually does. If your car is drivable, you can also read our guide on [dropping off your Tesla early](/guides/can-i-drop-off-my-tesla-early-for-service/) as a separate way to be seen sooner. SlotWatch always shows openings 1–2 days earlier in full for free, and only asks for the $19 unlock when the opening is at least 3 days before your current appointment.
+
+**Should I watch one center or several?**
+Several. Each additional center gives you another independent stream of cancellations, and a farther center sometimes has weeks less wait than your nearest one. SlotWatch lets you watch up to 3 at once.
 
 **Do I have to give SlotWatch my Tesla login?**
 No. SlotWatch never asks for your Tesla credentials and isn't affiliated with Tesla, Inc. It watches public appointment availability and sends you an email. Your account stays entirely yours.
