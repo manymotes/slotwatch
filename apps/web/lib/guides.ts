@@ -453,6 +453,15 @@ SlotWatch watches in-center service appointment availability at the Tesla servic
 **Does tire rotation cost more at a service center or with Mobile Service?**
 Usually no — the price is typically the same or very close either way, since Tesla prices the job in the app based on your vehicle, not on which queue you pick. Availability, not cost, is the real deciding factor. See the "Tesla tire rotation cost: service center vs. Mobile Service" section above for the full breakdown.
 
+**Can I switch from Mobile Service to a service center to get seen sooner?**
+Sometimes. If your job is mobile-eligible but the mobile calendar is further out than a center's, you can ask in the Tesla app (or by contacting Tesla service) whether an in-center visit is possible instead. It isn't guaranteed, because Tesla routes by the issue you described, and a center visit means driving the car in. Compare the first dates each option shows before you decide.
+
+**If I'm dropping the car at a center, can I bring it in early?**
+Possibly, but that's a different thing from getting an earlier appointment. See [can I drop off my Tesla early for service](/guides/can-i-drop-off-my-tesla-early-for-service/) for what to expect and what to check first.
+
+**What if my Mobile Service appointment is weeks away?**
+Reopen the reschedule screen regularly, since cancellations free up mobile slots too. If the work needs a center anyway, [reschedule to an earlier center slot](/guides/how-to-reschedule-a-tesla-service-appointment/) or watch several centers at once with [SlotWatch](/start/).
+
 **Do I need my Tesla login to use SlotWatch?**
 No. SlotWatch never asks for your Tesla credentials. It watches public service center availability and emails you when an earlier slot opens; you do the actual rescheduling yourself in the Tesla app.
 
