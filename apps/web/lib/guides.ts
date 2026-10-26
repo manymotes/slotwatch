@@ -42,6 +42,18 @@ Here are the concrete moves that actually work, roughly in order of impact:
 
 These work. The only real downside is the effort: catching a good opening can mean checking the app a dozen times a day for a week, and you'll still miss slots that appear while you're asleep or in a meeting.
 
+## What to write when you message the service center
+
+A vague "can I come in sooner?" rarely gets a useful answer. A short, specific message does. Send it once through the Tesla app's message thread for your appointment (repeated pings don't help):
+
+1. **Say what the car is doing, in one line.** "Car won't charge above 40% and shows an alert" beats "charging issue."
+2. **State whether it's drivable and safe.** Staff triage on this, so be accurate rather than dramatic.
+3. **Give your flexibility.** "I can drop it off any weekday morning on an hour's notice" makes you easy to slot into a cancellation.
+4. **Name other centers you'd accept.** If you'd drive 30 minutes to another location, say which one.
+5. **Ask for a call if something opens**, and confirm your phone number is current in the app.
+
+This won't create capacity that doesn't exist, but it makes you the easy yes when a cancellation does appear. For how often those happen and how fast they get taken, see [how Tesla service cancellation slots work](/guides/tesla-service-cancellation-slots/).
+
 ## Automating the hunt with SlotWatch
 
 Refreshing the Tesla app all day isn't realistic for most people. That's exactly the problem [SlotWatch](/start/) solves. SlotWatch is an independent service that monitors Tesla service centers for you and **emails you the moment an earlier appointment opens up**, so you can hop into the Tesla app and grab it.
