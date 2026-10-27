@@ -400,6 +400,15 @@ Dropping off early and rescheduling to an earlier date are two different things.
 **Is there a fee to reschedule a Tesla service appointment?**
 Tesla doesn't publicly list a fee for moving a routine service appointment, and none is shown in the app's reschedule flow. If you're dropping a paid or deposit-based service, check the terms on your appointment confirmation.
 
+**How do I cancel a Tesla service appointment?**
+Open the Tesla app, tap **Service**, select the appointment and look for the cancel option next to Reschedule. If you only want a different date, reschedule instead of cancelling: cancelling first can leave you with no booking and a longer wait for the next opening. If you're hunting for a sooner slot, keep your current appointment as a safety net until you've confirmed the new one.
+
+**Should I cancel my current appointment to book an earlier one?**
+No. Book the earlier slot first, and the app moves your appointment when you reschedule into it. Cancelling first risks losing your place if the earlier opening gets taken while you decide. [SlotWatch](/start/) is built around this: it emails you when an earlier slot opens at up to 3 centers while you keep your current booking, and it needs no Tesla login.
+
+**Can I reschedule after I've already dropped my car off?**
+Generally not through the app. Once the car is checked in, the visit is tied to the work on the service request, so talk to the center through the app message thread instead. See [can I drop off my Tesla early for service?](/guides/can-i-drop-off-my-tesla-early-for-service/) for what happens after drop-off.
+
 ## Ready to get seen sooner?
 
 Rescheduling is easy. The hard part is catching an earlier slot before it's gone. Let SlotWatch watch for you and email you the moment one opens up.
