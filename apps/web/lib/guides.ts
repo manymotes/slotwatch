@@ -748,6 +748,9 @@ Loaner and ride availability is set by each center and isn't something early dro
 **What if I can't make my drop-off window, or I'm running late?**
 Message the center through the Tesla app as soon as you know, rather than just showing up late. Because technician time is booked by slot, a late arrival can mean the center has to move you to a later opening. If you can't make the appointment at all, reschedule it in the app instead of no-showing; our guide on [how to reschedule a Tesla service appointment](/guides/how-to-reschedule-a-tesla-service-appointment/) walks through it.
 
+**If I move to an earlier appointment, does my early drop-off still work?**
+Yes, but treat it as a new booking. Drop-off instructions come with the appointment, so after you reschedule, re-check the updated confirmation in the Tesla app for that center's drop-off details and your new date before you leave the car. If the earlier slot is at a different center than your original one, its drop-off process may differ too. When an earlier opening shows up, [SlotWatch](/start/) emails you which center and how many days sooner, and you then reschedule in the Tesla app yourself.
+
 **Should I drop off early if my appointment is first thing in the morning?**
 It can make the morning easier, since you skip the front-desk line and avoid commute timing. The tradeoff is the same as any early drop-off: the car still waits for its scheduled turn, and you need a way home at that hour. If the center supports it and the logistics work, it's a reasonable convenience; if not, arriving at your slot is fine.
 
