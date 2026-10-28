@@ -214,6 +214,15 @@ Often, yes. Cancellations and reschedules free up earlier slots constantly. The 
 **Does SlotWatch book the appointment for me?**
 No. SlotWatch only watches for earlier openings and emails you when one appears (email alerts only, no SMS). You keep full control and reschedule yourself in the Tesla app. We never need your Tesla login.
 
+**Why is the Tesla service wait so long?**
+Mostly local capacity versus demand: a limited number of technicians and bays serving a large, growing fleet, plus parts backorders on specific repairs. Because each center runs its own calendar, a nearby center can have a noticeably shorter wait than the one the app picks by default.
+
+**Is the wait shorter at a different service center?**
+Frequently, yes. Neighboring centers in the same metro often show different first-available dates. Check each one in the Tesla app, or watch up to 3 at once with [SlotWatch](/start/) and get an email if any of them opens an earlier slot than the one you hold. Your metro page above lists the real centers nearby.
+
+**Will my wait get shorter if I just keep my appointment and wait?**
+Your booked date normally stays put unless the center moves it, so the only way to get in sooner is to move to an earlier slot when one opens. Those openings come from cancellations and reschedules; see [how earlier slots open](/guides/tesla-service-cancellation-slots/) for the mechanics.
+
 ---
 
 Tired of refreshing the app? Let SlotWatch keep an eye on your service centers and email you when an earlier slot opens. [Start watching — free](/start/).`,
