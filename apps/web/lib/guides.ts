@@ -624,7 +624,7 @@ No. It's not offered everywhere, and it only applies to a center where you alrea
 No. SlotWatch never asks for your Tesla credentials. It watches availability and emails you when an earlier slot opens; you still book the new slot yourself in the Tesla app.
 
 **How do I get notified of an earlier Tesla service appointment?**
-Two ways. If your center supports Tesla's built-in standby, opt in from your booked appointment in the Tesla app and Tesla will contact you for an earlier slot at that one center. To cover more than one center — or if your center doesn't offer standby — SlotWatch watches up to 3 centers and emails you within about 15 minutes of an earlier slot appearing, no Tesla login required.
+Two ways. If your center supports Tesla's built-in standby, opt in from your booked appointment in the Tesla app and Tesla will contact you for an earlier slot at that one center. To cover more than one center — or if your center doesn't offer standby — SlotWatch watches up to 3 centers and checks roughly every 5 minutes and emails you as soon as an earlier slot appears, no Tesla login required.
 
 **Why doesn't Tesla show an earlier-appointment option for my service center?**
 Tesla's standby feature isn't offered at every location, so if you don't see it, your center likely doesn't support it yet. That's one of the main reasons SlotWatch exists — it watches availability at the centers you pick regardless of whether Tesla's built-in standby is available there.
