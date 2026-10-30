@@ -54,6 +54,17 @@ A vague "can I come in sooner?" rarely gets a useful answer. A short, specific m
 
 This won't create capacity that doesn't exist, but it makes you the easy yes when a cancellation does appear. For how often those happen and how fast they get taken, see [how Tesla service cancellation slots work](/guides/tesla-service-cancellation-slots/).
 
+## What to do the moment you spot an earlier slot
+
+Openings are first-come, first-served, so have the sequence ready before you need it:
+
+1. **Open the reschedule screen from your existing appointment**, not a new booking. Rescheduling swaps your slot in one step; booking a second appointment and cancelling the first leaves a gap where you could lose both. Not sure where the button is? See [how to reschedule a Tesla service appointment](/guides/how-to-reschedule-a-tesla-service-appointment/).
+2. **Confirm the new date, time, and center before you tap.** If the opening is at a different center than your original one, check the address and that the same service type is listed.
+3. **Check for the confirmation** in the app (and your email) before you close it. If the slot was taken while you were tapping, the app will say so and you simply keep your current appointment.
+4. **Don't release your old slot until the new one is confirmed.** Because a reschedule replaces the old booking, this mostly takes care of itself, but it is the reason not to cancel first.
+
+If the new appointment is much sooner and you want to bring the car in ahead of time, read [can I drop off my Tesla early for service?](/guides/can-i-drop-off-my-tesla-early-for-service/) for what early drop-off does and doesn't change.
+
 ## Automating the hunt with SlotWatch
 
 Refreshing the Tesla app all day isn't realistic for most people. That's exactly the problem [SlotWatch](/start/) solves. SlotWatch is an independent service that monitors Tesla service centers for you and **emails you the moment an earlier appointment opens up**, so you can hop into the Tesla app and grab it.
