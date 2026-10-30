@@ -307,8 +307,8 @@ Earlier slots really do open up, but they don't wait around and Tesla won't tell
   },
   {
     slug: "how-to-reschedule-a-tesla-service-appointment",
-    title: "How to Reschedule a Tesla Service Appointment (App Steps)",
-    description: "Can't find Reschedule? Open the Tesla app → Service → your appointment → Reschedule. Covers the ~24-hour cutoff, a missing button, and how to catch an earlier date.",
+    title: "How to Reschedule a Tesla Service Appointment (Step-by-Step)",
+    description: "Reschedule button missing? Tesla app → Service → your appointment → Reschedule. Includes the ~24-hour cutoff, fixes for a greyed-out button, and how to find an earlier date.",
     datePublished: "2026-07-25",
     md: `# How to Reschedule a Tesla Service Appointment
 
@@ -658,8 +658,8 @@ Related: [how to get an earlier Tesla service appointment](/guides/how-to-get-an
   },
   {
     slug: "can-i-drop-off-my-tesla-early-for-service",
-    title: "Can I Drop Off My Tesla Early for Service? Yes — How (2026)",
-    description: "Yes — most Tesla service centers accept early or night-before drop-off. See the 4 steps in the app, what to do first, and the catch: it won't move your car up the queue.",
+    title: "Can I Drop Off My Tesla Early for Service? Yes — Steps & the Catch",
+    description: "Yes, most Tesla service centers allow early or night-before drop-off. Here are the 4 app steps, what to check first, and why it won't get your car seen sooner.",
     datePublished: "2026-08-20",
     md: `# Can I Drop Off My Tesla Early for a Service Appointment?
 
