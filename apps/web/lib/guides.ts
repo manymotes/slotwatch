@@ -80,6 +80,8 @@ Pricing is simple and honest: it's **free to start — no card required** — fo
 
 We'll be straight with you: SlotWatch can't create appointments that don't exist. It only helps you catch openings that other customers free up. But when those openings do appear, being the first to know is the whole difference between grabbing a slot and missing it.
 
+Already wondering whether you'll be notified automatically? Our guide on [whether Tesla notifies you when an earlier service appointment opens](/guides/tesla-earlier-appointment-notification-vs-slotwatch/) covers how earlier-appointment alerts work, where they fall short, and how to cover the gaps. And if you also want to understand the logistics of the visit itself, see [whether you can drop off your Tesla early for service](/guides/can-i-drop-off-my-tesla-early-for-service/).
+
 If you're in a major metro, start with your city page: [Los Angeles](/los-angeles-tesla-service/), [San Francisco](/san-francisco-tesla-service/), [New York](/new-york-tesla-service/), [Phoenix](/phoenix-tesla-service/) (five centers spread from Glendale to Tempe, so the "watch several nearby centers" tactic really pays off there), [Austin](/austin-tesla-service/), or [Dallas–Fort Worth](/dallas-fort-worth-tesla-service/) (which includes both Plano locations). And if you're curious how long people are typically waiting right now, our guide to [Tesla service wait times](/guides/tesla-service-wait-times/) breaks it down by region.
 
 ## Frequently asked questions
