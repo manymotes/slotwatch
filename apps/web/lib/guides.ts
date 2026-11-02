@@ -438,6 +438,9 @@ Open the Tesla app, tap **Service**, select the appointment and look for the can
 **Should I cancel my current appointment to book an earlier one?**
 No. Book the earlier slot first, and the app moves your appointment when you reschedule into it. Cancelling first risks losing your place if the earlier opening gets taken while you decide. [SlotWatch](/start/) is built around this: it emails you when an earlier slot opens at up to 3 centers while you keep your current booking, and it needs no Tesla login.
 
+**Will I be told if an earlier Tesla service appointment opens up after I reschedule?**
+Don't count on it. Rescheduling only moves you into a slot that's open at that moment; nothing in the reschedule screen promises to tell you when a sooner one frees up later. Our guide on [whether Tesla notifies you when an earlier appointment opens](/guides/tesla-earlier-appointment-notification-vs-slotwatch/) covers where that falls short. [SlotWatch](/start/) fills the gap by emailing you when an earlier opening appears at up to 3 centers you choose, with no Tesla login, while you keep your current booking. It's free to start with no card, and you only pay the one-time $19 if you choose to unlock the exact time of a slot we find. In a big metro, your city page lists the real centers worth comparing, such as [Los Angeles](/los-angeles-tesla-service/), [Houston](/houston-tesla-service/) or [Phoenix](/phoenix-tesla-service/).
+
 **Can I reschedule after I've already dropped my car off?**
 Generally not through the app. Once the car is checked in, the visit is tied to the work on the service request, so talk to the center through the app message thread instead. See [can I drop off my Tesla early for service?](/guides/can-i-drop-off-my-tesla-early-for-service/) for what happens after drop-off.
 
