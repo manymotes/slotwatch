@@ -202,6 +202,16 @@ Wait times are local, so start with your metro area. Each page below covers what
 
 That's all 40 US metros SlotWatch currently covers, so wherever you are, there's likely a page above for your area.
 
+## Is my wait normal? What to do at each stage
+
+The date the app shows is only that one center's first open slot right now, so it's a poor yardstick on its own. A rough way to read it:
+
+- **Under about two weeks:** typical for routine work in a less busy market. Book it, and keep an eye out for anything sooner.
+- **Three to six weeks:** common at busy urban centers. Before accepting it, check every other center within a reasonable drive; neighboring calendars often differ by weeks.
+- **Around two months or more:** not unusual for collision or backordered-part repairs, but also the case where a second center or a Mobile Service visit is most likely to save you real time. If the issue affects safety or drivability, say so in the request notes and message the center once.
+
+Whatever date you land on, treat it as a placeholder you can improve. Since slots free up from cancellations, the people who end up with short waits are mostly the ones who are watching several centers at once. If you want to know whether Tesla's own alerts cover this for you, read [does Tesla notify you when an earlier service appointment opens?](/guides/tesla-earlier-appointment-notification-vs-slotwatch/) for what they do and where they stop. And for the mechanics of moving up, see [how to reschedule a Tesla service appointment](/guides/how-to-reschedule-a-tesla-service-appointment/).
+
 ## How to get seen sooner
 
 A long "first available" date doesn't have to be the date you actually go in. A few things genuinely help:
