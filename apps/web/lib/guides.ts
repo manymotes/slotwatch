@@ -759,6 +759,12 @@ At many centers, yes, if they support after-hours drop-off. You'll typically par
 **Does every Tesla service center let you drop off early?**
 No — it varies by location, and there's no single policy that covers all of them. Some centers have a marked drop-off area and an app-based check-in built for unattended visits; others don't publish early-drop-off instructions at all, which usually means they expect you during your scheduled window instead. Since it's center-specific, the reliable way to find out is your appointment confirmation in the Tesla app (it lists that center's real instructions) or a quick call to the center itself before you plan around it.
 
+**Can I drop off my Tesla for service without an appointment?**
+Generally no. Early drop-off is built around a booked service request: the app ties your car, your issue and your drop-off check-in to an appointment, which is how the team knows what to work on. Leaving a car with no booking attached usually isn't an option, and walk-ins depend on technician and bay availability that day. Book the earliest slot you can first — and if the date is far out, [SlotWatch](/start/) can watch up to 3 centers and email you when an earlier one opens (free to start, no card; $19 only to unlock a slot we find).
+
+**If I drop off early, can I still reschedule my appointment?**
+Yes — dropping off doesn't lock your date, but rescheduling in the app generally closes close to the appointment time, so move your booking *before* you leave the car, not after. See [how to reschedule a Tesla service appointment](/guides/how-to-reschedule-a-tesla-service-appointment/) for the steps.
+
 **Can I drop off my Tesla without an appointment?**
 Generally no. Drop-off is tied to a booked service request, because that's how the center knows what work to do and who the car belongs to. A car left with no appointment on file usually can't be worked on, so book (or reschedule) through the Tesla app first. If you can't get a date you can live with, the fix is a sooner slot, not an unscheduled drop-off. See [how to get an earlier Tesla service appointment](/guides/how-to-get-an-earlier-tesla-service-appointment/).
 
