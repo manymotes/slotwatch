@@ -319,8 +319,8 @@ Earlier slots really do open up, but they don't wait around and Tesla won't tell
   },
   {
     slug: "how-to-reschedule-a-tesla-service-appointment",
-    title: "How to Reschedule a Tesla Service Appointment (Step-by-Step)",
-    description: "Reschedule button missing? Tesla app → Service → your appointment → Reschedule. Includes the ~24-hour cutoff, fixes for a greyed-out button, and how to find an earlier date.",
+    title: "Reschedule a Tesla Service Appointment: App Steps + Fixes",
+    description: "Tesla app → Service → your appointment → Reschedule. Button greyed out or missing? Get the ~24-hour cutoff, the fixes, and how to land a sooner date.",
     datePublished: "2026-07-25",
     md: `# How to Reschedule a Tesla Service Appointment
 
