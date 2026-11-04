@@ -618,6 +618,15 @@ SlotWatch earns its keep when Tesla's limits get in your way:
 
 This matters most in metro areas with more than one service center, where Tesla's single-center standby can't help you compare locations — [Austin](/austin-tesla-service/) (3 centers), [Atlanta](/atlanta-tesla-service/) (5 centers), and [Boston](/boston-tesla-service/) (4 centers) are good examples of areas where watching several at once pays off.
 
+## Why a notification isn't the same as a booked slot
+
+Whichever alert you use, an "earlier slot opened" message is only the starting gun. Two things are worth knowing before you rely on one:
+
+- **Openings are shared and short-lived.** A cancellation frees a slot for everyone looking at that center's calendar at once, including owners checking the reschedule screen by hand. The faster you act on the alert, the better your odds. See [how often cancellation slots open](/guides/tesla-service-cancellation-slots/) for why they show up at unpredictable times.
+- **The booking still happens in the Tesla app.** Neither Tesla's standby nor a third-party alert can book for you if you want to choose the date and center yourself. You open your existing appointment, tap **Reschedule**, and confirm the earlier slot. Check that the new date actually works for you first, because moving to a different center or date also changes drop-off logistics (see [can I drop off my Tesla early for service?](/guides/can-i-drop-off-my-tesla-early-for-service/)).
+
+A useful rule of thumb: a one- or two-day gain is rarely worth the disruption, while a week or more usually is. SlotWatch flags openings at least 3 days earlier than your current appointment for exactly that reason, and shows 1–2 day gains in full for free.
+
 ## A practical way to use both
 
 They don't conflict, so the lowest-effort setup is to stack them:
@@ -666,6 +675,15 @@ No. Cancelling risks losing your place with nothing to replace it. Keep the book
 
 **Do I need an existing appointment to use SlotWatch?**
 You enter your current appointment date so SlotWatch knows what counts as earlier. Openings at least 3 days sooner are flagged as qualifying; you unlock the exact date and time for a one-time $19 only if one is found.
+
+**Does Tesla automatically move me to an earlier appointment when one opens?**
+Based on how Tesla describes its standby feature, it contacts you with the opening rather than silently changing your booking, so you should expect to confirm the change yourself. Either way, check your appointment details in the app afterward so you know exactly which date, time and center you're booked for.
+
+**How fast do I need to act when I get an earlier-slot alert?**
+As fast as you reasonably can. Open slots aren't held for you, and other owners can take the same one. Open the Tesla app, go to your existing appointment, tap **Reschedule**, and pick the earlier slot. If it's already gone, nothing is lost: you still have your original appointment, and the next cancellation may free another.
+
+**Is it worth switching to a farther service center for an earlier slot?**
+It depends on the gain and the distance. A week or more sooner at a center 30–45 minutes away is usually a good trade, especially for repairs you can't put off. For a gain of a day or two, most people are better off staying put. When you [set up a watch](/start/), you can pick up to 3 nearby centers.
 
 ---
 
