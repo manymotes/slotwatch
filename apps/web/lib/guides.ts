@@ -110,6 +110,9 @@ Yes, but drivable cars are generally offered sooner slots only when they open up
 **Does priority vs. non-priority matter for a Tesla service appointment?**
 Tesla doesn't publish a formal priority system, but in practice, requests that clearly describe a safety issue — a car that won't charge, or brake or steering problems — tend to get triaged and offered sooner slots than routine or cosmetic requests. Being specific in the request description, and following up with a message to the center, is the honest way to signal urgency; there's no hidden setting to flip.
 
+**How long should I keep looking for an earlier slot before giving up?**
+Keep your existing appointment as the fallback and keep looking until the day you're due in — there's no cost to checking, and a cancellation can appear at any point, including the day before. A practical rhythm: compare every center within a reasonable drive once or twice a day for the first week, and use the [wait times guide](/guides/tesla-service-wait-times/) to sanity-check whether your wait is normal for your area. If you'd rather not do the checking by hand, [start a free watch](/start/) on up to 3 centers and get emailed when something at least a few days sooner opens.
+
 **How much sooner can I actually get in?**
 It varies completely. Some people catch a slot days or even weeks earlier within the first day of watching; others wait longer or don't see an opening at all. Earlier appointments only appear when other customers cancel, so no honest service can promise a specific date.
 
