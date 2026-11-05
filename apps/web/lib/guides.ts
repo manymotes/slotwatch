@@ -113,6 +113,9 @@ Tesla doesn't publish a formal priority system, but in practice, requests that c
 **How long should I keep looking for an earlier slot before giving up?**
 Keep your existing appointment as the fallback and keep looking until the day you're due in — there's no cost to checking, and a cancellation can appear at any point, including the day before. A practical rhythm: compare every center within a reasonable drive once or twice a day for the first week, and use the [wait times guide](/guides/tesla-service-wait-times/) to sanity-check whether your wait is normal for your area. If you'd rather not do the checking by hand, [start a free watch](/start/) on up to 3 centers and get emailed when something at least a few days sooner opens.
 
+**How far should I be willing to drive to get an earlier appointment?**
+Decide before you start looking, because openings get taken in minutes and you won't have time to deliberate. A useful rule: price the trip against the wait. If a center 45 minutes away saves you three weeks, the extra drive is usually worth it; if it saves two days, probably not. Metros with several centers give you the most room to trade distance for time, for example [Los Angeles](/los-angeles-tesla-service/), [Houston](/houston-tesla-service/) or [New Jersey](/new-jersey-tesla-service/). Pick your up-to-3 centers by that rule, then [start a watch](/start/) on them (free to start, no card; $19 only to unlock a slot we find) so you only hear about openings you'd actually take.
+
 **How much sooner can I actually get in?**
 It varies completely. Some people catch a slot days or even weeks earlier within the first day of watching; others wait longer or don't see an opening at all. Earlier appointments only appear when other customers cancel, so no honest service can promise a specific date.
 
