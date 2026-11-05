@@ -752,6 +752,10 @@ These three get mixed up constantly, and only one of them changes when your car 
 
 **Is there a cutoff for changing my appointment?** Rescheduling in the app generally stops being available close to the appointment time. Our guide on [how to reschedule a Tesla service appointment](/guides/how-to-reschedule-a-tesla-service-appointment/) covers the app steps and why earlier dates sometimes don't show up. If your wait is long overall, see [Tesla service wait times](/guides/tesla-service-wait-times/) for how much it varies by city.
 
+## Don't want to drop the car off at all?
+
+If the real hassle is arranging a ride and leaving the car for a day, check whether your issue qualifies for Tesla mobile service instead. Many smaller repairs, tire and wiper work and some diagnostics can be done at your home or workplace without a drop-off. Which jobs qualify, and how mobile appointments compare to the center on wait time, is covered in our guide to [Tesla mobile service vs. a service center](/guides/tesla-mobile-service-vs-service-center/).
+
 ## If you're trying to get seen sooner, not just drop off sooner
 
 Since early drop-off won't move your appointment date up, here's what actually can:
@@ -785,9 +789,6 @@ Generally no. Early drop-off is built around a booked service request: the app t
 
 **If I drop off early, can I still reschedule my appointment?**
 Yes — dropping off doesn't lock your date, but rescheduling in the app generally closes close to the appointment time, so move your booking *before* you leave the car, not after. See [how to reschedule a Tesla service appointment](/guides/how-to-reschedule-a-tesla-service-appointment/) for the steps.
-
-**Can I drop off my Tesla without an appointment?**
-Generally no. Drop-off is tied to a booked service request, because that's how the center knows what work to do and who the car belongs to. A car left with no appointment on file usually can't be worked on, so book (or reschedule) through the Tesla app first. If you can't get a date you can live with, the fix is a sooner slot, not an unscheduled drop-off. See [how to get an earlier Tesla service appointment](/guides/how-to-get-an-earlier-tesla-service-appointment/).
 
 **Will I get my Tesla back sooner if I drop it off early?**
 Usually not. Pickup depends on when the work is finished and the center's pickup hours, and the car still waits for its scheduled turn. An early drop-off mostly saves you from having to arrive at an exact time. If it's the total wait you want to shorten, you need an earlier appointment, which [SlotWatch](/start/) can watch for across up to 3 centers while you keep your current slot.
