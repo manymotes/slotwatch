@@ -26,11 +26,17 @@ const h1: React.CSSProperties = { fontSize: '1.375rem', fontWeight: 800, color: 
 const body: React.CSSProperties = { color: '#6b6b6b', fontSize: '0.9375rem', lineHeight: 1.65, marginBottom: '28px' }
 const link: React.CSSProperties = { display: 'block', color: '#3a3a3a', textDecoration: 'none', fontSize: '0.875rem', padding: '8px' }
 
+const SLIDER_CSS = `
+input[type=range].sw-amt::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:#fff;border:3px solid #e31937;box-shadow:0 2px 8px rgba(0,0,0,.5);cursor:pointer}
+input[type=range].sw-amt::-moz-range-thumb{width:26px;height:26px;border-radius:50%;background:#fff;border:3px solid #e31937;cursor:pointer}
+`
+
 export default function ThanksForm() {
   const [t, setT] = useState('')
   const [booked, setBooked] = useState<'yes' | 'no' | null>(null)
   const [info, setInfo] = useState<Info | null>(null)
-  const [busy, setBusy] = useState<number | 'custom' | null>(null)
+  const [busy, setBusy] = useState(false)
+  const [dollars, setDollars] = useState(19)
   const [err, setErr] = useState('')
   const [ready, setReady] = useState(false)
 
@@ -47,17 +53,17 @@ export default function ThanksForm() {
     }
   }, [])
 
-  async function pay(amount: number | 'custom') {
-    setBusy(amount); setErr('')
+  async function pay() {
+    setBusy(true); setErr('')
     try {
-      const payload = amount === 'custom' ? { t, custom: true } : { t, amountCents: amount }
+      const payload = { t, amountCents: Math.round(dollars * 100) }
       const r = await fetch(`${API}/api/thanks`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
       const d = await r.json()
       if (!d.ok || !d.url) throw new Error(d.error || 'no url')
       window.location.href = d.url
     } catch {
       setErr('Couldn’t open checkout — try again in a minute.')
-      setBusy(null)
+      setBusy(false)
     }
   }
 
@@ -88,47 +94,62 @@ export default function ThanksForm() {
     )
   }
 
+  // Slider owns the amount; the three chips are quick-picks that move it. Default = suggested $19.
+  const tierFor = (d: number) => (d < 15 ? TIERS[0] : d < 35 ? TIERS[1] : TIERS[2])
+  const pct = ((dollars - 1) / 99) * 100
   return (
     <>
+      <style>{SLIDER_CSS}</style>
       <h1 style={h1}>{win}</h1>
-      <p style={body}>SlotWatch is free. If it was worth something to you, chip in what it was worth.</p>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '14px' }}>
+      <p style={body}>SlotWatch is free. If it was worth something to you, slide to what it was worth.</p>
+
+      <div style={{ fontSize: '2.75rem', fontWeight: 800, color: '#f0f0f0', letterSpacing: '-0.03em', lineHeight: 1 }}>${dollars}</div>
+      <div style={{ color: '#8a8a8a', fontSize: '0.8125rem', margin: '6px 0 18px', minHeight: '1.2em' }}>
+        {tierFor(dollars).label.split(' — ')[1]} · {tierFor(dollars).note}
+      </div>
+
+      <input
+        className="sw-amt" type="range" min={1} max={100} step={1} value={dollars}
+        aria-label="Amount in dollars"
+        disabled={busy}
+        onChange={(e) => setDollars(Number(e.target.value))}
+        style={{
+          width: '100%', margin: '0 0 6px', cursor: busy ? 'default' : 'pointer', accentColor: '#e31937',
+          background: `linear-gradient(to right, #e31937 ${pct}%, #2a2a2a ${pct}%)`, height: '6px', borderRadius: '3px',
+          appearance: 'none', WebkitAppearance: 'none', outline: 'none',
+        }}
+      />
+      <div style={{ display: 'flex', justifyContent: 'space-between', color: '#4a4a4a', fontSize: '0.75rem', marginBottom: '14px' }}>
+        <span>$1</span><span>$100</span>
+      </div>
+
+      <div style={{ display: 'flex', gap: '8px', marginBottom: '16px' }}>
         {TIERS.map((tier) => {
-          const on = busy === tier.cents
+          const d = tier.cents / 100
+          const on = dollars === d
           return (
             <button
-              key={tier.cents}
-              type="button"
-              disabled={busy !== null}
-              onClick={() => void pay(tier.cents)}
+              key={tier.cents} type="button" disabled={busy} onClick={() => setDollars(d)}
               style={{
-                textAlign: 'left',
-                background: tier.suggested ? '#e31937' : '#141414',
-                border: tier.suggested ? '1px solid #e31937' : '1px solid #2a2a2a',
-                color: '#fff',
-                borderRadius: '9px',
-                padding: '13px 16px',
-                cursor: busy !== null ? 'default' : 'pointer',
-                opacity: busy !== null && !on ? 0.6 : 1,
-                fontFamily: 'inherit',
+                flex: 1, background: on ? '#e31937' : '#141414', border: on ? '1px solid #e31937' : '1px solid #2a2a2a',
+                color: on ? '#fff' : '#c8c8c8', borderRadius: '9px', padding: '10px 6px', cursor: busy ? 'default' : 'pointer', fontFamily: 'inherit',
               }}
             >
-              <span style={{ display: 'block', fontWeight: 700, fontSize: '0.9375rem' }}>{on ? 'Opening checkout…' : tier.label}</span>
-              <span style={{ display: 'block', fontSize: '0.8125rem', color: tier.suggested ? 'rgba(255,255,255,0.85)' : '#8a8a8a', marginTop: '2px' }}>{tier.note}</span>
+              <span style={{ display: 'block', fontWeight: 700, fontSize: '0.9375rem' }}>${d}{tier.suggested ? ' ✓' : ''}</span>
+              <span style={{ display: 'block', fontSize: '0.6875rem', color: on ? 'rgba(255,255,255,0.85)' : '#6b6b6b', marginTop: '2px' }}>{tier.label.split(' — ')[1]}</span>
             </button>
           )
         })}
-        <button
-          type="button"
-          disabled={busy !== null}
-          onClick={() => void pay('custom')}
-          style={{ background: 'transparent', border: '1px solid #2a2a2a', color: '#c8c8c8', borderRadius: '9px', padding: '11px 16px', cursor: busy !== null ? 'default' : 'pointer', fontFamily: 'inherit', fontSize: '0.875rem', fontWeight: 600 }}
-        >
-          {busy === 'custom' ? 'Opening checkout…' : 'Other amount'}
-        </button>
       </div>
-      {err && <p style={{ color: '#f87171', fontSize: '0.8125rem', margin: '0 0 10px' }}>{err}</p>}
-      <a href="/" style={link}>No thanks, it was free</a>
+
+      <button
+        type="button" disabled={busy} onClick={() => void pay()}
+        style={{ display: 'block', width: '100%', background: '#e31937', border: '1px solid #e31937', color: '#fff', borderRadius: '9px', padding: '13px 16px', cursor: busy ? 'default' : 'pointer', fontFamily: 'inherit', fontWeight: 700, fontSize: '0.9375rem', opacity: busy ? 0.7 : 1 }}
+      >
+        {busy ? 'Opening checkout…' : `Pay $${dollars}`}
+      </button>
+      {err && <p style={{ color: '#f87171', fontSize: '0.8125rem', margin: '10px 0 0' }}>{err}</p>}
+      <a href="/" style={{ ...link, marginTop: '8px' }}>No thanks, it was free</a>
       <p style={{ color: '#4a4a4a', fontSize: '0.8125rem', lineHeight: 1.5, margin: '18px 0 0' }}>
         SlotWatch is one person and a server. This is the only way it earns anything.
       </p>
