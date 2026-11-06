@@ -43,7 +43,7 @@ export default function ThanksForm() {
   useEffect(() => {
     const p = new URLSearchParams(window.location.search)
     const tok = p.get('t') || ''
-    const b = p.get('booked') === 'yes' ? 'yes' : 'no'
+    const b = p.get('booked') === 'no' ? 'no' : 'yes'
     setT(tok); setBooked(b); setReady(true)
     if (tok && (p.get('booked') === 'yes' || p.get('booked') === 'no')) {
       fetch(`${API}/api/thanks`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ t: tok, booked: b }) }).catch(() => {})
@@ -69,7 +69,7 @@ export default function ThanksForm() {
 
   if (!ready) return <p style={{ color: '#8a8a8a' }}>Loading…</p>
 
-  if (booked !== 'yes') {
+  if (booked === 'no') {
     return (
       <>
         <h1 style={h1}>Not yet? We&rsquo;re still watching</h1>
@@ -82,7 +82,7 @@ export default function ThanksForm() {
   const slot = shortMDY(info?.slotDate)
   const win = info && slot && info.apptLabel && info.earlierByDays != null && info.earlierByDays > 0
     ? `You moved from ${info.apptLabel} to ${slot} — ${info.earlierByDays} day${info.earlierByDays === 1 ? '' : 's'} sooner.`
-    : 'Glad it worked.'
+    : 'Glad SlotWatch helped.'
 
   if (info?.paid) {
     return (
@@ -97,13 +97,13 @@ export default function ThanksForm() {
   // Slider owns the amount; the three chips are quick-picks that move it. Default = suggested $19.
   const tierFor = (d: number) => (d < 14 ? TIERS[0] : d < 30 ? TIERS[1] : TIERS[2])
   // Rocket Money-style band: the floor is a real price, the range is narrow, default = suggested.
-  const MIN = 9, MAX = 49
+  const MIN = 1, MAX = 100
   const pct = ((dollars - MIN) / (MAX - MIN)) * 100
   return (
     <>
       <style>{SLIDER_CSS}</style>
       <h1 style={h1}>{win}</h1>
-      <p style={body}>SlotWatch is free. If it was worth something to you, slide to what it was worth.</p>
+      <p style={body}>SlotWatch is free for everyone, and stays that way. If it saved you days of waiting, chip in whatever that was worth to you &mdash; every dollar keeps it running for the next owner.</p>
 
       <div style={{ fontSize: '2.75rem', fontWeight: 800, color: '#f0f0f0', letterSpacing: '-0.03em', lineHeight: 1 }}>${dollars}</div>
       <div style={{ color: '#8a8a8a', fontSize: '0.8125rem', margin: '6px 0 18px', minHeight: '1.2em' }}>
@@ -153,7 +153,7 @@ export default function ThanksForm() {
       {err && <p style={{ color: '#f87171', fontSize: '0.8125rem', margin: '10px 0 0' }}>{err}</p>}
       <a href="/" style={{ ...link, marginTop: '8px' }}>No thanks, it was free</a>
       <p style={{ color: '#4a4a4a', fontSize: '0.8125rem', lineHeight: 1.5, margin: '18px 0 0' }}>
-        SlotWatch is one person and a server. This is the only way it earns anything.
+        SlotWatch is one person and a server. There are no ads and no fees &mdash; this is the only way it earns anything. Thank you either way.
       </p>
     </>
   )
