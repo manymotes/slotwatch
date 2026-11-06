@@ -6,7 +6,7 @@ const API = 'https://slotwatch.motesmass.workers.dev'
 const MAX = 3
 
 type Center = { trtId: number; name: string; distance?: number }
-// An opening we emailed about. Locked = qualifying (≥3 days earlier) but the exact time is behind the $19 unlock.
+// An opening we emailed about. `locked` is a legacy flag from the old unlock model — every alert now renders in full.
 type Alert = { center: string; slotDate: string; slotTime: string | null; earlierByDays: number | null; sentAt: string; locked: boolean }
 
 const input: React.CSSProperties = {
@@ -214,11 +214,11 @@ export default function AccountDashboard() {
               )}
               {successChargedAt ? (
                 <p style={{ color: '#8a8a8a', fontSize: '0.8125rem', marginTop: '6px', marginBottom: 0 }}>
-                  <strong style={{ color: '#c8c8c8' }}>Unlocked for {fee} on {fmtDate(successChargedAt)}</strong> — every alert for this watch arrives in full.
+                  <strong style={{ color: '#c8c8c8' }}>Thanks for chipping in on {fmtDate(successChargedAt)}</strong> — that keeps SlotWatch running.
                 </p>
               ) : (
                 <p style={{ color: '#8a8a8a', fontSize: '0.8125rem', marginTop: '6px', marginBottom: 0 }}>
-                  <strong style={{ color: '#c8c8c8' }}>Nothing charged</strong> — you only pay {fee} if you choose to unlock an opening we find (at least 3 days earlier).
+                  <strong style={{ color: '#c8c8c8' }}>Free — nothing charged.</strong> Every alert arrives in full; if one gets you in sooner, chip in what it was worth afterward.
                 </p>
               )}
             </>
@@ -244,25 +244,15 @@ export default function AccountDashboard() {
             {alerts.map((a, i) => (
               <li key={`${a.center}-${a.sentAt}-${i}`} style={{ fontSize: '0.875rem', lineHeight: 1.5, color: '#8a8a8a' }}>
                 <span style={{ color: '#e8e8e8', fontWeight: 600 }}>{a.center}</span>
-                {a.locked ? (
-                  <> — an opening {a.earlierByDays != null ? `${a.earlierByDays} day${a.earlierByDays === 1 ? '' : 's'}` : 'days'} before your appointment · 🔒 exact time locked</>
-                ) : (
+                {a.slotDate ? (
                   <> — <span style={{ color: '#f0f0f0' }}>{fmtSlotDate(a.slotDate)}{a.slotTime ? ` at ${a.slotTime}` : ''}</span>{a.earlierByDays != null ? ` · ${a.earlierByDays} day${a.earlierByDays === 1 ? '' : 's'} earlier` : ''}</>
+                ) : (
+                  <> — an opening {a.earlierByDays != null ? `${a.earlierByDays} day${a.earlierByDays === 1 ? '' : 's'}` : 'days'} before your appointment · details in your email</>
                 )}
                 {a.sentAt && <span style={{ color: '#5a5a5a' }}> · {relTime(a.sentAt)}</span>}
               </li>
             ))}
           </ul>
-          {unlockUrl && (
-            <>
-              <a href={unlockUrl} style={{ ...btn('#e31937'), display: 'block', textAlign: 'center', textDecoration: 'none', boxSizing: 'border-box', width: '100%', marginTop: '14px' }}>
-                Unlock the exact time — {fee}
-              </a>
-              <p style={{ color: '#5a5a5a', fontSize: '0.75rem', lineHeight: 1.5, margin: '10px 0 0' }}>
-                One-time. Once unlocked, every alert for this watch arrives in full. If the slot was already taken, email hello@slotwatcher.app within 7 days for a full refund — we keep watching either way.
-              </p>
-            </>
-          )}
         </div>
       )}
 

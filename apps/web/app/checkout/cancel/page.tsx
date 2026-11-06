@@ -34,7 +34,7 @@ const secondary: React.CSSProperties = {
 }
 
 // Default: the user backed out of a (legacy) hosted checkout.
-// ?unlock=1: the user backed out of paying the $19 unlock — their watch is unaffected.
+// ?unlock=1: the user backed out of a chip-in checkout — their watch is unaffected.
 export default function CheckoutCancelPage() {
   return (
     <div style={{
@@ -66,7 +66,7 @@ export default function CheckoutCancelPage() {
             <>
               <h1 style={h1}>Nothing was charged</h1>
               <p style={body}>
-                Your watch is still running and the opening we found is still listed in your account — unlock it any time from{' '}
+                Your watch is still running and every opening we found is listed in full in your account at{' '}
                 <Link href="/account/" style={{ color: '#e5556f', textDecoration: 'none' }}>/account/</Link>.
               </p>
               <Link href="/account/" style={primary}>Go to your account</Link>

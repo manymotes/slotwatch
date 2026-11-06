@@ -127,7 +127,7 @@ export default function CheckoutPage() {
               Continue to secure checkout
             </h1>
             <p style={{ color: '#6b6b6b', fontSize: '0.875rem', marginBottom: '32px' }}>
-              Payments are handled by Stripe. SlotWatch is free to start — no card required — and you only pay a one-time $19 to unlock the exact time of an earlier slot we find.
+              Payments are handled by Stripe. SlotWatch is free — no card, no fee. If an alert gets you an earlier appointment, you can chip in what it was worth afterward.
             </p>
             <button
               onClick={startCheckout}

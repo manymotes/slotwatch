@@ -122,7 +122,7 @@ export default function CheckEarliest({ autoRunFromQuery = false, ctaHref }: Pro
                 Earliest opening: {res.earliest.date} at {res.earliest.time}
               </p>
               <p style={{ color: '#8a8a8a', fontSize: '0.9375rem', margin: '0 0 16px', lineHeight: 1.55 }}>
-                Want something sooner? Slots open all day as people cancel. SlotWatch watches this center and emails you the moment an earlier one appears — free to start, no card required, and you only pay $19 to unlock an earlier slot we find.
+                Want something sooner? Slots open all day as people cancel. SlotWatch watches this center and emails you the moment an earlier one appears — free, no card, every alert in full. If it works, pay what it was worth.
               </p>
             </>
           ) : (

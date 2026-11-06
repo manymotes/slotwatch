@@ -140,7 +140,7 @@ export default function SignupForm() {
 
       <label style={label} htmlFor="currentApptAt">When is your current appointment?</label>
       <input style={input} id="currentApptAt" name="currentApptAt" type="date" required min={today} max={maxAppt} value={currentApptAt} onChange={(e) => setCurrentApptAt(e.target.value)} />
-      <p style={{ color: '#5a5a5a', fontSize: '0.8125rem', margin: '7px 0 0' }}>We watch from today until this date. Openings at least 3 days earlier are the ones you can unlock for $19.</p>
+      <p style={{ color: '#5a5a5a', fontSize: '0.8125rem', margin: '7px 0 0' }}>We watch from today until this date. Alerts are free and arrive in full.</p>
       <p style={{ color: '#5a5a5a', fontSize: '0.8125rem', margin: '4px 0 0' }}>Haven&rsquo;t booked yet? Book the first date Tesla offers in the app (you can always move it), then enter that date here.</p>
 
       <label style={label} htmlFor="email">Where should we email the alert?</label>
@@ -150,7 +150,7 @@ export default function SignupForm() {
         {busy === 'go' ? 'Starting…' : 'Start watching — free →'}
       </button>
       <p style={{ color: '#22c55e', fontSize: '0.8125rem', fontWeight: 600, marginTop: '12px', textAlign: 'center' }}>
-        No card required. You only pay $19 to unlock a slot we actually find (at least 3 days earlier).
+        Free — no card, no fee. If an alert gets you in sooner, chip in what it was worth afterward.
       </p>
       <p style={{ color: '#5a5a5a', fontSize: '0.8125rem', marginTop: '6px', textAlign: 'center' }}>
         Free to start · up to 3 centers · no Tesla login

@@ -2,6 +2,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import { LogoMark } from '../../../components/Logo'
 import QueryVariant from '../../../components/QueryVariant'
+import ReviewBox from '../../../components/ReviewBox'
 
 export const metadata: Metadata = {
   title: 'You’re all set — SlotWatch',
@@ -34,7 +35,8 @@ const secondary: React.CSSProperties = {
 }
 
 // Default: a new watch was just created (no card, nothing charged).
-// ?unlocked=1: Stripe sent the user back after paying the $19 unlock.
+// ?unlocked=1: Stripe sent the user back after paying the legacy unlock (old emails still link here).
+// ?thanks=1&t=TOKEN: Stripe sent the user back after a pay-what-it-was-worth chip-in.
 export default function CheckoutSuccessPage() {
   return (
     <div style={{
@@ -76,6 +78,20 @@ export default function CheckoutSuccessPage() {
           </svg>
         </div>
         <QueryVariant
+          param="thanks"
+          match={
+            <>
+              <h1 style={h1}>Thank you — that keeps SlotWatch running</h1>
+              <p style={body}>
+                Your watch keeps running until your appointment date, and every alert arrives in full.
+              </p>
+              <div style={{ marginBottom: '28px' }}><ReviewBox /></div>
+              <Link href="/account/" style={primary}>View your watch</Link>
+              <Link href="/" style={secondary}>Back to home</Link>
+            </>
+          }
+          fallback={
+        <QueryVariant
           param="unlocked"
           match={
             <>
@@ -91,11 +107,13 @@ export default function CheckoutSuccessPage() {
             <>
               <h1 style={h1}>You&rsquo;re all set — we&rsquo;re watching</h1>
               <p style={body}>
-                No card needed. When an opening at least 3 days before your appointment appears, we&rsquo;ll email you; you can unlock the exact time for $19.
+                No card, no fee. The moment an earlier opening appears we&rsquo;ll email you the center and the exact date and time. If it works, pay what it was worth.
               </p>
               <Link href="/" style={primary}>Done</Link>
               <Link href="/account/" style={secondary}>View your watch</Link>
             </>
+          }
+        />
           }
         />
       </div>

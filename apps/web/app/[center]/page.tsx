@@ -77,7 +77,7 @@ export default function CenterPage({ params }: { params: { center: string } }) {
     name: 'SlotWatch',
     applicationCategory: 'UtilitiesApplication',
     operatingSystem: 'Web',
-    offers: { '@type': 'Offer', price: '19.00', priceCurrency: 'USD', description: 'Free to start; $19 one-time to unlock an earlier slot we find' },
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', description: 'Free — no card. If it works, pay what it was worth.' },
     description: `SlotWatch monitors Tesla Service Center appointment availability across ${data.city}, ${data.stateAbbr} and emails you when an earlier slot opens.`,
     url: `https://slotwatcher.app/${data.slug}/`,
     areaServed: { '@type': 'City', name: data.city, containedInPlace: { '@type': 'State', name: data.state } },
@@ -126,19 +126,19 @@ export default function CenterPage({ params }: { params: { center: string } }) {
     },
     {
       q: 'Is there a free option?',
-      a: 'The self-hosted version on GitHub is completely free and open source. The managed service is free to start — no card required: watch up to 3 centers at no charge, and pay a one-time $19 only if you choose to unlock the exact time of an opening we find at least 3 days before your current appointment. You never connect your Tesla login.',
+      a: 'Yes — SlotWatch itself is free: no card, no fee, watch up to 3 centers, every alert in full. If an alert gets you an earlier appointment, you can chip in what it was worth afterward (suggested $19), but that’s up to you. You never connect your Tesla login. A self-hosted version is also on GitHub, free and open source.',
     },
     {
       q: 'What counts as an earlier slot?',
-      a: 'An opening at one of your watched centers at least 3 days before the appointment date you gave us. That’s the kind you can unlock: we email you which center and how many days sooner, and you choose whether to reveal the exact date and time for a one-time $19. Openings only 1–2 days earlier are always shown in full for free and never trigger the fee. A same-day slot at an earlier time doesn’t count.',
+      a: 'Any opening at one of your watched centers on an earlier day than the appointment date you gave us. We email you the center and the exact date and time, in full, free. A same-day slot at an earlier time doesn’t count.',
     },
     {
       q: 'What if I find a slot myself, or the slot is gone by the time I check?',
-      a: 'You only pay if you choose to unlock an opening we found — finding one on your own costs nothing. Cancellations do get grabbed fast, so open the Tesla app the moment you unlock. If you unlock and the slot was already taken, email hello@slotwatcher.app within 7 days for a full refund; we keep watching either way.',
+      a: 'Nothing — SlotWatch is free. Finding one on your own costs nothing, and so does an alert that didn’t work out. Cancellations do get grabbed fast, so open the Tesla app the moment an alert lands. We keep watching either way.',
     },
     {
       q: 'When do I pay?',
-      a: 'Only when we find you an earlier slot — and only if you choose to unlock it. Starting is free and needs no card. When an opening appears at least 3 days before your current appointment, we email you which center and how many days sooner. Unlock the exact date and time for a one-time $19; once unlocked, every alert for that watch arrives in full, no extra charge. Openings only 1–2 days earlier are always shown in full for free and never trigger the fee. If we never find one, you never pay.',
+      a: 'You don’t have to. SlotWatch is free: no card, no fee, every alert in full. After an alert, we’ll ask whether you managed to book it. If you did, you can chip in whatever it was worth to you — $9, $19 or $49, or any amount. If it didn’t work, you pay nothing.',
     },
   ]
   const faqSchema = JSON.stringify({
@@ -218,7 +218,7 @@ export default function CenterPage({ params }: { params: { center: string } }) {
               </button>
             </form>
             <p style={{ fontSize: '0.75rem', color: '#22c55e', fontWeight: 600, marginTop: '10px' }}>
-              Free to start — no card. You only pay $19 to unlock a slot we find.
+              Free — no card. If it works, pay what it was worth.
             </p>
             <p style={{ fontSize: '0.75rem', color: '#3a3a3a', marginTop: '4px' }}>
               No card required · up to 3 centers · no Tesla login
@@ -326,7 +326,7 @@ export default function CenterPage({ params }: { params: { center: string } }) {
           {[
             { label: 'Sign up in 30 seconds', body: 'Just your email — no card, no Tesla login, nothing to connect.' },
             { label: `Pick your ${data.city} centers`, body: `Choose up to 3 of the area's Tesla service centers and tell us your current appointment date.` },
-            { label: 'Get an email, then book', body: 'An earlier slot opens. We email you which center and how many days sooner — unlock the exact time for $19 and reschedule in the Tesla app before it fills.' },
+            { label: 'Get an email, then book', body: 'An earlier slot opens. We email you the center and the exact date and time — reschedule in the Tesla app before it fills.' },
           ].map((step) => (
             <div key={step.label} style={{ background: '#0d0d0d', padding: '32px 28px' }}>
               <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#f0f0f0', marginBottom: '10px', letterSpacing: '-0.01em' }}>{step.label}</h3>
@@ -358,7 +358,7 @@ export default function CenterPage({ params }: { params: { center: string } }) {
             <h2 style={{ fontSize: '1.375rem', fontWeight: 800, color: '#f0f0f0', letterSpacing: '-0.02em', marginBottom: '6px' }}>
               Stop waiting for a {data.city} Tesla appointment.
             </h2>
-            <p style={{ color: '#6b6b6b', fontSize: '0.9375rem' }}>Free to start — no card · pay $19 only to unlock a slot we find</p>
+            <p style={{ color: '#6b6b6b', fontSize: '0.9375rem' }}>Free — no card · if it works, pay what it was worth</p>
           </div>
           <Link href={`/start/?city=${encodeURIComponent(`${data.city}, ${data.stateAbbr}`)}`} style={{ display: 'inline-flex', alignItems: 'center', background: '#e31937', color: '#fff', textDecoration: 'none', fontWeight: 700, fontSize: '0.9375rem', padding: '13px 26px', borderRadius: '8px', whiteSpace: 'nowrap' }}>
             Start watching {data.city}
