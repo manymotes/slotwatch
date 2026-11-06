@@ -95,8 +95,10 @@ export default function ThanksForm() {
   }
 
   // Slider owns the amount; the three chips are quick-picks that move it. Default = suggested $19.
-  const tierFor = (d: number) => (d < 15 ? TIERS[0] : d < 35 ? TIERS[1] : TIERS[2])
-  const pct = ((dollars - 1) / 99) * 100
+  const tierFor = (d: number) => (d < 14 ? TIERS[0] : d < 30 ? TIERS[1] : TIERS[2])
+  // Rocket Money-style band: the floor is a real price, the range is narrow, default = suggested.
+  const MIN = 9, MAX = 49
+  const pct = ((dollars - MIN) / (MAX - MIN)) * 100
   return (
     <>
       <style>{SLIDER_CSS}</style>
@@ -109,7 +111,7 @@ export default function ThanksForm() {
       </div>
 
       <input
-        className="sw-amt" type="range" min={1} max={100} step={1} value={dollars}
+        className="sw-amt" type="range" min={MIN} max={MAX} step={1} value={dollars}
         aria-label="Amount in dollars"
         disabled={busy}
         onChange={(e) => setDollars(Number(e.target.value))}
@@ -120,7 +122,7 @@ export default function ThanksForm() {
         }}
       />
       <div style={{ display: 'flex', justifyContent: 'space-between', color: '#4a4a4a', fontSize: '0.75rem', marginBottom: '14px' }}>
-        <span>$1</span><span>$100</span>
+        <span>${MIN}</span><span>${MAX}</span>
       </div>
 
       <div style={{ display: 'flex', gap: '8px', marginBottom: '16px' }}>
