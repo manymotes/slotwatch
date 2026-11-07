@@ -84,7 +84,7 @@ If we're found liable for anything despite the above, our **total liability to y
 
 ## 9. Termination
 
-You can stop using the Service, end your watch, or cancel any optional continuation plan anytime from your account dashboard. We may suspend or end your access if you violate these Terms or if we stop offering the Service. If we discontinue the Service, we'll try to give reasonable notice. On termination, your right to use the Service ends, no unlock fee is charged after that point, and any continuation plan will not renew.
+You can stop using the Service, end your watch, or cancel any optional continuation plan anytime from your account dashboard. We may suspend or end your access if you violate these Terms or if we stop offering the Service. If we discontinue the Service, we'll try to give reasonable notice. On termination, your right to use the Service ends, nothing further is ever charged, and any continuation plan will not renew.
 
 ## 10. Changes to these Terms
 
