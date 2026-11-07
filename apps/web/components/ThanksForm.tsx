@@ -35,6 +35,7 @@ export default function ThanksForm() {
   const [t, setT] = useState('')
   const [booked, setBooked] = useState<'yes' | 'no' | null>(null)
   const [info, setInfo] = useState<Info | null>(null)
+  const [invalid, setInvalid] = useState(false)
   const [busy, setBusy] = useState(false)
   const [dollars, setDollars] = useState(19)
   const [err, setErr] = useState('')
@@ -45,11 +46,12 @@ export default function ThanksForm() {
     const tok = p.get('t') || ''
     const b = p.get('booked') === 'no' ? 'no' : 'yes'
     setT(tok); setBooked(b); setReady(true)
+    if (!tok) setInvalid(true)
     if (tok && (p.get('booked') === 'yes' || p.get('booked') === 'no')) {
       fetch(`${API}/api/thanks`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ t: tok, booked: b }) }).catch(() => {})
     }
     if (tok && b === 'yes') {
-      fetch(`${API}/api/thanks/info?t=${encodeURIComponent(tok)}`).then((r) => r.json()).then((d) => { if (d && d.ok) setInfo(d) }).catch(() => {})
+      fetch(`${API}/api/thanks/info?t=${encodeURIComponent(tok)}`).then((r) => r.json()).then((d) => { if (d && d.ok) setInfo(d); else setInvalid(true) }).catch(() => {})
     }
   }, [])
 
@@ -68,6 +70,17 @@ export default function ThanksForm() {
   }
 
   if (!ready) return <p style={{ color: '#8a8a8a' }}>Loading…</p>
+
+  if (invalid) {
+    return (
+      <>
+        <h1 style={h1}>This link isn&rsquo;t valid</h1>
+        <p style={body}>Open the link from your latest SlotWatch email, or log in to your account to see your alerts.</p>
+        <a href="/account/" style={{ display: 'block', background: '#e31937', color: '#fff', textDecoration: 'none', fontWeight: 700, fontSize: '0.9375rem', padding: '12px 20px', borderRadius: '7px' }}>Go to my account</a>
+        <a href="/" style={link}>Back to home</a>
+      </>
+    )
+  }
 
   if (booked === 'no') {
     return (
