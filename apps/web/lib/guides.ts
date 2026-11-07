@@ -694,6 +694,9 @@ As fast as you reasonably can. Open slots aren't held for you, and other owners 
 **Is it worth switching to a farther service center for an earlier slot?**
 It depends on the gain and the distance. A week or more sooner at a center 30–45 minutes away is usually a good trade, especially for repairs you can't put off. For a gain of a day or two, most people are better off staying put. When you [set up a watch](/start/), you can pick up to 3 nearby centers.
 
+**Will I get a push notification, text or email when an earlier Tesla appointment opens?**
+With Tesla's built-in standby, any alert comes through Tesla's own channels, and the details can vary by region and app version, so check what your app shows for your appointment. SlotWatch's alerts are **email only** (no SMS), and each one includes the center and the exact date and time, so you can decide in seconds whether to jump into the Tesla app and reschedule. It's free, no card, no Tesla login. If it works, pay what it was worth. [Start watching](/start/).
+
 ---
 
 Related: [how to get an earlier Tesla service appointment](/guides/how-to-get-an-earlier-tesla-service-appointment/) and [Tesla service wait times](/guides/tesla-service-wait-times/).`,
