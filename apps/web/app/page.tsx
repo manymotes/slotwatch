@@ -85,7 +85,7 @@ function CityForm({ id, size = 'lg' }: { id: string; size?: 'lg' | 'md' }) {
     <form onSubmit={submit} className="sw-cityform">
       <label htmlFor={id} style={{ position: 'absolute', width: 1, height: 1, overflow: 'hidden', clip: 'rect(0 0 0 0)' }}>Your city or ZIP</label>
       <input id={id} name="city" type="text" required value={city} onChange={(e) => setCity(e.target.value)}
-        placeholder="City or ZIP, e.g. Phoenix or 85001" autoComplete="postal-code" className="sw-input"
+        placeholder="City or ZIP" autoComplete="postal-code" className="sw-input"
         style={{ flex: '1 1 auto', minWidth: 0, padding: size === 'lg' ? '15px 18px' : '13px 16px', fontSize: size === 'lg' ? '1rem' : '0.9375rem' }} />
       <button type="submit" className={`sw-btn sw-btn-primary${size === 'lg' ? ' sw-btn-lg' : ''}`}>See what&rsquo;s open now</button>
     </form>
