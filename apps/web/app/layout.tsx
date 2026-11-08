@@ -5,7 +5,7 @@ import Analytics from '../components/Analytics'
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#080808',
+  themeColor: '#f7f5f0',
 }
 
 export const metadata: Metadata = {
@@ -62,9 +62,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
         <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32" />
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='9' fill='%23e31937'/><circle cx='15' cy='17' r='7.5' fill='none' stroke='white' stroke-width='2'/><path d='M15 17 L15 12.2' stroke='white' stroke-width='2' stroke-linecap='round'/><path d='M15 17 L18.6 18.9' stroke='white' stroke-width='2' stroke-linecap='round'/><circle cx='15' cy='17' r='1.4' fill='white'/><circle cx='24.5' cy='8.5' r='4' fill='%23e31937'/><circle cx='24.5' cy='8.5' r='2.6' fill='white'/></svg>" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       </head>

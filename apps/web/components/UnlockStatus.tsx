@@ -32,8 +32,8 @@ export default function UnlockStatus() {
     run()
   }, [])
 
-  const h1: React.CSSProperties = { fontSize: '1.375rem', fontWeight: 800, color: '#f0f0f0', marginBottom: '12px', letterSpacing: '-0.02em' }
-  const body: React.CSSProperties = { color: '#6b6b6b', fontSize: '0.9375rem', lineHeight: 1.65, marginBottom: '36px' }
+  const h1: React.CSSProperties = { fontSize: '1.375rem', fontWeight: 800, color: 'var(--ink)', marginBottom: '12px', letterSpacing: '-0.02em' }
+  const body: React.CSSProperties = { color: 'var(--muted)', fontSize: '0.9375rem', lineHeight: 1.65, marginBottom: '36px' }
 
   if (st.kind === 'checking') return (
     <>
@@ -45,7 +45,7 @@ export default function UnlockStatus() {
     <>
       <h1 style={h1}>Unlocked — the exact times are in your inbox</h1>
       <p style={body}>
-        {st.email ? <>Sent to <strong style={{ color: '#c8c8c8' }}>{st.email}</strong>. </> : null}
+        {st.email ? <>Sent to <strong style={{ color: 'var(--ink-2)' }}>{st.email}</strong>. </> : null}
         Every future alert for this watch arrives in full. Open the Tesla app → Service → Reschedule to grab it.
       </p>
     </>

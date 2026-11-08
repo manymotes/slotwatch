@@ -65,7 +65,7 @@ export default function ProofCounter({ centerNames, metro, style }: Props) {
   }, [])
 
   return (
-    <p aria-hidden={!text} style={{ minHeight: '1.4em', lineHeight: 1.4, margin: 0, fontSize: '0.875rem', color: '#6b6b6b', ...style }}>
+    <p aria-hidden={!text} style={{ minHeight: '1.4em', lineHeight: 1.4, margin: 0, fontSize: '0.875rem', color: 'var(--muted)', ...style }}>
       {text}
     </p>
   )

@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { Logo } from '../../../components/Logo'
+import SiteNav from '../../../components/SiteNav'
+import SiteFooter from '../../../components/SiteFooter'
 import Markdown from '../../../components/Markdown'
 import CheckEarliest from '../../../components/CheckEarliest'
 import { GUIDES, guideBySlug } from '../../../lib/guides'
@@ -130,20 +131,15 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
   })
 
   return (
-    <div style={{ minHeight: '100vh', background: '#080808' }}>
+    <div style={{ minHeight: '100vh' }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schema }} />
       {faqSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: faqSchema }} />}
       {howToSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: howToSchema }} />}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: breadcrumbSchema }} />
-      <nav style={{ borderBottom: '1px solid #1a1a1a' }}>
-        <div style={{ maxWidth: '1120px', margin: '0 auto', padding: '0 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '56px' }}>
-          <Logo size={28} />
-          <Link href="/start/" style={{ background: '#e31937', color: '#fff', textDecoration: 'none', fontSize: '0.8125rem', fontWeight: 600, padding: '7px 14px', borderRadius: '6px' }}>Start watching</Link>
-        </div>
-      </nav>
+      <SiteNav />
 
       <article style={{ maxWidth: '760px', margin: '0 auto', padding: '56px 24px 40px' }}>
-        <Link href="/guides/" style={{ color: '#8a8a8a', textDecoration: 'none', fontSize: '0.8125rem' }}>← All guides</Link>
+        <Link href="/guides/" style={{ color: 'var(--muted)', textDecoration: 'none', fontSize: '0.8125rem' }}>← All guides</Link>
         <div style={{ marginTop: '20px' }}>
           {/* The live lookup sits right after the intro: readers of a wait-times article want
               THEIR center's number, and that answer is the natural handoff to the watch. */}
@@ -160,14 +156,15 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
       </article>
 
       <section style={{ maxWidth: '760px', margin: '0 auto', padding: '0 24px 96px' }}>
-        <div style={{ background: '#111', border: '1px solid #1f1f1f', borderRadius: '14px', padding: '28px', textAlign: 'center' }}>
-          <p style={{ color: '#f0f0f0', fontSize: '1.125rem', fontWeight: 700, margin: '0 0 8px' }}>Let SlotWatch catch the earlier slot for you</p>
-          <p style={{ color: '#8a8a8a', fontSize: '0.9375rem', margin: '0 0 18px' }}>Free — no card · if it works, pay what it was worth · no Tesla login</p>
-          <Link href="/start/" style={{ display: 'inline-block', background: '#e31937', color: '#fff', textDecoration: 'none', fontWeight: 700, fontSize: '0.9375rem', padding: '13px 26px', borderRadius: '8px' }}>
+        <div className="sw-card" style={{ padding: '28px', textAlign: 'center' }}>
+          <p style={{ color: 'var(--ink)', fontSize: '1.125rem', fontWeight: 700, margin: '0 0 8px' }}>Let SlotWatch catch the earlier slot for you</p>
+          <p style={{ color: 'var(--muted)', fontSize: '0.9375rem', margin: '0 0 18px' }}>Free — no card · if it works, pay what it was worth · no Tesla login</p>
+          <Link href="/start/" className="sw-btn sw-btn-primary sw-btn-lg">
             Start watching — free →
           </Link>
         </div>
       </section>
+      <SiteFooter />
     </div>
   )
 }

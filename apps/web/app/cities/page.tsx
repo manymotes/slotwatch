@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { Logo } from '../../components/Logo'
+import SiteNav from '../../components/SiteNav'
+import SiteFooter from '../../components/SiteFooter'
 import { SERVICE_CENTERS } from '../../lib/service-centers'
 
 export const metadata: Metadata = {
@@ -59,29 +60,24 @@ export default function CitiesIndex() {
   })
 
   return (
-    <div style={{ minHeight: '100vh', background: '#080808' }}>
+    <div style={{ minHeight: '100vh' }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schema }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: breadcrumbSchema }} />
-      <nav style={{ borderBottom: '1px solid #1a1a1a' }}>
-        <div style={{ maxWidth: '1120px', margin: '0 auto', padding: '0 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '56px' }}>
-          <Logo size={28} />
-          <Link href="/start/" style={{ background: '#e31937', color: '#fff', textDecoration: 'none', fontSize: '0.8125rem', fontWeight: 600, padding: '7px 14px', borderRadius: '6px' }}>Start watching</Link>
-        </div>
-      </nav>
+      <SiteNav />
 
       <section style={{ maxWidth: '960px', margin: '0 auto', padding: '72px 24px 96px' }}>
-        <p style={{ fontSize: '0.6875rem', fontWeight: 700, letterSpacing: '0.14em', color: '#e31937', textTransform: 'uppercase', marginBottom: '16px' }}>Cities</p>
-        <h1 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', fontWeight: 800, letterSpacing: '-0.03em', color: '#f0f0f0', marginBottom: '16px' }}>
+        <p style={{ fontSize: '0.6875rem', fontWeight: 700, letterSpacing: '0.14em', color: 'var(--muted)', textTransform: 'uppercase', marginBottom: '16px' }}>Cities</p>
+        <h1 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', fontWeight: 800, letterSpacing: '-0.03em', color: 'var(--ink)', marginBottom: '16px' }}>
           Tesla service wait times by city
         </h1>
-        <p style={{ color: '#8a8a8a', fontSize: '1.0625rem', lineHeight: 1.6, marginBottom: '48px', maxWidth: '640px' }}>
+        <p style={{ color: 'var(--muted)', fontSize: '1.0625rem', lineHeight: 1.6, marginBottom: '48px', maxWidth: '640px' }}>
           SlotWatch tracks typical wait times and cancellation slots at {live.length} US Tesla service centers.
           Find your city below, see our{' '}
-          <Link href="/guides/tesla-service-wait-times/" style={{ color: '#e31937', textDecoration: 'none' }}>
+          <Link href="/guides/tesla-service-wait-times/" style={{ color: 'var(--accent)', textDecoration: 'none' }}>
             national wait-time breakdown
           </Link>{' '}
           for what drives the delays, or read{' '}
-          <Link href="/guides/how-to-get-an-earlier-tesla-service-appointment/" style={{ color: '#e31937', textDecoration: 'none' }}>
+          <Link href="/guides/how-to-get-an-earlier-tesla-service-appointment/" style={{ color: 'var(--accent)', textDecoration: 'none' }}>
             how to get an earlier Tesla service appointment
           </Link>{' '}
           for strategies that work anywhere.
@@ -90,10 +86,10 @@ export default function CitiesIndex() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: '32px' }}>
           {states.map((state) => (
             <div key={state}>
-              <h2 style={{ color: '#f0f0f0', fontSize: '0.9375rem', fontWeight: 700, marginBottom: '10px' }}>{state}</h2>
+              <h2 style={{ color: 'var(--ink)', fontSize: '0.9375rem', fontWeight: 700, marginBottom: '10px' }}>{state}</h2>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
                 {byState.get(state)!.map((c) => (
-                  <Link key={c.slug} href={`/${c.slug}/`} style={{ color: '#8a8a8a', textDecoration: 'none', fontSize: '0.875rem' }}>
+                  <Link key={c.slug} href={`/${c.slug}/`} style={{ color: 'var(--muted)', textDecoration: 'none', fontSize: '0.875rem' }}>
                     {c.city}
                   </Link>
                 ))}
@@ -102,6 +98,7 @@ export default function CitiesIndex() {
           ))}
         </div>
       </section>
+      <SiteFooter />
     </div>
   )
 }

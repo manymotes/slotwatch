@@ -73,30 +73,30 @@ export default function LiveAvailability({ centers, city, style }: Props) {
   }
 
   return (
-    <div style={{ background: '#0d0d0d', border: '1px solid #1e1e1e', borderRadius: '10px', padding: '20px 24px', maxWidth: '680px', ...style }}>
-      <p style={{ fontSize: '0.6875rem', fontWeight: 700, letterSpacing: '0.14em', color: '#e31937', textTransform: 'uppercase', margin: '0 0 12px' }}>
-        Live availability snapshot{asOf ? <span style={{ color: '#5a5a5a', fontWeight: 500, letterSpacing: 0, textTransform: 'none', marginLeft: '10px' }}>as of {asOf}</span> : null}
+    <div style={{ background: 'var(--surface)', border: '1px solid var(--line)', borderRadius: '10px', padding: '20px 24px', maxWidth: '680px', ...style }}>
+      <p style={{ fontSize: '0.6875rem', fontWeight: 700, letterSpacing: '0.14em', color: 'var(--muted)', textTransform: 'uppercase', margin: '0 0 12px' }}>
+        Live availability snapshot{asOf ? <span style={{ color: 'var(--muted)', fontWeight: 500, letterSpacing: 0, textTransform: 'none', marginLeft: '10px' }}>as of {asOf}</span> : null}
       </p>
       <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex', flexDirection: 'column', gap: '8px' }}>
         {rows.map((r) => (
-          <li key={r.trtId} style={{ fontSize: '0.875rem', lineHeight: 1.5, color: '#8a8a8a' }}>
-            <span style={{ color: '#e8e8e8', fontWeight: 600 }}>{r.name}</span>
+          <li key={r.trtId} style={{ fontSize: '0.875rem', lineHeight: 1.5, color: 'var(--muted)' }}>
+            <span style={{ color: 'var(--ink)', fontWeight: 600 }}>{r.name}</span>
             {' · '}
             {r.earliest ? (
-              <>earliest we can see right now: <span style={{ color: '#f0f0f0' }}>{shortDate(r.earliest.date)}, {r.earliest.time}</span> ({openingsLabel(r.openings)})</>
+              <>earliest we can see right now: <span style={{ color: 'var(--ink)' }}>{shortDate(r.earliest.date)}, {r.earliest.time}</span> ({openingsLabel(r.openings)})</>
             ) : (
               <>no openings listed right now</>
             )}
           </li>
         ))}
       </ul>
-      <p style={{ fontSize: '0.75rem', lineHeight: 1.5, color: '#5a5a5a', margin: '14px 0 0' }}>
+      <p style={{ fontSize: '0.75rem', lineHeight: 1.5, color: 'var(--muted)', margin: '14px 0 0' }}>
         A snapshot of what Tesla&rsquo;s scheduler showed at that moment, not a guarantee — slots change all day as people cancel, which is why we watch them for you.
       </p>
       <a
         href={`/start/?city=${encodeURIComponent(city)}`}
         onClick={() => track('live_availability_cta')}
-        style={{ display: 'inline-block', marginTop: '14px', color: '#e5556f', textDecoration: 'none', fontWeight: 600, fontSize: '0.875rem' }}
+        style={{ display: 'inline-block', marginTop: '14px', color: 'var(--accent)', textDecoration: 'none', fontWeight: 600, fontSize: '0.875rem' }}
       >
         Watch these centers — free, no card →
       </a>

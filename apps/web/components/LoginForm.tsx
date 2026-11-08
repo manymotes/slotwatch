@@ -5,12 +5,12 @@ import { useState } from 'react'
 const API = 'https://slotwatch.motesmass.workers.dev'
 
 const input: React.CSSProperties = {
-  width: '100%', boxSizing: 'border-box', background: '#111', border: '1px solid #2a2a2a',
-  borderRadius: '8px', color: '#f0f0f0', fontSize: '1rem', padding: '13px 16px', outline: 'none',
+  width: '100%', boxSizing: 'border-box', background: 'var(--surface)', border: '1px solid var(--line-strong)',
+  borderRadius: '8px', color: 'var(--ink)', fontSize: '1rem', padding: '13px 16px', outline: 'none',
 }
-const label: React.CSSProperties = { display: 'block', fontSize: '0.8125rem', color: '#8a8a8a', margin: '18px 0 7px', fontWeight: 500 }
+const label: React.CSSProperties = { display: 'block', fontSize: '0.8125rem', color: 'var(--ink-2)', margin: '18px 0 7px', fontWeight: 600 }
 const btn: React.CSSProperties = {
-  border: 'none', borderRadius: '8px', color: '#fff', background: '#e31937', fontWeight: 700,
+  border: 'none', borderRadius: '8px', color: '#fff', background: 'var(--accent)', fontWeight: 700,
   fontSize: '0.9375rem', padding: '13px 20px', width: '100%', marginTop: '20px', cursor: 'pointer',
 }
 
@@ -61,14 +61,14 @@ export default function LoginForm() {
           <button style={btn} disabled={busy} onClick={() => void requestCode()}>
             {busy ? 'Sending…' : 'Email me a login code'}
           </button>
-          <p style={{ color: '#5a5a5a', fontSize: '0.8125rem', marginTop: '12px' }}>
+          <p style={{ color: 'var(--muted)', fontSize: '0.8125rem', marginTop: '12px' }}>
             We&rsquo;ll email a 6-digit code to the address on your subscription.
           </p>
         </>
       ) : (
         <>
-          <p style={{ color: '#8a8a8a', fontSize: '0.9375rem', marginBottom: '4px' }}>
-            Enter the 6-digit code we sent to <strong style={{ color: '#f0f0f0' }}>{email}</strong>.
+          <p style={{ color: 'var(--muted)', fontSize: '0.9375rem', marginBottom: '4px' }}>
+            Enter the 6-digit code we sent to <strong style={{ color: 'var(--ink)' }}>{email}</strong>.
           </p>
           <label style={label}>Login code</label>
           <input aria-label="6-digit login code" style={{ ...input, letterSpacing: '0.3em', fontSize: '1.25rem' }} inputMode="numeric" maxLength={6}
@@ -76,12 +76,12 @@ export default function LoginForm() {
             onChange={(e) => setCode(e.target.value.replace(/\D/g, ''))} onKeyDown={(e) => { if (e.key === 'Enter') void verify() }} />
           <button style={btn} disabled={busy} onClick={() => void verify()}>{busy ? 'Verifying…' : 'Log in'}</button>
           <button onClick={() => { setStage('email'); setCode(''); setErr('') }}
-            style={{ background: 'none', border: 'none', color: '#8a8a8a', fontSize: '0.8125rem', marginTop: '14px', cursor: 'pointer' }}>
+            style={{ background: 'none', border: 'none', color: 'var(--muted)', fontSize: '0.8125rem', marginTop: '14px', cursor: 'pointer' }}>
             ← Use a different email
           </button>
         </>
       )}
-      {err && <p style={{ color: '#ef4444', fontSize: '0.875rem', marginTop: '12px' }}>{err}</p>}
+      {err && <p style={{ color: 'var(--accent)', fontSize: '0.875rem', marginTop: '12px' }}>{err}</p>}
     </div>
   )
 }

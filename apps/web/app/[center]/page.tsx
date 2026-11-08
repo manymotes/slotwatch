@@ -2,7 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { SERVICE_CENTERS, centerBySlug } from '@/lib/service-centers'
-import { Logo, LogoMark } from '@/components/Logo'
+import SiteNav from '@/components/SiteNav'
+import SiteFooter from '@/components/SiteFooter'
 import ProofCounter from '@/components/ProofCounter'
 import LiveAvailability from '@/components/LiveAvailability'
 
@@ -173,64 +174,56 @@ export default function CenterPage({ params }: { params: { center: string } }) {
   const siblingMetros = (sameState.length > 0 ? sameState : otherState).slice(0, 3)
 
   return (
-    <div style={{ minHeight: '100vh', background: '#080808' }}>
+    <div style={{ minHeight: '100vh' }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: appSchema }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: centersSchema }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: faqSchema }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: breadcrumbSchema }} />
 
-      {/* Nav */}
-      <nav style={{ position: 'sticky', top: 0, zIndex: 50, background: 'rgba(8,8,8,0.9)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)', borderBottom: '1px solid #1a1a1a' }}>
-        <div style={{ maxWidth: '1120px', margin: '0 auto', padding: '0 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '56px' }}>
-          <Logo size={28} />
-          <Link href={`/start/?city=${encodeURIComponent(`${data.city}, ${data.stateAbbr}`)}`} style={{ background: '#e31937', color: '#fff', textDecoration: 'none', fontSize: '0.8125rem', fontWeight: 600, padding: '7px 14px', borderRadius: '6px' }}>
-            Start watching
-          </Link>
-        </div>
-      </nav>
+      <SiteNav cta="Start watching" ctaHref={`/start/?city=${encodeURIComponent(`${data.city}, ${data.stateAbbr}`)}`} />
 
       {/* Hero */}
       <section style={{ maxWidth: '1120px', margin: '0 auto', padding: '80px 24px 56px' }}>
         <div style={{ maxWidth: '640px' }}>
-          <p style={{ fontSize: '0.6875rem', fontWeight: 700, letterSpacing: '0.14em', color: '#e31937', textTransform: 'uppercase', marginBottom: '20px' }}>
+          <p style={{ fontSize: '0.6875rem', fontWeight: 700, letterSpacing: '0.14em', color: 'var(--muted)', textTransform: 'uppercase', marginBottom: '20px' }}>
             Tesla Service — {data.city}, {data.stateAbbr}
           </p>
-          <h1 style={{ fontSize: 'clamp(2rem, 5vw, 3.25rem)', fontWeight: 800, lineHeight: 1.1, letterSpacing: '-0.03em', color: '#f0f0f0', textWrap: 'balance' as never, marginBottom: '20px' }}>
+          <h1 style={{ fontSize: 'clamp(2rem, 5vw, 3.25rem)', fontWeight: 800, lineHeight: 1.1, letterSpacing: '-0.03em', color: 'var(--ink)', textWrap: 'balance' as never, marginBottom: '20px' }}>
             Earlier Tesla service appointments in {data.city}
           </h1>
-          <p style={{ fontSize: '1.0625rem', lineHeight: 1.65, color: '#8a8a8a', marginBottom: '12px', maxWidth: '520px' }}>
+          <p style={{ fontSize: '1.0625rem', lineHeight: 1.65, color: 'var(--muted)', marginBottom: '12px', maxWidth: '520px' }}>
             Tesla service wait times in {data.city} can stretch weeks — but earlier slots open all day as people cancel and reschedule. SlotWatch watches {n === 1 ? 'the local center' : `all ${n} ${data.city}-area centers`} and emails you the moment a sooner opening appears, so you can grab it before it fills.
           </p>
-          <p style={{ fontSize: '0.9375rem', lineHeight: 1.6, color: '#5a5a5a', marginBottom: '36px', maxWidth: '520px' }}>
+          <p style={{ fontSize: '0.9375rem', lineHeight: 1.6, color: 'var(--muted)', marginBottom: '36px', maxWidth: '520px' }}>
             No refreshing the Tesla app. No Tesla login. Just an email when a real earlier slot opens.
           </p>
 
           {/* Email CTA */}
-          <div style={{ background: '#0d0d0d', border: '1px solid #1e1e1e', borderRadius: '10px', padding: '24px', maxWidth: '480px', marginBottom: '20px' }}>
-            <p style={{ fontSize: '0.8125rem', fontWeight: 600, color: '#e8e8e8', marginBottom: '14px', letterSpacing: '-0.01em' }}>
+          <div className="sw-card" style={{ padding: '24px', maxWidth: '480px', marginBottom: '20px' }}>
+            <p style={{ fontSize: '0.8125rem', fontWeight: 600, color: 'var(--ink)', marginBottom: '14px', letterSpacing: '-0.01em' }}>
               Get alerted when a {data.city} slot opens
             </p>
             <form action="/start/" method="GET" style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
               <input type="hidden" name="city" value={`${data.city}, ${data.stateAbbr}`} />
-              <input type="email" name="email" required placeholder="your@email.com" style={{ flex: '1 1 200px', background: '#161616', border: '1px solid #2a2a2a', borderRadius: '6px', color: '#f0f0f0', fontSize: '0.875rem', padding: '10px 14px', outline: 'none', minWidth: 0 }} />
-              <button type="submit" style={{ background: '#e31937', color: '#fff', fontWeight: 700, fontSize: '0.875rem', border: 'none', borderRadius: '6px', padding: '10px 18px', cursor: 'pointer', whiteSpace: 'nowrap', flexShrink: 0 }}>
+              <input type="email" name="email" required placeholder="your@email.com" className="sw-input" style={{ flex: '1 1 200px', width: 'auto', minWidth: 0, padding: '11px 14px', fontSize: '0.9375rem' }} />
+              <button type="submit" className="sw-btn sw-btn-primary" style={{ flexShrink: 0 }}>
                 Watch {data.city}
               </button>
             </form>
-            <p style={{ fontSize: '0.75rem', color: '#22c55e', fontWeight: 600, marginTop: '10px' }}>
+            <p style={{ fontSize: '0.8125rem', color: 'var(--muted)', fontWeight: 500, marginTop: '10px' }}>
               Free — no card. If it works, pay what it was worth.
             </p>
-            <p style={{ fontSize: '0.75rem', color: '#3a3a3a', marginTop: '4px' }}>
+            <p style={{ fontSize: '0.75rem', color: 'var(--muted)', marginTop: '4px' }}>
               No card required · up to 3 centers · no Tesla login
             </p>
           </div>
           {/* Local proof — real openings detected at this metro's centers; renders nothing if none */}
-          <ProofCounter metro={data.city} centerNames={data.centers.map((c) => c.name)} style={{ fontSize: '0.875rem', color: '#6b6b6b' }} />
+          <ProofCounter metro={data.city} centerNames={data.centers.map((c) => c.name)} style={{ fontSize: '0.875rem', color: 'var(--muted)' }} />
         </div>
       </section>
 
       {/* Stats bar — real numbers only */}
-      <div style={{ borderTop: '1px solid #1a1a1a', borderBottom: '1px solid #1a1a1a' }}>
+      <div style={{ borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)' }}>
         <div style={{ maxWidth: '1120px', margin: '0 auto', padding: '0 24px', display: 'flex', flexWrap: 'wrap', gap: '0', overflowX: 'auto' }}>
           {[
             { label: `Tesla ${centerWord} in area`, value: n.toString() },
@@ -238,9 +231,9 @@ export default function CenterPage({ params }: { params: { center: string } }) {
             { label: 'Check interval', value: '5 min' },
             { label: 'Alerts', value: 'Email' },
           ].map((stat, i, arr) => (
-            <div key={stat.label} style={{ padding: '28px 40px 28px 0', marginRight: i < arr.length - 1 ? '40px' : 0, borderRight: i < arr.length - 1 ? '1px solid #1a1a1a' : 'none', flexShrink: 0 }}>
-              <p style={{ fontSize: '1.75rem', fontWeight: 800, color: '#f0f0f0', letterSpacing: '-0.03em', fontVariantNumeric: 'tabular-nums', marginBottom: '4px' }}>{stat.value}</p>
-              <p style={{ fontSize: '0.8125rem', color: '#3a3a3a', letterSpacing: '0.01em' }}>{stat.label}</p>
+            <div key={stat.label} style={{ padding: '28px 40px 28px 0', marginRight: i < arr.length - 1 ? '40px' : 0, borderRight: i < arr.length - 1 ? '1px solid var(--line)' : 'none', flexShrink: 0 }}>
+              <p style={{ fontSize: '1.75rem', fontWeight: 800, color: 'var(--ink)', letterSpacing: '-0.03em', fontVariantNumeric: 'tabular-nums', marginBottom: '4px' }}>{stat.value}</p>
+              <p style={{ fontSize: '0.8125rem', color: 'var(--muted)', letterSpacing: '0.01em' }}>{stat.label}</p>
             </div>
           ))}
         </div>
@@ -248,19 +241,19 @@ export default function CenterPage({ params }: { params: { center: string } }) {
 
       {/* Real service centers — the substantive, unique local content */}
       <section style={{ maxWidth: '1120px', margin: '0 auto', padding: '72px 24px' }}>
-        <h2 style={{ fontSize: '1.5rem', fontWeight: 800, letterSpacing: '-0.02em', color: '#f0f0f0', marginBottom: '10px' }}>
+        <h2 style={{ fontSize: '1.5rem', fontWeight: 800, letterSpacing: '-0.02em', color: 'var(--ink)', marginBottom: '10px' }}>
           Tesla service centers in {data.city}
         </h2>
-        <p style={{ fontSize: '1rem', color: '#6b6b6b', lineHeight: 1.6, marginBottom: '32px', maxWidth: '620px' }}>
+        <p style={{ fontSize: '1rem', color: 'var(--muted)', lineHeight: 1.6, marginBottom: '32px', maxWidth: '620px' }}>
           {n === 1 ? 'This is the Tesla-owned service center' : `These are the ${n} Tesla-owned service centers`} in the {data.city} area. Pick the one nearest you (or watch several at once) and SlotWatch will email you when an earlier appointment opens at any of them.
         </p>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1px', background: '#1a1a1a', borderRadius: '12px', overflow: 'hidden' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1px', background: 'var(--line)', borderRadius: '12px', overflow: 'hidden' }}>
           {data.centers.map((c) => (
-            <div key={c.name + c.zip} style={{ background: '#0d0d0d', padding: '22px 24px' }}>
-              <h3 style={{ fontSize: '0.95rem', fontWeight: 700, color: '#f0f0f0', marginBottom: '8px', letterSpacing: '-0.01em' }}>
+            <div key={c.name + c.zip} style={{ background: 'var(--surface)', padding: '22px 24px' }}>
+              <h3 style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--ink)', marginBottom: '8px', letterSpacing: '-0.01em' }}>
                 {c.name}
               </h3>
-              <p style={{ fontSize: '0.875rem', lineHeight: 1.5, color: '#6b6b6b', margin: 0 }}>
+              <p style={{ fontSize: '0.875rem', lineHeight: 1.5, color: 'var(--muted)', margin: 0 }}>
                 {c.street}<br />
                 {c.city}, {data.stateAbbr} {c.zip}
               </p>
@@ -272,12 +265,12 @@ export default function CenterPage({ params }: { params: { center: string } }) {
         <LiveAvailability centers={data.centers} city={`${data.city}, ${data.stateAbbr}`} style={{ marginTop: '28px' }} />
 
         {data.localNote && (
-          <p style={{ fontSize: '0.9375rem', lineHeight: 1.7, color: '#8a8a8a', marginTop: '24px', maxWidth: '680px', background: '#0d0d0d', border: '1px solid #1a1a1a', borderRadius: '10px', padding: '18px 20px' }}>
+          <p style={{ fontSize: '0.9375rem', lineHeight: 1.7, color: 'var(--muted)', marginTop: '24px', maxWidth: '680px', background: 'var(--surface)', border: '1px solid var(--line)', borderRadius: '10px', padding: '18px 20px' }}>
             {data.localNote}
           </p>
         )}
 
-        <p style={{ fontSize: '0.95rem', lineHeight: 1.7, color: '#6b6b6b', marginTop: '28px', maxWidth: '680px' }}>
+        <p style={{ fontSize: '0.95rem', lineHeight: 1.7, color: 'var(--muted)', marginTop: '28px', maxWidth: '680px' }}>
           {n === 1 ? (
             <>With just one Tesla-owned center covering the whole {data.city} area, an earlier opening can fill within minutes of appearing. Tesla&apos;s own advice is to keep checking and grab whatever opens first — SlotWatch automates exactly that.</>
           ) : (
@@ -289,28 +282,28 @@ export default function CenterPage({ params }: { params: { center: string } }) {
               {siblingMetros.map((c, i) => (
                 <span key={c.slug}>
                   {i > 0 && (i === siblingMetros.length - 1 ? (siblingMetros.length > 2 ? ', or ' : ' or ') : ', ')}
-                  <Link href={`/${c.slug}/`} style={{ color: '#e5556f', textDecoration: 'none' }}>{c.city}</Link>
+                  <Link href={`/${c.slug}/`} style={{ color: 'var(--accent)', textDecoration: 'none' }}>{c.city}</Link>
                 </span>
               ))}
               , we watch those Tesla service centers too.
             </>
           )}{' '}
           For the bigger picture on why Tesla service books out nationally, see our{' '}
-          <Link href="/guides/tesla-service-wait-times/" style={{ color: '#e5556f', textDecoration: 'none' }}>
+          <Link href="/guides/tesla-service-wait-times/" style={{ color: 'var(--accent)', textDecoration: 'none' }}>
             breakdown of Tesla service wait times
           </Link>{' '}
           — or for concrete tactics that can move your date up (not just watching {data.city}), read our guide on{' '}
-          <Link href="/guides/how-to-get-an-earlier-tesla-service-appointment/" style={{ color: '#e5556f', textDecoration: 'none' }}>
+          <Link href="/guides/how-to-get-an-earlier-tesla-service-appointment/" style={{ color: 'var(--accent)', textDecoration: 'none' }}>
             how to get an earlier Tesla service appointment
           </Link>. And if you&apos;re wondering whether an early or after-hours drop-off gets you seen sooner in {data.city}, it doesn&apos;t —{' '}
-          <Link href="/guides/can-i-drop-off-my-tesla-early-for-service/" style={{ color: '#e5556f', textDecoration: 'none' }}>
+          <Link href="/guides/can-i-drop-off-my-tesla-early-for-service/" style={{ color: 'var(--accent)', textDecoration: 'none' }}>
             here&apos;s why, and what actually works instead
           </Link>. Curious exactly why a {data.city} slot frees up in the first place?{' '}
-          <Link href="/guides/tesla-service-cancellation-slots/" style={{ color: '#e5556f', textDecoration: 'none' }}>
+          <Link href="/guides/tesla-service-cancellation-slots/" style={{ color: 'var(--accent)', textDecoration: 'none' }}>
             Here&apos;s how cancellation slots actually open up
           </Link>{' '}
           — and how fast they tend to get grabbed. Already have a {data.city} appointment booked?{' '}
-          <Link href="/guides/tesla-earlier-appointment-notification-vs-slotwatch/" style={{ color: '#e5556f', textDecoration: 'none' }}>
+          <Link href="/guides/tesla-earlier-appointment-notification-vs-slotwatch/" style={{ color: 'var(--accent)', textDecoration: 'none' }}>
             See how earlier-appointment notifications work and what SlotWatch adds
           </Link>{' '}
           {n > 1 ? `— including watching up to 3 of the ${n} ${data.city}-area centers at once` : '— including watching up to 3 centers at once'}.
@@ -319,18 +312,18 @@ export default function CenterPage({ params }: { params: { center: string } }) {
 
       {/* How it works */}
       <section style={{ maxWidth: '1120px', margin: '0 auto', padding: '0 24px 72px' }}>
-        <h2 style={{ fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.14em', color: '#3a3a3a', textTransform: 'uppercase', marginBottom: '36px' }}>
+        <h2 style={{ fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.14em', color: 'var(--muted)', textTransform: 'uppercase', marginBottom: '36px' }}>
           How it works
         </h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '2px', background: '#1a1a1a', borderRadius: '12px', overflow: 'hidden' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '2px', background: 'var(--line)', borderRadius: '12px', overflow: 'hidden' }}>
           {[
             { label: 'Sign up in 30 seconds', body: 'Just your email — no card, no Tesla login, nothing to connect.' },
             { label: `Pick your ${data.city} centers`, body: `Choose up to 3 of the area's Tesla service centers and tell us your current appointment date.` },
             { label: 'Get an email, then book', body: 'An earlier slot opens. We email you the center and the exact date and time — reschedule in the Tesla app before it fills.' },
           ].map((step) => (
-            <div key={step.label} style={{ background: '#0d0d0d', padding: '32px 28px' }}>
-              <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#f0f0f0', marginBottom: '10px', letterSpacing: '-0.01em' }}>{step.label}</h3>
-              <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: '#6b6b6b' }}>{step.body}</p>
+            <div key={step.label} style={{ background: 'var(--surface)', padding: '32px 28px' }}>
+              <h3 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--ink)', marginBottom: '10px', letterSpacing: '-0.01em' }}>{step.label}</h3>
+              <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'var(--muted)' }}>{step.body}</p>
             </div>
           ))}
         </div>
@@ -338,59 +331,52 @@ export default function CenterPage({ params }: { params: { center: string } }) {
 
       {/* Local FAQ */}
       <section style={{ maxWidth: '1120px', margin: '0 auto', padding: '0 24px 72px' }}>
-        <h2 style={{ fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.14em', color: '#3a3a3a', textTransform: 'uppercase', marginBottom: '36px' }}>
+        <h2 style={{ fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.14em', color: 'var(--muted)', textTransform: 'uppercase', marginBottom: '36px' }}>
           Frequently asked — {data.city}
         </h2>
-        <div style={{ maxWidth: '680px', display: 'flex', flexDirection: 'column', gap: '1px', background: '#1e1e1e', borderRadius: '10px', overflow: 'hidden' }}>
+        <div style={{ maxWidth: '680px', display: 'flex', flexDirection: 'column', gap: '1px', background: 'var(--line)', borderRadius: '10px', overflow: 'hidden' }}>
           {localFaqs.map((faq) => (
-            <div key={faq.q} style={{ background: '#0d0d0d', padding: '24px' }}>
-              <p style={{ fontWeight: 600, color: '#e8e8e8', marginBottom: '8px', fontSize: '0.9375rem' }}>{faq.q}</p>
-              <p style={{ color: '#6b6b6b', fontSize: '0.9rem', lineHeight: 1.65, margin: 0 }}>{faq.a}</p>
+            <div key={faq.q} style={{ background: 'var(--surface)', padding: '24px' }}>
+              <p style={{ fontWeight: 600, color: 'var(--ink)', marginBottom: '8px', fontSize: '0.9375rem' }}>{faq.q}</p>
+              <p style={{ color: 'var(--muted)', fontSize: '0.9rem', lineHeight: 1.65, margin: 0 }}>{faq.a}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* CTA band */}
-      <div style={{ borderTop: '1px solid #1a1a1a', borderBottom: '1px solid #1a1a1a' }}>
+      <div style={{ borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)' }}>
         <div style={{ maxWidth: '1120px', margin: '0 auto', padding: '64px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '24px' }}>
           <div>
-            <h2 style={{ fontSize: '1.375rem', fontWeight: 800, color: '#f0f0f0', letterSpacing: '-0.02em', marginBottom: '6px' }}>
+            <h2 style={{ fontSize: '1.375rem', fontWeight: 800, color: 'var(--ink)', letterSpacing: '-0.02em', marginBottom: '6px' }}>
               Stop waiting for a {data.city} Tesla appointment.
             </h2>
-            <p style={{ color: '#6b6b6b', fontSize: '0.9375rem' }}>Free — no card · if it works, pay what it was worth</p>
+            <p style={{ color: 'var(--muted)', fontSize: '0.9375rem' }}>Free — no card · if it works, pay what it was worth</p>
           </div>
-          <Link href={`/start/?city=${encodeURIComponent(`${data.city}, ${data.stateAbbr}`)}`} style={{ display: 'inline-flex', alignItems: 'center', background: '#e31937', color: '#fff', textDecoration: 'none', fontWeight: 700, fontSize: '0.9375rem', padding: '13px 26px', borderRadius: '8px', whiteSpace: 'nowrap' }}>
+          <Link href={`/start/?city=${encodeURIComponent(`${data.city}, ${data.stateAbbr}`)}`} className="sw-btn sw-btn-primary sw-btn-lg">
             Start watching {data.city}
           </Link>
         </div>
       </div>
 
       {/* Other areas */}
-      <section style={{ maxWidth: '1120px', margin: '0 auto', padding: '48px 24px 64px', borderTop: '1px solid #0f0f0f' }}>
-        <h2 style={{ fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.14em', color: '#3a3a3a', textTransform: 'uppercase', marginBottom: '24px' }}>
+      <section style={{ maxWidth: '1120px', margin: '0 auto', padding: '48px 24px 64px', borderTop: '1px solid var(--line)' }}>
+        <h2 style={{ fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.14em', color: 'var(--muted)', textTransform: 'uppercase', marginBottom: '24px' }}>
           SlotWatch in other areas
         </h2>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
           {otherAreas.map((c) => (
-            <Link key={c.slug} href={`/${c.slug}/`} style={{ background: '#0d0d0d', border: '1px solid #1e1e1e', color: '#6b6b6b', textDecoration: 'none', fontSize: '0.8125rem', padding: '6px 13px', borderRadius: '6px' }}>
+            <Link key={c.slug} href={`/${c.slug}/`} style={{ background: 'var(--surface)', border: '1px solid var(--line)', color: 'var(--muted)', textDecoration: 'none', fontSize: '0.8125rem', padding: '6px 13px', borderRadius: '6px' }}>
               {c.city}, {c.stateAbbr}
             </Link>
           ))}
-          <Link href="/cities/" style={{ background: '#0d0d0d', border: '1px solid #2a1519', color: '#e5556f', textDecoration: 'none', fontSize: '0.8125rem', padding: '6px 13px', borderRadius: '6px' }}>
+          <Link href="/cities/" style={{ background: 'var(--surface)', border: '1px solid var(--line-strong)', color: 'var(--ink)', fontWeight: 600, textDecoration: 'none', fontSize: '0.8125rem', padding: '6px 13px', borderRadius: '6px' }}>
             All cities →
           </Link>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer style={{ borderTop: '1px solid #1a1a1a', maxWidth: '1120px', margin: '0 auto', padding: '28px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px' }}>
-        <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <LogoMark size={22} />
-          <span style={{ color: '#3a3a3a', fontSize: '0.8125rem' }}>SlotWatch</span>
-        </Link>
-        <span style={{ color: '#2a2a2a', fontSize: '0.8125rem' }}>Not affiliated with Tesla, Inc.</span>
-      </footer>
+      <SiteFooter />
     </div>
   )
 }

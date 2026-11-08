@@ -47,7 +47,7 @@ export default function CheckoutPage() {
   return (
     <div style={{
       minHeight: '100vh',
-      background: '#080808',
+      background: 'var(--bg)',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
@@ -57,12 +57,13 @@ export default function CheckoutPage() {
       {/* Logo */}
       <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '64px' }}>
         <LogoMark size={28} />
-        <span style={{ color: '#f0f0f0', fontWeight: 600, fontSize: '0.9375rem' }}>SlotWatch</span>
+        <span style={{ color: 'var(--ink)', fontWeight: 600, fontSize: '0.9375rem' }}>SlotWatch</span>
       </Link>
 
       <div style={{
-        background: '#0d0d0d',
-        border: '1px solid #1e1e1e',
+        background: 'var(--surface)',
+        border: '1px solid var(--line)',
+        boxShadow: 'var(--shadow)',
         borderRadius: '14px',
         padding: '48px',
         width: '100%',
@@ -72,10 +73,10 @@ export default function CheckoutPage() {
         {state === 'loading' && (
           <>
             <Spinner />
-            <h1 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#f0f0f0', marginTop: '24px', marginBottom: '8px', letterSpacing: '-0.02em' }}>
+            <h1 style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--ink)', marginTop: '24px', marginBottom: '8px', letterSpacing: '-0.02em' }}>
               Preparing checkout
             </h1>
-            <p style={{ color: '#6b6b6b', fontSize: '0.9375rem', lineHeight: 1.6 }}>
+            <p style={{ color: 'var(--muted)', fontSize: '0.9375rem', lineHeight: 1.6 }}>
               Redirecting to Stripe&rsquo;s secure checkout.
             </p>
           </>
@@ -83,18 +84,18 @@ export default function CheckoutPage() {
 
         {state === 'error' && (
           <>
-            <div style={{ color: '#e31937', marginBottom: '20px', fontSize: '32px' }}>!</div>
-            <h1 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#f0f0f0', marginBottom: '12px', letterSpacing: '-0.02em' }}>
+            <div style={{ color: 'var(--accent)', marginBottom: '20px', fontSize: '32px' }}>!</div>
+            <h1 style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--ink)', marginBottom: '12px', letterSpacing: '-0.02em' }}>
               Checkout failed
             </h1>
-            <p style={{ color: '#6b6b6b', fontSize: '0.9375rem', lineHeight: 1.6, marginBottom: '32px' }}>
+            <p style={{ color: 'var(--muted)', fontSize: '0.9375rem', lineHeight: 1.6, marginBottom: '32px' }}>
               {error ?? 'An unexpected error occurred. Please try again.'}
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
               <button
                 onClick={startCheckout}
                 style={{
-                  background: '#e31937',
+                  background: 'var(--accent)',
                   color: '#fff',
                   border: 'none',
                   fontWeight: 700,
@@ -110,7 +111,7 @@ export default function CheckoutPage() {
               </button>
               <Link href="/" style={{
                 display: 'block',
-                color: '#6b6b6b',
+                color: 'var(--muted)',
                 textDecoration: 'none',
                 fontSize: '0.875rem',
                 padding: '8px',
@@ -123,16 +124,16 @@ export default function CheckoutPage() {
 
         {state === 'idle' && (
           <>
-            <h1 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#f0f0f0', marginBottom: '12px', letterSpacing: '-0.02em' }}>
+            <h1 style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--ink)', marginBottom: '12px', letterSpacing: '-0.02em' }}>
               Continue to secure checkout
             </h1>
-            <p style={{ color: '#6b6b6b', fontSize: '0.875rem', marginBottom: '32px' }}>
+            <p style={{ color: 'var(--muted)', fontSize: '0.875rem', marginBottom: '32px' }}>
               Payments are handled by Stripe. SlotWatch is free — no card, no fee. If an alert gets you an earlier appointment, you can chip in what it was worth afterward.
             </p>
             <button
               onClick={startCheckout}
               style={{
-                background: '#e31937',
+                background: 'var(--accent)',
                 color: '#fff',
                 border: 'none',
                 fontWeight: 700,
@@ -150,7 +151,7 @@ export default function CheckoutPage() {
         )}
       </div>
 
-      <p style={{ marginTop: '32px', color: '#3a3a3a', fontSize: '0.8125rem', textAlign: 'center' }}>
+      <p style={{ marginTop: '32px', color: 'var(--muted)', fontSize: '0.8125rem', textAlign: 'center' }}>
         Secured by Stripe. Not affiliated with Tesla, Inc.
       </p>
     </div>
@@ -166,8 +167,8 @@ function Spinner() {
         width: '40px',
         height: '40px',
         margin: '0 auto',
-        border: '2px solid #1e1e1e',
-        borderTopColor: '#e31937',
+        border: '2px solid var(--line)',
+        borderTopColor: 'var(--accent)',
         borderRadius: '50%',
         animation: 'spin 0.7s linear infinite',
       }}

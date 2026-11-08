@@ -1,690 +1,274 @@
 'use client'
 
 import Link from 'next/link'
-import { useState, useRef, FormEvent } from 'react'
-import { Logo, LogoMark } from '../components/Logo'
+import { useEffect, useState, type FormEvent } from 'react'
+import SiteNav from '../components/SiteNav'
+import SiteFooter from '../components/SiteFooter'
 import CheckEarliest from '../components/CheckEarliest'
-import ProofCounter from '../components/ProofCounter'
 
-// ── Icons (inline SVG, no external deps) ──────────────────────────────────────
+const API = 'https://slotwatch.motesmass.workers.dev'
 
-function IconKey() {
-  return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <circle cx="7.5" cy="15.5" r="4.5" />
-      <path d="M21 8.5l-4.5 4.5M21 8.5L19 6.5M16.5 11.5L15 10" />
-      <path d="M12 12l-1 1" />
-    </svg>
-  )
-}
+// ── Copy ──────────────────────────────────────────────────────────────────────
 
-function IconTarget() {
-  return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <circle cx="12" cy="12" r="10" />
-      <circle cx="12" cy="12" r="4" />
-      <line x1="12" y1="2" x2="12" y2="4" />
-      <line x1="12" y1="20" x2="12" y2="22" />
-      <line x1="2" y1="12" x2="4" y2="12" />
-      <line x1="20" y1="12" x2="22" y2="12" />
-    </svg>
-  )
-}
-
-function IconBell() {
-  return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-      <path d="M13.73 21a2 2 0 0 1-3.46 0" />
-    </svg>
-  )
-}
-
-function IconGithub() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z" />
-    </svg>
-  )
-}
-
-function IconCheck() {
-  return (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <polyline points="20 6 9 17 4 12" />
-    </svg>
-  )
-}
-
-function IconChevron({ open }: { open: boolean }) {
-  return (
-    <svg
-      width="18"
-      height="18"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-      style={{ transform: open ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.25s ease' }}
-    >
-      <polyline points="6 9 12 15 18 9" />
-    </svg>
-  )
-}
-
-// ── Accordion ─────────────────────────────────────────────────────────────────
-
-type FAQItem = { q: string; a: string }
-
-function Accordion({ items }: { items: FAQItem[] }) {
-  const [open, setOpen] = useState<number | null>(null)
-
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '1px', background: '#1e1e1e', borderRadius: '10px', overflow: 'hidden' }}>
-      {items.map((item, i) => (
-        <div key={i} style={{ background: '#0d0d0d' }}>
-          <button
-            onClick={() => setOpen(open === i ? null : i)}
-            aria-expanded={open === i}
-            style={{
-              width: '100%',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              padding: '20px 24px',
-              background: 'none',
-              border: 'none',
-              cursor: 'pointer',
-              color: '#f0f0f0',
-              fontSize: '1rem',
-              fontWeight: 500,
-              textAlign: 'left',
-              gap: '16px',
-            }}
-          >
-            <span>{item.q}</span>
-            <span style={{ flexShrink: 0, color: '#6b6b6b' }}>
-              <IconChevron open={open === i} />
-            </span>
-          </button>
-          <div
-            style={{
-              maxHeight: open === i ? '400px' : '0',
-              overflow: 'hidden',
-              transition: 'max-height 0.3s ease',
-            }}
-          >
-            <p style={{
-              padding: '0 24px 20px',
-              color: '#8a8a8a',
-              lineHeight: 1.7,
-              margin: 0,
-              fontSize: '0.9375rem',
-            }}>
-              {item.a}
-            </p>
-          </div>
-        </div>
-      ))}
-    </div>
-  )
-}
-
-// ── Email Capture ─────────────────────────────────────────────────────────────
-
-function EmailCapture() {
-  const [email, setEmail] = useState('')
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
-  const inputRef = useRef<HTMLInputElement>(null)
-
-  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault()
-    if (!email.trim()) return
-    // Value first: the city/ZIP lands on /start with the live earliest-slot result and the
-    // nearest center pre-selected, so the only things left to type are a date and an email.
-    window.location.href = '/start/?city=' + encodeURIComponent(email.trim())
-  }
-
-  if (status === 'success') {
-    return (
-      <p style={{
-        color: '#22c55e',
-        fontWeight: 600,
-        fontSize: '1rem',
-        padding: '14px 0',
-        display: 'flex',
-        alignItems: 'center',
-        gap: '8px',
-      }}>
-        <span aria-hidden="true">✓</span> We&apos;ll be in touch at {email}
-      </p>
-    )
-  }
-
-  return (
-    <form onSubmit={handleSubmit} style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', alignItems: 'flex-end' }}>
-      <div style={{ position: 'relative', flex: '1 1 260px' }}>
-        <label htmlFor="hero-city" style={{ display: 'block', fontSize: '0.8125rem', color: '#8a8a8a', fontWeight: 500, marginBottom: '7px' }}>Your city or ZIP</label>
-        <input
-          id="hero-city"
-          name="city"
-          ref={inputRef}
-          type="text"
-          required
-          value={email}
-          onChange={(e) => { setEmail(e.target.value); if (status === 'error') setStatus('idle') }}
-          placeholder="Your city or ZIP"
-          style={{
-            width: '100%',
-            boxSizing: 'border-box',
-            background: '#111',
-            border: '1px solid #2a2a2a',
-            borderRadius: '8px',
-            color: '#f0f0f0',
-            fontSize: '1rem',
-            padding: '14px 18px',
-            outline: 'none',
-            transition: 'border-color 0.15s, box-shadow 0.15s',
-          }}
-          onFocus={(e) => {
-            e.currentTarget.style.borderColor = '#e31937'
-            e.currentTarget.style.boxShadow = '0 0 0 3px rgba(227,25,55,0.18)'
-          }}
-          onBlur={(e) => {
-            e.currentTarget.style.borderColor = '#2a2a2a'
-            e.currentTarget.style.boxShadow = 'none'
-          }}
-        />
-      </div>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-        <button
-          type="submit"
-          disabled={status === 'loading'}
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            background: status === 'loading' ? '#b5142c' : '#e31937',
-            color: '#fff',
-            border: 'none',
-            cursor: status === 'loading' ? 'wait' : 'pointer',
-            fontWeight: 700,
-            fontSize: '1rem',
-            padding: '14px 24px',
-            borderRadius: '8px',
-            letterSpacing: '-0.01em',
-            transition: 'background 0.15s',
-            whiteSpace: 'nowrap',
-          }}
-          onMouseEnter={(e) => { if (status !== 'loading') e.currentTarget.style.background = '#c4152f' }}
-          onMouseLeave={(e) => { if (status !== 'loading') e.currentTarget.style.background = '#e31937' }}
-        >
-          {status === 'loading' ? 'Checking…' : 'See the earliest slot →'}
-        </button>
-        {status === 'error' && (
-          <p style={{ color: '#ef4444', fontSize: '0.8125rem', margin: 0 }}>
-            Something went wrong — try again
-          </p>
-        )}
-      </div>
-    </form>
-  )
-}
-
-// ── Page ──────────────────────────────────────────────────────────────────────
-
-const faqs: FAQItem[] = [
+const faqs: { q: string; a: string }[] = [
   {
     q: 'Do I need to connect my Tesla account?',
     a: 'No. You never connect your Tesla account, and we never ask for your login or password. You just tell us which service center to watch and where to email you. When an earlier opening appears, you reschedule it yourself in the Tesla app.',
   },
   {
-    q: 'How does pricing work — what do I pay?',
-    a: 'Free — no card, no fee. Enter up to 3 service centers, your current appointment date, and your email, and we start watching immediately. Every alert arrives in full: which center, the exact date and time. If an alert gets you an earlier appointment, you can chip in whatever it was worth to you afterward (suggested $19) — entirely up to you. Your watch runs until your appointment date; if you want to keep watching after that, there’s an optional $6.99/mo. No Tesla login required. Prefer to run it yourself? The self-hosted version on GitHub is free and open source.',
+    q: 'What does it cost?',
+    a: 'Nothing up front: no card, no fee. Every alert arrives in full with the center, the exact date and time. If an alert gets you an earlier appointment, we ask afterward whether you’d like to chip in what it was worth to you (suggested $19). If it didn’t help, you pay nothing. Keeping a watch running past your appointment date is an optional $6.99/mo.',
   },
   {
     q: 'Which service centers does SlotWatch watch?',
-    a: 'Any Tesla Service Center in the US. You pick your location by city or ZIP code when you sign up, and you can watch more than one.',
+    a: 'Any Tesla Service Center in the US. You pick by city or ZIP when you sign up, and you can watch up to three at once — a second center nearby roughly doubles your odds.',
   },
   {
     q: 'How quickly will I be alerted?',
-    a: 'SlotWatch checks your service center roughly every 5 minutes. When an earlier opening appears, we email you right away so you can jump into the Tesla app and grab it.',
+    a: 'We check your centers about every 5 minutes. A slot on an earlier day than anything we’ve told you about emails you right away. Extra times on days you already know about are batched into at most one email every few hours, so you’re never flooded.',
   },
   {
     q: 'What counts as an earlier slot?',
-    a: 'Any opening at one of your watched centers on an earlier day than the appointment date you gave us. We email you the center and the exact date and time, in full, free. A same-day slot at an earlier time doesn’t count.',
+    a: 'Any opening at one of your watched centers on an earlier day than the appointment date you gave us. A same-day slot at an earlier time doesn’t count.',
   },
   {
-    q: 'What if I find a slot myself, or the slot is gone by the time I check?',
-    a: 'Nothing — SlotWatch is free. Finding one on your own costs nothing, and so does an alert that didn’t work out. Cancellations do get grabbed fast, so open the Tesla app the moment an alert lands. We keep watching either way.',
-  },
-  {
-    q: 'When do I pay?',
-    a: 'You don’t have to. SlotWatch is free: no card, no fee, every alert in full. After an alert, we’ll ask whether you managed to book it. If you did, you can chip in whatever it was worth to you — $9, $19 or $49, or any amount. If it didn’t work, you pay nothing.',
+    q: 'What if the slot is gone by the time I check?',
+    a: 'Cancellations get grabbed fast, so open the Tesla app the moment an alert lands. If it was already taken you’ve lost nothing, and we keep watching.',
   },
   {
     q: 'What happens when my appointment date arrives?',
-    a: 'Your watch ends automatically. You can start a new watch for a future appointment, or opt into $6.99/mo to keep watching continuously.',
+    a: 'Your watch ends automatically. You can start a new one for a future appointment, or opt into $6.99/mo to keep watching continuously.',
   },
-]
-
-const steps = [
-  {
-    icon: <IconTarget />,
-    label: 'Pick your service center',
-    body: 'Enter your email and choose up to 3 Tesla service centers by city or ZIP. No Tesla login, no card required.',
-  },
-  {
-    icon: <IconKey />,
-    label: 'Tell us your current appointment',
-    body: 'Give us your current appointment date. We watch until then and only email you about openings that are actually earlier.',
-  },
-  {
-    icon: <IconBell />,
-    label: 'Get an email, then book',
-    body: 'The moment an earlier opening appears, we email you the center and the exact date and time. Reschedule in the Tesla app before it\'s gone.',
-  },
-]
-
-const proFeatures = [
-  'Free — no card, no fee',
-  'No Tesla login required',
-  'Instant email alerts',
-  'Checks every 5 minutes',
-  'Watch up to 3 centers',
-  'Runs until your current appointment',
 ]
 
 const organizationSchemaJson = JSON.stringify({
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  name: 'SlotWatch',
-  url: 'https://slotwatcher.app',
+  '@context': 'https://schema.org', '@type': 'Organization', name: 'SlotWatch', url: 'https://slotwatcher.app',
   logo: 'https://slotwatcher.app/apple-touch-icon.png',
-  description:
-    'SlotWatch monitors Tesla service centers for earlier appointment openings and emails you the moment one appears.',
+  description: 'SlotWatch monitors Tesla service centers for earlier appointment openings and emails you the moment one appears.',
   sameAs: ['https://github.com/manymotes/slotwatch'],
 })
-
-const websiteSchemaJson = JSON.stringify({
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  name: 'SlotWatch',
-  url: 'https://slotwatcher.app',
-})
-
+const websiteSchemaJson = JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebSite', name: 'SlotWatch', url: 'https://slotwatcher.app' })
 const faqSchemaJson = JSON.stringify({
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqs.map((item) => ({
-    '@type': 'Question',
-    name: item.q,
-    acceptedAnswer: { '@type': 'Answer', text: item.a },
-  })),
+  '@context': 'https://schema.org', '@type': 'FAQPage',
+  mainEntity: faqs.map((item) => ({ '@type': 'Question', name: item.q, acceptedAnswer: { '@type': 'Answer', text: item.a } })),
 })
-
 const softwareSchemaJson = JSON.stringify({
-  '@context': 'https://schema.org',
-  '@type': 'SoftwareApplication',
-  name: 'SlotWatch',
-  applicationCategory: 'UtilitiesApplication',
-  operatingSystem: 'Web',
-  offers: {
-    '@type': 'Offer',
-    price: '0',
-    priceCurrency: 'USD',
-    description: 'Free — no card. If it works, pay what it was worth.',
-  },
-  description:
-    'SlotWatch monitors Tesla Service Center appointment availability across 40 US metros and emails you the moment a cancellation slot opens.',
+  '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: 'SlotWatch',
+  applicationCategory: 'UtilitiesApplication', operatingSystem: 'Web',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', description: 'Free — no card. If it works, pay what it was worth.' },
+  description: 'SlotWatch monitors Tesla Service Center appointment availability across 40 US metros and emails you the moment a cancellation slot opens.',
   url: 'https://slotwatcher.app',
 })
+
+// ── Live numbers (real, from the worker; sections render nothing if unavailable) ──
+
+type Stats = { ok: boolean; openingsTotal: number; centersWatched: number; alerts: number; avgEarlierDays: number | null; maxEarlierDays: number | null; ownersAlerted: number }
+function useStats(): Stats | null {
+  const [s, setS] = useState<Stats | null>(null)
+  useEffect(() => {
+    fetch(`${API}/api/stats/public`).then((r) => (r.ok ? r.json() : null)).then((d) => { if (d && d.ok) setS(d) }).catch(() => {})
+  }, [])
+  return s
+}
+
+// ── Hero form ─────────────────────────────────────────────────────────────────
+
+function CityForm({ id, size = 'lg' }: { id: string; size?: 'lg' | 'md' }) {
+  const [city, setCity] = useState('')
+  function submit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    if (!city.trim()) return
+    window.location.href = '/start/?city=' + encodeURIComponent(city.trim())
+  }
+  return (
+    <form onSubmit={submit} style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+      <label htmlFor={id} style={{ position: 'absolute', width: 1, height: 1, overflow: 'hidden', clip: 'rect(0 0 0 0)' }}>Your city or ZIP</label>
+      <input id={id} name="city" type="text" required value={city} onChange={(e) => setCity(e.target.value)}
+        placeholder="City or ZIP, e.g. Phoenix or 85001" autoComplete="postal-code" className="sw-input"
+        style={{ flex: '1 1 240px', padding: size === 'lg' ? '16px 18px' : '13px 16px', fontSize: size === 'lg' ? '1.0625rem' : '1rem' }} />
+      <button type="submit" className={`sw-btn sw-btn-primary${size === 'lg' ? ' sw-btn-lg' : ''}`}>See what&rsquo;s open now</button>
+    </form>
+  )
+}
+
+// ── The product, shown instead of described: a real-looking alert email ──────
+
+function AlertPreview() {
+  return (
+    <div aria-label="Example SlotWatch alert email" className="sw-card" style={{ padding: 0, overflow: 'hidden', fontSize: '0.9375rem' }}>
+      <div style={{ padding: '14px 18px', borderBottom: '1px solid var(--line)', display: 'flex', alignItems: 'center', gap: '10px' }}>
+        <span style={{ width: 30, height: 30, borderRadius: 8, background: 'var(--accent)', display: 'grid', placeItems: 'center', flexShrink: 0 }} aria-hidden="true">
+          <span style={{ width: 13, height: 13, border: '2px solid #fff', borderRadius: '50%' }} />
+        </span>
+        <div style={{ minWidth: 0 }}>
+          <div style={{ fontWeight: 600, color: 'var(--ink)' }}>SlotWatch <span className="sw-muted" style={{ fontWeight: 400 }}>&lt;hello@slotwatcher.app&gt;</span></div>
+          <div className="sw-muted" style={{ fontSize: '0.8125rem' }}>to you · 7:02 AM</div>
+        </div>
+        <span className="sw-muted" style={{ marginLeft: 'auto', fontSize: '0.75rem', whiteSpace: 'nowrap' }}>Example</span>
+      </div>
+      <div style={{ padding: '18px 18px 20px' }}>
+        <div className="sw-display" style={{ fontWeight: 700, fontSize: '1.125rem', marginBottom: '12px' }}>Earlier Tesla slot: Nov 10 at 7:00 AM</div>
+        <p style={{ margin: '0 0 12px', color: 'var(--ink-2)' }}>An earlier Tesla service opening just appeared at the center you&rsquo;re watching:</p>
+        <div style={{ background: 'var(--surface-2)', borderRadius: 8, padding: '12px 14px', marginBottom: '14px', lineHeight: 1.6 }}>
+          <div style={{ fontWeight: 600 }}>Tesla Service Rockville-Rockville Pike</div>
+          <div>• 11/10/2026 at 07:00 AM <span className="sw-muted">(35 days earlier)</span></div>
+          <div>• 11/10/2026 at 07:15 AM <span className="sw-muted">(35 days earlier)</span></div>
+          <div>• 11/13/2026 at 10:00 AM <span className="sw-muted">(32 days earlier)</span></div>
+        </div>
+        <p style={{ margin: 0, color: 'var(--ink-2)' }}>Open the Tesla app → Service → your appointment → Reschedule to grab one.</p>
+      </div>
+      <div style={{ padding: '12px 18px', borderTop: '1px solid var(--line)', background: 'var(--ok-soft)', color: 'var(--ok)', fontWeight: 600, fontSize: '0.875rem', display: 'flex', gap: '8px', alignItems: 'center' }}>
+        <span aria-hidden="true">↳</span> You: Dec 15 → Nov 10. Five weeks sooner.
+      </div>
+    </div>
+  )
+}
+
+// ── Page ──────────────────────────────────────────────────────────────────────
 
 export default function HomePage() {
+  const stats = useStats()
+  const avg = stats?.avgEarlierDays && stats.avgEarlierDays >= 1 ? Math.round(stats.avgEarlierDays) : null
+  const max = stats?.maxEarlierDays && stats.maxEarlierDays >= 1 ? stats.maxEarlierDays : null
+
   return (
-    <div style={{ minHeight: '100vh', background: '#080808' }}>
+    <div style={{ minHeight: '100vh' }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: organizationSchemaJson }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: websiteSchemaJson }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: faqSchemaJson }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: softwareSchemaJson }} />
 
-      {/* Schema markup */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: organizationSchemaJson }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: websiteSchemaJson }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: faqSchemaJson }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: softwareSchemaJson }}
-      />
+      <SiteNav />
 
-      {/* ── Nav ── */}
-      <nav style={{
-        position: 'sticky',
-        top: 0,
-        zIndex: 50,
-        background: 'rgba(8, 8, 8, 0.85)',
-        backdropFilter: 'blur(12px)',
-        WebkitBackdropFilter: 'blur(12px)',
-        borderBottom: '1px solid #1a1a1a',
-      }}>
-        <div style={{ maxWidth: '1120px', margin: '0 auto', padding: '0 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '56px' }}>
-          <Logo size={28} />
-          <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-            <Link href="/how-it-works/" style={{ color: '#8a8a8a', textDecoration: 'none', fontSize: '0.875rem', transition: 'color 0.15s' }}>
-              How it works
-            </Link>
-            <Link href="/guides/" style={{ color: '#8a8a8a', textDecoration: 'none', fontSize: '0.875rem', transition: 'color 0.15s' }}>
-              Guides
-            </Link>
-            <Link href="/#pricing" style={{ color: '#8a8a8a', textDecoration: 'none', fontSize: '0.875rem', transition: 'color 0.15s' }}>
-              Pricing
-            </Link>
-            <Link href="/login/" style={{ color: '#8a8a8a', textDecoration: 'none', fontSize: '0.875rem', transition: 'color 0.15s' }}>
-              Log in
-            </Link>
-            <a href="https://github.com/manymotes/slotwatch" style={{ color: '#8a8a8a', textDecoration: 'none', fontSize: '0.875rem', display: 'flex', alignItems: 'center', gap: '6px', transition: 'color 0.15s' }}>
-              <IconGithub />
-              <span style={{ display: 'none' }}>GitHub</span>
-            </a>
-            <a href="/start/" style={{
-              background: '#e31937',
-              color: '#fff',
-              textDecoration: 'none',
-              fontSize: '0.8125rem',
-              fontWeight: 600,
-              padding: '7px 14px',
-              borderRadius: '6px',
-              letterSpacing: '0.01em',
-              transition: 'opacity 0.15s',
-            }}>
-              Get started
-            </a>
-          </div>
-        </div>
-      </nav>
-
-      {/* ── Hero ── */}
-      <section style={{ maxWidth: '1120px', margin: '0 auto', padding: '96px 24px 80px' }}>
-        <div style={{ maxWidth: '680px' }}>
-          <p style={{
-            fontSize: '0.75rem',
-            fontWeight: 700,
-            letterSpacing: '0.14em',
-            color: '#e31937',
-            textTransform: 'uppercase',
-            marginBottom: '24px',
-          }}>
-            Tesla service appointment alerts
-          </p>
-          <h1 style={{
-            fontSize: 'clamp(2.5rem, 6vw, 4rem)',
-            fontWeight: 800,
-            lineHeight: 1.1,
-            letterSpacing: '-0.03em',
-            color: '#f0f0f0',
-            textWrap: 'balance' as never,
-            marginBottom: '24px',
-          }}>
-            Get the Tesla service appointment you{' '}
-            <em style={{ color: '#e31937', fontStyle: 'normal' }}>actually</em>{' '}
-            want.
-          </h1>
-          <p style={{
-            fontSize: '1.125rem',
-            lineHeight: 1.65,
-            color: '#8a8a8a',
-            maxWidth: '560px',
-            marginBottom: '40px',
-          }}>
-            SlotWatch watches up to 3 Tesla service centers for earlier openings and emails you the moment one appears — so you grab it in the Tesla app before it&rsquo;s gone. No Tesla login required.
-          </p>
-          <div id="hero-form">
-            <EmailCapture />
-          </div>
-          <p style={{
-            marginTop: '16px',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px',
-            color: '#8a8a8a',
-            fontWeight: 500,
-            fontSize: '0.9375rem',
-          }}>
-            <span style={{ color: '#22c55e', flexShrink: 0 }} aria-hidden="true"><IconCheck /></span>
-            Free — no card. If it works, pay what it was worth.
-          </p>
-          {/* Proof line — real detection counts from the API; renders nothing if unavailable or zero */}
-          <ProofCounter style={{ marginTop: '10px', paddingLeft: '22px', fontSize: '0.875rem', color: '#6b6b6b' }} />
-        </div>
-      </section>
-
-      {/* ── Free check tool (lead magnet) ── */}
-      <section style={{ maxWidth: '1120px', margin: '0 auto', padding: '8px 24px 8px' }}>
-        <CheckEarliest />
-      </section>
-
-      {/* ── Divider ── */}
-      <div style={{ maxWidth: '1120px', margin: '0 auto', padding: '48px 24px 0' }}>
-        <div style={{ height: '1px', background: '#1a1a1a' }} />
-      </div>
-
-      {/* ── How it works ── */}
-      <section style={{ maxWidth: '1120px', margin: '0 auto', padding: '80px 24px' }}>
-        <h2 style={{
-          fontSize: '0.75rem',
-          fontWeight: 700,
-          letterSpacing: '0.14em',
-          color: '#3a3a3a',
-          textTransform: 'uppercase',
-          marginBottom: '48px',
-        }}>
-          How it works
-        </h2>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-          gap: '2px',
-          background: '#1a1a1a',
-          borderRadius: '12px',
-          overflow: 'hidden',
-        }}>
-          {steps.map((step, i) => (
-            <div key={i} style={{
-              background: '#0d0d0d',
-              padding: '36px 32px',
-            }}>
-              <div style={{
-                color: '#e31937',
-                marginBottom: '20px',
-              }}>
-                {step.icon}
-              </div>
-              <p style={{
-                fontSize: '0.6875rem',
-                fontWeight: 700,
-                letterSpacing: '0.12em',
-                textTransform: 'uppercase',
-                color: '#3a3a3a',
-                marginBottom: '10px',
-              }}>
-                Step {i + 1}
-              </p>
-              <h3 style={{
-                fontSize: '1.125rem',
-                fontWeight: 700,
-                color: '#f0f0f0',
-                marginBottom: '12px',
-                letterSpacing: '-0.01em',
-              }}>
-                {step.label}
-              </h3>
-              <p style={{
-                fontSize: '0.9375rem',
-                lineHeight: 1.6,
-                color: '#6b6b6b',
-              }}>
-                {step.body}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── Pricing ── */}
-      <section id="pricing" style={{ maxWidth: '1120px', margin: '0 auto', padding: '0 24px 80px' }}>
-        <h2 style={{
-          fontSize: '0.75rem',
-          fontWeight: 700,
-          letterSpacing: '0.14em',
-          color: '#3a3a3a',
-          textTransform: 'uppercase',
-          marginBottom: '48px',
-        }}>
-          Pricing
-        </h2>
-        <div style={{
-          background: '#0d0d0d',
-          border: '1px solid #1a1a1a',
-          borderRadius: '12px',
-          padding: '40px 36px',
-          maxWidth: '440px',
-          position: 'relative',
-        }}>
-          <p style={{
-            fontSize: '0.75rem',
-            fontWeight: 700,
-            letterSpacing: '0.12em',
-            textTransform: 'uppercase',
-            color: '#e31937',
-            marginBottom: '16px',
-          }}>
-            Pay when it works
-          </p>
-          <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px', marginBottom: '8px' }}>
-            <span style={{ fontSize: '2rem', fontWeight: 800, color: '#f0f0f0', letterSpacing: '-0.03em' }}>Free to start — no card</span>
-          </div>
-          <p style={{ fontSize: '0.875rem', color: '#6b6b6b', marginBottom: '24px' }}>
-            If it works, pay what it was worth · up to 3 service centers
-          </p>
-
-          {/* Risk-reversal callout — the headline of the offer */}
-          <div style={{
-            display: 'flex',
-            gap: '12px',
-            background: 'rgba(34,197,94,0.08)',
-            border: '1px solid rgba(34,197,94,0.25)',
-            borderRadius: '9px',
-            padding: '14px 16px',
-            marginBottom: '28px',
-          }}>
-            <span style={{ color: '#22c55e', flexShrink: 0, marginTop: '2px' }} aria-hidden="true"><IconCheck /></span>
-            <p style={{ fontSize: '0.875rem', lineHeight: 1.55, color: '#c8c8c8', margin: 0 }}>
-              <strong style={{ color: '#f0f0f0' }}>No card, no fee.</strong> Every alert arrives in full — the center, the exact date and time. If an alert gets you in sooner, we’ll ask afterward whether you’d like to chip in what it was worth (suggested $19). If it didn’t, you pay nothing.
+      {/* ── Hero: the problem in the owner's words, the input, and the product ── */}
+      <section className="sw-container" style={{ padding: '64px 0 40px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '48px 56px', alignItems: 'center' }}>
+          <div style={{ maxWidth: '560px' }}>
+            <h1 className="sw-h1 text-balance" style={{ marginBottom: '20px' }}>
+              Your Tesla service appointment is weeks out. It doesn&rsquo;t have to be.
+            </h1>
+            <p className="sw-lede" style={{ marginBottom: '28px', maxWidth: '520px' }}>
+              Cancellations open up earlier slots every day, and the only way to catch one is to keep refreshing the app.
+              SlotWatch does the refreshing: it checks your service center every 5 minutes and emails you the moment an earlier day opens.
+            </p>
+            <CityForm id="hero-city" />
+            <p className="sw-help" style={{ marginTop: '14px', fontSize: '0.9375rem' }}>
+              Free. No card, no Tesla login. If it gets you in sooner, pay what it was worth.
             </p>
           </div>
+          <div style={{ maxWidth: '480px', width: '100%', justifySelf: 'center' }}>
+            <AlertPreview />
+          </div>
+        </div>
+      </section>
 
-          <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 32px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
-            {proFeatures.map((f) => (
-              <li key={f} style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#c8c8c8', fontSize: '0.9375rem' }}>
-                <span style={{ color: '#e31937', flexShrink: 0 }}><IconCheck /></span>
-                {f}
-              </li>
+      {/* ── Real numbers ── */}
+      {stats && stats.alerts > 0 && (
+        <section className="sw-container" style={{ padding: '8px 0 56px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '0', borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)' }}>
+            {[
+              avg ? [`${avg} days`, 'sooner, on average, for the openings we’ve emailed owners about'] : null,
+              max ? [`${max} days`, 'the biggest jump forward we’ve caught so far'] : null,
+              [stats.openingsTotal.toLocaleString(), `appointment slots tracked across ${stats.centersWatched} service centers since July`],
+              ['5 min', 'between checks, around the clock'],
+            ].filter(Boolean).map((row, i) => (
+              <div key={i} style={{ padding: '22px 20px 22px 0', marginRight: '20px' }}>
+                <div className="sw-display" style={{ fontWeight: 700, fontSize: '1.75rem', letterSpacing: '-0.03em' }}>{(row as string[])[0]}</div>
+                <div className="sw-muted" style={{ fontSize: '0.875rem', lineHeight: 1.45, marginTop: '4px' }}>{(row as string[])[1]}</div>
+              </div>
             ))}
-          </ul>
-          <a href="/start/" style={{
-            display: 'block',
-            textAlign: 'center',
-            background: '#e31937',
-            color: '#fff',
-            textDecoration: 'none',
-            fontWeight: 700,
-            fontSize: '0.9375rem',
-            padding: '13px 20px',
-            borderRadius: '7px',
-            transition: 'opacity 0.15s',
-          }}>
-            Start watching — free
-          </a>
-          <p style={{ fontSize: '0.8125rem', color: '#5a5a5a', textAlign: 'center', marginTop: '12px' }}>
-            Watch runs until your current appointment · optional $6.99/mo to keep watching after
-          </p>
-        </div>
+          </div>
+        </section>
+      )}
 
-        {/* Self-host — kept available, but off the conversion path */}
-        <p style={{ fontSize: '0.875rem', color: '#4a4a4a', marginTop: '20px', maxWidth: '440px' }}>
-          Prefer to run it yourself? SlotWatch is open source —{' '}
-          <a href="https://github.com/manymotes/slotwatch" style={{ color: '#6b6b6b', textDecoration: 'underline' }}>
-            self-host it free on GitHub
-          </a>.
-        </p>
+      {/* ── How it works: a plain numbered row, no icons ── */}
+      <section id="how" className="sw-container" style={{ padding: '32px 0 64px' }}>
+        <h2 className="sw-h2" style={{ marginBottom: '28px', maxWidth: '620px' }}>Three minutes to set up. Then you stop checking.</h2>
+        <ol style={{ listStyle: 'none', margin: 0, padding: 0, display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '28px 40px' }}>
+          {[
+            ['Tell us where and when', 'Pick up to three service centers by city or ZIP and enter the appointment date Tesla gave you. Email only — no Tesla login, no card.'],
+            ['We watch, every 5 minutes', 'SlotWatch checks what Tesla’s scheduler is showing at your centers around the clock. Most people never get around to checking that often.'],
+            ['You get one email, then rebook', 'When a slot opens on an earlier day, you get the center, date and time. Open the Tesla app, Reschedule, done.'],
+          ].map(([h, b], i) => (
+            <li key={h} style={{ borderTop: '2px solid var(--ink)', paddingTop: '16px' }}>
+              <div className="sw-muted" style={{ fontSize: '0.8125rem', fontWeight: 600, marginBottom: '6px' }}>0{i + 1}</div>
+              <h3 className="sw-h3" style={{ marginBottom: '8px' }}>{h}</h3>
+              <p style={{ margin: 0, color: 'var(--ink-2)', lineHeight: 1.6 }}>{b}</p>
+            </li>
+          ))}
+        </ol>
       </section>
 
-      {/* ── FAQ ── */}
-      <section style={{ maxWidth: '1120px', margin: '0 auto', padding: '0 24px 80px' }}>
-        <h2 style={{
-          fontSize: '0.75rem',
-          fontWeight: 700,
-          letterSpacing: '0.14em',
-          color: '#3a3a3a',
-          textTransform: 'uppercase',
-          marginBottom: '48px',
-        }}>
-          Questions
-        </h2>
+      {/* ── Live check: the product, usable right here ── */}
+      <section className="sw-container" style={{ padding: '0 0 72px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '32px 56px', alignItems: 'start' }}>
+          <div>
+            <h2 className="sw-h2" style={{ marginBottom: '14px' }}>See what&rsquo;s open at your center right now.</h2>
+            <p className="sw-lede" style={{ marginBottom: '0' }}>
+              This is the same lookup SlotWatch runs for you all day. Type a city or ZIP and we&rsquo;ll show the earliest appointment Tesla is offering at the nearest center this minute, no signup needed.
+            </p>
+          </div>
+          <CheckEarliest />
+        </div>
+      </section>
+
+      {/* ── Founder note: a real person, in plain words ── */}
+      <section className="sw-container" style={{ padding: '0 0 72px' }}>
+        <div className="sw-card" style={{ padding: '28px 28px 26px', maxWidth: '760px', display: 'grid', gridTemplateColumns: 'auto 1fr', gap: '20px', alignItems: 'start' }}>
+          <div aria-hidden="true" style={{ width: 44, height: 44, borderRadius: '50%', background: 'var(--ink)', color: '#fff', display: 'grid', placeItems: 'center', fontWeight: 700, fontFamily: 'var(--font-display)' }}>K</div>
+          <div>
+            <p style={{ margin: '0 0 12px', color: 'var(--ink-2)', lineHeight: 1.65 }}>
+              I drive a Tesla, and last time I needed service the app quoted me a date weeks out. A friend mentioned earlier slots open all the time when people cancel, so I started doing what you probably do too: open the app, refresh, close it, try again a few hours later. I caught one by luck and wondered how many I&rsquo;d missed.
+            </p>
+            <p style={{ margin: '0 0 14px', color: 'var(--ink-2)', lineHeight: 1.65 }}>
+              That felt like something a computer should do instead of me. So I built SlotWatch. I hope it saves you some refreshing too.
+            </p>
+            <p style={{ margin: 0, fontSize: '0.875rem' }}><strong>Kendall</strong> <span className="sw-muted">· built and runs SlotWatch · <Link href="/about/" style={{ color: 'var(--ink-2)' }}>more</Link></span></p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Pricing: one honest paragraph ── */}
+      <section id="pricing" className="sw-container" style={{ padding: '0 0 72px' }}>
         <div style={{ maxWidth: '680px' }}>
-          <Accordion items={faqs} />
+          <h2 className="sw-h2" style={{ marginBottom: '14px' }}>Free. If it works, pay what it was worth.</h2>
+          <p className="sw-lede" style={{ marginBottom: '18px' }}>
+            No card and no fee to start, and every alert arrives in full. After an alert we ask one question: did you get the earlier appointment?
+            If yes, you can chip in what it was worth to you. If not, you pay nothing.
+          </p>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '22px' }}>
+            {[['$9', 'Just an owner'], ['$19', 'Suggested'], ['$49', 'Rideshare, Turo or fleet'], ['Any amount', 'You decide']].map(([a, l]) => (
+              <span key={a} style={{ border: '1px solid var(--line-strong)', borderRadius: 999, padding: '8px 14px', fontSize: '0.875rem', background: 'var(--surface)' }}>
+                <strong>{a}</strong> <span className="sw-muted">· {l}</span>
+              </span>
+            ))}
+          </div>
+          <a href="/start/" className="sw-btn sw-btn-ink sw-btn-lg">Start watching, free</a>
         </div>
       </section>
 
-      {/* ── Footer ── */}
-      <footer style={{
-        borderTop: '1px solid #1a1a1a',
-        maxWidth: '1120px',
-        margin: '0 auto',
-        padding: '32px 24px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        flexWrap: 'wrap',
-        gap: '16px',
-      }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <LogoMark size={22} />
-          <span style={{ color: '#3a3a3a', fontSize: '0.8125rem' }}>SlotWatch</span>
+      {/* ── FAQ: plain, scannable ── */}
+      <section className="sw-container" style={{ padding: '0 0 24px' }}>
+        <h2 className="sw-h2" style={{ marginBottom: '24px' }}>Questions</h2>
+        <dl style={{ margin: 0, display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '26px 48px', maxWidth: '1000px' }}>
+          {faqs.map((f) => (
+            <div key={f.q}>
+              <dt className="sw-h3" style={{ fontSize: '1.0625rem', marginBottom: '6px' }}>{f.q}</dt>
+              <dd style={{ margin: 0, color: 'var(--ink-2)', lineHeight: 1.6, fontSize: '0.9375rem' }}>{f.a}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+
+      {/* ── Closing CTA ── */}
+      <section className="sw-container" style={{ padding: '48px 0 0' }}>
+        <div style={{ borderTop: '1px solid var(--line)', paddingTop: '40px', maxWidth: '640px' }}>
+          <h2 className="sw-h2" style={{ marginBottom: '18px' }}>Stop refreshing. Start with your city.</h2>
+          <CityForm id="footer-city" size="md" />
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '24px', flexWrap: 'wrap' }}>
-          <Link href="/how-it-works/" style={{ color: '#3a3a3a', textDecoration: 'none', fontSize: '0.8125rem' }}>How it works</Link>
-          <Link href="/guides/" style={{ color: '#3a3a3a', textDecoration: 'none', fontSize: '0.8125rem' }}>Guides</Link>
-          <Link href="/about/" style={{ color: '#3a3a3a', textDecoration: 'none', fontSize: '0.8125rem' }}>About</Link>
-          <Link href="/guides/how-to-get-an-earlier-tesla-service-appointment/" style={{ color: '#3a3a3a', textDecoration: 'none', fontSize: '0.8125rem' }}>Guide</Link>
-          <Link href="/cities/" style={{ color: '#3a3a3a', textDecoration: 'none', fontSize: '0.8125rem' }}>Cities</Link>
-          <Link href="/login/" style={{ color: '#3a3a3a', textDecoration: 'none', fontSize: '0.8125rem' }}>Log in</Link>
-          <Link href="/contact/" style={{ color: '#3a3a3a', textDecoration: 'none', fontSize: '0.8125rem' }}>Contact</Link>
-          <Link href="/terms/" style={{ color: '#3a3a3a', textDecoration: 'none', fontSize: '0.8125rem' }}>Terms</Link>
-          <Link href="/privacy/" style={{ color: '#3a3a3a', textDecoration: 'none', fontSize: '0.8125rem' }}>Privacy</Link>
-          <a href="https://github.com/manymotes/slotwatch" style={{
-            color: '#3a3a3a',
-            textDecoration: 'none',
-            fontSize: '0.8125rem',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '6px',
-          }}>
-            <IconGithub />
-            GitHub
-          </a>
-          <span style={{ color: '#2a2a2a', fontSize: '0.8125rem' }}>
-            Not affiliated with Tesla, Inc.
-          </span>
-        </div>
-      </footer>
+      </section>
+
+      <SiteFooter />
     </div>
   )
 }

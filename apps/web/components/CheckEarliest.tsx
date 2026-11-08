@@ -6,14 +6,8 @@ import { track } from './Analytics'
 const API = 'https://slotwatch.motesmass.workers.dev'
 const SITE = 'https://slotwatcher.app'
 
-const input: React.CSSProperties = {
-  flex: 1, minWidth: 0, boxSizing: 'border-box', background: '#0d0d0d', border: '1px solid #2a2a2a',
-  borderRadius: '8px', color: '#f0f0f0', fontSize: '1rem', padding: '13px 16px', outline: 'none',
-}
-const smallBtn: React.CSSProperties = {
-  border: '1px solid #2e2e2e', borderRadius: '8px', background: '#1a1a1a', color: '#f0f0f0', fontWeight: 600,
-  fontSize: '0.8125rem', padding: '9px 14px', cursor: 'pointer', whiteSpace: 'nowrap', textDecoration: 'none', display: 'inline-block',
-}
+const input: React.CSSProperties = { flex: 1, minWidth: 0, width: 'auto' }
+const smallBtn: React.CSSProperties = {}
 
 type Result = { center: string; earliest: { date: string; time: string } | null; openings: number; city: string }
 
@@ -95,59 +89,58 @@ export default function CheckEarliest({ autoRunFromQuery = false, ctaHref }: Pro
     : ''
 
   return (
-    <div style={{ background: '#111', border: '1px solid #1f1f1f', borderRadius: '16px', padding: '28px', maxWidth: '560px' }}>
-      <p style={{ fontSize: '0.6875rem', fontWeight: 700, letterSpacing: '0.14em', color: '#e31937', textTransform: 'uppercase', margin: '0 0 10px' }}>Free check — no signup</p>
-      <h3 style={{ color: '#f0f0f0', fontSize: '1.375rem', fontWeight: 800, letterSpacing: '-0.02em', margin: '0 0 6px' }}>What&rsquo;s the earliest opening near you?</h3>
-      <p style={{ color: '#8a8a8a', fontSize: '0.9375rem', margin: '0 0 18px', lineHeight: 1.55 }}>
+    <div className="sw-card" style={{ padding: '28px', maxWidth: '560px' }}>
+      <p className="sw-eyebrow" style={{ margin: '0 0 10px' }}>Free check — no signup</p>
+      <h3 className="sw-h3" style={{ fontSize: '1.375rem', margin: '0 0 6px' }}>What&rsquo;s the earliest opening near you?</h3>
+      <p style={{ color: 'var(--ink-2)', fontSize: '0.9375rem', margin: '0 0 18px', lineHeight: 1.55 }}>
         See the soonest Tesla service appointment at your nearest center right now — free.
       </p>
-      <label htmlFor="check-city" style={{ display: 'block', fontSize: '0.8125rem', color: '#8a8a8a', fontWeight: 500, marginBottom: '7px' }}>City or ZIP</label>
+      <label htmlFor="check-city" className="sw-label">City or ZIP</label>
       <div style={{ display: 'flex', gap: '8px' }}>
-        <input id="check-city" name="city" style={input} placeholder="City or ZIP (e.g. 90001)" value={loc}
+        <input id="check-city" name="city" className="sw-input" style={input} placeholder="City or ZIP (e.g. 90001)" value={loc}
           onChange={(e) => setLoc(e.target.value)} onKeyDown={(e) => { if (e.key === 'Enter') void check() }} />
-        <button onClick={() => void check()} disabled={busy}
-          style={{ border: 'none', borderRadius: '8px', background: '#e31937', color: '#fff', fontWeight: 700, fontSize: '0.9375rem', padding: '13px 20px', cursor: busy ? 'wait' : 'pointer', whiteSpace: 'nowrap' }}>
+        <button onClick={() => void check()} disabled={busy} className="sw-btn sw-btn-primary" style={{ cursor: busy ? 'wait' : 'pointer' }}>
           {busy ? 'Checking…' : 'Check now'}
         </button>
       </div>
 
-      {err && <p style={{ color: '#ef4444', fontSize: '0.875rem', marginTop: '14px' }}>{err}</p>}
+      {err && <p style={{ color: 'var(--accent)', fontSize: '0.875rem', marginTop: '14px' }}>{err}</p>}
 
       {res && (
-        <div style={{ marginTop: '20px', paddingTop: '20px', borderTop: '1px solid #1f1f1f' }}>
-          <p style={{ color: '#8a8a8a', fontSize: '0.8125rem', margin: '0 0 4px' }}>{res.center}</p>
+        <div style={{ marginTop: '20px', background: 'var(--surface-2)', borderRadius: '10px', padding: '18px 20px' }}>
+          <p style={{ color: 'var(--muted)', fontSize: '0.8125rem', margin: '0 0 4px' }}>{res.center}</p>
           {res.earliest ? (
             <>
-              <p style={{ color: '#f0f0f0', fontSize: '1.5rem', fontWeight: 800, letterSpacing: '-0.02em', margin: '0 0 6px' }}>
+              <p className="sw-display" style={{ fontSize: '1.5rem', fontWeight: 700, margin: '0 0 6px' }}>
                 Earliest opening: {res.earliest.date} at {res.earliest.time}
               </p>
-              <p style={{ color: '#8a8a8a', fontSize: '0.9375rem', margin: '0 0 16px', lineHeight: 1.55 }}>
+              <p style={{ color: 'var(--ink-2)', fontSize: '0.9375rem', margin: '0 0 16px', lineHeight: 1.55 }}>
                 Want something sooner? Slots open all day as people cancel. SlotWatch watches this center and emails you the moment an earlier one appears — free, no card, every alert in full. If it works, pay what it was worth.
               </p>
             </>
           ) : (
-            <p style={{ color: '#f0f0f0', fontSize: '1.05rem', fontWeight: 600, margin: '0 0 16px', lineHeight: 1.5 }}>
+            <p style={{ color: 'var(--ink)', fontSize: '1.05rem', fontWeight: 600, margin: '0 0 16px', lineHeight: 1.5 }}>
               No openings showing right now — which is exactly when watching pays off. SlotWatch emails you the moment one appears.
             </p>
           )}
           <a href={ctaHref ?? `/start/?city=${encodeURIComponent(res.city)}`}
-            style={{ display: 'inline-block', background: '#e31937', color: '#fff', textDecoration: 'none', fontWeight: 700, fontSize: '0.9375rem', padding: '12px 22px', borderRadius: '8px' }}>
+            className="sw-btn sw-btn-primary">
             Watch {res.center.replace('Tesla Service ', '')} — free, no card →
           </a>
 
           {shareable && (
-            <div style={{ marginTop: '22px', paddingTop: '18px', borderTop: '1px solid #1f1f1f' }}>
-              <p style={{ color: '#8a8a8a', fontSize: '0.8125rem', fontWeight: 600, margin: '0 0 8px' }}>
+            <div style={{ marginTop: '22px', paddingTop: '18px', borderTop: '1px solid var(--line)' }}>
+              <p style={{ color: 'var(--muted)', fontSize: '0.8125rem', fontWeight: 600, margin: '0 0 8px' }}>
                 Know someone waiting weeks? Paste this into the thread — the link re-runs the check live.
               </p>
-              <p style={{ background: '#0d0d0d', border: '1px solid #2a2a2a', borderRadius: '8px', color: '#c8c8c8', fontSize: '0.875rem', lineHeight: 1.55, padding: '12px 14px', margin: '0 0 10px', whiteSpace: 'pre-wrap', wordBreak: 'break-word', userSelect: 'all' }}>
+              <p style={{ background: 'var(--surface)', border: '1px solid var(--line)', borderRadius: '8px', color: 'var(--ink-2)', fontSize: '0.875rem', lineHeight: 1.55, padding: '12px 14px', margin: '0 0 10px', whiteSpace: 'pre-wrap', wordBreak: 'break-word', userSelect: 'all' }}>
                 {text}
               </p>
               <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-                <button onClick={() => void copy(text)} style={{ ...smallBtn, ...(copied ? { borderColor: '#22c55e', color: '#22c55e' } : {}) }}>
+                <button onClick={() => void copy(text)} className="sw-btn sw-btn-sm" style={{ ...smallBtn, ...(copied ? { borderColor: 'var(--ok)', color: 'var(--ok)' } : {}) }}>
                   {copied ? 'Copied ✓' : 'Copy'}
                 </button>
-                <a href={xHref} target="_blank" rel="noopener noreferrer" onClick={() => track('share_x')} style={smallBtn}>
+                <a href={xHref} target="_blank" rel="noopener noreferrer" onClick={() => track('share_x')} className="sw-btn sw-btn-sm" style={smallBtn}>
                   Post on X
                 </a>
               </div>

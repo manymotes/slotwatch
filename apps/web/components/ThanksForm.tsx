@@ -22,13 +22,13 @@ function shortMDY(mdy?: string): string | null {
   return m && d ? `${MON[m - 1]} ${d}` : null
 }
 
-const h1: React.CSSProperties = { fontSize: '1.375rem', fontWeight: 800, color: '#f0f0f0', marginBottom: '12px', letterSpacing: '-0.02em' }
-const body: React.CSSProperties = { color: '#6b6b6b', fontSize: '0.9375rem', lineHeight: 1.65, marginBottom: '28px' }
-const link: React.CSSProperties = { display: 'block', color: '#3a3a3a', textDecoration: 'none', fontSize: '0.875rem', padding: '8px' }
+const h1: React.CSSProperties = { fontSize: '1.375rem', fontWeight: 800, color: 'var(--ink)', marginBottom: '12px', letterSpacing: '-0.02em' }
+const body: React.CSSProperties = { color: 'var(--muted)', fontSize: '0.9375rem', lineHeight: 1.65, marginBottom: '28px' }
+const link: React.CSSProperties = { display: 'block', color: 'var(--muted)', textDecoration: 'none', fontSize: '0.875rem', padding: '8px' }
 
 const SLIDER_CSS = `
-input[type=range].sw-amt::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:#fff;border:3px solid #e31937;box-shadow:0 2px 8px rgba(0,0,0,.5);cursor:pointer}
-input[type=range].sw-amt::-moz-range-thumb{width:26px;height:26px;border-radius:50%;background:#fff;border:3px solid #e31937;cursor:pointer}
+input[type=range].sw-amt::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:#fff;border:3px solid var(--accent);box-shadow:0 2px 8px rgba(22,20,15,.25);cursor:pointer}
+input[type=range].sw-amt::-moz-range-thumb{width:26px;height:26px;border-radius:50%;background:#fff;border:3px solid var(--accent);cursor:pointer}
 `
 
 export default function ThanksForm() {
@@ -69,14 +69,14 @@ export default function ThanksForm() {
     }
   }
 
-  if (!ready) return <p style={{ color: '#8a8a8a' }}>Loading…</p>
+  if (!ready) return <p style={{ color: 'var(--muted)' }}>Loading…</p>
 
   if (invalid) {
     return (
       <>
         <h1 style={h1}>This link isn&rsquo;t valid</h1>
         <p style={body}>Open the link from your latest SlotWatch email, or log in to your account to see your alerts.</p>
-        <a href="/account/" style={{ display: 'block', background: '#e31937', color: '#fff', textDecoration: 'none', fontWeight: 700, fontSize: '0.9375rem', padding: '12px 20px', borderRadius: '7px' }}>Go to my account</a>
+        <a href="/account/" className="sw-btn sw-btn-primary" style={{ display: 'flex' }}>Go to my account</a>
         <a href="/" style={link}>Back to home</a>
       </>
     )
@@ -87,7 +87,7 @@ export default function ThanksForm() {
       <>
         <h1 style={h1}>Not yet? We&rsquo;re still watching</h1>
         <p style={body}>You&rsquo;ll get the next one in full, the moment it opens.</p>
-        <a href="/" style={{ display: 'block', background: '#e31937', color: '#fff', textDecoration: 'none', fontWeight: 700, fontSize: '0.9375rem', padding: '12px 20px', borderRadius: '7px' }}>Back to home</a>
+        <a href="/" className="sw-btn sw-btn-primary" style={{ display: 'flex' }}>Back to home</a>
       </>
     )
   }
@@ -118,8 +118,8 @@ export default function ThanksForm() {
       <h1 style={h1}>{win}</h1>
       <p style={body}>SlotWatch is free for everyone, and stays that way. If it saved you days of waiting, chip in whatever that was worth to you &mdash; every dollar keeps it running for the next owner.</p>
 
-      <div style={{ fontSize: '2.75rem', fontWeight: 800, color: '#f0f0f0', letterSpacing: '-0.03em', lineHeight: 1 }}>${dollars}</div>
-      <div style={{ color: '#8a8a8a', fontSize: '0.8125rem', margin: '6px 0 18px', minHeight: '1.2em' }}>
+      <div style={{ fontSize: '2.75rem', fontWeight: 800, color: 'var(--ink)', letterSpacing: '-0.03em', lineHeight: 1 }}>${dollars}</div>
+      <div style={{ color: 'var(--muted)', fontSize: '0.8125rem', margin: '6px 0 18px', minHeight: '1.2em' }}>
         {tierFor(dollars).label.split(' — ')[1]} · {tierFor(dollars).note}
       </div>
 
@@ -129,12 +129,12 @@ export default function ThanksForm() {
         disabled={busy}
         onChange={(e) => setDollars(Number(e.target.value))}
         style={{
-          width: '100%', margin: '0 0 6px', cursor: busy ? 'default' : 'pointer', accentColor: '#e31937',
-          background: `linear-gradient(to right, #e31937 ${pct}%, #2a2a2a ${pct}%)`, height: '6px', borderRadius: '3px',
+          width: '100%', margin: '0 0 6px', cursor: busy ? 'default' : 'pointer', accentColor: 'var(--accent)',
+          background: `linear-gradient(to right, var(--accent) ${pct}%, var(--line) ${pct}%)`, height: '6px', borderRadius: '3px',
           appearance: 'none', WebkitAppearance: 'none', outline: 'none',
         }}
       />
-      <div style={{ display: 'flex', justifyContent: 'space-between', color: '#4a4a4a', fontSize: '0.75rem', marginBottom: '14px' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', color: 'var(--muted)', fontSize: '0.75rem', marginBottom: '14px' }}>
         <span>${MIN}</span><span>${MAX}</span>
       </div>
 
@@ -146,12 +146,12 @@ export default function ThanksForm() {
             <button
               key={tier.cents} type="button" disabled={busy} onClick={() => setDollars(d)}
               style={{
-                flex: 1, background: on ? '#e31937' : '#141414', border: on ? '1px solid #e31937' : '1px solid #2a2a2a',
-                color: on ? '#fff' : '#c8c8c8', borderRadius: '9px', padding: '10px 6px', cursor: busy ? 'default' : 'pointer', fontFamily: 'inherit',
+                flex: 1, background: on ? 'var(--ink)' : 'var(--surface)', border: on ? '1px solid var(--ink)' : '1px solid var(--line-strong)',
+                color: on ? '#fff' : 'var(--ink)', borderRadius: '9px', padding: '10px 6px', cursor: busy ? 'default' : 'pointer', fontFamily: 'inherit',
               }}
             >
               <span style={{ display: 'block', fontWeight: 700, fontSize: '0.9375rem' }}>${d}{tier.suggested ? ' ✓' : ''}</span>
-              <span style={{ display: 'block', fontSize: '0.6875rem', color: on ? 'rgba(255,255,255,0.85)' : '#6b6b6b', marginTop: '2px' }}>{tier.label.split(' — ')[1]}</span>
+              <span style={{ display: 'block', fontSize: '0.6875rem', color: on ? 'rgba(255,255,255,0.85)' : 'var(--muted)', marginTop: '2px' }}>{tier.label.split(' — ')[1]}</span>
             </button>
           )
         })}
@@ -159,13 +159,13 @@ export default function ThanksForm() {
 
       <button
         type="button" disabled={busy} onClick={() => void pay()}
-        style={{ display: 'block', width: '100%', background: '#e31937', border: '1px solid #e31937', color: '#fff', borderRadius: '9px', padding: '13px 16px', cursor: busy ? 'default' : 'pointer', fontFamily: 'inherit', fontWeight: 700, fontSize: '0.9375rem', opacity: busy ? 0.7 : 1 }}
+        className="sw-btn sw-btn-primary sw-btn-lg" style={{ display: 'flex', width: '100%' }}
       >
         {busy ? 'Opening checkout…' : `Pay $${dollars}`}
       </button>
-      {err && <p style={{ color: '#f87171', fontSize: '0.8125rem', margin: '10px 0 0' }}>{err}</p>}
+      {err && <p style={{ color: 'var(--accent)', fontSize: '0.8125rem', margin: '10px 0 0' }}>{err}</p>}
       <a href="/" style={{ ...link, marginTop: '8px' }}>No thanks, it was free</a>
-      <p style={{ color: '#4a4a4a', fontSize: '0.8125rem', lineHeight: 1.5, margin: '18px 0 0' }}>
+      <p style={{ color: 'var(--muted)', fontSize: '0.8125rem', lineHeight: 1.5, margin: '18px 0 0' }}>
         SlotWatch is one person and a server. There are no ads and no fees &mdash; this is the only way it earns anything. Thank you either way.
       </p>
     </>

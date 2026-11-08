@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { Logo } from '../../components/Logo'
+import SiteNav from '../../components/SiteNav'
+import SiteFooter from '../../components/SiteFooter'
 
 export const metadata: Metadata = {
   title: 'About SlotWatch — Earlier Tesla Service Appointment Alerts',
@@ -43,38 +44,34 @@ export default function AboutPage() {
   })
 
   return (
-    <div style={{ minHeight: '100vh', background: '#080808' }}>
+    <div style={{ minHeight: '100vh' }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schema }} />
-      <nav style={{ borderBottom: '1px solid #1a1a1a' }}>
-        <div style={{ maxWidth: '1120px', margin: '0 auto', padding: '0 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '56px' }}>
-          <Logo size={28} />
-          <Link href="/start/" style={{ background: '#e31937', color: '#fff', textDecoration: 'none', fontSize: '0.8125rem', fontWeight: 600, padding: '7px 14px', borderRadius: '6px' }}>Start watching</Link>
-        </div>
-      </nav>
+      <SiteNav />
 
       <section style={{ maxWidth: '720px', margin: '0 auto', padding: '64px 24px 96px' }}>
-        <h1 style={{ fontSize: 'clamp(2rem, 5vw, 2.75rem)', fontWeight: 800, letterSpacing: '-0.03em', color: '#f0f0f0', marginBottom: '16px' }}>
+        <h1 style={{ fontSize: 'clamp(2rem, 5vw, 2.75rem)', fontWeight: 800, letterSpacing: '-0.03em', color: 'var(--ink)', marginBottom: '16px' }}>
           About SlotWatch
         </h1>
-        <p style={{ color: '#8a8a8a', fontSize: '1.0625rem', lineHeight: 1.65, marginBottom: '40px' }}>
+        <p style={{ color: 'var(--muted)', fontSize: '1.0625rem', lineHeight: 1.65, marginBottom: '40px' }}>
           SlotWatch watches Tesla service centers for earlier appointment openings and emails you the moment one appears — so you can reschedule in the Tesla app before the slot is taken.
         </p>
 
-        <dl style={{ display: 'flex', flexDirection: 'column', gap: '1px', background: '#1e1e1e', borderRadius: '12px', overflow: 'hidden' }}>
+        <dl style={{ display: 'flex', flexDirection: 'column', gap: '1px', background: 'var(--line)', borderRadius: '12px', overflow: 'hidden' }}>
           {facts.map(([k, v]) => (
-            <div key={k} style={{ background: '#0d0d0d', padding: '18px 22px' }}>
-              <dt style={{ color: '#e5556f', fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '6px' }}>{k}</dt>
-              <dd style={{ color: '#c8c8c8', fontSize: '0.9375rem', lineHeight: 1.6, margin: 0 }}>{v}</dd>
+            <div key={k} style={{ background: 'var(--surface)', padding: '18px 22px' }}>
+              <dt style={{ color: 'var(--accent)', fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '6px' }}>{k}</dt>
+              <dd style={{ color: 'var(--ink-2)', fontSize: '0.9375rem', lineHeight: 1.6, margin: 0 }}>{v}</dd>
             </div>
           ))}
         </dl>
 
         <div style={{ marginTop: '36px' }}>
-          <Link href="/start/" style={{ display: 'inline-block', background: '#e31937', color: '#fff', textDecoration: 'none', fontWeight: 700, fontSize: '0.9375rem', padding: '13px 26px', borderRadius: '8px' }}>
+          <Link href="/start/" style={{ display: 'inline-block', background: 'var(--accent)', color: '#fff', textDecoration: 'none', fontWeight: 700, fontSize: '0.9375rem', padding: '13px 26px', borderRadius: '8px' }}>
             Start watching — free →
           </Link>
         </div>
       </section>
+      <SiteFooter />
     </div>
   )
 }

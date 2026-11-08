@@ -9,10 +9,10 @@ const API = 'https://slotwatch.motesmass.workers.dev'
 type Center = { trtId: number; name: string; city?: string; distance?: number }
 
 const input: React.CSSProperties = {
-  width: '100%', boxSizing: 'border-box', background: '#111', border: '1px solid #2a2a2a',
-  borderRadius: '8px', color: '#f0f0f0', fontSize: '1rem', padding: '13px 16px', outline: 'none',
+  width: '100%', boxSizing: 'border-box', background: 'var(--surface)', border: '1px solid var(--line-strong)',
+  borderRadius: '8px', color: 'var(--ink)', fontSize: '1rem', padding: '13px 16px', outline: 'none',
 }
-const label: React.CSSProperties = { display: 'block', fontSize: '0.8125rem', color: '#8a8a8a', margin: '18px 0 7px', fontWeight: 500 }
+const label: React.CSSProperties = { display: 'block', fontSize: '0.8125rem', color: 'var(--ink-2)', margin: '18px 0 7px', fontWeight: 600 }
 
 const MAX = 3
 
@@ -99,7 +99,7 @@ export default function SignupForm() {
   }
 
   const btn = (bg: string): React.CSSProperties => ({
-    border: 'none', borderRadius: '8px', color: '#fff', background: bg, fontWeight: 700,
+    border: bg === 'var(--accent)' ? '1px solid var(--accent)' : '1px solid var(--line-strong)', borderRadius: '8px', color: bg === 'var(--accent)' ? '#fff' : 'var(--ink)', background: bg === 'var(--accent)' ? bg : 'var(--surface)', fontWeight: 600,
     fontSize: '0.9375rem', padding: '13px 20px', cursor: busy ? 'wait' : 'pointer', whiteSpace: 'nowrap',
   })
 
@@ -109,7 +109,7 @@ export default function SignupForm() {
       <div style={{ display: 'flex', gap: '8px' }}>
         <input id="signup-city" name="city" style={{ ...input, flex: 1 }} type="text" placeholder="e.g. Provo, UT or 84604" value={loc}
           onChange={(e) => setLoc(e.target.value)} onKeyDown={(e) => { if (e.key === 'Enter') void findCenters(loc) }} />
-        <button style={btn('#2a2a2a')} disabled={busy === 'find'} onClick={() => void findCenters(loc)}>
+        <button style={btn('var(--line-strong)')} disabled={busy === 'find'} onClick={() => void findCenters(loc)}>
           {busy === 'find' ? 'Finding…' : 'Search'}
         </button>
       </div>
@@ -119,20 +119,20 @@ export default function SignupForm() {
           <select aria-label="Service center to add" style={{ ...input, flex: 1 }} value={sel} onChange={(e) => setSel(Number(e.target.value))}>
             {results.map((c) => <option key={c.trtId} value={c.trtId}>{c.name}{c.distance != null ? ` — ${c.distance} mi away` : ''}</option>)}
           </select>
-          <button style={btn('#2a2a2a')} disabled={picked.length >= MAX} onClick={addSelected}>+ Add another</button>
+          <button style={btn('var(--line-strong)')} disabled={picked.length >= MAX} onClick={addSelected}>+ Add another</button>
         </div>
       )}
       {results.length > 0 && picked.length < MAX && (
-        <p style={{ color: '#5a5a5a', fontSize: '0.8125rem', margin: '7px 0 0' }}>Nearest center added automatically. Add up to {MAX} — a second center nearby roughly doubles your odds.</p>
+        <p style={{ color: 'var(--muted)', fontSize: '0.8125rem', margin: '7px 0 0' }}>Nearest center added automatically. Add up to {MAX} — a second center nearby roughly doubles your odds.</p>
       )}
 
       {picked.length > 0 && (
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '12px' }}>
           {picked.map((c) => (
-            <span key={c.trtId} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: '#1a1a1a', border: '1px solid #2e2e2e', borderRadius: '999px', padding: '6px 8px 6px 14px', fontSize: '0.8125rem', color: '#f0f0f0' }}>
+            <span key={c.trtId} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'var(--surface-2)', border: '1px solid var(--line-strong)', borderRadius: '999px', padding: '6px 8px 6px 14px', fontSize: '0.8125rem', color: 'var(--ink)' }}>
               {c.name}
               <button onClick={() => removePicked(c.trtId)} aria-label="Remove"
-                style={{ border: 'none', background: '#2e2e2e', color: '#bbb', borderRadius: '999px', width: '20px', height: '20px', cursor: 'pointer', lineHeight: 1 }}>×</button>
+                style={{ border: 'none', background: 'var(--line-strong)', color: 'var(--ink-2)', borderRadius: '999px', width: '20px', height: '20px', cursor: 'pointer', lineHeight: 1 }}>×</button>
             </span>
           ))}
         </div>
@@ -140,22 +140,22 @@ export default function SignupForm() {
 
       <label style={label} htmlFor="currentApptAt">When is your current appointment?</label>
       <input style={input} id="currentApptAt" name="currentApptAt" type="date" required min={today} max={maxAppt} value={currentApptAt} onChange={(e) => setCurrentApptAt(e.target.value)} />
-      <p style={{ color: '#5a5a5a', fontSize: '0.8125rem', margin: '7px 0 0' }}>We watch from today until this date. Alerts are free and arrive in full.</p>
-      <p style={{ color: '#5a5a5a', fontSize: '0.8125rem', margin: '4px 0 0' }}>Haven&rsquo;t booked yet? Book the first date Tesla offers in the app (you can always move it), then enter that date here.</p>
+      <p style={{ color: 'var(--muted)', fontSize: '0.8125rem', margin: '7px 0 0' }}>We watch from today until this date. Alerts are free and arrive in full.</p>
+      <p style={{ color: 'var(--muted)', fontSize: '0.8125rem', margin: '4px 0 0' }}>Haven&rsquo;t booked yet? Book the first date Tesla offers in the app (you can always move it), then enter that date here.</p>
 
       <label style={label} htmlFor="email">Where should we email the alert?</label>
       <input style={input} id="email" name="email" type="email" autoComplete="email" placeholder="you@example.com" value={email} onChange={(e) => setEmail(e.target.value)} />
 
-      <button style={{ ...btn('#e31937'), width: '100%', marginTop: '22px' }} disabled={!!busy} onClick={() => void submit()}>
+      <button style={{ ...btn('var(--accent)'), width: '100%', marginTop: '22px' }} disabled={!!busy} onClick={() => void submit()}>
         {busy === 'go' ? 'Starting…' : 'Start watching — free →'}
       </button>
-      <p style={{ color: '#22c55e', fontSize: '0.8125rem', fontWeight: 600, marginTop: '12px', textAlign: 'center' }}>
+      <p style={{ color: 'var(--ok)', fontSize: '0.8125rem', fontWeight: 600, marginTop: '12px', textAlign: 'center' }}>
         Free — no card, no fee. If an alert gets you in sooner, chip in what it was worth afterward.
       </p>
-      <p style={{ color: '#5a5a5a', fontSize: '0.8125rem', marginTop: '6px', textAlign: 'center' }}>
+      <p style={{ color: 'var(--muted)', fontSize: '0.8125rem', marginTop: '6px', textAlign: 'center' }}>
         Free to start · up to 3 centers · no Tesla login
       </p>
-      {err && <p style={{ color: '#ef4444', fontSize: '0.875rem', marginTop: '12px' }}>{err}</p>}
+      {err && <p style={{ color: 'var(--accent)', fontSize: '0.875rem', marginTop: '12px' }}>{err}</p>}
     </div>
   )
 }

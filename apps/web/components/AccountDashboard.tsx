@@ -10,12 +10,12 @@ type Center = { trtId: number; name: string; distance?: number }
 type Alert = { center: string; slotDate: string; slotTime: string | null; earlierByDays: number | null; sentAt: string; locked: boolean }
 
 const input: React.CSSProperties = {
-  width: '100%', boxSizing: 'border-box', background: '#111', border: '1px solid #2a2a2a',
-  borderRadius: '8px', color: '#f0f0f0', fontSize: '1rem', padding: '12px 14px', outline: 'none',
+  width: '100%', boxSizing: 'border-box', background: 'var(--surface)', border: '1px solid var(--line-strong)',
+  borderRadius: '8px', color: 'var(--ink)', fontSize: '1rem', padding: '12px 14px', outline: 'none',
 }
-const label: React.CSSProperties = { display: 'block', fontSize: '0.8125rem', color: '#8a8a8a', margin: '18px 0 7px', fontWeight: 500 }
+const label: React.CSSProperties = { display: 'block', fontSize: '0.8125rem', color: 'var(--ink-2)', margin: '18px 0 7px', fontWeight: 600 }
 const btn = (bg: string): React.CSSProperties => ({
-  border: 'none', borderRadius: '8px', color: '#fff', background: bg, fontWeight: 700,
+  border: bg === 'var(--accent)' ? '1px solid var(--accent)' : '1px solid var(--line-strong)', borderRadius: '8px', color: bg === 'var(--accent)' ? '#fff' : 'var(--ink)', background: bg === 'var(--accent)' ? bg : 'var(--surface)', fontWeight: 600,
   fontSize: '0.9375rem', padding: '12px 18px', cursor: 'pointer', whiteSpace: 'nowrap',
 })
 
@@ -164,7 +164,7 @@ export default function AccountDashboard() {
 
   function logout() { localStorage.removeItem('sw_token'); window.location.href = '/login/' }
 
-  if (loading) return <p style={{ color: '#8a8a8a' }}>Loading your account…</p>
+  if (loading) return <p style={{ color: 'var(--muted)' }}>Loading your account…</p>
 
   const active = status === 'active'
   const successFee = plan === 'success-fee'
@@ -174,25 +174,25 @@ export default function AccountDashboard() {
     <div style={{ maxWidth: '520px' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '12px' }}>
         <div>
-          <p style={{ color: '#8a8a8a', fontSize: '0.875rem', margin: 0 }}>{email}</p>
+          <p style={{ color: 'var(--muted)', fontSize: '0.875rem', margin: 0 }}>{email}</p>
           <span style={{ display: 'inline-block', marginTop: '6px', fontSize: '0.75rem', fontWeight: 700, padding: '3px 10px', borderRadius: '999px',
-            background: active ? 'rgba(34,197,94,0.15)' : 'rgba(239,68,68,0.15)', color: active ? '#4ade80' : '#f87171', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+            background: active ? 'var(--ok-soft)' : 'var(--warn-soft)', color: active ? 'var(--ok)' : 'var(--warn)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
             {active ? 'Active' : status || 'inactive'}
           </span>
         </div>
-        <button onClick={logout} style={{ background: 'none', border: '1px solid #2a2a2a', color: '#8a8a8a', borderRadius: '8px', padding: '8px 14px', cursor: 'pointer', fontSize: '0.8125rem' }}>Log out</button>
+        <button onClick={logout} className="sw-btn sw-btn-sm">Log out</button>
       </div>
 
       {!active && (
-        <div style={{ background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)', borderRadius: '10px', padding: '16px 18px', marginTop: '18px' }}>
-          <p style={{ color: '#f87171', fontSize: '0.9375rem', fontWeight: 600, margin: '0 0 4px' }}>{successFee ? 'Your watch has ended' : 'Your subscription is inactive'}</p>
-          <p style={{ color: '#c58a8a', fontSize: '0.8125rem', margin: '0 0 14px', lineHeight: 1.5 }}>
+        <div style={{ background: 'var(--warn-soft)', border: '1px solid rgba(154,91,0,0.25)', borderRadius: '10px', padding: '16px 18px', marginTop: '18px' }}>
+          <p style={{ color: 'var(--warn)', fontSize: '0.9375rem', fontWeight: 600, margin: '0 0 4px' }}>{successFee ? 'Your watch has ended' : 'Your subscription is inactive'}</p>
+          <p style={{ color: 'var(--ink-2)', fontSize: '0.8125rem', margin: '0 0 14px', lineHeight: 1.5 }}>
             {successFee
               ? <>Your watch ran until {watchUntil ? fmtDate(watchUntil) : 'your appointment date'} and is no longer checking. Keep watching for $6.99/mo — {hasCard ? 'billed to your card on file, ' : ''}cancel anytime.</>
               : <>Your watches are paused. Resume for $6.99/mo — {hasCard ? 'billed to your card on file, ' : ''}cancel anytime.</>}
           </p>
           <button onClick={() => void reactivate()} disabled={busy === 'reactivate'}
-            style={{ ...btn('#e31937'), width: '100%' }}>
+            style={{ ...btn('var(--accent)'), width: '100%' }}>
             {busy === 'reactivate' ? 'Starting…' : successFee ? 'Keep watching — $6.99/mo' : 'Resume — $6.99/mo'}
           </button>
         </div>
@@ -201,36 +201,36 @@ export default function AccountDashboard() {
       {active && (
         <>
           {lastChecked && (
-            <p style={{ color: '#4ade80', fontSize: '0.8125rem', marginTop: '18px', marginBottom: 0 }}>
+            <p style={{ color: 'var(--ok)', fontSize: '0.8125rem', marginTop: '18px', marginBottom: 0 }}>
               ● Watching now — last checked {relTime(lastChecked)}. We email you the moment an earlier slot opens.
             </p>
           )}
           {successFee ? (
             <>
               {watchUntil && (
-                <p style={{ color: '#8a8a8a', fontSize: '0.8125rem', marginTop: '6px', marginBottom: 0 }}>
-                  Watching until <strong style={{ color: '#c8c8c8' }}>{fmtDate(watchUntil)}</strong>{currentApptAt ? ' — your current appointment date' : ''}{daysLeft != null ? ` · ${daysLeft} day${daysLeft === 1 ? '' : 's'} left` : ''} · {hasCard ? 'card on file' : 'no card on file'}.
+                <p style={{ color: 'var(--muted)', fontSize: '0.8125rem', marginTop: '6px', marginBottom: 0 }}>
+                  Watching until <strong style={{ color: 'var(--ink-2)' }}>{fmtDate(watchUntil)}</strong>{currentApptAt ? ' — your current appointment date' : ''}{daysLeft != null ? ` · ${daysLeft} day${daysLeft === 1 ? '' : 's'} left` : ''} · {hasCard ? 'card on file' : 'no card on file'}.
                 </p>
               )}
               {successChargedAt ? (
-                <p style={{ color: '#8a8a8a', fontSize: '0.8125rem', marginTop: '6px', marginBottom: 0 }}>
-                  <strong style={{ color: '#c8c8c8' }}>Thanks for chipping in on {fmtDate(successChargedAt)}</strong> — that keeps SlotWatch running.
+                <p style={{ color: 'var(--muted)', fontSize: '0.8125rem', marginTop: '6px', marginBottom: 0 }}>
+                  <strong style={{ color: 'var(--ink-2)' }}>Thanks for chipping in on {fmtDate(successChargedAt)}</strong> — that keeps SlotWatch running.
                 </p>
               ) : (
-                <p style={{ color: '#8a8a8a', fontSize: '0.8125rem', marginTop: '6px', marginBottom: 0 }}>
-                  <strong style={{ color: '#c8c8c8' }}>Free — nothing charged.</strong> Every alert arrives in full; if one gets you in sooner, chip in what it was worth afterward.
+                <p style={{ color: 'var(--muted)', fontSize: '0.8125rem', marginTop: '6px', marginBottom: 0 }}>
+                  <strong style={{ color: 'var(--ink-2)' }}>Free — nothing charged.</strong> Every alert arrives in full; if one gets you in sooner, chip in what it was worth afterward.
                 </p>
               )}
             </>
           ) : (
             <>
               {daysLeft != null && (
-                <p style={{ color: '#8a8a8a', fontSize: '0.8125rem', marginTop: '6px', marginBottom: 0 }}>
-                  <strong style={{ color: '#c8c8c8' }}>{daysLeft} day{daysLeft === 1 ? '' : 's'} left</strong> in your current watch · cancel anytime below.
+                <p style={{ color: 'var(--muted)', fontSize: '0.8125rem', marginTop: '6px', marginBottom: 0 }}>
+                  <strong style={{ color: 'var(--ink-2)' }}>{daysLeft} day{daysLeft === 1 ? '' : 's'} left</strong> in your current watch · cancel anytime below.
                 </p>
               )}
               {plan === 'subscription' && (
-                <p style={{ color: '#8a8a8a', fontSize: '0.8125rem', marginTop: '6px', marginBottom: 0 }}>$6.99/mo · cancel anytime below.</p>
+                <p style={{ color: 'var(--muted)', fontSize: '0.8125rem', marginTop: '6px', marginBottom: 0 }}>$6.99/mo · cancel anytime below.</p>
               )}
             </>
           )}
@@ -238,18 +238,18 @@ export default function AccountDashboard() {
       )}
 
       {alerts.length > 0 && (
-        <div style={{ background: '#0d0d0d', border: '1px solid #1e1e1e', borderRadius: '10px', padding: '16px 18px', marginTop: '18px' }}>
-          <p style={{ color: '#f0f0f0', fontSize: '0.9375rem', fontWeight: 600, margin: '0 0 10px' }}>Openings we found</p>
-          <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex', flexDirection: 'column', gap: '8px' }}>
+        <div style={{ background: 'var(--surface)', border: '1px solid var(--line)', borderRadius: '10px', padding: '16px 18px', marginTop: '18px' }}>
+          <p style={{ color: 'var(--ink)', fontSize: '0.9375rem', fontWeight: 600, margin: '0 0 10px' }}>Openings we found</p>
+          <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex', flexDirection: 'column' }}>
             {alerts.map((a, i) => (
-              <li key={`${a.center}-${a.sentAt}-${i}`} style={{ fontSize: '0.875rem', lineHeight: 1.5, color: '#8a8a8a' }}>
-                <span style={{ color: '#e8e8e8', fontWeight: 600 }}>{a.center}</span>
+              <li key={`${a.center}-${a.sentAt}-${i}`} style={{ fontSize: '0.875rem', lineHeight: 1.5, color: 'var(--muted)', padding: '8px 0', borderBottom: i < alerts.length - 1 ? '1px solid var(--line)' : 'none' }}>
+                <span style={{ color: 'var(--ink)', fontWeight: 600 }}>{a.center}</span>
                 {a.slotDate ? (
-                  <> — <span style={{ color: '#f0f0f0' }}>{fmtSlotDate(a.slotDate)}{a.slotTime ? ` at ${a.slotTime}` : ''}</span>{a.earlierByDays != null ? ` · ${a.earlierByDays} day${a.earlierByDays === 1 ? '' : 's'} earlier` : ''}</>
+                  <> — <span style={{ color: 'var(--ink)' }}>{fmtSlotDate(a.slotDate)}{a.slotTime ? ` at ${a.slotTime}` : ''}</span>{a.earlierByDays != null ? ` · ${a.earlierByDays} day${a.earlierByDays === 1 ? '' : 's'} earlier` : ''}</>
                 ) : (
                   <> — an opening {a.earlierByDays != null ? `${a.earlierByDays} day${a.earlierByDays === 1 ? '' : 's'}` : 'days'} before your appointment · details in your email</>
                 )}
-                {a.sentAt && <span style={{ color: '#5a5a5a' }}> · {relTime(a.sentAt)}</span>}
+                {a.sentAt && <span style={{ color: 'var(--muted)' }}> · {relTime(a.sentAt)}</span>}
               </li>
             ))}
           </ul>
@@ -257,26 +257,26 @@ export default function AccountDashboard() {
       )}
 
       {successFee && successChargeFailedAt && !successChargedAt && (
-        <div style={{ background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)', borderRadius: '10px', padding: '16px 18px', marginTop: '18px' }}>
-          <p style={{ color: '#f87171', fontSize: '0.9375rem', fontWeight: 600, margin: '0 0 4px' }}>We couldn&rsquo;t charge your card</p>
-          <p style={{ color: '#c58a8a', fontSize: '0.8125rem', margin: '0 0 14px', lineHeight: 1.5 }}>
+        <div style={{ background: 'var(--accent-soft)', border: '1px solid rgba(210,24,46,0.25)', borderRadius: '10px', padding: '16px 18px', marginTop: '18px' }}>
+          <p style={{ color: 'var(--accent)', fontSize: '0.9375rem', fontWeight: 600, margin: '0 0 4px' }}>We couldn&rsquo;t charge your card</p>
+          <p style={{ color: 'var(--ink-2)', fontSize: '0.8125rem', margin: '0 0 14px', lineHeight: 1.5 }}>
             We found you an earlier slot on {fmtDate(successChargeFailedAt)}, but the {fee} charge didn&rsquo;t go through on your card on file. Email us and we&rsquo;ll send a secure link to update it.
           </p>
           <a href={`mailto:hello@slotwatcher.app?subject=${encodeURIComponent('Update my card — SlotWatch')}&body=${encodeURIComponent(`Hi — my ${fee} charge didn't go through. Please send me a link to update my card.\n\nAccount: ${email}`)}`}
-            style={{ ...btn('#e31937'), display: 'block', textAlign: 'center', textDecoration: 'none', boxSizing: 'border-box', width: '100%' }}>
+            style={{ ...btn('var(--accent)'), display: 'block', textAlign: 'center', textDecoration: 'none', boxSizing: 'border-box', width: '100%' }}>
             Update my card
           </a>
         </div>
       )}
 
-      <h2 style={{ fontSize: '1.0625rem', color: '#f0f0f0', marginTop: '20px', marginBottom: 0 }}>Centers you&rsquo;re watching <span style={{ color: '#5a5a5a', fontWeight: 400 }}>({picked.length}/{MAX})</span></h2>
+      <h2 style={{ fontSize: '1.0625rem', color: 'var(--ink)', marginTop: '20px', marginBottom: 0 }}>Centers you&rsquo;re watching <span style={{ color: 'var(--muted)', fontWeight: 400 }}>({picked.length}/{MAX})</span></h2>
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '12px' }}>
-        {picked.length === 0 && <p style={{ color: '#5a5a5a', fontSize: '0.875rem' }}>No centers yet — add one below.</p>}
+        {picked.length === 0 && <p style={{ color: 'var(--muted)', fontSize: '0.875rem' }}>No centers yet — add one below.</p>}
         {picked.map((c) => (
-          <span key={c.trtId} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: '#1a1a1a', border: '1px solid #2e2e2e', borderRadius: '999px', padding: '6px 8px 6px 14px', fontSize: '0.8125rem', color: '#f0f0f0' }}>
+          <span key={c.trtId} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'var(--surface-2)', border: '1px solid var(--line-strong)', borderRadius: '999px', padding: '6px 8px 6px 14px', fontSize: '0.8125rem', color: 'var(--ink)' }}>
             {c.name}
             <button onClick={() => remove(c.trtId)} aria-label="Remove"
-              style={{ border: 'none', background: '#2e2e2e', color: '#bbb', borderRadius: '999px', width: '20px', height: '20px', cursor: 'pointer', lineHeight: 1 }}>×</button>
+              style={{ border: 'none', background: 'var(--line-strong)', color: 'var(--ink-2)', borderRadius: '999px', width: '20px', height: '20px', cursor: 'pointer', lineHeight: 1 }}>×</button>
           </span>
         ))}
       </div>
@@ -287,14 +287,14 @@ export default function AccountDashboard() {
           <div style={{ display: 'flex', gap: '8px' }}>
             <input aria-label="City or ZIP" style={{ ...input, flex: 1 }} placeholder="City or ZIP" value={loc}
               onChange={(e) => setLoc(e.target.value)} onKeyDown={(e) => { if (e.key === 'Enter') void search() }} />
-            <button style={btn('#2a2a2a')} disabled={busy === 'find'} onClick={() => void search()}>{busy === 'find' ? 'Finding…' : 'Search'}</button>
+            <button style={btn('var(--line-strong)')} disabled={busy === 'find'} onClick={() => void search()}>{busy === 'find' ? 'Finding…' : 'Search'}</button>
           </div>
           {results.length > 0 && (
             <div style={{ display: 'flex', gap: '8px', marginTop: '10px' }}>
               <select style={{ ...input, flex: 1 }} value={sel} onChange={(e) => setSel(Number(e.target.value))}>
                 {results.map((c) => <option key={c.trtId} value={c.trtId}>{c.name}{c.distance != null ? ` — ${c.distance} mi away` : ''}</option>)}
               </select>
-              <button style={btn('#2a2a2a')} onClick={addSelected}>+ Add</button>
+              <button style={btn('var(--line-strong)')} onClick={addSelected}>+ Add</button>
             </div>
           )}
         </>
@@ -305,16 +305,16 @@ export default function AccountDashboard() {
         <div style={{ flex: 1 }}><label style={label}>Watch until</label><input style={input} type="date" value={to} onChange={(e) => setTo(e.target.value)} /></div>
       </div>
 
-      <button style={{ ...btn('#e31937'), width: '100%', marginTop: '22px' }} disabled={!!busy} onClick={() => void save()}>
+      <button style={{ ...btn('var(--accent)'), width: '100%', marginTop: '22px' }} disabled={!!busy} onClick={() => void save()}>
         {busy === 'save' ? 'Saving…' : 'Save changes'}
       </button>
-      {msg && <p style={{ color: '#4ade80', fontSize: '0.875rem', marginTop: '12px' }}>{msg}</p>}
-      {err && <p style={{ color: '#ef4444', fontSize: '0.875rem', marginTop: '12px' }}>{err}</p>}
+      {msg && <p style={{ color: 'var(--ok)', fontSize: '0.875rem', marginTop: '12px' }}>{msg}</p>}
+      {err && <p style={{ color: 'var(--accent)', fontSize: '0.875rem', marginTop: '12px' }}>{err}</p>}
 
       {active && plan === 'subscription' && (
-        <div style={{ marginTop: '40px', paddingTop: '24px', borderTop: '1px solid #1a1a1a' }}>
+        <div style={{ marginTop: '40px', paddingTop: '24px', borderTop: '1px solid var(--line)' }}>
           <button onClick={() => void cancelSub()} disabled={busy === 'cancel'}
-            style={{ background: 'none', border: '1px solid #3a2222', color: '#f87171', borderRadius: '8px', padding: '10px 16px', cursor: 'pointer', fontSize: '0.875rem' }}>
+            style={{ background: 'none', border: '1px solid var(--accent-soft)', color: 'var(--accent)', borderRadius: '8px', padding: '10px 16px', cursor: 'pointer', fontSize: '0.875rem' }}>
             {busy === 'cancel' ? 'Canceling…' : 'Cancel subscription'}
           </button>
         </div>

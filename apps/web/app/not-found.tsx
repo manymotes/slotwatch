@@ -10,7 +10,7 @@ export default function NotFound() {
   return (
     <div style={{
       minHeight: '100vh',
-      background: '#080808',
+      background: 'var(--bg)',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
@@ -23,7 +23,7 @@ export default function NotFound() {
         fontWeight: 700,
         letterSpacing: '0.14em',
         textTransform: 'uppercase',
-        color: '#3a3a3a',
+        color: 'var(--muted)',
         marginBottom: '20px',
       }}>
         404
@@ -31,24 +31,16 @@ export default function NotFound() {
       <h1 style={{
         fontSize: '2rem',
         fontWeight: 800,
-        color: '#f0f0f0',
+        color: 'var(--ink)',
         letterSpacing: '-0.03em',
         marginBottom: '12px',
       }}>
         Page not found
       </h1>
-      <p style={{ color: '#6b6b6b', fontSize: '0.9375rem', marginBottom: '36px' }}>
+      <p style={{ color: 'var(--muted)', fontSize: '0.9375rem', marginBottom: '36px' }}>
         That page doesn't exist.
       </p>
-      <Link href="/" style={{
-        background: '#e31937',
-        color: '#fff',
-        textDecoration: 'none',
-        fontWeight: 700,
-        fontSize: '0.9375rem',
-        padding: '12px 24px',
-        borderRadius: '7px',
-      }}>
+      <Link href="/" className="sw-btn sw-btn-primary">
         Back to home
       </Link>
     </div>

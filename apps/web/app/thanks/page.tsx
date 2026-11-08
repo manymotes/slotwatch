@@ -17,7 +17,7 @@ export default function ThanksPage() {
   return (
     <div style={{
       minHeight: '100vh',
-      background: '#080808',
+      background: 'var(--bg)',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
@@ -26,12 +26,13 @@ export default function ThanksPage() {
     }}>
       <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '64px' }}>
         <LogoMark size={28} />
-        <span style={{ color: '#f0f0f0', fontWeight: 600, fontSize: '0.9375rem' }}>SlotWatch</span>
+        <span style={{ color: 'var(--ink)', fontWeight: 600, fontSize: '0.9375rem' }}>SlotWatch</span>
       </Link>
 
       <div style={{
-        background: '#0d0d0d',
-        border: '1px solid #1e1e1e',
+        background: 'var(--surface)',
+        border: '1px solid var(--line)',
+        boxShadow: 'var(--shadow)',
         borderRadius: '14px',
         padding: '40px 32px',
         width: '100%',

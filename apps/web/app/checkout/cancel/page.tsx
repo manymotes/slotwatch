@@ -11,11 +11,11 @@ export const metadata: Metadata = {
   },
 }
 
-const h1: React.CSSProperties = { fontSize: '1.375rem', fontWeight: 800, color: '#f0f0f0', marginBottom: '12px', letterSpacing: '-0.02em' }
-const body: React.CSSProperties = { color: '#6b6b6b', fontSize: '0.9375rem', lineHeight: 1.65, marginBottom: '36px' }
+const h1: React.CSSProperties = { fontSize: '1.375rem', fontWeight: 800, color: 'var(--ink)', marginBottom: '12px', letterSpacing: '-0.02em' }
+const body: React.CSSProperties = { color: 'var(--muted)', fontSize: '0.9375rem', lineHeight: 1.65, marginBottom: '36px' }
 const primary: React.CSSProperties = {
   display: 'block',
-  background: '#e31937',
+  background: 'var(--accent)',
   color: '#fff',
   textDecoration: 'none',
   fontWeight: 700,
@@ -27,7 +27,7 @@ const primary: React.CSSProperties = {
 }
 const secondary: React.CSSProperties = {
   display: 'block',
-  color: '#3a3a3a',
+  color: 'var(--muted)',
   textDecoration: 'none',
   fontSize: '0.875rem',
   padding: '8px',
@@ -39,7 +39,7 @@ export default function CheckoutCancelPage() {
   return (
     <div style={{
       minHeight: '100vh',
-      background: '#080808',
+      background: 'var(--bg)',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
@@ -48,12 +48,13 @@ export default function CheckoutCancelPage() {
     }}>
       <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '64px' }}>
         <LogoMark size={28} />
-        <span style={{ color: '#f0f0f0', fontWeight: 600, fontSize: '0.9375rem' }}>SlotWatch</span>
+        <span style={{ color: 'var(--ink)', fontWeight: 600, fontSize: '0.9375rem' }}>SlotWatch</span>
       </Link>
 
       <div style={{
-        background: '#0d0d0d',
-        border: '1px solid #1e1e1e',
+        background: 'var(--surface)',
+        border: '1px solid var(--line)',
+        boxShadow: 'var(--shadow)',
         borderRadius: '14px',
         padding: '48px',
         width: '100%',
@@ -67,7 +68,7 @@ export default function CheckoutCancelPage() {
               <h1 style={h1}>Nothing was charged</h1>
               <p style={body}>
                 Your watch is still running and every opening we found is listed in full in your account at{' '}
-                <Link href="/account/" style={{ color: '#e5556f', textDecoration: 'none' }}>/account/</Link>.
+                <Link href="/account/" style={{ color: 'var(--accent)', textDecoration: 'none' }}>/account/</Link>.
               </p>
               <Link href="/account/" style={primary}>Go to your account</Link>
               <Link href="/" style={secondary}>Back to home</Link>
