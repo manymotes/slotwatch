@@ -119,12 +119,21 @@ a { color: inherit; }
 .sw-ink2 { color: var(--ink-2); }
 .sw-eyebrow { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.02em; color: var(--muted); }
 
-.sw-h1 { font-family: var(--font-display); font-weight: 500; font-size: clamp(2rem, 4.4vw, 3rem); line-height: 1.12; letter-spacing: -0.01em; }
+.sw-h1 { font-family: var(--font-display); font-weight: 500; font-size: clamp(2.25rem, 4.6vw, 3.25rem); line-height: 1.1; letter-spacing: -0.01em; }
 .sw-h2 { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.5rem, 2.6vw, 2rem); line-height: 1.2; letter-spacing: -0.01em; }
 .sw-h3 { font-family: var(--font-display); font-weight: 500; font-size: 1.125rem; line-height: 1.3; }
 .sw-lede { font-size: 1rem; line-height: 1.6; color: var(--muted); }
 
-.sw-footer { border-top: none; margin-top: 80px; padding: 36px 0 48px; color: var(--muted); font-size: 0.75rem; }
+/* tesla.com rhythm: one idea per screen, grey bands between white ones */
+.sw-screen { min-height: calc(100vh - 56px); display: flex; flex-direction: column; justify-content: center; padding-top: 48px; padding-bottom: 56px; }
+@media (max-width: 720px) { .sw-screen { min-height: 0; padding-top: 40px; padding-bottom: 48px; } }
+.sw-band { background: var(--surface); }
+.sw-band .sw-card { background: #fff; }
+.sw-btn-wide { min-width: 264px; }
+.sw-cityform { display: flex; gap: 10px; }
+@media (max-width: 480px) { .sw-cityform { flex-direction: column; } .sw-cityform .sw-btn { width: 100%; } }
+
+.sw-footer { border-top: none; margin-top: 40px; padding: 36px 0 48px; color: var(--muted); font-size: 0.75rem; }
 .sw-footer a { font-weight: 500; }
 .sw-footer a { color: var(--ink-2); text-decoration: none; }
 .sw-footer a:hover { color: var(--ink); text-decoration: underline; }

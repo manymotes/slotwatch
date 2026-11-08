@@ -5,6 +5,7 @@ import { useEffect, useState, type FormEvent } from 'react'
 import SiteNav from '../components/SiteNav'
 import SiteFooter from '../components/SiteFooter'
 import CheckEarliest from '../components/CheckEarliest'
+import HeroCalendar from '../components/HeroCalendar'
 
 const API = 'https://slotwatch.motesmass.workers.dev'
 
@@ -81,11 +82,11 @@ function CityForm({ id, size = 'lg' }: { id: string; size?: 'lg' | 'md' }) {
     window.location.href = '/start/?city=' + encodeURIComponent(city.trim())
   }
   return (
-    <form onSubmit={submit} style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+    <form onSubmit={submit} className="sw-cityform">
       <label htmlFor={id} style={{ position: 'absolute', width: 1, height: 1, overflow: 'hidden', clip: 'rect(0 0 0 0)' }}>Your city or ZIP</label>
       <input id={id} name="city" type="text" required value={city} onChange={(e) => setCity(e.target.value)}
         placeholder="City or ZIP, e.g. Phoenix or 85001" autoComplete="postal-code" className="sw-input"
-        style={{ flex: '1 1 240px', padding: size === 'lg' ? '16px 18px' : '13px 16px', fontSize: size === 'lg' ? '1.0625rem' : '1rem' }} />
+        style={{ flex: '1 1 auto', minWidth: 0, padding: size === 'lg' ? '15px 18px' : '13px 16px', fontSize: size === 'lg' ? '1rem' : '0.9375rem' }} />
       <button type="submit" className={`sw-btn sw-btn-primary${size === 'lg' ? ' sw-btn-lg' : ''}`}>See what&rsquo;s open now</button>
     </form>
   )
@@ -140,28 +141,32 @@ export default function HomePage() {
 
       <SiteNav />
 
-      {/* ── Hero: the problem in the owner's words, the input, and the product ── */}
-      <section className="sw-container" style={{ padding: '72px 0 48px', textAlign: 'center' }}>
-        <div style={{ maxWidth: '760px', margin: '0 auto' }}>
-          <h1 className="sw-h1 text-balance" style={{ marginBottom: '16px' }}>
-            Your Tesla service appointment is weeks out. It doesn&rsquo;t have to be.
-          </h1>
-          <p className="sw-lede" style={{ marginBottom: '28px', maxWidth: '600px', marginLeft: 'auto', marginRight: 'auto' }}>
-            Cancellations open earlier slots every day. SlotWatch checks your service center every 5 minutes and emails you the moment an earlier day opens.
+      {/* ── Screen 1: one sentence, the promise animated, one action ── */}
+      <section className="sw-container sw-screen" style={{ textAlign: 'center' }}>
+        <h1 className="sw-h1 text-balance" style={{ marginBottom: '10px' }}>Service sooner.</h1>
+        <p className="sw-lede" style={{ marginBottom: '32px', maxWidth: '560px', marginLeft: 'auto', marginRight: 'auto' }}>
+          SlotWatch watches your Tesla service center and emails you the moment an earlier appointment opens.
+        </p>
+        <HeroCalendar />
+        <div style={{ maxWidth: '560px', margin: '32px auto 0' }}><CityForm id="hero-city" /></div>
+        <p className="sw-help" style={{ marginTop: '14px' }}>Free. No card, no Tesla login. If it gets you in sooner, pay what it was worth.</p>
+      </section>
+
+      {/* ── Screen 2: the email you actually get ── */}
+      <section className="sw-band">
+        <div className="sw-container sw-screen" style={{ textAlign: 'center' }}>
+          <h2 className="sw-h2" style={{ marginBottom: '10px' }}>One email. Then you rebook in the Tesla app.</h2>
+          <p className="sw-lede" style={{ maxWidth: '560px', margin: '0 auto 32px' }}>
+            The center, the exact date and time, and how much sooner it is. Nothing else, nothing to log in to.
           </p>
-          <div style={{ maxWidth: '560px', margin: '0 auto' }}><CityForm id="hero-city" /></div>
-          <p className="sw-help" style={{ marginTop: '14px' }}>
-            Free. No card, no Tesla login. If it gets you in sooner, pay what it was worth.
-          </p>
-        </div>
-        <div style={{ maxWidth: '520px', margin: '48px auto 0', textAlign: 'left' }}>
-          <AlertPreview />
+          <div style={{ maxWidth: '520px', margin: '0 auto', textAlign: 'left' }}><AlertPreview /></div>
         </div>
       </section>
 
       {/* ── Real numbers ── */}
       {stats && stats.alerts > 0 && (
-        <section className="sw-container" style={{ padding: '8px 0 56px' }}>
+        <section className="sw-container" style={{ padding: '96px 0 40px' }}>
+          <h2 className="sw-h2" style={{ textAlign: 'center', marginBottom: '32px' }}>What it has found so far</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '16px', textAlign: 'center' }}>
             {[
               avg ? [`${avg} days`, 'sooner, on average, for the openings we’ve emailed owners about'] : null,
@@ -169,8 +174,8 @@ export default function HomePage() {
               [stats.openingsTotal.toLocaleString(), `appointment slots tracked across ${stats.centersWatched} service centers since July`],
               ['5 min', 'between checks, around the clock'],
             ].filter(Boolean).map((row, i) => (
-              <div key={i} style={{ padding: '24px 16px', background: 'var(--surface)', borderRadius: 8 }}>
-                <div className="sw-display" style={{ fontWeight: 500, fontSize: '1.75rem', letterSpacing: '-0.01em' }}>{(row as string[])[0]}</div>
+              <div key={i} style={{ padding: '28px 16px', background: 'var(--surface)', borderRadius: 8 }}>
+                <div className="sw-display" style={{ fontWeight: 500, fontSize: '2.25rem', letterSpacing: '-0.01em' }}>{(row as string[])[0]}</div>
                 <div className="sw-muted" style={{ fontSize: '0.875rem', lineHeight: 1.45, marginTop: '4px' }}>{(row as string[])[1]}</div>
               </div>
             ))}
@@ -179,7 +184,7 @@ export default function HomePage() {
       )}
 
       {/* ── How it works: a plain numbered row, no icons ── */}
-      <section id="how" className="sw-container" style={{ padding: '32px 0 64px' }}>
+      <section id="how" className="sw-container" style={{ padding: '96px 0 72px' }}>
         <h2 className="sw-h2" style={{ marginBottom: '32px', textAlign: 'center' }}>Three minutes to set up. Then you stop checking.</h2>
         <ol style={{ listStyle: 'none', margin: 0, padding: 0, display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '28px 40px' }}>
           {[
@@ -197,21 +202,21 @@ export default function HomePage() {
       </section>
 
       {/* ── Live check: the product, usable right here ── */}
-      <section className="sw-container" style={{ padding: '0 0 72px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '32px 56px', alignItems: 'start' }}>
+      <section className="sw-band">
+        <div className="sw-container sw-screen" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '32px 56px', alignItems: 'center' }}>
           <div>
             <h2 className="sw-h2" style={{ marginBottom: '14px' }}>See what&rsquo;s open at your center right now.</h2>
             <p className="sw-lede" style={{ marginBottom: '0' }}>
               This is the same lookup SlotWatch runs for you all day. Type a city or ZIP and we&rsquo;ll show the earliest appointment Tesla is offering at the nearest center this minute, no signup needed.
             </p>
           </div>
-          <CheckEarliest />
+          <div style={{ background: '#fff', borderRadius: 12, padding: 8 }}><CheckEarliest /></div>
         </div>
       </section>
 
       {/* ── Founder note: a real person, in plain words ── */}
-      <section className="sw-container" style={{ padding: '0 0 72px' }}>
-        <div className="sw-card" style={{ padding: '28px 28px 26px', maxWidth: '760px', display: 'grid', gridTemplateColumns: 'auto 1fr', gap: '20px', alignItems: 'start' }}>
+      <section className="sw-container" style={{ padding: '96px 0 0' }}>
+        <div className="sw-card" style={{ padding: '28px 28px 26px', maxWidth: '760px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'auto 1fr', gap: '20px', alignItems: 'start' }}>
           <div aria-hidden="true" style={{ width: 44, height: 44, borderRadius: '50%', background: 'var(--ink)', color: '#fff', display: 'grid', placeItems: 'center', fontWeight: 700, fontFamily: 'var(--font-display)' }}>K</div>
           <div>
             <p style={{ margin: '0 0 12px', color: 'var(--ink-2)', lineHeight: 1.65 }}>
@@ -226,14 +231,14 @@ export default function HomePage() {
       </section>
 
       {/* ── Pricing: one honest paragraph ── */}
-      <section id="pricing" className="sw-container" style={{ padding: '0 0 72px' }}>
-        <div style={{ maxWidth: '680px' }}>
+      <section id="pricing" className="sw-container" style={{ padding: '96px 0 72px', textAlign: 'center' }}>
+        <div style={{ maxWidth: '680px', margin: '0 auto' }}>
           <h2 className="sw-h2" style={{ marginBottom: '14px' }}>Free. If it works, pay what it was worth.</h2>
           <p className="sw-lede" style={{ marginBottom: '18px' }}>
             No card and no fee to start, and every alert arrives in full. After an alert we ask one question: did you get the earlier appointment?
             If yes, you can chip in what it was worth to you. If not, you pay nothing.
           </p>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '22px' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '26px', justifyContent: 'center' }}>
             {[['$9', 'Just an owner'], ['$19', 'Suggested'], ['$49', 'Rideshare, Turo or fleet'], ['Any amount', 'You decide']].map(([a, l]) => (
               <span key={a} style={{ borderRadius: 4, padding: '9px 14px', fontSize: '0.8125rem', background: 'var(--surface)' }}>
                 <strong>{a}</strong> <span className="sw-muted">· {l}</span>
@@ -245,9 +250,10 @@ export default function HomePage() {
       </section>
 
       {/* ── FAQ: plain, scannable ── */}
-      <section className="sw-container" style={{ padding: '0 0 24px' }}>
-        <h2 className="sw-h2" style={{ marginBottom: '24px' }}>Questions</h2>
-        <dl style={{ margin: 0, display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '26px 48px', maxWidth: '1000px' }}>
+      <section className="sw-band">
+        <div className="sw-container" style={{ padding: '72px 0' }}>
+        <h2 className="sw-h2" style={{ marginBottom: '32px', textAlign: 'center' }}>Questions</h2>
+        <dl style={{ margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '26px 48px', maxWidth: '1000px' }}>
           {faqs.map((f) => (
             <div key={f.q}>
               <dt className="sw-h3" style={{ fontSize: '1rem', marginBottom: '6px' }}>{f.q}</dt>
@@ -255,14 +261,13 @@ export default function HomePage() {
             </div>
           ))}
         </dl>
+        </div>
       </section>
 
-      {/* ── Closing CTA ── */}
-      <section className="sw-container" style={{ padding: '48px 0 0' }}>
-        <div style={{ borderTop: '1px solid var(--line)', paddingTop: '40px', maxWidth: '640px' }}>
-          <h2 className="sw-h2" style={{ marginBottom: '18px' }}>Stop refreshing. Start with your city.</h2>
-          <CityForm id="footer-city" size="md" />
-        </div>
+      {/* ── Closing ── */}
+      <section className="sw-container" style={{ padding: '96px 0 24px', textAlign: 'center' }}>
+        <h2 className="sw-h2" style={{ marginBottom: '20px' }}>Stop refreshing. Start with your city.</h2>
+        <div style={{ maxWidth: '560px', margin: '0 auto' }}><CityForm id="footer-city" size="md" /></div>
       </section>
 
       <SiteFooter />
