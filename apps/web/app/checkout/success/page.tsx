@@ -108,8 +108,12 @@ export default function CheckoutSuccessPage() {
             <>
               <h1 style={h1}>You&rsquo;re all set — we&rsquo;re watching</h1>
               <p style={body}>
-                No card, no fee. The moment an earlier opening appears we&rsquo;ll email you the center and the exact date and time. If it works, pay what it was worth.
+                No card, no fee. The moment an earlier opening appears we&rsquo;ll email you the center and the exact date and time.
               </p>
+              <div style={{ background: 'var(--bg)', borderRadius: 8, padding: '14px 16px', margin: '-16px 0 28px', textAlign: 'left', fontSize: '0.875rem', lineHeight: 1.55, color: 'var(--ink-2)' }}>
+                <strong style={{ color: 'var(--ink)' }}>How SlotWatch stays free.</strong> If an alert gets you an earlier appointment, we&rsquo;ll ask once what it was worth: <strong>$9</strong>, <strong>$19</strong> or <strong>$49</strong>, or nothing. That&rsquo;s the only time money comes up.
+                <a href="https://slotwatch.motesmass.workers.dev/api/thanks/go" style={{ display: 'block', marginTop: 8, color: 'var(--muted)', fontSize: '0.8125rem' }}>Want to chip in now anyway?</a>
+              </div>
               <Link href="/" style={primary}>Done</Link>
               <Link href="/account/" style={secondary}>View your watch</Link>
             </>
