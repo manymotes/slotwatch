@@ -59,7 +59,7 @@ export function Logo({
       style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}
     >
       <LogoMark size={size} />
-      <span style={{ color, fontWeight: 700, fontSize, letterSpacing: '-0.02em', fontFamily: 'var(--font-display)' }}>SlotWatch</span>
+      <span style={{ color, fontWeight: 600, fontSize, letterSpacing: '0.08em', textTransform: 'uppercase', fontFamily: 'var(--font-display)' }}>SlotWatch</span>
     </Link>
   );
 }

@@ -107,10 +107,10 @@ function AlertPreview() {
         <span className="sw-muted" style={{ marginLeft: 'auto', fontSize: '0.75rem', whiteSpace: 'nowrap' }}>Example</span>
       </div>
       <div style={{ padding: '18px 18px 20px' }}>
-        <div className="sw-display" style={{ fontWeight: 700, fontSize: '1.125rem', marginBottom: '12px' }}>Earlier Tesla slot: Nov 10 at 7:00 AM</div>
+        <div className="sw-display" style={{ fontWeight: 600, fontSize: '1.0625rem', marginBottom: '12px' }}>Earlier Tesla slot: Nov 10 at 7:00 AM</div>
         <p style={{ margin: '0 0 12px', color: 'var(--ink-2)' }}>An earlier Tesla service opening just appeared at the center you&rsquo;re watching:</p>
-        <div style={{ background: 'var(--surface-2)', borderRadius: 8, padding: '12px 14px', marginBottom: '14px', lineHeight: 1.6 }}>
-          <div style={{ fontWeight: 600 }}>Tesla Service Rockville-Rockville Pike</div>
+        <div style={{ background: '#fff', borderRadius: 6, padding: '12px 14px', marginBottom: '14px', lineHeight: 1.6 }}>
+          <div style={{ fontWeight: 500 }}>Tesla Service Rockville-Rockville Pike</div>
           <div>• 11/10/2026 at 07:00 AM <span className="sw-muted">(35 days earlier)</span></div>
           <div>• 11/10/2026 at 07:15 AM <span className="sw-muted">(35 days earlier)</span></div>
           <div>• 11/13/2026 at 10:00 AM <span className="sw-muted">(32 days earlier)</span></div>
@@ -141,39 +141,36 @@ export default function HomePage() {
       <SiteNav />
 
       {/* ── Hero: the problem in the owner's words, the input, and the product ── */}
-      <section className="sw-container" style={{ padding: '64px 0 40px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '48px 56px', alignItems: 'center' }}>
-          <div style={{ maxWidth: '560px' }}>
-            <h1 className="sw-h1 text-balance" style={{ marginBottom: '20px' }}>
-              Your Tesla service appointment is weeks out. It doesn&rsquo;t have to be.
-            </h1>
-            <p className="sw-lede" style={{ marginBottom: '28px', maxWidth: '520px' }}>
-              Cancellations open up earlier slots every day, and the only way to catch one is to keep refreshing the app.
-              SlotWatch does the refreshing: it checks your service center every 5 minutes and emails you the moment an earlier day opens.
-            </p>
-            <CityForm id="hero-city" />
-            <p className="sw-help" style={{ marginTop: '14px', fontSize: '0.9375rem' }}>
-              Free. No card, no Tesla login. If it gets you in sooner, pay what it was worth.
-            </p>
-          </div>
-          <div style={{ maxWidth: '480px', width: '100%', justifySelf: 'center' }}>
-            <AlertPreview />
-          </div>
+      <section className="sw-container" style={{ padding: '72px 0 48px', textAlign: 'center' }}>
+        <div style={{ maxWidth: '760px', margin: '0 auto' }}>
+          <h1 className="sw-h1 text-balance" style={{ marginBottom: '16px' }}>
+            Your Tesla service appointment is weeks out. It doesn&rsquo;t have to be.
+          </h1>
+          <p className="sw-lede" style={{ marginBottom: '28px', maxWidth: '600px', marginLeft: 'auto', marginRight: 'auto' }}>
+            Cancellations open earlier slots every day. SlotWatch checks your service center every 5 minutes and emails you the moment an earlier day opens.
+          </p>
+          <div style={{ maxWidth: '560px', margin: '0 auto' }}><CityForm id="hero-city" /></div>
+          <p className="sw-help" style={{ marginTop: '14px' }}>
+            Free. No card, no Tesla login. If it gets you in sooner, pay what it was worth.
+          </p>
+        </div>
+        <div style={{ maxWidth: '520px', margin: '48px auto 0', textAlign: 'left' }}>
+          <AlertPreview />
         </div>
       </section>
 
       {/* ── Real numbers ── */}
       {stats && stats.alerts > 0 && (
         <section className="sw-container" style={{ padding: '8px 0 56px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '0', borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '16px', textAlign: 'center' }}>
             {[
               avg ? [`${avg} days`, 'sooner, on average, for the openings we’ve emailed owners about'] : null,
               max ? [`${max} days`, 'the biggest jump forward we’ve caught so far'] : null,
               [stats.openingsTotal.toLocaleString(), `appointment slots tracked across ${stats.centersWatched} service centers since July`],
               ['5 min', 'between checks, around the clock'],
             ].filter(Boolean).map((row, i) => (
-              <div key={i} style={{ padding: '22px 20px 22px 0', marginRight: '20px' }}>
-                <div className="sw-display" style={{ fontWeight: 700, fontSize: '1.75rem', letterSpacing: '-0.03em' }}>{(row as string[])[0]}</div>
+              <div key={i} style={{ padding: '24px 16px', background: 'var(--surface)', borderRadius: 8 }}>
+                <div className="sw-display" style={{ fontWeight: 500, fontSize: '1.75rem', letterSpacing: '-0.01em' }}>{(row as string[])[0]}</div>
                 <div className="sw-muted" style={{ fontSize: '0.875rem', lineHeight: 1.45, marginTop: '4px' }}>{(row as string[])[1]}</div>
               </div>
             ))}
@@ -183,17 +180,17 @@ export default function HomePage() {
 
       {/* ── How it works: a plain numbered row, no icons ── */}
       <section id="how" className="sw-container" style={{ padding: '32px 0 64px' }}>
-        <h2 className="sw-h2" style={{ marginBottom: '28px', maxWidth: '620px' }}>Three minutes to set up. Then you stop checking.</h2>
+        <h2 className="sw-h2" style={{ marginBottom: '32px', textAlign: 'center' }}>Three minutes to set up. Then you stop checking.</h2>
         <ol style={{ listStyle: 'none', margin: 0, padding: 0, display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '28px 40px' }}>
           {[
             ['Tell us where and when', 'Pick up to three service centers by city or ZIP and enter the appointment date Tesla gave you. Email only — no Tesla login, no card.'],
             ['We watch, every 5 minutes', 'SlotWatch checks what Tesla’s scheduler is showing at your centers around the clock. Most people never get around to checking that often.'],
             ['You get one email, then rebook', 'When a slot opens on an earlier day, you get the center, date and time. Open the Tesla app, Reschedule, done.'],
           ].map(([h, b], i) => (
-            <li key={h} style={{ borderTop: '2px solid var(--ink)', paddingTop: '16px' }}>
-              <div className="sw-muted" style={{ fontSize: '0.8125rem', fontWeight: 600, marginBottom: '6px' }}>0{i + 1}</div>
+            <li key={h} style={{ borderTop: '1px solid var(--line)', paddingTop: '18px' }}>
+              <div className="sw-muted" style={{ fontSize: '0.8125rem', fontWeight: 500, marginBottom: '6px' }}>0{i + 1}</div>
               <h3 className="sw-h3" style={{ marginBottom: '8px' }}>{h}</h3>
-              <p style={{ margin: 0, color: 'var(--ink-2)', lineHeight: 1.6 }}>{b}</p>
+              <p style={{ margin: 0, color: 'var(--muted)', lineHeight: 1.6, fontSize: '0.9375rem' }}>{b}</p>
             </li>
           ))}
         </ol>
@@ -238,12 +235,12 @@ export default function HomePage() {
           </p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '22px' }}>
             {[['$9', 'Just an owner'], ['$19', 'Suggested'], ['$49', 'Rideshare, Turo or fleet'], ['Any amount', 'You decide']].map(([a, l]) => (
-              <span key={a} style={{ border: '1px solid var(--line-strong)', borderRadius: 999, padding: '8px 14px', fontSize: '0.875rem', background: 'var(--surface)' }}>
+              <span key={a} style={{ borderRadius: 4, padding: '9px 14px', fontSize: '0.8125rem', background: 'var(--surface)' }}>
                 <strong>{a}</strong> <span className="sw-muted">· {l}</span>
               </span>
             ))}
           </div>
-          <a href="/start/" className="sw-btn sw-btn-ink sw-btn-lg">Start watching, free</a>
+          <a href="/start/" className="sw-btn sw-btn-primary sw-btn-lg">Start watching, free</a>
         </div>
       </section>
 
@@ -253,8 +250,8 @@ export default function HomePage() {
         <dl style={{ margin: 0, display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '26px 48px', maxWidth: '1000px' }}>
           {faqs.map((f) => (
             <div key={f.q}>
-              <dt className="sw-h3" style={{ fontSize: '1.0625rem', marginBottom: '6px' }}>{f.q}</dt>
-              <dd style={{ margin: 0, color: 'var(--ink-2)', lineHeight: 1.6, fontSize: '0.9375rem' }}>{f.a}</dd>
+              <dt className="sw-h3" style={{ fontSize: '1rem', marginBottom: '6px' }}>{f.q}</dt>
+              <dd style={{ margin: 0, color: 'var(--muted)', lineHeight: 1.6, fontSize: '0.9375rem' }}>{f.a}</dd>
             </div>
           ))}
         </dl>
