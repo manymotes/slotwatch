@@ -710,6 +710,8 @@ Related: [how to get an earlier Tesla service appointment](/guides/how-to-get-an
 
 **Quick answer:** Yes, at most centers. Confirm in your Tesla app appointment details, park in the drop-off area, mark the car as dropped off, and arrange your own ride home. It won't move your car up the queue, though.
 
+**Want a sooner date, not just an earlier drop-off?** [Start watching — free](/start/): SlotWatch watches up to 3 service centers and emails you the moment an earlier slot opens. No Tesla login, no card; if it works, pay what it was worth.
+
 Most Tesla service centers let you drop your car off before your scheduled appointment window, including before the center opens for the day. But there's an important distinction worth understanding first: dropping off early is not the same thing as getting an *earlier appointment*. Here's how each one actually works.
 
 ## How early drop-off works
