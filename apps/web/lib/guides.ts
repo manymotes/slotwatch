@@ -249,6 +249,9 @@ Mostly local capacity versus demand: a limited number of technicians and bays se
 **Is the wait shorter at a different service center?**
 Frequently, yes. Neighboring centers in the same metro often show different first-available dates. Check each one in the Tesla app, or watch up to 3 at once with [SlotWatch](/start/) and get an email if any of them opens an earlier slot than the one you hold. Your metro page above lists the real centers nearby.
 
+**How do I find the wait time at my specific Tesla service center?**
+Tesla doesn't publish wait times, so the only real number is the first available date the app offers for your exact service type at each center. Start a new service request in the Tesla app, choose the center, and note the earliest date; then switch to the next-closest center and repeat (the date can differ by weeks for the same request). Do it for every center you'd realistically drive to, and write the dates down. That comparison is also the right starting point for a watch: pick the 3 centers on your side of town from your [metro page](/los-angeles-tesla-service/) and [let SlotWatch email you](/start/) if any of them opens something earlier than the date you hold.
+
 **Will my wait get shorter if I just keep my appointment and wait?**
 Your booked date normally stays put unless the center moves it, so the only way to get in sooner is to move to an earlier slot when one opens. Those openings come from cancellations and reschedules; see [how earlier slots open](/guides/tesla-service-cancellation-slots/) for the mechanics.
 
