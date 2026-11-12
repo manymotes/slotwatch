@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
 Disallow: /api/
+# Cloudflare Email Address Obfuscation rewrites every mailto: link to
+# /cdn-cgi/l/email-protection, which returns 404 to a crawler that follows it.
+# That is the whole of Search Console's "Not found (404)" report for this site
+# (2026-11-12). Nothing under /cdn-cgi/ is ours to serve or index.
+Disallow: /cdn-cgi/
 Sitemap: https://slotwatcher.app/sitemap.xml
